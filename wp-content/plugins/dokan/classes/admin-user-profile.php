@@ -43,6 +43,7 @@ class Dokan_Admin_User_Profile {
         $banner = isset( $store_settings['banner'] ) ? absint( $store_settings['banner'] ) : 0;
         $seller_percentage = get_user_meta( $user->ID, 'dokan_seller_percentage', true );
         $feature_seller = get_user_meta( $user->ID, 'dokan_feature_seller', true );
+        $ngo_shop = get_user_meta( $user->ID, 'vilyoo_ngo_shop', true );
 
         $fb = isset( $store_settings['social']['fb'] ) ? esc_url( $store_settings['social']['fb'] ) : '';
         $twitter = isset( $store_settings['social']['twitter'] ) ? esc_url( $store_settings['social']['twitter'] ) : '';
@@ -179,6 +180,19 @@ class Dokan_Admin_User_Profile {
                     </td>
                 </tr>
 
+                <tr>
+                    <th><?php _e( 'NGO Shop?', 'wedevs' ); ?></th>
+                    <td>
+                        <label for="ngo_shop">
+                            <input type="hidden" name="ngo_shop" value="no">
+                            <input name="ngo_shop" type="checkbox" id="ngo_shop" value="yes" <?php checked( $ngo_shop, 'yes' ); ?> />
+                            <?php _e( 'Make NGO Shop', 'wedevs' ); ?>
+                        </label>
+
+                        <p class="description"><?php _e( 'This shop will be categorized under NGO shops.', 'wedevs' ) ?></p>
+                    </td>
+                </tr>
+
                 <?php do_action( 'dokan_seller_meta_fields', $user ); ?>
 
             </tbody>
@@ -298,6 +312,7 @@ class Dokan_Admin_User_Profile {
         $publishing = sanitize_text_field( $_POST['dokan_publish'] );
         $percentage = floatval( $_POST['dokan_seller_percentage'] );
         $feature_seller = sanitize_text_field( $_POST['dokan_feature'] );
+        $ngo_shop = sanitize_text_field( $_POST['ngo_shop'] );
         $store_settings = dokan_get_store_info( $user_id );
         $social = $_POST['dokan_social'];
 
@@ -318,6 +333,7 @@ class Dokan_Admin_User_Profile {
         update_user_meta( $user_id, 'dokan_publishing', $publishing );
         update_user_meta( $user_id, 'dokan_seller_percentage', $percentage );
         update_user_meta( $user_id, 'dokan_feature_seller', $feature_seller );
+        update_user_meta( $user_id, 'vilyoo_ngo_shop', $ngo_shop );
         do_action( 'dokan_process_seller_meta_fields', $user_id );
     }
 }

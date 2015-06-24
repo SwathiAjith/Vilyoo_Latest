@@ -486,8 +486,14 @@ display: block;
 	text-transform: uppercase;
 }
 .navbar-nav>li>a {
-	padding-top: 10px;
-	padding-bottom: 10px;
+	padding:10px;
+	font-weight: 300;
+	font-size: 12px;
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
+	background: #fff;
+	color:  #ec353c;
+	font-weight: 400;
 }
 
 /*
@@ -495,38 +501,81 @@ Navbar "hovernav" dropdown menu - this works only for screen sizes larger than p
 The Bootstrap CSS is unchanged.
 */
 @media (min-width: 768px) {
-  /* Use this if you wish to hide the caret
-  .navbar-nav .caret {
-    display: none;
-  } 
-  */
-  .navbar-nav .open ul {
-    display: none
-  }
-  .navbar-default .navbar-nav > .open > a,
-  .navbar-default .navbar-nav > .open > a:hover,
-  .navbar-default .navbar-nav > .open > a:focus {
-    color: #555;
-    background: none
-  }
-  .navbar-default .navbar-nav > li:hover {
-    background: #e7e7e7
-  }
-  .navbar-inverse .navbar-nav > .open > a,
-  .navbar-inverse .navbar-nav > .open > a:hover,
-  .navbar-inverse .navbar-nav > .open > a:focus {
-    color: #969696;
-    background: none
-  }
-  .navbar-inverse .navbar-nav > li:hover {
-    background: #080808
-  }
-  .navbar-nav .hovernav:hover > .dropdown-menu {
-    display: block;
-  }
+	/* Use this if you wish to hide the caret
+	.navbar-nav .caret {
+	display: none;
+	} 
+	*/
+	.navbar-nav .open ul {
+		display: none
+	}
+	.navbar-default .navbar-nav > .open > a,
+	.navbar-default .navbar-nav > .open > a:hover,
+	.navbar-default .navbar-nav > .open > a:focus {
+		color: #555;
+		background: none
+	}
+	.navbar-default .navbar-nav > li:hover {
+		background: #fff !important;
+	}
+	.navbar-default .navbar-nav > li:hover a{
+		color: #ec353c;
+	}
+	.navbar-nav .hovernav > .dropdown-menu a:hover {
+		background: #f7f5ee;
+
+	}
+	.navbar-inverse .navbar-nav > .open > a,
+	.navbar-inverse .navbar-nav > .open > a:hover,
+	.navbar-inverse .navbar-nav > .open > a:focus {
+		color: #969696;
+		background: none
+	}
+	.navbar-inverse .navbar-nav > li:hover {
+		background: #fff
+	}
+	.navbar-nav .hovernav:hover > .dropdown-menu {
+		display: block;
+		border-radius: 0;
+		border: 0;
+	}
 }
 
 /* Home Page Specific */
+#home-featured-seller-left {
+	background-size: cover;
+	background-position: center center;
+}
+#home-featured-seller .prod-title {
+	color: #333;
+}
+#featured-seller-1-wrap {
+	background: rgba(0, 0, 0, 0.7);
+	height: 45%;
+	position: absolute;
+	bottom: 0;
+}
+#featured-seller-1-wrap .prod-title {
+	color: #fff;
+}
+#featured-seller-1-wrap {
+	color: rgba( 255, 255, 255, 0.7 );
+}
+.home-seller-featured-2-3 {
+	padding-top: 15px;
+	position: relative;
+}
+.featured-seller-1-price {
+	font-size: 18px;
+}
+.featured-seller-2-3-price, .featured-seller-1-price  {
+	position: absolute;
+	top: 22px;
+	left: 0;
+	background: #ec353c;
+	color: #fff;
+	padding: 4px 8px;
+}
 #home-seller-info {
 	background: #00aedf;
 	color: #fff !important;
@@ -541,6 +590,59 @@ The Bootstrap CSS is unchanged.
 #home-seller-info .social-profiles .fa{
 	font-size: 16px;
 }
+.featured-seller-title {
+	margin-top: 0;
+}
 
-/* Content Section */
+/* Homepage Most Popular Products */
+.vilyoo-section-header {
+	border: 1px solid #333;
+	text-shadow: rgba(0,0,0,0.74902) 0 -1px 1px;
+	background: #464646;
+	background: -webkit-gradient(linear,left top,left bottom,from(#464646),to(#424242));
+	background: -moz-linear-gradient(top,#464646,#424242);
+	background: linear-gradient(to bottom,#464646,#424242);
+	background-image: -ms-linear-gradient(top,#464646,#424242);
+	color: #fff;
+	font-size: 16px;
+	font-weight: normal;
+}
+#home-most-popular .woocommerce {
+	padding: 15px 0;
+}
 
+/* WooCommerce Global */
+.woocommerce ul.products li.product h3{
+	text-align: center;
+	color: #333;
+}
+.woocommerce ul.products li.product .star-rating {
+	margin: 0 auto;
+}
+.woocommerce ul.products li.product .price {
+	font-size: 15px;
+	color: #333;
+	font-weight: 700;
+	text-align: center;
+	margin-top: 7px;
+}
+.woocommerce ul.products li.product .price del {
+	font-size: 12px;
+	font-weight: 400;
+}
+.woocommerce ul.products li.product .price ins {
+	text-align: right;
+}
+.woocommerce .btn.btn-cart {
+	width: 100%;
+	background-color: #00aedf !important;
+	color: #fff !important;
+	text-transform: uppercase;
+}
+.woocommerce ul.products li.product, .woocommerce-page ul.products li.product {
+	margin-bottom: 20px;
+}
+.woocommerce a.added_to_cart {
+	display: block;
+	text-align: center;
+}

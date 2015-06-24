@@ -31,8 +31,13 @@
 			<div id="small-top-nav">
 				<div class="col-sm-12 pull-right">
 					<ul>
-						<li><a href="#">Sign in / Sign up</a></li>
-						<li><a href="#">Vendor dashboard</a></li>
+						<li>
+							<?php if (is_user_logged_in()) { ?>
+							<a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>">My Account</a></li>
+							<?php } else { ?>
+							<a href="#">Sign in / Sign up</a></li>
+							<?php } ?>
+						<li><a href="<?php echo get_permalink( '4' ); ?>">Vendor dashboard</a></li>
 						<li><a href="#">Track you order</a></li>
 				</div>
 			</div>

@@ -1,10 +1,6 @@
 <?php
 /**
  * Template Name: Website Home Page
- *
- * @package WordPress
- * @subpackage Twenty_Fourteen
- * @since Twenty Fourteen 1.0
  */
 
 get_header(); ?>
@@ -40,43 +36,58 @@ get_header(); ?>
                                 	$product_query->the_post();
                                 	if( $i === 1 ) {
                                 	?>
-                                	<div class="col-md-8 white-bg pad-left pad-right shadow-it">
-                                		<div class="pad-left col-md-6">
-                                			<?php
-												$src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 300, 300 ) );
+                                	<a href="<?php the_permalink(); ?>" title="<?php echo get_the_title(); ?>">
+                            			<?php
+											$src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' );
+											if (@getimagesize($src[0])) {
+												?>
+													<!-- <img src="<?php echo $src[0]; ?>" alt="<?php echo get_the_title(); ?>"> -->
+													<div class="col-md-8 white-bg pad-left pad-right shadow-it" id="home-featured-seller-left" style="background-image: url('<?php echo $src[0]; ?>');">
+												<?php
+											} else {
+												echo '<img src="http://placehold.it/700x400/" alt="">';
+											}
+										?>
+											<div class="featured-seller-1-price">
+                                				<?php 
+													$price = get_post_meta( $post->ID, '_regular_price' );
+													echo get_woocommerce_currency_symbol() .' '. $price[0]; 
+												?>
+											</div>
+                                			<div class="col-md-12" id="featured-seller-1-wrap">
+	                                			<h2 class="prod-title"><?php the_title(); ?></h2>
+	                                			<p>
+	                                				<?php the_excerpt(); ?>
+	                                			</p>
+	                                		</div>
+                                		</div>
+                                	</a>
+                                	<div class="col-md-4 pad-right" id="home-featured-seller-right">
+                                	<?php
+                                	} else {
+                                	?>
+                                	<div class="col-xs-6 white-bg shadow-it home-seller-featured-2-3">
+                                		<a href="<?php the_permalink(); ?>" title="<?php echo get_the_title(); ?>">
+	                                		<?php
+												$src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), array( 300, 300 ) );
 												if (@getimagesize($src[0])) {
 													?>
-													<a href="<?php the_permalink(); ?>" title="<?php echo get_the_title(); ?>">
-														<img src="<?php echo $src[0]; ?>" alt="<?php echo get_the_title(); ?>">
-													</a>
+												
+													<img src="<?php echo $src[0]; ?>" alt="<?php echo get_the_title(); ?>">
+												
 													<?php
 												} else {
 													echo '<img src="http://placehold.it/300x300/" alt="">';
 												}
 											?>
-                                		</div>
-                                		<div class="pad-right col-md-6">
-                                			<h2><?php the_title(); ?></h2>
-                                		</div>
-                                	</div>
-                                	<div class="col-md-4">
-                                	<?php
-                                	} else {
-                                	?>
-                                	<div class="col-xs-6 white-bg shadow-it">
-                                		<?php
-											$src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 300, 300 ) );
-											if (@getimagesize($src[0])) {
+											<div class="featured-seller-2-3-price">
+												<?php 
+													$price = get_post_meta( $post->ID, '_regular_price' );
+													echo get_woocommerce_currency_symbol() .' '. $price[0]; 
 												?>
-												<a href="<?php the_permalink(); ?>" title="<?php echo get_the_title(); ?>">
-													<img src="<?php echo $src[0]; ?>" alt="<?php echo get_the_title(); ?>">
-												</a>
-												<?php
-											} else {
-												echo '<img src="http://placehold.it/300x300/" alt="">';
-											}
-										?>
-										<h4><?php the_title(); ?></h4>
+											</div>
+											<h4 class="prod-title text-center"><?php the_title(); ?></h4>
+										</a>
 									</div>
                                 	
                                 	<?php
@@ -90,13 +101,13 @@ get_header(); ?>
 					            <div class="row">
 					            	<div class="col-xs-12">
 					            		<div id="home-seller-info" class="white-bg shadow-it col-md-12 pad-left pad-right">
-								            <div class="col-xs-4 text-center">
+								            <div class="col-xs-3 text-center">
 								            	<?php echo get_avatar( $seller->ID ); ?>
 								            	<br />
 								            </div>
-								            <div class="col-xs-8">
+								            <div class="col-xs-9">
 								            	<h4>
-								            		Seller : 
+								            		Featured Shop : 
 									                <a class="seller-name" href="<?php echo dokan_get_store_url( $seller->ID ); ?>">
 									                    <?php echo esc_html( $store_info['store_name'] ); ?>
 									                </a>
@@ -133,10 +144,16 @@ get_header(); ?>
 				            <?php
 				        }
 				    }
-
+				    wp_reset_query();
 				?>
-				<div class="pad-left col-md-12">
-					<h2 class="text-left">Featured Seller</h2>
+			</div>
+			<div class="clearfix"></div>
+			<div id="home-most-popular">
+				<div class="vilyoo-section-header col-xs-12">
+					<h4>Most Popular Products</h4>
+				</div>
+				<div class="white-bg col-md-12 shadow-it">
+					<?php echo do_shortcode( '[best_selling_products per_page="5" columns="5"]' ); ?>
 				</div>
 			</div>
 

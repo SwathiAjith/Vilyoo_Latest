@@ -40,3 +40,71 @@ function vilyoo_featured_sellers( $limit ) {
         }
     }
 }
+
+function vilyoo_most_sales_shop() {
+    $sellers_count = dokan_get_seller_count();
+    $sellers = dokan_get_sellers( $sellers_count );
+    foreach ( $sellers as $key => $seller ) {
+        $seller_id = $seller->ID;
+        return $seller_id;
+    }
+    // dokan_author_total_sales
+    
+}
+
+/**
+ * Get NGO Shop list
+ *
+ * @param  integer $limit
+ * @return array
+ */
+function vilyoo_get_feature_sellers( ) {
+    $args = array(
+        'role'         => 'seller',
+        'meta_key'     => 'vilyoo_ngo_shop',
+        'meta_value'   => 'yes'
+    );
+    $users = get_users( $args );
+
+    $args = array(
+        'role'         => 'administrator',
+        'meta_key'     => 'vilyoo_ngo_shop',
+        'meta_value'   => 'yes'
+    );
+    $admins = get_users( $args );
+
+    $sellers = array_merge( $admins, $users );
+    return $sellers;
+}
+
+add_shortcode( 'list_ngo_shops', 'display_ngo_shops' );
+
+function display_ngo_shops() {
+
+    $ngo_shops = vilyoo_get_feature_sellers();
+
+    if ( $ngo_shops ) {
+        foreach ( $ngo_shops as $key => $ngo_shop ) {
+            $store_info = dokan_get_store_info( $ngo_shop->ID );
+            $rating = dokan_get_seller_rating( $ngo_shop->ID );
+            $display_rating = $rating['rating'];
+            $store_url = dokan_get_store_url( $ngo_shop->ID );
+            $store_name = $store_info['store_name'];
+
+            echo '<div class="col-md-4"><div class="white-bg shadow-it col-md-12 pad-left pad-right">';
+            echo '<div class="col-xs-3 text-center">'. get_avatar( $ngo_shop->ID ) .'<br></div>';
+            echo '<div class="col-xs-9">
+                            <h4><a class="seller-name" href="'. $store_url .'">'. esc_html( $store_name ) .'</a></h4>
+                            <div class="star-rating">
+                                <h5>Rating : '. $display_rating .' <i class="fa fa-star"></i></h5>
+                            </div>
+                        </div>';
+
+            echo '</div></div>';
+        }
+    }
+    else {
+        echo "<h4>No NGO Shops</h4>";
+    }
+}
+

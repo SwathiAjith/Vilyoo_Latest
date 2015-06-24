@@ -23,38 +23,46 @@ jQuery( document ).ready( function( $ ) {
     $( '.widget_recent_comments ul#recentcomments li' ).css( 'padding', '5px 15px');
 
     $( 'table#wp-calendar' ).addClass( 'table table-striped');
+
+    var featuredBoxHeight = $( '#home-featured-seller-right' ).height();
+    featuredBoxHeight = featuredBoxHeight - 14;
+    $( '#home-featured-seller-left' ).height( featuredBoxHeight );
+
+    // Make all the add to cart button bootstrap combatible and our custom red button class
+    $( '.add_to_cart_button' ).addClass( 'btn btn-cart' );
+
     /*
-  "Hovernav" navbar dropdown on hover
-  Uses jQuery Media Query - see http://www.sitepoint.com/javascript-media-queries/
-  */
-  var mq = window.matchMedia('(min-width: 768px)');
-  if (mq.matches) {
-    $('ul.navbar-nav > li').addClass('hovernav');
-  } else {
-    $('ul.navbar-nav > li').removeClass('hovernav');
-  };
-  /*
-  The addClass/removeClass also needs to be triggered
-  on page resize <=> 768px
-  */
-  if (matchMedia) {
+    "Hovernav" navbar dropdown on hover
+    Uses jQuery Media Query - see http://www.sitepoint.com/javascript-media-queries/
+    */
     var mq = window.matchMedia('(min-width: 768px)');
-    mq.addListener(WidthChange);
-    WidthChange(mq);
-  }
-  function WidthChange(mq) {
     if (mq.matches) {
       $('ul.navbar-nav > li').addClass('hovernav');
-      // Restore "clickable parent links" in navbar
-      $('.hovernav a').click(function () {
-        window.location = this.href;
-      });
     } else {
       $('ul.navbar-nav > li').removeClass('hovernav');
+    };
+    /*
+    The addClass/removeClass also needs to be triggered
+    on page resize <=> 768px
+    */
+    if (matchMedia) {
+      var mq = window.matchMedia('(min-width: 768px)');
+      mq.addListener(WidthChange);
+      WidthChange(mq);
     }
-  };
-  // Restore "clickable parent links" in navbar
-  $('.hovernav a').click(function () {
-    window.location = this.href;
-  });
+    function WidthChange(mq) {
+      if (mq.matches) {
+        $('ul.navbar-nav > li').addClass('hovernav');
+        // Restore "clickable parent links" in navbar
+        $('.hovernav a').click(function () {
+          window.location = this.href;
+        });
+      } else {
+        $('ul.navbar-nav > li').removeClass('hovernav');
+      }
+    };
+    // Restore "clickable parent links" in navbar
+    $('.hovernav a').click(function () {
+      window.location = this.href;
+    });
 } );
