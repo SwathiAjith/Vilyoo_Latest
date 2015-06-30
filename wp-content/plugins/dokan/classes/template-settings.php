@@ -115,14 +115,15 @@ class Dokan_Template_Settings {
                 'flickr'    => filter_var( $social['flickr'], FILTER_VALIDATE_URL ),
                 'instagram' => filter_var( $social['instagram'], FILTER_VALIDATE_URL ),
             ),
-            'payment'      => array(),
-            'phone'        => sanitize_text_field( $_POST['setting_phone'] ),
-            'show_email'   => sanitize_text_field( $_POST['setting_show_email'] ),
-            'address'      => strip_tags( $_POST['setting_address'] ),
-            'location'     => sanitize_text_field( $_POST['location'] ),
-            'find_address' => sanitize_text_field( $_POST['find_address'] ),
-            'banner'       => absint( $_POST['dokan_banner'] ),
-            'gravatar'     => absint( $_POST['dokan_gravatar'] ),
+            'payment'           => array(),
+            'phone'             => sanitize_text_field( $_POST['setting_phone'] ),
+            'show_email'        => sanitize_text_field( $_POST['setting_show_email'] ),
+            'seller_vacation'   => sanitize_text_field( $_POST['setting_seller_vacation'] ),
+            'address'           => strip_tags( $_POST['setting_address'] ),
+            'location'          => sanitize_text_field( $_POST['location'] ),
+            'find_address'      => sanitize_text_field( $_POST['find_address'] ),
+            'banner'            => absint( $_POST['dokan_banner'] ),
+            'gravatar'          => absint( $_POST['dokan_gravatar'] ),
         );
 
         if ( isset( $_POST['settings']['bank'] ) ) {
@@ -197,12 +198,12 @@ class Dokan_Template_Settings {
         $instagram      = isset( $profile_info['social']['instagram'] ) ? esc_url( $profile_info['social']['instagram'] ) : '';
 
         // bank
-        $phone          = isset( $profile_info['phone'] ) ? esc_attr( $profile_info['phone'] ) : '';
-        $show_email     = isset( $profile_info['show_email'] ) ? esc_attr( $profile_info['show_email'] ) : 'no';
-        $address        = isset( $profile_info['address'] ) ? esc_textarea( $profile_info['address'] ) : '';
-        $map_location   = isset( $profile_info['location'] ) ? esc_attr( $profile_info['location'] ) : '';
-        $map_address    = isset( $profile_info['find_address'] ) ? esc_attr( $profile_info['find_address'] ) : '';
-        $dokan_category = isset( $profile_info['dokan_category'] ) ? $profile_info['dokan_category'] : '';
+        $phone           = isset( $profile_info['phone'] ) ? esc_attr( $profile_info['phone'] ) : '';
+        $show_email      = isset( $profile_info['show_email'] ) ? esc_attr( $profile_info['show_email'] ) : 'no';
+        $address         = isset( $profile_info['address'] ) ? esc_textarea( $profile_info['address'] ) : '';
+        $map_location    = isset( $profile_info['location'] ) ? esc_attr( $profile_info['location'] ) : '';
+        $map_address     = isset( $profile_info['find_address'] ) ? esc_attr( $profile_info['find_address'] ) : '';
+        $dokan_category  = isset( $profile_info['dokan_category'] ) ? $profile_info['dokan_category'] : '';
 
 
         if ( is_wp_error( $validate ) ) {
@@ -374,6 +375,7 @@ class Dokan_Template_Settings {
                         </div>
                     </div>
                 </div>
+
 
                 <div class="dokan-form-group">
                     <label class="dokan-w3 dokan-control-label" for="setting_address"><?php _e( 'Address', 'dokan' ); ?></label>

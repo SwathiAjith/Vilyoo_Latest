@@ -1,5 +1,29 @@
 <?php
 
+$sidebars = array(
+    array( 'name' => __( 'General Sidebar', 'dokan' ), 'id' => 'sidebar-1' ),
+    array( 'name' => __( 'Home Sidebar', 'dokan' ), 'id' => 'sidebar-home' ),
+    array( 'name' => __( 'Blog Sidebar', 'dokan' ), 'id' => 'sidebar-blog' ),
+    array( 'name' => __( 'Header Sidebar', 'dokan' ), 'id' => 'sidebar-header' ),
+    array( 'name' => __( 'Shop Archive', 'dokan' ), 'id' => 'sidebar-shop' ),
+    array( 'name' => __( 'Single Product', 'dokan' ), 'id' => 'sidebar-single-product' ),
+    array( 'name' => __( 'Footer Sidebar - 1', 'dokan' ), 'id' => 'footer-1' ),
+    array( 'name' => __( 'Footer Sidebar - 2', 'dokan' ), 'id' => 'footer-2' ),
+    array( 'name' => __( 'Footer Sidebar - 3', 'dokan' ), 'id' => 'footer-3' ),
+    array( 'name' => __( 'Footer Sidebar - 4', 'dokan' ), 'id' => 'footer-4' ),
+);
+
+foreach ($sidebars as $sidebar) {
+    register_sidebar( array(
+        'name' => $sidebar['name'],
+        'id' => $sidebar['id'],
+        'before_widget' => '<aside id="%1$s" class="white-bg shadow-it col-xs-12 widget %2$s">',
+        'after_widget' => '</aside>',
+        'before_title' => '<h3 class="widget-title">',
+        'after_title' => '</h3>',
+    ) );
+}
+
 function vilyoo_search_form( $form ) {
 	$form = '<form role="search" method="get" class="search-form" action="'. home_url( "/" ) .'">
 						<label>
@@ -58,7 +82,7 @@ function vilyoo_most_sales_shop() {
  * @param  integer $limit
  * @return array
  */
-function vilyoo_get_feature_sellers( ) {
+function vilyoo_get_ngo_sellers( ) {
     $args = array(
         'role'         => 'seller',
         'meta_key'     => 'vilyoo_ngo_shop',
@@ -81,7 +105,7 @@ add_shortcode( 'list_ngo_shops', 'display_ngo_shops' );
 
 function display_ngo_shops() {
 
-    $ngo_shops = vilyoo_get_feature_sellers();
+    $ngo_shops = vilyoo_get_ngo_sellers();
 
     if ( $ngo_shops ) {
         foreach ( $ngo_shops as $key => $ngo_shop ) {
@@ -108,3 +132,27 @@ function display_ngo_shops() {
     }
 }
 
+function vilyoo_seller_vacation( $userID ) {
+    $seller_vacation = get_user_meta( $userID, 'vilyoo_seller_vacation', true);
+
+    ?>
+    <div class="dokan-form-group">
+        <label class="dokan-w3 dokan-control-label" for="setting_seller_vacation"><?php _e( 'Vacation?', 'dokan' ); ?></label>
+        <div class="dokan-w5 dokan-text-left">
+            <div class="checkbox">
+                <label>
+                    <input type="hidden" name="setting_seller_vacation" value="no">
+                    <input type="checkbox" name="setting_seller_vacation" value="yes"<?php checked( $seller_vacation, 'yes' ); ?>> <?php _e( 'Put your store to vacation mode, so the users know there will be a delay in order processing.', 'dokan' ); ?>
+                </label>
+            </div>
+        </div>
+    </div>
+    <?php
+}
+
+add_action( 'dokan_settings_form_bottom', 'vilyoo_seller_vacation' );
+
+add_filter( 'woocommerce_output_related_products_args', function( $args ) { 
+    $args = wp_parse_args( array( 'posts_per_page' => 5, 'columns' => 5 ), $args );
+    return $args;
+});
