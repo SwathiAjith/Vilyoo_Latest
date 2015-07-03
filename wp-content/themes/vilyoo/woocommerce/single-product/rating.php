@@ -31,7 +31,7 @@ $average      = $product->get_average_rating();
 						<?php printf( _n( 'based on %s customer rating', 'based on %s customer ratings', $rating_count, 'woocommerce' ), '<span itemprop="ratingCount" class="rating">' . $rating_count . '</span>' ); ?>
 					</span>
 				</div>
-				<?php if ( comments_open() ) : ?><a href="#reviews" class="woocommerce-review-link" rel="nofollow">(<?php printf( _n( '%s customer review', '%s customer reviews', $review_count, 'woocommerce' ), '<span itemprop="reviewCount" class="count">' . $review_count . '</span>' ); ?>)</a><?php endif ?>
+				<?php if ( comments_open() ) : ?><br><a href="#reviews" class="woocommerce-review-link" rel="nofollow">(<?php printf( _n( '%s customer review', '%s customer reviews', $review_count, 'woocommerce' ), '<span itemprop="reviewCount" class="count">' . $review_count . '</span>' ); ?>)</a><?php endif ?>
 			</div>
 
 		<?php endif; ?>
@@ -40,8 +40,12 @@ $average      = $product->get_average_rating();
 				$author     = get_user_by( 'id', $product->post->post_author );
 			    $store_info = dokan_get_store_info( $author->ID );
 			    $store_name = $store_info['store_name'];
-			    printf( '<p>Sold by : <a href="%s">%s</a></p>', dokan_get_store_url( $author->ID ), $store_name );
+			    echo "<p>";
+			    printf( '<strong>SOLD BY</strong><br><a href="%s">%s</a>', dokan_get_store_url( $author->ID ), $store_name );
+			    $rating_info = dokan_get_seller_rating( $author->ID );
 			?>
+				<span class="seller-rating-tooltip" data-toggle="tooltip" data-placement="top" title="Based on <?php echo $rating_info['count']; ?> reviews."><?php echo $rating_info['rating'];?> / 5</span><br>
+			</p>
 		</div>
 	</div>
 	<div class="clearfix"></div>

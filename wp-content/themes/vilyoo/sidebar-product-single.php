@@ -6,7 +6,7 @@
  * @package dokan - 2014 1.0
  */
 ?>
-<div id="secondary" class="col-md-3 clearfix" role="complementary">
+<div id="secondary" class="col-md-3 clearfix pad-right" role="complementary">
 
     <div class="widget-area">
 

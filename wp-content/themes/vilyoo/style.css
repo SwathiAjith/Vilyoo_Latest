@@ -160,6 +160,34 @@ Credits:
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
 
+input[type=number]::-webkit-inner-spin-button, 
+    input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+     margin: 0; 
+}
+textarea:focus,
+input[type="text"]:focus,
+input[type="button"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus,
+select:focus {   
+    border-color: #f05b47 !important;
+    box-shadow: none !important;
+    outline: 0 none !important;
+}
+
 /* This is a small security for too long strings titles */
 body {
 	word-wrap: break-word;
@@ -183,7 +211,12 @@ body {
 	display: block;
 	margin: 0 auto;
 }
-
+a {
+	color: #ec353c;
+}
+a:hover, a:visited {
+	color: #f05b47;
+}
 
 /* Images and wp-captions should always fit and be responsive */
 img {
@@ -437,6 +470,10 @@ display: block;
 .header-search, .header-cart{
 	padding: 15px 0;
 }
+.cart-item-count-head {
+	font-size: 11px;
+	font-weight: 600;
+}
 .header-search input {
 	border-top-right-radius: 0;
 	border-bottom-right-radius: 0;
@@ -460,7 +497,7 @@ display: block;
 }
 .btn-cart {
 	background: #ec353c;
-	color: #fff;
+	color: #fff !important;
 	font-weight: 300;
 	border: 1px solid rgba(255, 255, 255, 0.7);
 }
@@ -666,6 +703,7 @@ The Bootstrap CSS is unchanged.
 }
 .single-sold-by p{
 	margin: .5em 4px 0 0;
+	font-size: 13px;
 }
 .loop-sold-by span {
 	color: #b5b4b4;
@@ -705,6 +743,10 @@ The Bootstrap CSS is unchanged.
 .col4-related ul li .add_to_cart_button {
 	display: none !important;
 }
+.col4-related ul.products li.product .yith-wcqv-button {
+	text-align: center;
+	white-space: normal;
+}
 .add_to_wishlist {
 	background-color: #f05b47 !important; 
 }
@@ -721,10 +763,82 @@ The Bootstrap CSS is unchanged.
 	border: 1px solid #dbd8d8;
 	padding:15px;
 }
-
+.seller-rating-tooltip {
+	background: #237c27;
+	color: #fff;
+	font-size: 12px;
+	font-weight: 300;
+	padding:3px 5px;
+	border-radius: 3px;
+}
+.woocommerce .quantity input.qty,
+.woocommerce-page .quantity input.qty,
+.woocommerce #content .quantity input.qty,
+.woocommerce-page #content .quantity input.qty {
+	border: 1px solid #ededed;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	height: 31px;
+	width: 30px;
+}
+.woocommerce .quantity .plus,
+.woocommerce-page .quantity .plus,
+.woocommerce #content .quantity .plus,
+.woocommerce-page #content .quantity .plus,
+.woocommerce .quantity .minus,
+.woocommerce-page .quantity .minus,
+.woocommerce #content .quantity .minus,
+.woocommerce-page #content .quantity .minus {
+	height: 31px;
+	text-shadow: none;
+	background: #fff;
+	border: 1px solid #ededed;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	width: 25px;
+}
+.woocommerce .quantity .plus:hover,
+.woocommerce-page .quantity .plus:hover,
+.woocommerce #content .quantity .plus:hover,
+.woocommerce-page #content .quantity .plus:hover,
+.woocommerce .quantity .minus:hover,
+.woocommerce-page .quantity .minus:hover,
+.woocommerce #content .quantity .minus:hover,
+.woocommerce-page #content .quantity .minus:hover {
+  	background: #F5F5F5;
+}
+aside.widget {
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+h3.widget-title {
+	margin-top: 0;
+}
+.widget ul {
+	list-style-type: none;
+	padding-left: 0;
+}
+.widget ul li {
+	padding: 4px;
+	border-bottom: 1px solid #eaeaea;
+}
+.widget ul li:last-child {
+	border-bottom: 0;
+}
+.stars a {
+	color: #ffd314;
+}
+.widget #dokan-store-location {
+	width: 100%;
+	height: 300px;
+}
+.woocommerce span.onsale {
+	background-color: #ec353c;
+}
 /* Quick View */
 .woocommerce ul.products li.product .yith-wcqv-button {
 	display: none;
+	text-align: center;
 	position: absolute;
 	top: 50px;
 	margin-left: auto;

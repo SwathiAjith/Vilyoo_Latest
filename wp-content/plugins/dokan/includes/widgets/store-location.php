@@ -43,7 +43,7 @@ class Dokan_Store_Location extends WP_Widget {
         }
         ?>
 
-        <div class="location-container">
+        <div class="location-container" style="width:100%; height: 100%;">
 
             <?php if ( ! empty( $map_location ) ) { ?>
                 <div id="dokan-store-location"></div>

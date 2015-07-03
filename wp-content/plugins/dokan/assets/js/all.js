@@ -1274,6 +1274,7 @@ jQuery(function($) {
     };
 
     var Dokan_Seller = {
+
         init: function() {
             this.validate(this);
         },

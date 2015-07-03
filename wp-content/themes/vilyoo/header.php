@@ -35,7 +35,7 @@
 							<?php if (is_user_logged_in()) { ?>
 							<a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>">My Account</a></li>
 							<?php } else { ?>
-							<a href="#">Sign in / Sign up</a></li>
+							<a href="#vilyoo-login" data-toggle="modal">Sign in / Sign up</a></li>
 							<?php } ?>
 						<li><a href="<?php echo get_permalink( '4' ); ?>">Vendor dashboard</a></li>
 						<li><a href="#">Track you order</a></li>
@@ -60,15 +60,34 @@
 					?>
 				</div>
 				<div class="col-md-1 header-cart">
-					<a class="btn btn-cart pull-right" href="#">
-						<i class="fa fa-shopping-cart"></i><span> Cart</span>
+					<?php
+						$cart_total = floatval( preg_replace( '#[^\d.]#', '', WC()->cart->get_cart_total() ) );
+					?>
+					<a class="btn btn-cart pull-right" href="<?php echo WC()->cart->get_cart_url(); ?>">
+						<i class="fa fa-shopping-cart"></i>
+						<span> Cart 
+							<span class="cart-item-count-head">
+								( <?php echo sprintf (_n( '%d', '%d', WC()->cart->cart_contents_count ), WC()->cart->cart_contents_count ); ?> )
+							</span>
+						</span>
 					</a>
 				</div>
 			</div>
 		</div>
 	</div><!-- .container -->
 </header><!-- #masthead -->
-
+<div id="vilyoo-login" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			</div>
+			<div class="modal-body">
+				<?php wp_login_form(); ?>
+			</div>
+		</div>
+	</div>
+</div>
 <nav id="primary-nav-wrap" class="site-navigation">
 <?php // substitute the class "container-fluid" below if you want a wider content area ?>
 	<div class="container">

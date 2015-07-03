@@ -7,7 +7,7 @@ get_header(); ?>
 <?php // substitute the class "container-fluid" below if you want a wider content area ?>
 	<div class="container">
 		<div class="row">
-			<div id="content" class="main-content-inner col-sm-12 col-md-12">
+			<div id="content" class="white-bg shadow-it main-content-inner col-sm-12 col-md-12">
 				<?php while ( have_posts() ) : the_post(); ?>
 				
 					<?php get_template_part( 'content', 'page' ); ?>

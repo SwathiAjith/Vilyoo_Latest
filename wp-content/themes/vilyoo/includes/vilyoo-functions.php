@@ -6,6 +6,7 @@ $sidebars = array(
     array( 'name' => __( 'Blog Sidebar', 'dokan' ), 'id' => 'sidebar-blog' ),
     array( 'name' => __( 'Header Sidebar', 'dokan' ), 'id' => 'sidebar-header' ),
     array( 'name' => __( 'Shop Archive', 'dokan' ), 'id' => 'sidebar-shop' ),
+    array( 'name' => __( 'Seller Sidebar', 'dokan' ), 'id' => 'sidebar-seller' ),
     array( 'name' => __( 'Single Product', 'dokan' ), 'id' => 'sidebar-single-product' ),
     array( 'name' => __( 'Footer Sidebar - 1', 'dokan' ), 'id' => 'footer-1' ),
     array( 'name' => __( 'Footer Sidebar - 2', 'dokan' ), 'id' => 'footer-2' ),
@@ -118,11 +119,11 @@ function display_ngo_shops() {
             echo '<div class="col-md-4"><div class="white-bg shadow-it col-md-12 pad-left pad-right">';
             echo '<div class="col-xs-3 text-center">'. get_avatar( $ngo_shop->ID ) .'<br></div>';
             echo '<div class="col-xs-9">
-                            <h4><a class="seller-name" href="'. $store_url .'">'. esc_html( $store_name ) .'</a></h4>
-                            <div class="star-rating">
-                                <h5>Rating : '. $display_rating .' <i class="fa fa-star"></i></h5>
-                            </div>
-                        </div>';
+                        <h4><a class="seller-name" href="'. $store_url .'">'. esc_html( $store_name ) .'</a></h4>
+                        <div class="star-rating">
+                            <h5>Rating : '. $display_rating .' <i class="fa fa-star"></i></h5>
+                        </div>
+                    </div>';
 
             echo '</div></div>';
         }
@@ -131,26 +132,6 @@ function display_ngo_shops() {
         echo "<h4>No NGO Shops</h4>";
     }
 }
-
-function vilyoo_seller_vacation( $userID ) {
-    $seller_vacation = get_user_meta( $userID, 'vilyoo_seller_vacation', true);
-
-    ?>
-    <div class="dokan-form-group">
-        <label class="dokan-w3 dokan-control-label" for="setting_seller_vacation"><?php _e( 'Vacation?', 'dokan' ); ?></label>
-        <div class="dokan-w5 dokan-text-left">
-            <div class="checkbox">
-                <label>
-                    <input type="hidden" name="setting_seller_vacation" value="no">
-                    <input type="checkbox" name="setting_seller_vacation" value="yes"<?php checked( $seller_vacation, 'yes' ); ?>> <?php _e( 'Put your store to vacation mode, so the users know there will be a delay in order processing.', 'dokan' ); ?>
-                </label>
-            </div>
-        </div>
-    </div>
-    <?php
-}
-
-add_action( 'dokan_settings_form_bottom', 'vilyoo_seller_vacation' );
 
 add_filter( 'woocommerce_output_related_products_args', function( $args ) { 
     $args = wp_parse_args( array( 'posts_per_page' => 5, 'columns' => 5 ), $args );

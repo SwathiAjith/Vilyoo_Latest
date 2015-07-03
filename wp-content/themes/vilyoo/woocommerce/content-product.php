@@ -73,6 +73,7 @@ if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] )
 			    printf( '<span>by : <a href="%s">%s</a></span>', dokan_get_store_url( $author->ID ), $store_name );
 			?>
 		</div>
+		<div class="clearfix"></div>
 
 	</a>
 

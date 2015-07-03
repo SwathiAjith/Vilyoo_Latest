@@ -42,12 +42,11 @@ class Dokan_Store_Contact_Form extends WP_Widget {
             echo $args['before_title'] . $title . $args['after_title'];
         }
         ?>
-
         <form id="dokan-form-contact-seller" action="" method="post" class="seller-form clearfix">
             <div class="ajax-response"></div>
             <ul>
                 <li class="form-group">
-                    <input type="text" name="name" value="" placeholder="<?php esc_attr_e( 'Your Name', 'dokan' ); ?>" class="form-control" minlength="5" required="required">
+                    <input id="name-focus" type="text" name="name" value="" placeholder="<?php esc_attr_e( 'Your Name', 'dokan' ); ?>" class="form-control" minlength="5" required="required">
                 </li>
                 <li class="form-group">
                     <input type="email" name="email" value="" placeholder="<?php esc_attr_e( 'you@example.com', 'dokan' ); ?>" class="form-control" required="required">
@@ -62,6 +61,18 @@ class Dokan_Store_Contact_Form extends WP_Widget {
             <input type="hidden" name="action" value="dokan_contact_seller">
             <input type="submit" name="store_message_send" value="<?php esc_attr_e( 'Send Message', 'dokan' ); ?>" class="dokan-right dokan-btn dokan-btn-theme">
         </form>
+
+        <script type="text/javascript">
+            thisHash = window.location.hash;
+            if ( thisHash.indexOf('#') != -1 ) {
+                thisHash = thisHash.substring(1);
+                if ( thisHash === 'contact-seller-form' ) {
+                // focus element
+                    var el = document.getElementById('name-focus');
+                    el.focus();
+                }
+            }
+        </script>
 
         <?php
 

@@ -65,4 +65,40 @@ jQuery( document ).ready( function( $ ) {
     $('.hovernav a').click(function () {
       window.location = this.href;
     });
+
+    // Equal Heights.
+    $('ul.products').each(function(){  
+
+        var highestBox = 0;
+        $('li.product', this).each(function(){
+
+            if($(this).height() > highestBox) 
+               highestBox = $(this).height(); 
+        });  
+
+        $('li.product',this).height(highestBox);
+
+    });
+
+    //Global Tooltip Init
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    });
+
+    // Product plus and minus
+    $('.plus').on('click',function(e){
+
+        var val = parseInt($(this).prev('input').val());
+
+        $(this).prev('input').val( val+1 );
+
+
+        });
+        $('.minus').on('click',function(e){
+
+        var val = parseInt($(this).next('input').val());
+        if(val !== 0){
+            $(this).next('input').val( val-1 );
+        }
+    });
 } );

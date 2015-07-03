@@ -263,6 +263,7 @@ class WeDevs_Dokan {
                 wp_enqueue_script( 'jquery-chart' );
                 wp_enqueue_script( 'jquery-flot' );
                 wp_enqueue_script( 'chosen' );
+
                 wp_enqueue_media();
 
                 wp_enqueue_script( 'dokan-script' );

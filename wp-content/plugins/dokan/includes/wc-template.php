@@ -52,40 +52,45 @@ function dokan_product_seller_tab( $val ) {
     $author     = get_user_by( 'id', $product->post->post_author );
     $store_info = dokan_get_store_info( $author->ID );
     ?>
-    <h2><?php _e( 'Seller Information', 'dokan' ); ?></h2>
-    <ul class="list-unstyled font-verdana">
+    <div id="seller-info-tab">
+        <h2><?php _e( 'Seller Information', 'dokan' ); ?></h2>
+        <ul class="list-unstyled font-verdana">
 
-        <?php if ( !empty( $store_info['store_name'] ) ) { ?>
-            <li class="store-name">
-                <span><?php _e( 'Store Name:', 'dokan' ); ?></span>
+            <?php if ( !empty( $store_info['store_name'] ) ) { ?>
+                <li class="store-name">
+                    <span><?php _e( 'Store Name:', 'dokan' ); ?></span>
+                    <span class="details">
+                        <?php echo esc_html( $store_info['store_name'] ); ?>
+                    </span>
+                </li>
+            <?php } ?>
+
+            <li class="seller-name">
+                <span>
+                    <?php _e( 'Seller:', 'dokan' ); ?>
+                </span>
+
                 <span class="details">
-                    <?php echo esc_html( $store_info['store_name'] ); ?>
+                    <?php printf( '<a href="%s">%s</a>', dokan_get_store_url( $author->ID ), $author->display_name ); ?>
                 </span>
             </li>
-        <?php } ?>
+            <?php if ( !empty( $store_info['address'] ) ) { ?>
+                <li class="store-address">
+                    <span><?php _e( 'Address:', 'dokan' ); ?></span>
+                    <span class="details">
+                        <?php echo esc_html( $store_info['address'] ); ?>
+                    </span>
+                </li>
+            <?php } ?>
 
-        <li class="seller-name">
-            <span>
-                <?php _e( 'Seller:', 'dokan' ); ?>
-            </span>
-
-            <span class="details">
-                <?php printf( '<a href="%s">%s</a>', dokan_get_store_url( $author->ID ), $author->display_name ); ?>
-            </span>
-        </li>
-        <?php if ( !empty( $store_info['address'] ) ) { ?>
-            <li class="store-address">
-                <span><?php _e( 'Address:', 'dokan' ); ?></span>
-                <span class="details">
-                    <?php echo esc_html( $store_info['address'] ); ?>
-                </span>
+            <li class="clearfix">
+                <?php dokan_get_readable_seller_rating( $author->ID ); ?>
             </li>
-        <?php } ?>
-
-        <li class="clearfix">
-            <?php dokan_get_readable_seller_rating( $author->ID ); ?>
-        </li>
-    </ul>
+            <li>
+                <a href="<?php echo dokan_get_store_url( $author->ID ); ?>#contact-seller-form">Contact Seller</a>
+            </li>
+        </ul>
+    </div>
 
     <?php
 }
