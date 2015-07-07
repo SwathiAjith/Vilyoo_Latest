@@ -101,4 +101,5 @@ jQuery( document ).ready( function( $ ) {
             $(this).next('input').val( val-1 );
         }
     });
-} );
+
+});

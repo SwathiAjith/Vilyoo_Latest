@@ -69,6 +69,7 @@ $table_prefix  = 'wp_';
  * in their development environments.
  */
 define('WP_DEBUG', true);
+define('CONCATENATE_SCRIPTS', true );
 
 /* That's all, stop editing! Happy blogging. */
 

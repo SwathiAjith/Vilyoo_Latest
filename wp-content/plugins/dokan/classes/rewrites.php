@@ -229,7 +229,7 @@ class Dokan_Rewrites {
     function account_migration_template( $file ) {
 
         if ( get_query_var( 'account-migration' ) && dokan_is_user_customer( get_current_user_id() ) ) {
-            return dokan_locate_template( 'update-account.php' );
+            //return dokan_locate_template( 'update-account.php' );
         }
 
         return $file;

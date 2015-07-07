@@ -432,7 +432,12 @@ display: block;
 .font-verdana, p {
 	font-family: Verdana;
 }
-
+.mb-15 {
+	margin-bottom: 15px !important;
+}
+.mt-15 {
+	margin-top: 15px !important;
+}
 /* Header with logo and serach */
 #masthead {
 	background: #f05b47;
@@ -488,20 +493,20 @@ display: block;
 	color: rgba(255, 255, 255, 1);
 	text-shadow: 1px 0 0 #007090;
 }
-.btn-search:hover, .btn-search:active, .btn-search:focus {
+.btn-search:hover, .btn-search:active, .btn-search:focus, .btn-search:visited {
 	color: rgba(255, 255, 255, 0.95) !important;
 }
 .autocomplete-suggestions {
 	top: 50px;
 	left: 15px;
 }
-.btn-cart {
+.btn-cart, .btn-seller-dash  {
 	background: #ec353c;
 	color: #fff !important;
 	font-weight: 300;
 	border: 1px solid rgba(255, 255, 255, 0.7);
 }
-.btn-cart:hover, .btn-cart:active {
+.btn-cart:hover, .btn-cart:active, .btn-seller-dash:hover, .btn-seller-dash:visited {
 	color: #fff;
 	border: 1px solid rgba(255, 255, 255, 1);
 }
@@ -835,6 +840,16 @@ h3.widget-title {
 .woocommerce span.onsale {
 	background-color: #ec353c;
 }
+/*My Account */
+.ywot_order_details {
+	display: block;
+	background: #eaeaea;
+	border: 1px solid #ccc;
+	color: #111;
+	padding: 10px 15px;
+	margin-bottom: 15px;
+}
+
 /* Quick View */
 .woocommerce ul.products li.product .yith-wcqv-button {
 	display: none;
