@@ -562,6 +562,7 @@ display: block;
     box-shadow: none;
     -webkit-box-shadow: none;
 }
+/*comment */
 .mega-dropdown-menu:before {
     /*content: "";
     border-bottom: 15px solid #fff;
