@@ -26,6 +26,18 @@ foreach ($sidebars as $sidebar) {
     ) );
 }
 
+function wd_mandrill_woo_order( $message ) {
+    if ( in_array( 'wp_WC_Email->send', $message['tags']['automatic'] ) ) {
+        $message['html'] = $message['html'];
+    } else {
+        $message['html'] = nl2br( $message['html'] );
+    }
+
+    return $message;
+}
+
+add_filter( 'mandrill_payload', 'wd_mandrill_woo_order' );
+
 function vilyoo_search_form( $form ) {
 	$form = '<form role="search" method="get" class="search-form" action="'. home_url( "/" ) .'">
 						<label>
