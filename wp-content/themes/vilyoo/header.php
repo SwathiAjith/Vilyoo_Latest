@@ -32,12 +32,16 @@
 				<div class="col-sm-12 pull-right">
 					<ul>
 						<li>
-							<?php if (is_user_logged_in()) { ?>
-							<a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>">My Account</a></li>
-							<?php } else { ?>
-							<a href="#vilyoo-login" data-toggle="modal">Sign in / Sign up</a></li>
-							<?php } ?>
-						<li><a href="<?php echo get_permalink( '4' ); ?>">Vendor dashboard</a></li>
+							<a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>">
+								<?php 
+								if (is_user_logged_in()) { 
+									echo "My Account";
+								} else {
+									echo "Sign in / Sign up";
+								}
+								?>
+							</a>
+						</li>
 						<li><a href="#">Track you order</a></li>
 				</div>
 			</div>
@@ -76,7 +80,7 @@
 		</div>
 	</div><!-- .container -->
 </header><!-- #masthead -->
-<div id="vilyoo-login" class="modal fade">
+<!-- <div id="vilyoo-login" class="modal fade">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -87,7 +91,7 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div> -->
 <nav id="primary-nav-wrap" class="site-navigation">
 <?php // substitute the class "container-fluid" below if you want a wider content area ?>
 	<div class="container">
@@ -106,83 +110,23 @@
 					</div>
 
 					<!-- The WordPress Menu goes here -->
-					<div class="collapse navbar-collapse pad-left pad-right">
-						<ul id="main-menu" class="nav navbar-nav">
-							<li class="menu-item mega-dropdown">
-								<a title="Paper" href="http://localhost/avani/category/paper-craft/" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">
-									Paper Crafts <span class="fa fa-angle-down"></span>
-								</a>
-								<ul role="menu" class=" dropdown-menu mega-dropdown-menu row">
-									<li class="col-sm-3">
-										<ul>
-											<li class="dropdown-header">New in Stores</li>                            
-				                            <div id="myCarousel" class="carousel slide" data-ride="carousel">
-				                              	<div class="carousel-inner">
-				                                	<div class="item active">
-				                                    	<a href="#"><img src="http://placehold.it/254x150/3498db/f5f5f5/&text=New+Collection" class="img-responsive" alt="product 1"></a>
-				                                    	<h4><small>Summer dress floral prints</small></h4>                                        
-				                                    	<button class="btn btn-cart" type="button">Rs. 4999</button>   
-				                                	</div><!-- End Item -->
-					                                <div class="item">
-					                                    <a href="#"><img src="http://placehold.it/254x150/ef5e55/f5f5f5/&text=New+Collection" class="img-responsive" alt="product 2"></a>
-					                                    <h4><small>Gold sandals with shiny touch</small></h4>                                        
-					                                    <button class="btn btn-cart" type="button">Rs. 999</button>       
-					                                </div><!-- End Item -->
-					                                <div class="item">
-					                                    <a href="#"><img src="http://placehold.it/254x150/2ecc71/f5f5f5/&text=New+Collection" class="img-responsive" alt="product 3"></a>
-					                                    <h4><small>Denin jacket stamped</small></h4>                                        
-					                                    <button class="btn btn-cart" type="button">Rs. 4999</button>      
-					                                </div><!-- End Item -->                                
-				                              	</div><!-- End Carousel Inner -->
-				                            </div><!-- /.carousel -->
-				                            <li class="divider"></li>
-				                            <li><a href="#">View more<span class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
-										</ul>
-									</li>
-									<li class="col-sm-3">
-										<ul>
-											<li id="menu-item-197" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-197"><a title="Origami items" href="http://localhost/avani/category/paper-craft/origami-items/">Origami items</a></li>
-											<li id="menu-item-198" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-198"><a title="Paper flowers" href="http://localhost/avani/category/paper-craft/paper-flowers/">Paper flowers</a></li>
-											<li id="menu-item-199" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-199"><a title="Paper Mosaics" href="http://localhost/avani/category/paper-craft/paper-mosaics/">Paper Mosaics</a></li>
-											<li id="menu-item-200" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-200"><a title="papier-mâché" href="http://localhost/avani/category/paper-craft/papier-mache/">papier-mâché</a></li>
-											<li id="menu-item-201" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-201"><a title="Parchment craft" href="http://localhost/avani/category/paper-craft/parchment-craft/">Parchment craft</a></li>
-										</ul>
-									</li>
-									<li class="col-sm-3">
-										<ul>
-											<li id="menu-item-202" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-202"><a title="Quilled products" href="http://localhost/avani/category/paper-craft/quilled-products/">Quilled products</a></li>
-											<li id="menu-item-203" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-203"><a title="Scrapbooks" href="http://localhost/avani/category/paper-craft/scrapbooks/">Scrapbooks</a></li>
-											<li id="menu-item-204" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-204"><a title="Sospeso" href="http://localhost/avani/category/paper-craft/sospeso/">Sospeso</a></li>
-											<li id="menu-item-205" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-205"><a title="Albums" href="http://localhost/avani/category/paper-craft/albums/">Albums</a></li>
-											<li id="menu-item-206" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-206"><a title="Exploding box cards" href="http://localhost/avani/category/paper-craft/exploding-box-cards/">Exploding box cards</a></li>
-										</ul>
-									</li>
-									<li class="col-sm-3">
-										<ul>
-											<li id="menu-item-207" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-207"><a title="Gift Bags" href="http://localhost/avani/category/paper-craft/gift-bags/">Gift Bags</a></li>
-											<li id="menu-item-208" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-208"><a title="Greeting Cards" href="http://localhost/avani/category/paper-craft/greeting-cards/">Greeting Cards</a></li>
-											<li id="menu-item-209" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-209"><a title="Invitation Cards" href="http://localhost/avani/category/paper-craft/invitation-cards/">Invitation Cards</a></li>
-											<li id="menu-item-210" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-210"><a title="Decoupage items" href="http://localhost/avani/category/paper-craft/decoupage-items/">Decoupage items</a></li>
-										</ul>
-									</li>
-								</ul>
-							</li>
-						</ul>
-					</div>
+					<?php include get_template_directory().'/templates/navbar.php'; ?>
+					<!-- 
 					<?php 
-						// wp_nav_menu(
-						// 	array(
-						// 		'theme_location' 	=> 'primary',
-						// 		'depth'             => 2,
-						// 		'container'         => 'div',
-						// 		'container_class'   => 'collapse navbar-collapse pad-left pad-right',
-						// 		'menu_class' 		=> 'nav navbar-nav',
-						// 		'fallback_cb' 		=> 'wp_bootstrap_navwalker::fallback',
-						// 		'menu_id'			=> 'main-menu',
-						// 		'walker' 			=> new wp_bootstrap_navwalker()
-						// 	)
-						// );
+						wp_nav_menu(
+							array(
+								'theme_location' 	=> 'primary',
+								'depth'             => 2,
+								'container'         => 'div',
+								'container_class'   => 'collapse navbar-collapse pad-left pad-right',
+								'menu_class' 		=> 'nav navbar-nav',
+								'fallback_cb' 		=> 'wp_bootstrap_navwalker::fallback',
+								'menu_id'			=> 'main-menu',
+								'walker' 			=> new wp_bootstrap_navwalker()
+							)
+						);
 					 ?>
+					-->
 
 				</div><!-- .navbar -->
 			</div>
