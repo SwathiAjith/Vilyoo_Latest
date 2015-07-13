@@ -35,8 +35,21 @@ function wd_mandrill_woo_order( $message ) {
 
     return $message;
 }
-
 add_filter( 'mandrill_payload', 'wd_mandrill_woo_order' );
+
+function addBootstrapToCheckoutFields( $fields ) {
+    foreach ($fields as &$fieldset) {
+        foreach ($fieldset as &$field) {
+            // if you want to add the form-group class around the label and the input
+            // $field['class'][] = 'form-group'; 
+
+            // add form-control to the actual input
+            $field['input_class'][] = 'form-control';
+        }
+    }
+    return $fields;
+}
+add_filter('woocommerce_checkout_fields', 'addBootstrapToCheckoutFields' );
 
 function vilyoo_search_form( $form ) {
 	$form = '<form role="search" method="get" class="search-form" action="'. home_url( "/" ) .'">

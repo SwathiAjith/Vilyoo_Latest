@@ -992,3 +992,30 @@ h3.widget-title {
 	background: #fafafa;
 	border-bottom:0 !important;
 }
+
+/* Cart */
+.shop_table {
+	border-radius: 0 !important;
+}
+.woocommerce-cart .wc-proceed-to-checkout a.checkout-button {
+	padding: 20px;
+	float: none;
+	width: 75%;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #5cb85c;
+	text-transform: uppercase;
+}
+.woocommerce-cart .wc-proceed-to-checkout a.checkout-button:hover {
+	background-color: #3ab63a;
+}
+.woocommerce-cart .cart-collaterals .cart_totals table {
+	width: 100%;
+}
+.select2-container {
+	padding: 0 !important;
+}
+#order_review {
+	padding-top: 15px;
+	padding-bottom: 15px;
+}

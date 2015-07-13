@@ -15,7 +15,7 @@ $order = wc_get_order( $order_id );
 
 ?>
 <h2><?php _e( 'Order Details', 'woocommerce' ); ?></h2>
-<table class="shop_table order_details">
+<table class="shop_table order_details white-bg shadow-it">
 	<thead>
 		<tr>
 			<th class="product-name"><?php _e( 'Product', 'woocommerce' ); ?></th>
@@ -166,7 +166,7 @@ $order = wc_get_order( $order_id );
 <header>
 	<h2><?php _e( 'Customer details', 'woocommerce' ); ?></h2>
 </header>
-<table class="shop_table shop_table_responsive customer_details">
+<table class="shop_table shop_table_responsive customer_details white-bg shadow-it">
 <?php
 	if ( $order->billing_email ) {
 		echo '<tr><th>' . __( 'Email:', 'woocommerce' ) . '</th><td data-title="' . __( 'Email', 'woocommerce' ) . '">' . $order->billing_email . '</td></tr>';
@@ -185,7 +185,7 @@ $order = wc_get_order( $order_id );
 
 <div class="col2-set addresses">
 
-	<div class="col-1">
+	<div class="col-1 white-bg shadow-it all-pad-15">
 
 <?php endif; ?>
 
@@ -206,7 +206,7 @@ $order = wc_get_order( $order_id );
 
 	</div><!-- /.col-1 -->
 
-	<div class="col-2">
+	<div class="col-2 white-bg shadow-it all-pad-15">
 
 		<header class="title">
 			<h3><?php _e( 'Shipping Address', 'woocommerce' ); ?></h3>

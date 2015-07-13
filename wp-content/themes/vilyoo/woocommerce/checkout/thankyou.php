@@ -32,7 +32,7 @@ if ( $order ) : ?>
 		</p>
 
 	<?php else : ?>
-
+	<div class="col-md-12 all-pad-15 white-bg shadow-it">
 		<p><?php echo apply_filters( 'woocommerce_thankyou_order_received_text', __( 'Thank you. Your order has been received.', 'woocommerce' ), $order ); ?></p>
 
 		<ul class="order_details">
@@ -56,7 +56,7 @@ if ( $order ) : ?>
 			<?php endif; ?>
 		</ul>
 		<div class="clear"></div>
-
+	</div>
 	<?php endif; ?>
 
 	<?php do_action( 'woocommerce_thankyou_' . $order->payment_method, $order->id ); ?>
