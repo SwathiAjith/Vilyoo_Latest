@@ -47,5 +47,56 @@ $average      = $product->get_average_rating();
 				<span class="seller-rating-tooltip" data-toggle="tooltip" data-placement="top" title="Based on <?php echo $rating_info['count']; ?> reviews."><?php echo $rating_info['rating'];?> / 5</span><br>
 			</p>
 		</div>
+		<div class="col-md-12 text-center mb-15">
+			<a href="#contact-seller-form-popup" data-toggle="modal" class="btn btn-success">Contact Seller</a>
+		</div>
 	</div>
 	<div class="clearfix"></div>
+	<div id="contact-seller-form-popup" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="contact-seller-pop" id="contact-seller-pop" method="post">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Contact <?php echo $store_info['store_name']; ?></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div id="pop-form-header">
+
+                        </div>
+                        <div class="row mb-15">
+                            <div class="col-md-6">
+                                <input id="v_fullname" name="fullname" class="form-control" placeholder="Full Name" type="text" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input id="v_phone" type="text" name="phone" class="form-control" placeholder="Phone Number" pattern=".{10,}" title="10 digits minimum" onkeypress="return event.charCode >= 48 && event.charCode <= 57" required>
+                            </div>
+                        </div>
+                        <div class="row mb-15">
+                            <div class="col-md-12">
+                                <input id="v_email" name="email" class="form-control" placeholder="Email Address Name" type="email" required>
+                            </div>
+                        </div>
+                        <div class="row mb-15">
+                            <div class="col-md-12">
+                                <textarea id="v_message" class="form-control" rows="6" name="message" placeholder="Message" required></textarea>
+                            </div>
+                        </div>
+                        <p>
+                            <small>All fields are required</small>
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <input name="contact-authorID" id="contact-authorID" type="hidden" value="<?php echo $author->ID; ?>">
+                        <?php
+                            global $wp;
+                            $current_url = home_url( add_query_arg( array(), $wp->request ) );
+                        ?>
+                        <input name="contact-url" id="contact-url" type="hidden" value="<?php echo $current_url; ?>">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <input type="submit" id="vilyoo-contact-seller-submit-btn" class="btn btn-success" value="Send Message">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
