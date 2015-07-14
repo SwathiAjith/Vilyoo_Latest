@@ -1292,6 +1292,7 @@ jQuery(function($) {
                     var form_data = $(form).serialize();
                     // console.log( form_data );
                     request = $.ajax({
+                        action: 'vilyoo_contact_seller',
                         url: dokan.ajaxurl,
                         data: form_data,
                         type: "POST"
@@ -1300,6 +1301,7 @@ jQuery(function($) {
                     request.done(function (response, textStatus, jqXHR){
                         // Log a message to the console
                         $('.ajax-response').removeClass( 'alert-info' ).addClass( 'alert-success').html('Message sent to seller!');
+                        console.log( textStatus );
                     });
 
                     // Callback handler that will be called on failure

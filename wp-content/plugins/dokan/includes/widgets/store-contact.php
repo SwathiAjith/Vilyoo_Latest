@@ -58,7 +58,7 @@ class Dokan_Store_Contact_Form extends WP_Widget {
 
             <?php wp_nonce_field( 'dokan_contact_seller' ); ?>
             <input type="hidden" name="seller_id" value="<?php echo $seller_id; ?>">
-            <input type="hidden" name="action" value="dokan_contact_seller">
+            <!-- <input type="hidden" name="action" value="dokan_contact_seller"> -->
             <input type="submit" name="store_message_send" value="<?php esc_attr_e( 'Send Message', 'dokan' ); ?>" class="dokan-right dokan-btn dokan-btn-theme">
         </form>
 
