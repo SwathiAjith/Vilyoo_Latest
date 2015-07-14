@@ -1287,43 +1287,18 @@ jQuery(function($) {
                 success: validatorSuccess,
                 submitHandler: function(form) {
 
-                    // $(form).block({ message: null, overlayCSS: { background: '#fff url(' + dokan.ajax_loader + ') no-repeat center', opacity: 0.6 } });
-                    $('.ajax-response').addClass( 'alert alert-info').html('Sending message to seller...');
+                    $(form).block({ message: null, overlayCSS: { background: '#fff url(' + dokan.ajax_loader + ') no-repeat center', opacity: 0.6 } });
+
                     var form_data = $(form).serialize();
-                    console.log( form_data );
-                    request = $.ajax({
-                        action: 'vilyoo_contact_seller',
-                        url: dokan.ajaxurl,
-                        data: form_data,
-                        type: "POST"
-                    });
+                    $.post(dokan.ajaxurl, form_data, function(resp) {
+                        $(form).unblock();
 
-                    request.done(function (response, textStatus, jqXHR){
-                        // Log a message to the console
-                        $('.ajax-response').removeClass( 'alert-info' ).addClass( 'alert-success').html('Message sent to seller!');
-                        console.log( textStatus );
-                    });
+                        if ( typeof resp.data !== 'undefined' ) {
+                            $(form).find('.ajax-response').html(resp.data);
+                        }
 
-                    // Callback handler that will be called on failure
-                    request.fail(function (jqXHR, textStatus, errorThrown){
-                        // Log the error to the console
-                        console.error(
-                            "The following error occurred: "+
-                            textStatus, errorThrown
-                        );
-                        $('.ajax-response').removeClass( 'alert-info' ).addClass( 'alert-danger').html('Oops! There was some issue sending the message to the seller. Please refresh the page and retry!');
+                        $(form).find('input[type=text], input[type=email], textarea').val('').removeClass('valid');
                     });
-                        // function(resp) {
-                        // $(form).unblock();
-                        // console.log( dokan.ajaxurl );
-                        // if ( typeof resp.data !== 'undefined' ) {
-                        //     $(form).find('.ajax-response').html(resp.data);
-                        // } else {
-                        //     $(form).find('.ajax-response').html('<p>' + resp + '</p>');
-                        // }
-
-                        // $(form).find('input[type=text], input[type=email], textarea').val('').removeClass('valid');
-                    //});
                 }
             });
         }

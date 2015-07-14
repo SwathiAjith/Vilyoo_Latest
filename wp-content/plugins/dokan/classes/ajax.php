@@ -50,6 +50,7 @@ class Dokan_Ajax {
         add_action( 'wp_ajax_dokan_change_status', array( $this, 'change_order_status' ) );
 
         add_action( 'wp_ajax_dokan_contact_seller', array( $this, 'contact_seller' ) );
+        add_action( 'wp_ajax_nopriv_dokan_contact_seller', array( $this, 'contact_seller' ) );
 
         add_action( 'wp_ajax_dokan_add_variation', array( $this, 'add_variation' ) );
         add_action( 'wp_ajax_dokan_link_all_variations', array( $this, 'link_all_variations' ) );
@@ -524,7 +525,7 @@ class Dokan_Ajax {
         }
 
         $contact_name = trim( strip_tags( $posted['name'] ) );
-    
+
         Dokan_Email::init()->contact_seller( $seller->user_email, $contact_name, $posted['email'], $posted['message'] );
 
         $success = sprintf( '<div class="alert alert-success">%s</div>', __( 'Email sent successfully!', 'dokan' ) );
