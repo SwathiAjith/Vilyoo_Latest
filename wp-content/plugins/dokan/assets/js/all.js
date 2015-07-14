@@ -1290,7 +1290,7 @@ jQuery(function($) {
                     // $(form).block({ message: null, overlayCSS: { background: '#fff url(' + dokan.ajax_loader + ') no-repeat center', opacity: 0.6 } });
                     $('.ajax-response').addClass( 'alert alert-info').html('Sending message to seller...');
                     var form_data = $(form).serialize();
-                    // console.log( form_data );
+                    console.log( form_data );
                     request = $.ajax({
                         action: 'vilyoo_contact_seller',
                         url: dokan.ajaxurl,
