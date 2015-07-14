@@ -41,7 +41,7 @@
 
                 error: function( jqXHR, textStatus, errorThrown ){
                     console.log( 'The following error occured: ' + textStatus, errorThrown );  
-                    $( '#pop-form-header' ).removeClass('alert-info').addClass('alert-success').html( 'Oops, Something went wrong. Try again!' ); 
+                    $( '#pop-form-header' ).removeClass('alert-info').addClass('alert-danger').html( 'Oops, Something went wrong. Try again!' ); 
                 }
  
             });
