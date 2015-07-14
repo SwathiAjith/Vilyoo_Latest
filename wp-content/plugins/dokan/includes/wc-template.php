@@ -88,7 +88,7 @@ function dokan_product_seller_tab( $val ) {
             </li>
             <li>
                 <!-- <a href="<?php echo dokan_get_store_url( $author->ID ); ?>#contact-seller-form">Contact Seller</a> -->
-                <a href="#contact-seller-form-popup" data-toggle="modal">Contact Seller</a>
+                <a href="#contact-seller-form-popup" data-toggle="modal" class="btn btn-success">Contact Seller</a>
             </li>
         </ul>
     </div>
@@ -130,11 +130,11 @@ function dokan_product_seller_tab( $val ) {
                         <input name="contact-authorID" id="contact-authorID" type="hidden" value="<?php echo $author->ID; ?>">
                         <?php
                             global $wp;
-                            $current_url = home_url(add_query_arg(array(),$wp->request));
+                            $current_url = home_url( add_query_arg( array(), $wp->request ) );
                         ?>
                         <input name="contact-url" id="contact-url" type="hidden" value="<?php echo $current_url; ?>">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <input type="submit" id="vilyoo-contact-seller-submit-btn" class="btn btn-success" value="Save changes">
+                        <input type="submit" id="vilyoo-contact-seller-submit-btn" class="btn btn-success" value="Send Message">
                     </div>
                 </form>
             </div>

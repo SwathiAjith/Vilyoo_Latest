@@ -179,48 +179,48 @@ function my_account_seller_dashboard_link() {
 * Contact Seller Ajax
 */
 // Register scripts
-add_action( 'wp_enqueue_scripts', 'theme_register_scripts', 1 );
-function theme_register_scripts() {
+// add_action( 'wp_enqueue_scripts', 'theme_register_scripts', 1 );
+// function theme_register_scripts() {
  
-  /** Register JavaScript Functions File */
-  wp_register_script( 'contact-seller', esc_url( trailingslashit( get_template_directory_uri() ) . 'includes/js/contact-seller.js' ), array( 'jquery' ), '1.0', true );
+//   /** Register JavaScript Functions File */
+//   wp_register_script( 'contact-seller', esc_url( trailingslashit( get_template_directory_uri() ) . 'includes/js/contact-seller.js' ), array( 'jquery' ), '1.0', true );
  
-  /** Localize Scripts */
-  $contact_seller_array = array( 'admin_ajax' => admin_url( 'admin-ajax.php' ) );
-  wp_localize_script( 'contact-seller', 'contact_seller_array', $contact_seller_array );
+//   /** Localize Scripts */
+//   $contact_seller_array = array( 'admin_ajax' => admin_url( 'admin-ajax.php' ) );
+//   wp_localize_script( 'contact-seller', 'contact_seller_array', $contact_seller_array );
  
-}
+// }
  
-/** Enqueue Scripts. */
-add_action( 'wp_enqueue_scripts', 'theme_enqueue_scripts' );
-function theme_enqueue_scripts() {
+// /** Enqueue Scripts. */
+// add_action( 'wp_enqueue_scripts', 'theme_enqueue_scripts' );
+// function theme_enqueue_scripts() {
  
-  /** Enqueue JavaScript Functions File */
-  wp_enqueue_script( 'contact-seller' );
+//   /** Enqueue JavaScript Functions File */
+//   wp_enqueue_script( 'contact-seller' );
  
-}
+// }
 
-/** Ajax Post */
-add_action( 'wp_ajax_vilyoo_contact_seller', 'vilyoo_contact_seller_init' );
-add_action( 'wp_ajax_nopriv_vilyoo_contact_seller', 'vilyoo_contact_seller_init' );
-function vilyoo_contact_seller_init() {
-    $v_seller_id = $_POST['seller_id'];
-    $v_seller = get_user_by( 'id', (int) $v_seller_id );
-    if ( !$v_seller ) {
-        $message = "Oops, Something went wrong. Try again!";
-        wp_send_json_error( $message );
-    }
-    $v_name = trim( strip_tags( $_POST['name'] ) );
-    $v_phone = trim( strip_tags( $_POST['phone'] ) );
-    $v_email = trim( strip_tags( $_POST['email'] ) );
-    $v_message = $_POST['message'];
-    $content_to_send = "<b>From : </b>" . $v_name ."<br>";
-    $content_to_send .= "<b>Email : </b>". $v_email ."<br>";
-    $content_to_send .= "<b>Phone : </b>". $v_phone ."<br>";
-    $content_to_send .= "<b>Message: </b>". $v_message ."<br>";
-    $content_to_send .= "<b>From Page: </b>". $_POST['page_url'];
-    wp_mail( $v_seller->user_email, 'New message from '.$v_name, $content_to_send );
-    $message = "Message successfully sent!";
-    wp_send_json_success( $message );
-    die();
-}
+// /** Ajax Post */
+// add_action( 'wp_ajax_vilyoo_contact_seller', 'vilyoo_contact_seller_init' );
+// add_action( 'wp_ajax_nopriv_vilyoo_contact_seller', 'vilyoo_contact_seller_init' );
+// function vilyoo_contact_seller_init() {
+//     $v_seller_id = $_POST['seller_id'];
+//     $v_seller = get_user_by( 'id', (int) $v_seller_id );
+//     if ( !$v_seller ) {
+//         $message = "Oops, Something went wrong. Try again!";
+//         wp_send_json_error( $message );
+//     }
+//     $v_name = trim( strip_tags( $_POST['name'] ) );
+//     $v_phone = trim( strip_tags( $_POST['phone'] ) );
+//     $v_email = trim( strip_tags( $_POST['email'] ) );
+//     $v_message = $_POST['message'];
+//     $content_to_send = "<b>From : </b>" . $v_name ."<br>";
+//     $content_to_send .= "<b>Email : </b>". $v_email ."<br>";
+//     $content_to_send .= "<b>Phone : </b>". $v_phone ."<br>";
+//     $content_to_send .= "<b>Message: </b>". $v_message ."<br>";
+//     $content_to_send .= "<br><b>From Page: </b>". $_POST['page_url'];
+//     wp_mail( $v_seller->user_email, '[Vilyoo.com] New message from '.$v_name, $content_to_send );
+//     $message = "Message successfully sent!";
+//     wp_send_json_success( $message );
+//     die();
+// }
