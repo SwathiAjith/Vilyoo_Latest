@@ -219,7 +219,7 @@ function vilyoo_contact_seller_init() {
     $content_to_send .= "<b>Phone : </b>". $v_phone ."<br>";
     $content_to_send .= "<b>Message: </b>". $v_message ."<br>";
     $content_to_send .= "<b>From Page: </b>". $_POST['page_url'];
-    wp_mail( $v_seller->user_email, 'New message from '.$v_name, $message, $headers, $attachments );
+    wp_mail( $v_seller->user_email, 'New message from '.$v_name, $content_to_send );
     $message = "Message successfully sent!";
     wp_send_json_success( $message );
     die();
