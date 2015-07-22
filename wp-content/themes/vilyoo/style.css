@@ -183,7 +183,7 @@ input[type="tel"]:focus,
 input[type="color"]:focus,
 .uneditable-input:focus,
 select:focus {   
-    border-color: #f05b47 !important;
+    border-color: #8c2864 !important;
     box-shadow: none !important;
     outline: 0 none !important;
 }
@@ -212,10 +212,10 @@ body {
 	margin: 0 auto;
 }
 a {
-	color: #ec353c;
+	color: #8c2864;
 }
 a:hover, a:visited {
-	color: #f05b47;
+	color: #BF326B;
 }
 
 /* Images and wp-captions should always fit and be responsive */
@@ -438,20 +438,29 @@ display: block;
 .mt-15 {
 	margin-top: 15px !important;
 }
+.no-pad {
+	padding: 0 !important;
+}
 /* Header with logo and serach */
 #masthead {
-	background: #f05b47;
+	background: #fff;
+	margin-bottom: 20px;
+	-webkit-box-shadow: 0px 1px 1px rgba( 0, 0, 0, 0.3 );
+       -moz-box-shadow: 0px 1px 1px rgba( 0, 0, 0, 0.3 );
+            box-shadow: 0px 1px 1px rgba( 0, 0, 0, 0.3 );
 }
 
 /* Small Top Navigation Bar */
 #small-top-nav {
-	padding: 10px 0;
+	padding: 8px 0 5px;
+	background: #8c2864;
+	margin-bottom: 6px;
 }
 #small-top-nav ul {
 	list-style: none;
 	margin: 0;
-	padding: 0;
-	text-align: right;
+	padding: 2px 0;
+	/*text-align: right;*/
 }
 #small-top-nav ul li {
 	display: inline-block;
@@ -470,35 +479,39 @@ display: block;
 	text-decoration: underline;
 	color: #fff;
 }
-
-/* Header Search Form */
-.header-search, .header-cart{
-	padding: 15px 0;
-}
-.cart-item-count-head {
-	font-size: 11px;
-	font-weight: 600;
-}
-.header-search input {
+#small-top-nav input {
 	border-top-right-radius: 0;
 	border-bottom-right-radius: 0;
 	border:0;
+	padding: 3px 10px;
+	height: auto;
+	font-weight: 300;
 }
 .btn-search {
 	text-transform: uppercase;
-	font-weight: 600;
+	font-weight: 500;
 	border-top-left-radius: 0;
 	border-bottom-left-radius: 0;
-	background: #00aedf;
+	background: #BF326B;
 	color: rgba(255, 255, 255, 1);
 	text-shadow: 1px 0 0 #007090;
+	padding: 2.2px 12px;
 }
 .btn-search:hover, .btn-search:active, .btn-search:focus, .btn-search:visited {
 	color: rgba(255, 255, 255, 0.95) !important;
 }
 .autocomplete-suggestions {
-	top: 50px;
+	top: 26px;
 	left: 15px;
+}
+
+/* Header Search Form */
+.header-search, .header-cart{
+	padding: 11px 0;
+}
+.cart-item-count-head {
+	font-size: 11px;
+	font-weight: 600;
 }
 .btn-cart, .btn-seller-dash  {
 	background: #ec353c;
@@ -513,8 +526,8 @@ display: block;
 
 /* Primary Navigation bar */
 #primary-nav-wrap {
-	background: #ec353c;
-	margin-bottom: 20px;
+	border-top: 1px solid #8c2864;
+	border-bottom: 1px solid #8c2864;
 }
 .navbar-default .navbar-collapse, .navbar-default .navbar-form, .navbar  {
 	border:0 !important;
@@ -530,7 +543,7 @@ display: block;
 	padding-bottom: 0;
 }
 .navbar-default .navbar-nav>li>a {
-	color: #fff;
+	color: #BF326B;
 	text-transform: uppercase;
 }
 .navbar-nav>li>a {
@@ -539,8 +552,8 @@ display: block;
 	font-size: 12px;
 }
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
-	background: #fff;
-	color:  #ec353c;
+	background: #8c2864;
+	color:  #fff;
 	font-weight: 400;
 }
 
@@ -693,12 +706,12 @@ The Bootstrap CSS is unchanged.
 	position: absolute;
 	top: 22px;
 	left: 0;
-	background: #ec353c;
+	background: #BF326B;
 	color: #fff;
 	padding: 4px 8px;
 }
 #home-seller-info {
-	background: #00aedf;
+	background: #BF326B;
 	color: #fff !important;
 }
 #home-seller-info .seller-name, #home-seller-info .social-profiles a{
@@ -779,6 +792,9 @@ The Bootstrap CSS is unchanged.
 .woocommerce div.product div.images img {
 	border: 1px solid #ccc;
 }
+.single-sold-by {
+	margin-bottom: 1.618em;
+}
 .single-sold-by p{
 	margin: .5em 4px 0 0;
 	font-size: 13px;
@@ -825,8 +841,12 @@ The Bootstrap CSS is unchanged.
 	text-align: center;
 	white-space: normal;
 }
-.add_to_wishlist {
-	background-color: #f05b47 !important; 
+.add_to_wishlist, .woocommerce a.added_to_cart {
+	background-color: #BF326B !important; 
+}
+.woocommerce a.added_to_cart {
+	padding: 5px;
+	color: #fff;
 }
 .woocommerce div.product .woocommerce-tabs ul.tabs li {
 	text-transform: uppercase;
@@ -911,7 +931,7 @@ h3.widget-title {
 	height: 300px;
 }
 .woocommerce span.onsale {
-	background-color: #ec353c;
+	background-color: #BF326B;
 }
 /*My Account */
 .ywot_order_details {
@@ -934,7 +954,7 @@ h3.widget-title {
 	left: 0;
 	right: 0;
 	width: 60%;
-	background: #ec353c;
+	background: #BF326B;
 	color: #fff;
 	text-transform: uppercase;
 	font-weight: 300;

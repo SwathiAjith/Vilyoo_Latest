@@ -1,6 +1,6 @@
 <div class="collapse navbar-collapse pad-left pad-right">
 	<ul id="main-menu" class="nav navbar-nav">
-		<li id="menu-item-181" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children menu-item-181 mega-dropdown dropdown"><a title="Paper" href="<?php echo site_url(); ?>/category/paper-craft/" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">Paper <span class="fa fa-angle-down"></span></a>
+		<li id="menu-item-181" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children menu-item-181 mega-dropdown dropdown"><a title="Paper" href="<?php echo site_url(); ?>/category/paper-craft/" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">Shop by medium <span class="fa fa-angle-down"></span></a>
 			<ul role="menu" class=" dropdown-menu mega-dropdown-menu row">
 				<li class="col-sm-3">
 					<ul>
@@ -56,7 +56,7 @@
 				</li>
 			</ul>
 		</li>
-		<li id="menu-item-211" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children menu-item-211 mega-dropdown dropdown"><a title="Clay" href="<?php echo site_url(); ?>/category/clay-craft/" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">Clay <span class="fa fa-angle-down"></span></a>
+		<li id="menu-item-211" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children menu-item-211 mega-dropdown dropdown"><a title="Clay" href="<?php echo site_url(); ?>/category/clay-craft/" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">Shop By Product <span class="fa fa-angle-down"></span></a>
 			<ul role="menu" class=" dropdown-menu mega-dropdown-menu row">
 				<li id="menu-item-212" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-212"><a title="Bread Craft" href="<?php echo site_url(); ?>/category/clay-craft/bread-craft/">Bread Craft</a></li>
 				<li id="menu-item-213" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-213"><a title="Clay Dolls" href="<?php echo site_url(); ?>/category/clay-craft/clay-dolls/">Clay Dolls</a></li>
@@ -69,7 +69,7 @@
 				<li id="menu-item-220" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-220"><a title="Pottery Products" href="<?php echo site_url(); ?>/category/clay-craft/pottery-products/">Pottery Products</a></li>
 			</ul>
 		</li>
-		<li id="menu-item-221" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children menu-item-221 mega-dropdown dropdown"><a title="Glass" href="<?php echo site_url(); ?>/category/glass-craft/" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">Glass <span class="fa fa-angle-down"></span></a>
+		<li id="menu-item-221" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children menu-item-221 mega-dropdown dropdown"><a title="Glass" href="<?php echo site_url(); ?>/category/glass-craft/" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">Customize <span class="fa fa-angle-down"></span></a>
 			<ul role="menu" class=" dropdown-menu mega-dropdown-menu row">
 				<li id="menu-item-222" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-222"><a title="Blown Glass" href="<?php echo site_url(); ?>/category/glass-craft/blown-glass/">Blown Glass</a></li>
 				<li id="menu-item-223" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-223"><a title="Etched Glass" href="<?php echo site_url(); ?>/category/glass-craft/etched-glass/">Etched Glass</a></li>
@@ -79,7 +79,7 @@
 				<li id="menu-item-227" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-227"><a title="Stained Glass Items" href="<?php echo site_url(); ?>/category/glass-craft/stained-glass-items/">Stained Glass Items</a></li>
 			</ul>
 		</li>
-		<li id="menu-item-173" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children menu-item-173 mega-dropdown dropdown"><a title="Beads" href="<?php echo site_url(); ?>/category/beads-craft/" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">Beads <span class="fa fa-angle-down"></span></a>
+		<li id="menu-item-173" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children menu-item-173 mega-dropdown dropdown"><a title="Beads" href="<?php echo site_url(); ?>/category/beads-craft/" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">Workshops <span class="fa fa-angle-down"></span></a>
 			<ul role="menu" class=" dropdown-menu mega-dropdown-menu row">
 				<li id="menu-item-190" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-190"><a title="Bead Accessories" href="<?php echo site_url(); ?>/category/beads-craft/bead-accessories/">Bead Accessories</a></li>
 				<li id="menu-item-191" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-191"><a title="Bead Dolls" href="<?php echo site_url(); ?>/category/beads-craft/bead-dolls/">Bead Dolls</a></li>
@@ -90,7 +90,7 @@
 				<li id="menu-item-196" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-196"><a title="Others" href="<?php echo site_url(); ?>/category/beads-craft/other-bead-crafts/">Others</a></li>
 			</ul>
 		</li>
-		<li id="menu-item-228" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children menu-item-228 mega-dropdown dropdown"><a title="Wood" href="<?php echo site_url(); ?>/category/wood-craft/" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">Wood <span class="fa fa-angle-down"></span></a>
+		<li id="menu-item-228" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children menu-item-228 mega-dropdown dropdown"><a title="Wood" href="<?php echo site_url(); ?>/category/wood-craft/" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">DIY KITS <span class="fa fa-angle-down"></span></a>
 			<ul role="menu" class=" dropdown-menu mega-dropdown-menu row">
 				<li id="menu-item-230" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-230"><a title="Sculptures" href="<?php echo site_url(); ?>/category/wood-craft/sculptures/">Sculptures</a></li>
 				<li id="menu-item-231" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-231"><a title="Trays" href="<?php echo site_url(); ?>/category/wood-craft/trays/">Trays</a></li>
@@ -100,7 +100,7 @@
 				<li id="menu-item-229" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-229"><a title="Others" href="<?php echo site_url(); ?>/category/wood-craft/other-wood-crafts/">Others</a></li>
 			</ul>
 		</li>
-		<li id="menu-item-235" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children menu-item-235 mega-dropdown dropdown"><a title="Thread" href="<?php echo site_url(); ?>/category/thread-craft/" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">Thread <span class="fa fa-angle-down"></span></a>
+		<!-- <li id="menu-item-235" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children menu-item-235 mega-dropdown dropdown"><a title="Thread" href="<?php echo site_url(); ?>/category/thread-craft/" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">Thread <span class="fa fa-angle-down"></span></a>
 			<ul role="menu" class=" dropdown-menu mega-dropdown-menu row">
 				<li id="menu-item-236" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-236"><a title="Quilt" href="<?php echo site_url(); ?>/category/thread-craft/quilt/">Quilt</a></li>
 				<li id="menu-item-237" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-237"><a title="Thread Dolls" href="<?php echo site_url(); ?>/category/thread-craft/thread-dolls/">Thread Dolls</a></li>
@@ -148,8 +148,8 @@
 				<li id="menu-item-271" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-271"><a title="Watercolor" href="<?php echo site_url(); ?>/category/art/watercolor/">Watercolor</a></li>
 				<li id="menu-item-270" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-270"><a title="Madhupani" href="<?php echo site_url(); ?>/category/art/madhupani/">Madhupani</a></li>
 			</ul>
-		</li>
+		</li> -->
 		<li id="menu-item-276" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-276"><a title="NGO Shops" href="<?php echo site_url(); ?>/ngo-shops/">NGO Shops</a></li>
-		<li id="menu-item-273" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-273"><a title="Craft Supplies" href="#">Craft Supplies</a></li>
+		<!-- <li id="menu-item-273" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-273"><a title="Craft Supplies" href="#">Craft Supplies</a></li> -->
 	</ul>
 </div>

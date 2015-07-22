@@ -26,11 +26,13 @@
 
 <header id="masthead" class="site-header" role="banner">
 <?php // substitute the class "container-fluid" below if you want a wider content area ?>
-	<div class="container">
-		<div class="row">
-			<div id="small-top-nav">
-				<div class="col-sm-12 pull-right">
+	<div id="small-top-nav">
+		<div class="container no-pad">
+			<div class="col-sm-12">
+				<div class="col-md-3 pad-left">
 					<ul>
+						<li><a href="#">Help</a></li>
+						<li><a href="#">Track order</a></li>
 						<li>
 							<a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>">
 								<?php 
@@ -42,9 +44,29 @@
 								?>
 							</a>
 						</li>
-						<li><a href="#">Track you order</a></li>
+					</ul>
+				</div>
+				<div class="col-md-6 pad-left">
+					<?php
+						echo do_shortcode('[yith_woocommerce_ajax_search]');
+					?>
+				</div>
+				<div class="col-md-3 pad-right text-right">
+					<ul>
+						<li>
+							<a href="<?php echo home_url( '/' ); ?>wishlist/view/">Wishlist</a>
+						</li>
+						<?php
+							$cart_total = floatval( preg_replace( '#[^\d.]#', '', WC()->cart->get_cart_total() ) );
+						?>
+						<li><a title="Shopping Bag" href="<?php echo WC()->cart->get_cart_url(); ?>"><i class="fa fa-shopping-cart"></i>  Shopping Bag ( <?php echo sprintf (_n( '%d', '%d', WC()->cart->cart_contents_count ), WC()->cart->cart_contents_count ); ?> )</a></li>
+					</ul>
 				</div>
 			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
 			<div class="site-header-inner col-sm-12">
 				<div class="col-md-3 header-logo pad-left">
 					<?php $header_image = get_header_image();
@@ -58,80 +80,55 @@
 						</a>
 					<?php } ?>
 				</div>
-				<div class="col-md-8 header-search pad-left">
-					<?php
-						echo do_shortcode('[yith_woocommerce_ajax_search]');
-					?>
-				</div>
-				<div class="col-md-1 header-cart">
-					<?php
-						$cart_total = floatval( preg_replace( '#[^\d.]#', '', WC()->cart->get_cart_total() ) );
-					?>
-					<a class="btn btn-cart pull-right" href="<?php echo WC()->cart->get_cart_url(); ?>">
-						<i class="fa fa-shopping-cart"></i>
-						<span> Cart 
-							<span class="cart-item-count-head">
-								( <?php echo sprintf (_n( '%d', '%d', WC()->cart->cart_contents_count ), WC()->cart->cart_contents_count ); ?> )
-							</span>
-						</span>
-					</a>
+				<div class="col-md-9 header-search">
+					<!-- <div class="row">
+						<div class="col-md-12">
+							<?php
+								echo do_shortcode('[yith_woocommerce_ajax_search]');
+							?>
+						</div>
+					</div> -->
+					<nav id="primary-nav-wrap" class="site-navigation">
+						<div class="row">
+							<div class="site-navigation-inner col-sm-12">
+								<div class="navbar navbar-default">
+									<div class="navbar-header">
+										<!-- .navbar-toggle is used as the toggle for collapsed navbar content -->
+										<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+											<span class="sr-only"><?php _e('Toggle navigation','_tk') ?> </span>
+											<span class="icon-bar"></span>
+											<span class="icon-bar"></span>
+											<span class="icon-bar"></span>
+										</button>
+					
+									</div>
+
+									<!-- The WordPress Menu goes here -->
+									<?php include get_template_directory().'/templates/navbar.php'; ?>
+									<!-- 
+									<?php 
+										wp_nav_menu(
+											array(
+												'theme_location' 	=> 'primary',
+												'depth'             => 2,
+												'container'         => 'div',
+												'container_class'   => 'collapse navbar-collapse pad-left pad-right',
+												'menu_class' 		=> 'nav navbar-nav',
+												'fallback_cb' 		=> 'wp_bootstrap_navwalker::fallback',
+												'menu_id'			=> 'main-menu',
+												'walker' 			=> new wp_bootstrap_navwalker()
+											)
+										);
+									 ?>
+									-->
+
+								</div><!-- .navbar -->
+							</div>
+						</div>
+					</nav><!-- .site-navigation -->
 				</div>
 			</div>
 		</div>
 	</div><!-- .container -->
 </header><!-- #masthead -->
-<!-- <div id="vilyoo-login" class="modal fade">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-			</div>
-			<div class="modal-body">
-				<?php wp_login_form(); ?>
-			</div>
-		</div>
-	</div>
-</div> -->
-<nav id="primary-nav-wrap" class="site-navigation">
-<?php // substitute the class "container-fluid" below if you want a wider content area ?>
-	<div class="container">
-		<div class="row">
-			<div class="site-navigation-inner col-sm-12">
-				<div class="navbar navbar-default">
-					<div class="navbar-header">
-						<!-- .navbar-toggle is used as the toggle for collapsed navbar content -->
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-							<span class="sr-only"><?php _e('Toggle navigation','_tk') ?> </span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-	
-					</div>
-
-					<!-- The WordPress Menu goes here -->
-					<?php include get_template_directory().'/templates/navbar.php'; ?>
-					<!-- 
-					<?php 
-						wp_nav_menu(
-							array(
-								'theme_location' 	=> 'primary',
-								'depth'             => 2,
-								'container'         => 'div',
-								'container_class'   => 'collapse navbar-collapse pad-left pad-right',
-								'menu_class' 		=> 'nav navbar-nav',
-								'fallback_cb' 		=> 'wp_bootstrap_navwalker::fallback',
-								'menu_id'			=> 'main-menu',
-								'walker' 			=> new wp_bootstrap_navwalker()
-							)
-						);
-					 ?>
-					-->
-
-				</div><!-- .navbar -->
-			</div>
-		</div>
-	</div><!-- .container -->
-</nav><!-- .site-navigation -->
-
 <div class="main-content">
