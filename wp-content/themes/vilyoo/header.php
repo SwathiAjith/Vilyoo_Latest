@@ -76,7 +76,7 @@
 						</a>
 					<?php } else { ?>
 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-							<img src="<?php echo get_template_directory_uri() .'/includes/images/logo.png' ?>" alt="">
+							<img src="<?php echo get_template_directory_uri() .'/includes/images/vilyoo-logo.png' ?>" alt="">
 						</a>
 					<?php } ?>
 				</div>
