@@ -115,16 +115,18 @@ class Dokan_Template_Settings {
                 'flickr'    => filter_var( $social['flickr'], FILTER_VALIDATE_URL ),
                 'instagram' => filter_var( $social['instagram'], FILTER_VALIDATE_URL ),
             ),
-            'payment'           => array(),
-            'phone'             => sanitize_text_field( $_POST['setting_phone'] ),
-            'show_email'        => sanitize_text_field( $_POST['setting_show_email'] ),
-            'seller_vacation'   => sanitize_text_field( $_POST['setting_seller_vacation'] ),
-            'address'           => strip_tags( $_POST['setting_address'] ),
-            'location'          => sanitize_text_field( $_POST['location'] ),
-            'find_address'      => sanitize_text_field( $_POST['find_address'] ),
-            'banner'            => absint( $_POST['dokan_banner'] ),
-            'gravatar'          => absint( $_POST['dokan_gravatar'] ),
+            'payment'               => array(),
+            'phone'                 => sanitize_text_field( $_POST['setting_phone'] ),
+            'show_email'            => sanitize_text_field( $_POST['setting_show_email'] ),
+            'seller_vacation'       => sanitize_text_field( $_POST['setting_seller_vacation'] ),
+            'address'               => strip_tags( $_POST['setting_address'] ),
+            'location'              => sanitize_text_field( $_POST['location'] ),
+            'find_address'          => sanitize_text_field( $_POST['find_address'] ),
+            'banner'                => absint( $_POST['dokan_banner'] ),
+            'gravatar'              => absint( $_POST['dokan_gravatar'] ),
         );
+
+        $customized_products = sanitize_text_field( $_POST['customized_products'] );
 
         if ( isset( $_POST['settings']['bank'] ) ) {
             $bank = $_POST['settings']['bank'];
@@ -156,6 +158,7 @@ class Dokan_Template_Settings {
         $dokan_settings['profile_completion'] = $profile_completeness;
 
         update_user_meta( $store_id, 'dokan_profile_settings', $dokan_settings );
+        update_usermeta( $store_id, 'offer_product_customization', $customized_products );
 
         do_action( 'dokan_store_profile_saved', $store_id, $dokan_settings );
 
@@ -204,6 +207,9 @@ class Dokan_Template_Settings {
         $map_location    = isset( $profile_info['location'] ) ? esc_attr( $profile_info['location'] ) : '';
         $map_address     = isset( $profile_info['find_address'] ) ? esc_attr( $profile_info['find_address'] ) : '';
         $dokan_category  = isset( $profile_info['dokan_category'] ) ? $profile_info['dokan_category'] : '';
+
+        $customized_products = get_usermeta( $current_user->ID, 'offer_product_customization' );
+
 
 
         if ( is_wp_error( $validate ) ) {
@@ -398,6 +404,17 @@ class Dokan_Template_Settings {
                         </div><!-- /input-group -->
 
                         <div class="dokan-google-map" id="dokan-map" style="width:400px; height:300px;"></div>
+                    </div> <!-- col.md-4 -->
+                </div> <!-- .dokan-form-group -->
+
+                <div class="dokan-form-group">
+                    <label class="dokan-w3 dokan-control-label" for="customized_products"><?php _e( 'Do you offer Customized Products', 'dokan' ); ?></label>
+
+                    <div class="dokan-w4 dokan-text-left">
+                        <select class="form-control" name="customized_products" id="customized_products" required>
+                            <option value="true" <?php selected( $customized_products, 'true' ); ?>><?php _e( 'Yes, I offer product customization', 'dokan' ); ?></option>
+                            <option value="false" <?php selected( $customized_products, 'false' ); ?>><?php _e( 'No, I don\'t do product customization', 'dokan' ); ?></option>
+                        </select>
                     </div> <!-- col.md-4 -->
                 </div> <!-- .dokan-form-group -->
 

@@ -1471,7 +1471,10 @@ function dokan_on_create_seller( $user_id, $data ) {
         'banner'         => 0,
     );
 
+    $seller_product_customization = $_POST['customized_products'];
+
     update_user_meta( $user_id, 'dokan_profile_settings', $dokan_settings );
+    update_usermeta( $user_id, 'offer_product_customization', $seller_product_customization );
 
     Dokan_Email::init()->new_seller_registered_mail( $user_id );
 }

@@ -475,6 +475,14 @@ function dokan_seller_reg_form_fields() {
             <input type="text" class="input-text form-control" name="phone" id="shop-phone" value="<?php if ( ! empty( $_POST['phone'] ) ) echo esc_attr($_POST['phone']); ?>" required="required" />
         </p>
 
+        <p class="form-row form-group offer-customization">
+            <label for="customized_products"><?php _e( 'Do you offer Customized Products', 'dokan' ); ?><span class="required">*</span></label>
+            <select class="form-control" name="customized_products" id="customized-products" required>
+                <option value="true" <?php selected( $customized_products, 'true' ); ?>><?php _e( 'Yes, I offer product customization', 'dokan' ); ?></option>
+                <option value="false" <?php selected( $customized_products, 'false' ); ?>><?php _e( 'No, I don\'t do product customization', 'dokan' ); ?></option>
+            </select>
+        </p>
+
         <?php  do_action( 'dokan_seller_registration_field_after' ); ?>
 
     </div>

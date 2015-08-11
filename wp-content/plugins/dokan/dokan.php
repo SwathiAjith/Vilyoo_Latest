@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: MarketPlace 
-Plugin URI: http://hobbymela.com
+Plugin URI: http://vilyoo.com
 Description: An e-commerce marketplace plugin for WordPress. Built on WooCommerce
 Version: 2.1
 Author: Arjun

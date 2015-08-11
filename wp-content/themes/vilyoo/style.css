@@ -1039,3 +1039,37 @@ h3.widget-title {
 	padding-top: 15px;
 	padding-bottom: 15px;
 }
+
+/* Customize Product Page */
+.btn {
+	white-space: normal;
+}
+.btn-radio {
+	width: 100%;
+}
+.img-radio {
+	opacity: 0.5;
+	margin-bottom: 5px;
+	height: 100px;
+	width: 100%;
+}
+.customize-q {
+	margin-top: 0;
+}
+.required {
+	color: red;
+}
+.space-20 {
+    margin-top: 20px;
+}
+.selProduct {
+	border: 1px solid #8c2864;
+	background: #BF326B;
+}
+.main-prod-select, .sub-prod-select {
+	padding-top:15px;
+	padding-bottom: 15px;
+}
+.selProduct img {
+	opacity: 1;
+}

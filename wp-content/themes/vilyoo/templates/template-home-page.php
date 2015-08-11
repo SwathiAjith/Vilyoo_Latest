@@ -158,7 +158,7 @@ get_header(); ?>
 			</div>
 			<div id="home-latest-workshops">
 				<div class="vilyoo-section-header col-xs-12">
-					<h4>Latest Workshops</h4>
+					<h4>Latest Workshopss</h4>
 				</div>
 				<div class="white-bg col-md-12 shadow-it">
 					<?php echo do_shortcode( '[best_selling_products per_page="5" columns="5"]' ); ?>

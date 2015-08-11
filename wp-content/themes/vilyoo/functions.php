@@ -98,11 +98,17 @@ function _tk_scripts() {
 	// load Font Awesome css
 	wp_enqueue_style( '_tk-font-awesome', get_template_directory_uri() . '/includes/css/font-awesome.min.css', false, '4.1.0' );
 
+	// load bootstrap select css
+	wp_enqueue_style( 'bootstrapselectcss', get_template_directory_uri() . '/includes/css/bootstrap-select.min.css', false, '4.1.0' );	
+
 	// load _tk styles
 	wp_enqueue_style( '_tk-style', get_stylesheet_uri() );
 
 	// load bootstrap js
 	wp_enqueue_script('_tk-bootstrapjs', get_template_directory_uri().'/includes/resources/bootstrap/js/bootstrap.min.js', array('jquery') );
+
+	// load bootstrap select js library
+	wp_enqueue_script('bootstrapselect', get_template_directory_uri().'/includes/js/bootstrap-select.min.js', array('jquery') );
 
 	// load bootstrap wp js
 	wp_enqueue_script( '_tk-bootstrapwp', get_template_directory_uri() . '/includes/js/bootstrap-wp.js', array('jquery') );

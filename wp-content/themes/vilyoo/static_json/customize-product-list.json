@@ -1,0 +1,316 @@
+{
+	"products": [
+		{
+			"id": 1,
+			"name": "FASHION ACCESSORIES",
+			"image": "fashion-accessories.jpg",
+			"children": [
+				{
+					"id": "1",
+					"name": "BAGS",
+					"image": "fashion-accessories/handbags.jpg"
+				},
+				{
+					"id": "2",
+					"name": "BELTS",
+					"image": "fashion-accessories/belt.jpg"
+				},
+				{
+					"id": "3",
+					"name": "CLOTH ACCESSORIES",
+					"image": "fashion-accessories/cloth-accessories.jpg"
+				},
+				{
+					"id": "4",
+					"name": "FOOTWEAR",
+					"image": "fashion-accessories/shoes.jpg"
+				},
+				{
+					"id": "5",
+					"name": "HAIR ACCESSORIES",
+					"image": "fashion-accessories/hair.jpg"
+				},
+				{
+					"id": "6",
+					"name": "JEWELRY",
+					"image": "fashion-accessories/jewellery.jpg"
+				},
+				{
+					"id": "7",
+					"name": "JEWELRY BOXES",
+					"image": "fashion-accessories/jewelry-box.jpg"
+				},
+				{
+					"id": "8",
+					"name": "PURSES",
+					"image": "fashion-accessories/purse.jpg"
+				},
+				{
+					"id": "9",
+					"name": "MASKS",
+					"image": "fashion-accessories/mask.jpg"
+				},
+				{
+					"id": "10",
+					"name": "WATCH",
+					"image": "fashion-accessories/watch.jpg"
+				}
+			]
+	  	},
+	  	{
+			"id": 2,
+			"name": "HOME DECOR",
+			"image": "home-decor.jpg",
+			"children": [
+				{
+					"id": "1",
+					"name": "BASKETS",
+					"image": "home-decor/baskets.jpg"
+				},
+				{
+					"id": "2",
+					"name": "CANDLES",
+					"image": "home-decor/candles.jpg"
+				},
+				{
+					"id": "3",
+					"name": "CLOCK",
+					"image": "home-decor/clock.jpg"
+				},
+				{
+					"id": "4",
+					"name": "CUSHION",
+					"image": "home-decor/cushion.jpg"
+				},
+				{
+					"id": "5",
+					"name": "FLOWERS",
+					"image": "home-decor/flowers.jpg"
+				},
+				{
+					"id": "6",
+					"name": "FRAMES",
+					"image": "home-decor/frames.png"
+				},
+				{
+					"id": "7",
+					"name": "LAMPSHADES",
+					"image": "home-decor/lampshade.jpg"
+				},
+				{
+					"id": "8",
+					"name": "MINIATURES",
+					"image": "home-decor/miniature.jpg"
+				},
+				{
+					"id": "9",
+					"name": "MURALS",
+					"image": "home-decor/mural.jpg"
+				},
+				{
+					"id": "10",
+					"name": "NAME PLATES",
+					"image": "home-decor/vase.png"
+				},
+				{
+					"id": "11",
+					"name": "PAINTINGS",
+					"image": "home-decor/painting.jpg"
+				},
+				{
+					"id": "12",
+					"name": "SCULPTURES",
+					"image": "home-decor/sculpture.jpg"
+				},
+				{
+					"id": "13",
+					"name": "VASE",
+					"image": "home-decor/vase.png"
+				},
+				{
+					"id": "14",
+					"name": "VOTIVES",
+					"image": "home-decor/votive.jpg"
+				}
+			]
+	  	},
+	  	{
+			"id": 3,
+			"name": "TABLE WEAR",
+			"image": "table-wear.jpg",
+			"children": [
+				{
+					"id": "1",
+					"name": "BOWLS",
+					"image": "table-wear/bowls.jpg"
+				},
+				{
+					"id": "2",
+					"name": "COASTERS",
+					"image": "table-wear/coasters.jpg"
+				},
+				{
+					"id": "3",
+					"name": "EMBROIDERED TABLE LINENS",
+					"image": "table-wear/baskets.jpg"
+				},
+				{
+					"id": "4",
+					"name": "GLASS",
+					"image": "table-wear/glassess.jpg"
+				},
+				{
+					"id": "5",
+					"name": "JAR / JUG",
+					"image": "table-wear/jug.jpg"
+				},
+				{
+					"id": "6",
+					"name": "MUGS / CUPS",
+					"image": "table-wear/mugs.jpg"
+				},
+				{
+					"id": "7",
+					"name": "PLATES / PLATTER",
+					"image": "table-wear/plate.jpg"
+				},
+				{
+					"id": "8",
+					"name": "SERVING PLATTERS",
+					"image": "table-wear/serving-platter.jpg"
+				}
+			]
+	  	},
+	  	{
+			"id": 4,
+			"name": "GARDEN ACCESSORIES",
+			"image": "garden-accessories.jpg",
+			"children": [
+				{
+					"id": "1",
+					"name": "BIRD HOUSES",
+					"image": "garden-accessories/bird-house.jpg"
+				},
+				{
+					"id": "2",
+					"name": "PLANT HANGING",
+					"image": "garden-accessories/hanging-plant-holder.jpg"
+				},
+				{
+					"id": "3",
+					"name": "PLANTERS / POTS",
+					"image": "garden-accessories/planters.jpg"
+				},
+				{
+					"id": "4",
+					"name": "GARDEN FIGURINES",
+					"image": "garden-accessories/garden-figurine.jpg"
+				},
+				{
+					"id": "5",
+					"name": "BIRD HOUSES",
+					"image": "garden-accessories/bird-house.jpg"
+				}
+			]
+	  	},
+	  	{
+			"id": 5,
+			"name": "GIFT/PERSONAL",
+			"image": "personal-gifts.jpg",
+			"children": [
+				{
+					"id": "1",
+					"name": "ALBUMS",
+					"image": "gifts/baskets.jpg"
+				},
+				{
+					"id": "2",
+					"name": "DOLLS",
+					"image": "gifts/doll.jpg"
+				},
+				{
+					"id": "3",
+					"name": "GREETING CARDS",
+					"image": "gifts/greeting-card.png"
+				},
+				{
+					"id": "4",
+					"name": "FLOWERS",
+					"image": "gifts/flower.jpg"
+				},
+				{
+					"id": "5",
+					"name": "FRAMES",
+					"image": "gifts/frame.jpg"
+				},
+				{
+					"id": "6",
+					"name": "KEY CHAIN",
+					"image": "gifts/keychain.jpg"
+				},
+				{
+					"id": "7",
+					"name": "MAGNETS",
+					"image": "gifts/magnet.jpg"
+				},
+				{
+					"id": "8",
+					"name": "SCRAPBOOKS",
+					"image": "gifts/scrapbook.jpg"
+				},
+				{
+					"id": "9",
+					"name": "SOAP",
+					"image": "gifts/soaps.jpg"
+				},
+				{
+					"id": "10",
+					"name": "TRAY",
+					"image": "gifts/tray.jpg"
+				}
+			]
+	  	}
+	],
+	"materials": [
+		{
+			"id": 1,
+			"name": "Material 1"
+		},
+		{
+			"id": 2,
+			"name": "Material 2"
+		},
+		{
+			"id": 3,
+			"name": "Material 3"
+		},
+		{
+			"id": 4,
+			"name": "Material 4"
+		},
+		{
+			"id": 5,
+			"name": "Material 5"
+		},
+		{
+			"id": 6,
+			"name": "Material 6"
+		},
+		{
+			"id": 7,
+			"name": "Material 7"
+		},
+		{
+			"id": 8,
+			"name": "Material 8"
+		},
+		{
+			"id": 9,
+			"name": "Material 9"
+		},
+		{
+			"id": 10,
+			"name": "Material 10"
+		}
+	]
+}

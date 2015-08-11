@@ -69,15 +69,15 @@
 				<li id="menu-item-220" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-220"><a title="Pottery Products" href="<?php echo site_url(); ?>/category/clay-craft/pottery-products/">Pottery Products</a></li>
 			</ul>
 		</li>
-		<li id="menu-item-221" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children menu-item-221 mega-dropdown dropdown"><a title="Glass" href="<?php echo site_url(); ?>/category/glass-craft/" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">Customize <span class="fa fa-angle-down"></span></a>
-			<ul role="menu" class=" dropdown-menu mega-dropdown-menu row">
+		<li id="menu-item-221" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children menu-item-221 mega-dropdown dropdown"><a title="Glass" href="<?php echo site_url(); ?>/customize-product/" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">Customize</span></a>
+			<!-- <ul role="menu" class=" dropdown-menu mega-dropdown-menu row">
 				<li id="menu-item-222" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-222"><a title="Blown Glass" href="<?php echo site_url(); ?>/category/glass-craft/blown-glass/">Blown Glass</a></li>
 				<li id="menu-item-223" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-223"><a title="Etched Glass" href="<?php echo site_url(); ?>/category/glass-craft/etched-glass/">Etched Glass</a></li>
 				<li id="menu-item-224" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-224"><a title="Fused Glass" href="<?php echo site_url(); ?>/category/glass-craft/fused-glass/">Fused Glass</a></li>
 				<li id="menu-item-225" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-225"><a title="Glass Mosaics" href="<?php echo site_url(); ?>/category/glass-craft/glass-mosaics/">Glass Mosaics</a></li>
 				<li id="menu-item-226" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-226"><a title="Painted Glass" href="<?php echo site_url(); ?>/category/glass-craft/painted-glass/">Painted Glass</a></li>
 				<li id="menu-item-227" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-227"><a title="Stained Glass Items" href="<?php echo site_url(); ?>/category/glass-craft/stained-glass-items/">Stained Glass Items</a></li>
-			</ul>
+			</ul> -->
 		</li>
 		<li id="menu-item-173" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children menu-item-173 mega-dropdown dropdown"><a title="Beads" href="<?php echo site_url(); ?>/category/beads-craft/" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">Workshops <span class="fa fa-angle-down"></span></a>
 			<ul role="menu" class=" dropdown-menu mega-dropdown-menu row">
