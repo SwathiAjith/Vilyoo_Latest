@@ -141,10 +141,6 @@ get_header(); ?>
 										        'meta_value'	=> 'true'
 										    );
 										    $sellers = get_users( $args );
-										    // $sellers_count = dokan_get_seller_count();
-    										// $sellers = dokan_get_sellers( $sellers_count );
-										    //$sellers = get_users( $args );
-										    // var_dump($sellers);
 										    foreach ( $sellers as $key => $seller ) {
 										    
 										    	$store_info = dokan_get_store_info( $seller->ID );
@@ -162,7 +158,7 @@ get_header(); ?>
 									<h3 class="customize-q">Delivery Location<span class="required">*</span></h3>
 								</div>
 								<div class="col-md-8">
-									<select name="deliveryLocation" class="selectpicker" data-live-search="true">
+									<select name="deliveryLocation" class="selectpicker" data-live-search="true" required>
 										<?php
 											global $woocommerce;
 											$states = indian_woocommerce_states();

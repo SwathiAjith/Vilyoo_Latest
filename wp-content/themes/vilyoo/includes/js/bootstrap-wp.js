@@ -133,7 +133,7 @@ jQuery( document ).ready( function( $ ) {
         e.preventDefault();
         var form = $( '#customize-form' ).serialize();
         console.log( form );
-        alert( $('#refImg').val() );
+        // alert( $('#refImg').val() );
     });
 
 });
