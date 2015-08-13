@@ -242,7 +242,7 @@ function vilyoo_request_product_customization_init() {
 
     if( $posted['material'] ) {
         $materials  = $posted['material'];
-        $content_to_send .= "<b>Materials to be used : <br>"
+        $content_to_send .= "<b>Materials to be used : <br>";
         foreach ( $materials as $key => $material ) {
             $content_to_send .= $material .", ";
         }
