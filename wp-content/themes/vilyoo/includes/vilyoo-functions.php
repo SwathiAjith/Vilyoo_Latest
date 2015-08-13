@@ -235,7 +235,7 @@ function vilyoo_request_product_customization_init() {
 
     $mainProd   = $posted['prodMainCat'];
     $subProd    = $posted['prodSubCat'];
-    $email      = $posted['email'];
+    $email      = $posted['userEmail'];
 
     $content_to_send  = "<b><center>New Product Customization Request</center></b><br>";
     $content_to_send .= "<b>Email : </b>". $email ."<br>";
