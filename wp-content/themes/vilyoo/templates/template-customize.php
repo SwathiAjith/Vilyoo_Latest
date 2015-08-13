@@ -64,7 +64,7 @@ get_header(); ?>
 							
 							</div>
 						</div>
-						<div class="prod-bottom-part col-md-12" style="display:none;">
+						<div class="prod-bottom-part-2 col-md-12" style="display:none;">
 							<div class="row mt-15">
 							<h3 class="cus-hMain text-center">Give us more details!</h3>
 							</div>

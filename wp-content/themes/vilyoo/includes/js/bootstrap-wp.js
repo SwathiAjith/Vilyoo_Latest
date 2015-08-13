@@ -118,6 +118,7 @@ jQuery( document ).ready( function( $ ) {
 	});
     $( '#prod-sub-cat-select .btn-radio' ).click(function(e) {
         $( '#customize-submit' ).removeClass( 'disabled' );
+        $( '.prod-bottom-part-2' ).slideDown();
         $('#prod-sub-cat-select .btn-radio').not(this).removeClass('active')
             .siblings('input').prop('checked',false)
             .siblings('.img-radio').css('opacity','0.5')
