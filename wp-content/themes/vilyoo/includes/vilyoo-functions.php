@@ -279,7 +279,7 @@ function vilyoo_request_product_customization_init() {
         }
     }
     foreach ( $toSend as $key => $recepient ) {
-        if( wp_mail( $toSend, '[Vilyoo.com] New Customized Product Request', $content_to_send ) ){
+        if( wp_mail( $recepient, '[Vilyoo.com] New Customized Product Request', $content_to_send ) ) {
    
             $message = "Message successfully sent!";
             wp_send_json_success( $message );
