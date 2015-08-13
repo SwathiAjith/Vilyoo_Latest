@@ -225,6 +225,71 @@ function vilyoo_contact_seller_init() {
     die();
 }
 
+/* Submit Product Customization request */
+add_action( 'wp_ajax_vilyoo_request_product_customization', 'vilyoo_request_product_customization_init' );
+add_action( 'wp_ajax_nopriv_vilyoo_request_product_customization', 'vilyoo_request_product_customization_init' );
+function vilyoo_request_product_customization_init() {
+
+    parse_str( $_POST['data'], $posted );
+    // die( print_r($posted));
+
+    $mainProd   = $posted['prodMainCat'];
+    $subProd    = $posted['prodSubCat'];
+    $email      = $posted['email'];
+
+    $content_to_send  = "<b><center>New Product Customization Request</center></b><br>";
+    $content_to_send .= "<b>Email : </b>". $email ."<br>";
+
+    if( $posted['material'] ) {
+        $materials  = $posted['material'];
+        foreach ( $materials as $key => $material ) {
+            $content_to_send .= "<b>Materials to be used : </b>". $material .", ";
+        }
+    }
+    $length     = $posted['length'];
+    $width      = $posted['width'];
+    $height     = $posted['height'];
+    $content_to_send .= "<br><b>Dimensions : </b> Length x Width x Height : ". $length ." x " . $width ." x " . $height . "<br>";
+
+    $budget     = $posted['budget'];
+
+    $content_to_send .= "<b>Available Budget : </b>". $budget ."<br>";
+
+    if( $posted['image'] ) {
+        $images      = $posted['image']; // Multiple values
+        foreach ( $images as $key => $image ) {
+            $content_to_send .= "<b>Image for Reference : </b>". $image ."<br>";
+        }
+    }
+    $desc       = $posted['reqDesciption'];
+
+    $content_to_send .= "<b>Customization Description : </b>". $desc ."<br>";
+
+    $delivery   = $posted['deliveryLocation'];
+
+    $content_to_send .= "<b>Delivery Location : </b>". $delivery ."<br>";
+
+    if( $posted['prefShop'] ) {
+        $prefShop   = $posted['prefShop']; // Multiple values
+        $toSend = array( get_option( 'admin_email' ) );
+        foreach ( $prefShop as $key => $shopId ) {
+            $sellerInfo = get_user_by( 'id', (int) $shopId );
+            array_push( $toSend, $sellerInfo->user_email );
+        }
+    }
+    
+    if( wp_mail( $toSend, '[Vilyoo.com] New Customized Product Request', $content_to_send ) ){
+   
+        $message = "Message successfully sent!";
+        wp_send_json_success( $message );
+        die();
+    } else {
+        $message = "Error sending message. Please try again!";
+        wp_send_json_error( $message );
+        die();
+    }
+}
+
 /**
  * Code goes in functions.php or a custom plugin.
  */

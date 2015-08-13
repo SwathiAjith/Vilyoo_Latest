@@ -26,7 +26,7 @@ get_header(); ?>
 										<div class="main-prod-select col-xs-2 <?php if ( $product->id == 1 ): echo 'col-md-offset-1'; endif; ?>">
 											<img src="<?php echo get_template_directory_uri() .'/includes/images/customized-products/' .$product->image; ?>" class="img-radio">
 											<button id="<?php echo $product->id; ?>" type="button" class="btn btn-success btn-radio"><?php echo $product->name; ?></button>
-											<input name="prodMainCat[]" type="checkbox" id="mainCat-<?php echo $product->id; ?>" value="<?php echo $product->name; ?>" class="hidden">
+											<input name="prodMainCat" type="checkbox" id="mainCat-<?php echo $product->id; ?>" value="<?php echo $product->name; ?>" class="hidden">
 										</div>
 										<?php
 									}
@@ -50,7 +50,7 @@ get_header(); ?>
 												<div class="sub-prod-select space-20 col-xs-2">
 													<img src="<?php echo get_template_directory_uri() .'/includes/images/customized-products/' .$prod_child->image; ?>" class="img-radio">
 													<button id="<?php echo $prod_child->id; ?>" type="button" class="btn btn-success btn-radio"><?php echo $prod_child->name; ?></button>
-													<input type="checkbox" name="prodSubCat[]" id="subCat-<?php echo $prod_child->id; ?>" value="<?php echo $prod_child->name; ?>" class="hidden">
+													<input type="checkbox" name="prodSubCat" id="subCat-<?php echo $prod_child->id; ?>" value="<?php echo $prod_child->name; ?>" class="hidden">
 												</div>
 												<?php
 												if( ( $prod_child->id % 6 == 0 ) ):
@@ -70,7 +70,7 @@ get_header(); ?>
 									<h3 class="customize-q">Material Preference </h3>
 								</div>
 								<div class="col-md-8">
-									<select name="material" class="selectpicker" data-live-search="true">
+									<select name="material[]" multiple class="selectpicker" data-live-search="true">
 										<?php
 											$materials = $products_list->materials;
 											// var_dump( $products );
@@ -117,7 +117,10 @@ get_header(); ?>
 									<h3 class="customize-q">Reference Image<br><small>If any</small></h3>
 								</div>
 								<div class="col-md-8">
-									<input type="file" id="refImg" multiple name="refImg" class="btn btn-default" value="" placeholder="Browse">
+									<a href="#fileUploadModal" data-toggle="modal" class="btn btn-success">
+										Add files
+									</a>
+									<div id="imgContentsCustom"></div>					
 								</div>
 							</div>
 							<div class="row mt-15">
@@ -133,7 +136,7 @@ get_header(); ?>
 									<h3 class="customize-q">Preferred Shop</h3>
 								</div>
 								<div class="col-md-8">
-									<select name="prefShop" multiple class="selectpicker" data-live-search="true">
+									<select name="prefShop[]" multiple class="selectpicker" data-live-search="true">
 										<?php
 											$args = array(
 										        'role'         	=> 'seller',
@@ -193,5 +196,20 @@ get_header(); ?>
 					</form>
 					<div class="clearfix"></div>
 				</div>
-
+				<div id="fileUploadModal" class="modal fade">
+					<div class="modal-dialog">
+					    <div class="modal-content">
+					        <div class="modal-header">
+					            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					            <h4 class="modal-title">Confirmation</h4>
+					        </div>
+					        <div id="uploadedImgWrapper" class="modal-body">
+					            <?php do_shortcode( '[jquery_file_upload]' ); ?>
+					        </div>
+					        <div class="modal-footer">
+					            <button id="confirmFilesUploaded" type="button" class="btn btn-primary">Confirm Files</button>
+					        </div>
+					    </div>
+					</div>
+				</div>
 <?php get_footer(); ?>

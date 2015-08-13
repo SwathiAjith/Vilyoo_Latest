@@ -105,22 +105,26 @@ jQuery( document ).ready( function( $ ) {
 	//Product Customize
 
 	$( '#customize-mainproduct-select .btn-radio' ).click(function(e) {
-		$('#customize-mainproduct-select .btn-radio').not(this).removeClass('active').parent('.col-xs-2').removeClass('selProduct')
+		$('#customize-mainproduct-select .btn-radio').not(this).removeClass('active')
 			.siblings('input').prop('checked',false)
-			.siblings('.img-radio').css('opacity','0.5');
-		$(this).addClass('active').parent('.col-xs-2').addClass('selProduct')
+			.siblings('.img-radio').css('opacity','0.5')
+            .parent('.col-xs-2').removeClass('selProduct');
+		$(this).addClass('active')
 			.siblings('input').prop('checked',true)
-			.siblings('.img-radio').css('opacity','1');
+			.siblings('.img-radio').css('opacity','1')
+            .parent('.col-xs-2').addClass('selProduct');
 
         showSubCat( this.id );
 	});
     $( '#prod-sub-cat-select .btn-radio' ).click(function(e) {
-        $('#prod-sub-cat-select .btn-radio').not(this).removeClass('active').parent('.col-xs-2').removeClass('selProduct')
+        $('#prod-sub-cat-select .btn-radio').not(this).removeClass('active')
             .siblings('input').prop('checked',false)
-            .siblings('.img-radio').css('opacity','0.5');
-        $(this).addClass('active').parent('.col-xs-2').addClass('selProduct')
+            .siblings('.img-radio').css('opacity','0.5')
+            .parent('.col-xs-2').removeClass('selProduct');
+        $(this).addClass('active')
             .siblings('input').prop('checked',true)
-            .siblings('.img-radio').css('opacity','1');
+            .siblings('.img-radio').css('opacity','1')
+            .parent('.col-xs-2').addClass('selProduct');
     });
     function showSubCat( id ) {
         var subCat = "#prod-sub-cat-select #subCat" + id;
@@ -129,11 +133,46 @@ jQuery( document ).ready( function( $ ) {
         $( subCat ).show();
         $( '.subCat-sel' ).not( subCat ).hide();
     }
-    $( '#customize-form' ).submit( function(e) {
+
+    $( '#confirmFilesUploaded' ).click( function(e) {
         e.preventDefault();
-        var form = $( '#customize-form' ).serialize();
-        console.log( form );
-        // alert( $('#refImg').val() );
+        imgArray = [];
+        imgAdd = '';
+        $('#uploadedImgWrapper tbody.files').children().each(function(){
+            // Get all `img` elements that are in this cell
+            var img = $(this).find("span.preview a");
+
+            var imgHref = img.attr('href');
+
+            imgAdd += '<img src="' + imgHref + '" width="100" style="margin-right:5px;">'
+            
+            imgArray.push( imgHref );
+
+        });
+        $("#fileUploadModal").modal('hide');
+        $( '#imgContentsCustom' ).html( imgAdd );
     });
 
+    $( '#customize-form' ).submit( function(e) {
+        e.preventDefault();
+        var cusFormData = $( '#customize-form' ).serialize();
+        if( imgArray ){
+            imgArray.forEach( function( img ) {
+                cusFormData += "&image[]=" + encodeURIComponent( img );
+            });
+        }
+        
+        console.log( cusFormData );
+        // alert( $('#refImg').val() );
+        var submitCustomize = $.ajax({
+            cache: false,
+            timeout: 8000,
+            method: "POST",
+            url: contact_seller_array.admin_ajax,
+            data: ({ 
+                action:'vilyoo_request_product_customization',
+                data: cusFormData
+            })
+        });
+    });
 });
