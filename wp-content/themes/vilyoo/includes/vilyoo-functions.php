@@ -277,17 +277,17 @@ function vilyoo_request_product_customization_init() {
             $sellerInfo = get_user_by( 'id', (int) $shopId );
             array_push( $toSend, $sellerInfo->user_email );
         }
-    }
-    foreach ( $toSend as $key => $recepient ) {
-        if( wp_mail( $recepient, '[Vilyoo.com] New Customized Product Request', $content_to_send ) ) {
-   
-            $message = "Message successfully sent!";
-            wp_send_json_success( $message );
-            die();
-        } else {
-            $message = "Error sending message. Please try again!";
-            wp_send_json_error( $message );
-            die();
+        foreach( $toSend as $key => $recepient ) {
+            if( wp_mail( $recepient, '[Vilyoo.com] New Customized Product Request', $content_to_send ) ) {
+       
+                $message = "Message successfully sent!";
+                wp_send_json_success( $message );
+                die();
+            } else {
+                $message = "Error sending message. Please try again!";
+                wp_send_json_error( $message );
+                die();
+            }
         }
     }
 }
