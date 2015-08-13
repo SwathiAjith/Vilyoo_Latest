@@ -242,8 +242,9 @@ function vilyoo_request_product_customization_init() {
 
     if( $posted['material'] ) {
         $materials  = $posted['material'];
+        $content_to_send .= "<b>Materials to be used : <br>"
         foreach ( $materials as $key => $material ) {
-            $content_to_send .= "<b>Materials to be used : </b>". $material .", ";
+            $content_to_send .= $material .", ";
         }
     }
     $length     = $posted['length'];
@@ -277,16 +278,17 @@ function vilyoo_request_product_customization_init() {
             array_push( $toSend, $sellerInfo->user_email );
         }
     }
-    
-    if( wp_mail( $toSend, '[Vilyoo.com] New Customized Product Request', $content_to_send ) ){
+    foreach ( $toSend as $key => $recepient ) {
+        if( wp_mail( $toSend, '[Vilyoo.com] New Customized Product Request', $content_to_send ) ){
    
-        $message = "Message successfully sent!";
-        wp_send_json_success( $message );
-        die();
-    } else {
-        $message = "Error sending message. Please try again!";
-        wp_send_json_error( $message );
-        die();
+            $message = "Message successfully sent!";
+            wp_send_json_success( $message );
+            die();
+        } else {
+            $message = "Error sending message. Please try again!";
+            wp_send_json_error( $message );
+            die();
+        }
     }
 }
 
