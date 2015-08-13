@@ -12,8 +12,8 @@ get_header(); ?>
 				<div class="shadow-it white-bg">
 					<form id="customize-form" class="form-horizontal" role="form" enctype="multipart/form-data">
 						<div class="col-md-12">
-							<h3 class="text-center">What Product do you want to customize?<span class="required">*</span></h3>
-							<div id="customize-mainproduct-select" class="col-md-12 text-center">
+							<h3 class="cus-hMain text-center">What Product do you want to customize?<span class="required">*</span></h3>
+							<div id="customize-mainproduct-select" class="col-md-12 text-center mt-15">
 								<?php
 									$file = "customize-product-list.json";
 									$products_file = get_template_directory_uri().'/static_json/'.$file;
@@ -25,7 +25,7 @@ get_header(); ?>
 										?>
 										<div class="main-prod-select col-xs-2 <?php if ( $product->id == 1 ): echo 'col-md-offset-1'; endif; ?>">
 											<img src="<?php echo get_template_directory_uri() .'/includes/images/customized-products/' .$product->image; ?>" class="img-radio">
-											<button id="<?php echo $product->id; ?>" type="button" class="btn btn-success btn-radio"><?php echo $product->name; ?></button>
+											<button id="<?php echo $product->id; ?>" type="button" class="btn btn-default btn-radio"><?php echo $product->name; ?></button>
 											<input name="prodMainCat" type="checkbox" id="mainCat-<?php echo $product->id; ?>" value="<?php echo $product->name; ?>" class="hidden">
 										</div>
 										<?php
@@ -36,7 +36,7 @@ get_header(); ?>
 						</div>
 						<div class="col-md-12">
 							<div class="prod-bottom-part" id="prod-sub-cat-select" style="display:none;">
-								<h3 class="text-center">Select Sub-category</h3>
+								<h3 class="cus-hMain text-center">Select Sub-category</h3>
 								<div class="col-md-12">
 									<?php
 										$products = $products_list->products;
@@ -49,7 +49,7 @@ get_header(); ?>
 												?>
 												<div class="sub-prod-select space-20 col-xs-2">
 													<img src="<?php echo get_template_directory_uri() .'/includes/images/customized-products/' .$prod_child->image; ?>" class="img-radio">
-													<button id="<?php echo $prod_child->id; ?>" type="button" class="btn btn-success btn-radio"><?php echo $prod_child->name; ?></button>
+													<button id="<?php echo $prod_child->id; ?>" type="button" class="btn btn-default btn-radio"><?php echo $prod_child->name; ?></button>
 													<input type="checkbox" name="prodSubCat" id="subCat-<?php echo $prod_child->id; ?>" value="<?php echo $prod_child->name; ?>" class="hidden">
 												</div>
 												<?php
@@ -65,6 +65,9 @@ get_header(); ?>
 							</div>
 						</div>
 						<div class="prod-bottom-part col-md-12" style="display:none;">
+							<div class="row mt-15">
+							<h3 class="cus-hMain text-center">Give us more details!</h3>
+							</div>
 							<div class="row mt-15">
 								<div class="col-md-4">
 									<h3 class="customize-q">Material Preference </h3>
@@ -192,7 +195,14 @@ get_header(); ?>
 								</div>
 							</div>
 						</div>
-						<input id="customize-submit" type="submit" value="Submit" class="btn btn-success disabled ">
+						<div class="row mb-15">
+							<div class="col-xs-12 mt-15 text-center">
+								<div class="col-md-12">
+									<div id="cusFormSubmitResponse"></div>
+									<input id="customize-submit" type="submit" value="Submit" class="btn btn-success disabled ">
+								</div>
+							</div>
+						</div>
 					</form>
 					<div class="clearfix"></div>
 				</div>

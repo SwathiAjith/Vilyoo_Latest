@@ -2,270 +2,270 @@
 	"products": [
 		{
 			"id": 1,
-			"name": "FASHION ACCESSORIES",
+			"name": "Fashion Accessories",
 			"image": "fashion-accessories.jpg",
 			"children": [
 				{
 					"id": "1",
-					"name": "BAGS",
+					"name": "Bags",
 					"image": "fashion-accessories/handbags.jpg"
 				},
 				{
 					"id": "2",
-					"name": "BELTS",
+					"name": "Belts",
 					"image": "fashion-accessories/belt.jpg"
 				},
 				{
 					"id": "3",
-					"name": "CLOTH ACCESSORIES",
+					"name": "Cloth Accessories",
 					"image": "fashion-accessories/cloth-accessories.jpg"
 				},
 				{
 					"id": "4",
-					"name": "FOOTWEAR",
+					"name": "Footwear",
 					"image": "fashion-accessories/shoes.jpg"
 				},
 				{
 					"id": "5",
-					"name": "HAIR ACCESSORIES",
+					"name": "Hair Accessories",
 					"image": "fashion-accessories/hair.jpg"
 				},
 				{
 					"id": "6",
-					"name": "JEWELRY",
+					"name": "Jewelry",
 					"image": "fashion-accessories/jewellery.jpg"
 				},
 				{
 					"id": "7",
-					"name": "JEWELRY BOXES",
+					"name": "Jewelry Boxes",
 					"image": "fashion-accessories/jewelry-box.jpg"
 				},
 				{
 					"id": "8",
-					"name": "PURSES",
+					"name": "Purses",
 					"image": "fashion-accessories/purse.jpg"
 				},
 				{
 					"id": "9",
-					"name": "MASKS",
+					"name": "Masks",
 					"image": "fashion-accessories/mask.jpg"
 				},
 				{
 					"id": "10",
-					"name": "WATCH",
+					"name": "Watch",
 					"image": "fashion-accessories/watch.jpg"
 				}
 			]
 	  	},
 	  	{
 			"id": 2,
-			"name": "HOME DECOR",
+			"name": "Home Decor",
 			"image": "home-decor.jpg",
 			"children": [
 				{
 					"id": "1",
-					"name": "BASKETS",
+					"name": "Baskets",
 					"image": "home-decor/baskets.jpg"
 				},
 				{
 					"id": "2",
-					"name": "CANDLES",
+					"name": "Candles",
 					"image": "home-decor/candles.jpg"
 				},
 				{
 					"id": "3",
-					"name": "CLOCK",
+					"name": "Clock",
 					"image": "home-decor/clock.jpg"
 				},
 				{
 					"id": "4",
-					"name": "CUSHION",
+					"name": "Cushion",
 					"image": "home-decor/cushion.jpg"
 				},
 				{
 					"id": "5",
-					"name": "FLOWERS",
+					"name": "Flowers",
 					"image": "home-decor/flowers.jpg"
 				},
 				{
 					"id": "6",
-					"name": "FRAMES",
+					"name": "Frames",
 					"image": "home-decor/frames.png"
 				},
 				{
 					"id": "7",
-					"name": "LAMPSHADES",
+					"name": "Lampshades",
 					"image": "home-decor/lampshade.jpg"
 				},
 				{
 					"id": "8",
-					"name": "MINIATURES",
+					"name": "Miniatures",
 					"image": "home-decor/miniature.jpg"
 				},
 				{
 					"id": "9",
-					"name": "MURALS",
+					"name": "Murals",
 					"image": "home-decor/mural.jpg"
 				},
 				{
 					"id": "10",
-					"name": "NAME PLATES",
+					"name": "Name Plates",
 					"image": "home-decor/vase.png"
 				},
 				{
 					"id": "11",
-					"name": "PAINTINGS",
+					"name": "Paintings",
 					"image": "home-decor/painting.jpg"
 				},
 				{
 					"id": "12",
-					"name": "SCULPTURES",
+					"name": "Sculptures",
 					"image": "home-decor/sculpture.jpg"
 				},
 				{
 					"id": "13",
-					"name": "VASE",
+					"name": "Vase",
 					"image": "home-decor/vase.png"
 				},
 				{
 					"id": "14",
-					"name": "VOTIVES",
+					"name": "Votives",
 					"image": "home-decor/votive.jpg"
 				}
 			]
 	  	},
 	  	{
 			"id": 3,
-			"name": "TABLE WEAR",
+			"name": "Table Wear",
 			"image": "table-wear.jpg",
 			"children": [
 				{
 					"id": "1",
-					"name": "BOWLS",
+					"name": "Bowls",
 					"image": "table-wear/bowls.jpg"
 				},
 				{
 					"id": "2",
-					"name": "COASTERS",
+					"name": "Coasters",
 					"image": "table-wear/coasters.jpg"
 				},
 				{
 					"id": "3",
-					"name": "EMBROIDERED TABLE LINENS",
+					"name": "Embroidered Table Linens",
 					"image": "table-wear/baskets.jpg"
 				},
 				{
 					"id": "4",
-					"name": "GLASS",
+					"name": "Glass",
 					"image": "table-wear/glassess.jpg"
 				},
 				{
 					"id": "5",
-					"name": "JAR / JUG",
+					"name": "Jar / Jug",
 					"image": "table-wear/jug.jpg"
 				},
 				{
 					"id": "6",
-					"name": "MUGS / CUPS",
+					"name": "Mugs / Cups",
 					"image": "table-wear/mugs.jpg"
 				},
 				{
 					"id": "7",
-					"name": "PLATES / PLATTER",
+					"name": "Plates / Platter",
 					"image": "table-wear/plate.jpg"
 				},
 				{
 					"id": "8",
-					"name": "SERVING PLATTERS",
+					"name": "Serving Platters",
 					"image": "table-wear/serving-platter.jpg"
 				}
 			]
 	  	},
 	  	{
 			"id": 4,
-			"name": "GARDEN ACCESSORIES",
+			"name": "Garden Accessories",
 			"image": "garden-accessories.jpg",
 			"children": [
 				{
 					"id": "1",
-					"name": "BIRD HOUSES",
+					"name": "Bird Houses",
 					"image": "garden-accessories/bird-house.jpg"
 				},
 				{
 					"id": "2",
-					"name": "PLANT HANGING",
+					"name": "Plant Hanging",
 					"image": "garden-accessories/hanging-plant-holder.jpg"
 				},
 				{
 					"id": "3",
-					"name": "PLANTERS / POTS",
+					"name": "Planters / Pots",
 					"image": "garden-accessories/planters.jpg"
 				},
 				{
 					"id": "4",
-					"name": "GARDEN FIGURINES",
+					"name": "Garden Figurines",
 					"image": "garden-accessories/garden-figurine.jpg"
 				},
 				{
 					"id": "5",
-					"name": "BIRD HOUSES",
+					"name": "Bird Houses",
 					"image": "garden-accessories/bird-house.jpg"
 				}
 			]
 	  	},
 	  	{
 			"id": 5,
-			"name": "GIFT/PERSONAL",
+			"name": "Gift / Personal",
 			"image": "personal-gifts.jpg",
 			"children": [
 				{
 					"id": "1",
-					"name": "ALBUMS",
+					"name": "Albums",
 					"image": "gifts/baskets.jpg"
 				},
 				{
 					"id": "2",
-					"name": "DOLLS",
+					"name": "Dolls",
 					"image": "gifts/doll.jpg"
 				},
 				{
 					"id": "3",
-					"name": "GREETING CARDS",
+					"name": "Greeting Cards",
 					"image": "gifts/greeting-card.png"
 				},
 				{
 					"id": "4",
-					"name": "FLOWERS",
+					"name": "Flowers",
 					"image": "gifts/flower.jpg"
 				},
 				{
 					"id": "5",
-					"name": "FRAMES",
+					"name": "Frames",
 					"image": "gifts/frame.jpg"
 				},
 				{
 					"id": "6",
-					"name": "KEY CHAIN",
+					"name": "Key Chain",
 					"image": "gifts/keychain.jpg"
 				},
 				{
 					"id": "7",
-					"name": "MAGNETS",
+					"name": "Magnets",
 					"image": "gifts/magnet.jpg"
 				},
 				{
 					"id": "8",
-					"name": "SCRAPBOOKS",
+					"name": "Scrapbooks",
 					"image": "gifts/scrapbook.jpg"
 				},
 				{
 					"id": "9",
-					"name": "SOAP",
+					"name": "Soap",
 					"image": "gifts/soaps.jpg"
 				},
 				{
 					"id": "10",
-					"name": "TRAY",
+					"name": "Tray",
 					"image": "gifts/tray.jpg"
 				}
 			]

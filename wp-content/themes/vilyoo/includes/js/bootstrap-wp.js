@@ -117,6 +117,7 @@ jQuery( document ).ready( function( $ ) {
         showSubCat( this.id );
 	});
     $( '#prod-sub-cat-select .btn-radio' ).click(function(e) {
+        $( '#customize-submit' ).removeClass( 'disabled' );
         $('#prod-sub-cat-select .btn-radio').not(this).removeClass('active')
             .siblings('input').prop('checked',false)
             .siblings('.img-radio').css('opacity','0.5')
@@ -129,14 +130,14 @@ jQuery( document ).ready( function( $ ) {
     function showSubCat( id ) {
         var subCat = "#prod-sub-cat-select #subCat" + id;
         $( '.prod-bottom-part' ).slideDown();
-        $( '#customize-submit' ).removeClass( 'disabled' );
         $( subCat ).show();
         $( '.subCat-sel' ).not( subCat ).hide();
     }
 
+    imgArray = [];
+
     $( '#confirmFilesUploaded' ).click( function(e) {
         e.preventDefault();
-        imgArray = [];
         imgAdd = '';
         $('#uploadedImgWrapper tbody.files').children().each(function(){
             // Get all `img` elements that are in this cell
@@ -172,7 +173,18 @@ jQuery( document ).ready( function( $ ) {
             data: ({ 
                 action:'vilyoo_request_product_customization',
                 data: cusFormData
-            })
+            }),
+            beforeSend: function() {
+                // setting a timeout
+                $( '#cusFormSubmitResponse' ).html( '<div class="alert alert-info">Sending the Information!</div>' );
+            },
+            success: function(data) {
+                $( '#cusFormSubmitResponse' ).html( '<div class="alert alert-success">' + data.data + '</div>' );
+            },
+            error: function(xhr) { // if error occured
+                alert("Error occured.please try again");
+                $( '#cusFormSubmitResponse' ).html( '<div class="alert alert-danger">' + xhr.statusText + xhr.responseText + '</div>' );
+            }
         });
     });
 });

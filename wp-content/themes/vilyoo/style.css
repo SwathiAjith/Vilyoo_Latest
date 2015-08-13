@@ -187,6 +187,10 @@ select:focus {
     box-shadow: none !important;
     outline: 0 none !important;
 }
+.btn:focus, .btn.focus, .btn:active:focus, .btn:active.focus, .btn.active:focus, .btn.active.focus {
+	box-shadow: none !important;
+    outline: 0 none !important;
+}
 
 /* This is a small security for too long strings titles */
 body {
@@ -529,6 +533,9 @@ display: block;
 	border-top: 1px solid #8c2864;
 	border-bottom: 1px solid #8c2864;
 }
+#main-menu {
+	width: 100%;
+}
 .navbar-default .navbar-collapse, .navbar-default .navbar-form, .navbar  {
 	border:0 !important;
 }
@@ -545,6 +552,12 @@ display: block;
 .navbar-default .navbar-nav>li>a {
 	color: #BF326B;
 	text-transform: uppercase;
+}
+@media (min-width: 768px) {
+	.navbar-nav>li {
+		width: 20%;
+		text-align: center;
+	}
 }
 .navbar-nav>li>a {
 	padding:10px;
@@ -564,6 +577,10 @@ display: block;
 .navbar-default .navbar-nav>li>a {
     /*width:200px;*/
     font-weight:bold;
+}
+.navbar-default .navbar-nav>li>a:hover {
+	background: #BF326B;
+	color: #fff !important;
 }
 .mega-dropdown {
   position: static !important;
@@ -1047,14 +1064,32 @@ h3.widget-title {
 .btn-radio {
 	width: 100%;
 }
+#customize-form .btn-radio {
+	background-color: #BF326B;
+	color: #fff;
+	border-bottom: 1px solid rgba( 0, 0, 0, 0.3 );
+	font-weight: 300;
+}
+.selProduct .btn-radio {
+	border-color: #fff !important;
+}
 .img-radio {
 	opacity: 0.5;
 	margin-bottom: 5px;
 	height: 100px;
 	width: 100%;
 }
+.cus-hMain {
+	margin-bottom: 15px;
+	text-transform: uppercase;
+	font-weight: 300;
+	text-decoration: underline;
+}
 .customize-q {
 	margin-top: 0;
+	font-size: 20px;
+	font-weight: 300;
+	text-align: right;
 }
 .required {
 	color: red;
@@ -1072,4 +1107,16 @@ h3.widget-title {
 }
 .selProduct img {
 	opacity: 1;
+}
+.bootstrap-select .dropdown-toggle:focus {
+	outline: 0 none !important;
+}
+.form-group .bootstrap-select.btn-group, .form-horizontal .bootstrap-select.btn-group, .form-inline .bootstrap-select.btn-group {
+	width: 100% !important;
+}
+.bootstrap-select>.dropdown-toggle {
+	height: 35px;
+}
+#customize-form .btn-success {
+	min-width: 50%;
 }
