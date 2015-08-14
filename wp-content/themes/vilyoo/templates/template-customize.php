@@ -23,7 +23,7 @@ get_header(); ?>
 									// var_dump( $products );
 									foreach( $products as $product ) {
 										?>
-										<div class="main-prod-select col-md-2 <?php if ( $product->id == 1 ): echo 'col-md-offset-1'; endif; ?>">
+										<div class="main-prod-select col-md-2 <?php //if ( $product->id == 1 ): echo 'col-md-offset-1'; endif; ?>">
 											<img src="<?php echo get_template_directory_uri() .'/includes/images/customized-products/' .$product->image; ?>" class="img-radio">
 											<button id="<?php echo $product->id; ?>" type="button" class="btn btn-default btn-radio"><?php echo $product->name; ?></button>
 											<input name="prodMainCat" type="checkbox" id="mainCat-<?php echo $product->id; ?>" value="<?php echo $product->name; ?>" class="hidden">
