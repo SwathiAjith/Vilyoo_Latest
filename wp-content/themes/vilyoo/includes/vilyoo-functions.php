@@ -258,8 +258,9 @@ function vilyoo_request_product_customization_init() {
 
     if( $posted['image'] ) {
         $images      = $posted['image']; // Multiple values
+        $content_to_send .= "<b>Image for Reference : </b>";
         foreach ( $images as $key => $image ) {
-            $content_to_send .= "<b>Image for Reference : </b>". $image ."<br>";
+            $content_to_send .= $image ."<br>";
         }
     }
     $desc       = $posted['reqDesciption'];

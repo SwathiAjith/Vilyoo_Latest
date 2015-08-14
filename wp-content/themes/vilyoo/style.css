@@ -565,7 +565,7 @@ display: block;
 	font-size: 12px;
 }
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
-	background: #8c2864;
+	background: #BF326B;
 	color:  #fff;
 	font-weight: 400;
 }
@@ -578,7 +578,7 @@ display: block;
     /*width:200px;*/
     font-weight:bold;
 }
-.navbar-default .navbar-nav>li>a:hover {
+.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:active, .navbar-default .navbar-nav>li>a:focusx {
 	background: #BF326B;
 	color: #fff !important;
 }

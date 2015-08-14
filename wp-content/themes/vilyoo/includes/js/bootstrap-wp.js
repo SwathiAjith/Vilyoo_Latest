@@ -108,11 +108,11 @@ jQuery( document ).ready( function( $ ) {
 		$('#customize-mainproduct-select .btn-radio').not(this).removeClass('active')
 			.siblings('input').prop('checked',false)
 			.siblings('.img-radio').css('opacity','0.5')
-            .parent('.col-xs-2').removeClass('selProduct');
+            .parent('.col-md-2').removeClass('selProduct');
 		$(this).addClass('active')
 			.siblings('input').prop('checked',true)
 			.siblings('.img-radio').css('opacity','1')
-            .parent('.col-xs-2').addClass('selProduct');
+            .parent('.col-md-2').addClass('selProduct');
 
         showSubCat( this.id );
 	});
@@ -122,11 +122,11 @@ jQuery( document ).ready( function( $ ) {
         $('#prod-sub-cat-select .btn-radio').not(this).removeClass('active')
             .siblings('input').prop('checked',false)
             .siblings('.img-radio').css('opacity','0.5')
-            .parent('.col-xs-2').removeClass('selProduct');
+            .parent('.col-md-2').removeClass('selProduct');
         $(this).addClass('active')
             .siblings('input').prop('checked',true)
             .siblings('.img-radio').css('opacity','1')
-            .parent('.col-xs-2').addClass('selProduct');
+            .parent('.col-md-2').addClass('selProduct');
     });
     function showSubCat( id ) {
         var subCat = "#prod-sub-cat-select #subCat" + id;

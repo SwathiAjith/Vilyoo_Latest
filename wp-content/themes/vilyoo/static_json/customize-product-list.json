@@ -7,7 +7,7 @@
 			"children": [
 				{
 					"id": "1",
-					"name": "Bags",
+					"name": "Hand Bags",
 					"image": "fashion-accessories/handbags.jpg"
 				},
 				{
@@ -89,7 +89,7 @@
 				},
 				{
 					"id": "6",
-					"name": "Frames",
+					"name": "Frames / Mirrors",
 					"image": "home-decor/frames.png"
 				},
 				{
@@ -119,7 +119,7 @@
 				},
 				{
 					"id": "12",
-					"name": "Sculptures",
+					"name": "Indoor Sculptures",
 					"image": "home-decor/sculpture.jpg"
 				},
 				{
@@ -131,6 +131,16 @@
 					"id": "14",
 					"name": "Votives",
 					"image": "home-decor/votive.jpg"
+				},
+				{
+					"id": "15",
+					"name": "Wall Art",
+					"image": "home-decor/wallart.jpg"
+				},
+				{
+					"id": "16",
+					"name": "Lanterns",
+					"image": "home-decor/lantern.jpg"
 				}
 			]
 	  	},
@@ -178,6 +188,11 @@
 					"id": "8",
 					"name": "Serving Platters",
 					"image": "table-wear/serving-platter.jpg"
+				},
+				{
+					"id": "9",
+					"name": "Trays",
+					"image": "table-wear/trays.jpg"
 				}
 			]
 	  	},
@@ -193,7 +208,7 @@
 				},
 				{
 					"id": "2",
-					"name": "Plant Hanging",
+					"name": "Hanging Plant Holder",
 					"image": "garden-accessories/hanging-plant-holder.jpg"
 				},
 				{
@@ -210,11 +225,48 @@
 					"id": "5",
 					"name": "Bird Houses",
 					"image": "garden-accessories/bird-house.jpg"
+				},
+				{
+					"id": "6",
+					"name": "Wind Chime / Sun Catchers",
+					"image": "garden-accessories/windchime.jpg"
+				},
+				{
+					"id": "7",
+					"name": "Lanterns",
+					"image": "garden-accessories/lantern.jpg"
 				}
 			]
 	  	},
 	  	{
 			"id": 5,
+			"name": "Festival Products",
+			"image": "festival-products.jpg",
+			"children": [
+				{
+					"id": "1",
+					"name": "Diya",
+					"image": "festival/diya.jpg"
+				},
+				{
+					"id": "2",
+					"name": "Rakhi",
+					"image": "festival/rakhi.jpg"
+				},
+				{
+					"id": "1",
+					"name": "Kites",
+					"image": "festival/kites.jpg"
+				},
+				{
+					"id": "1",
+					"name": "Rangoli",
+					"image": "festival/rangoli.jpg"
+				}
+			]
+		},
+	  	{
+			"id": 6,
 			"name": "Gift / Personal",
 			"image": "personal-gifts.jpg",
 			"children": [
@@ -260,13 +312,18 @@
 				},
 				{
 					"id": "9",
-					"name": "Soap",
+					"name": "Handmade Soap",
 					"image": "gifts/soaps.jpg"
 				},
 				{
 					"id": "10",
 					"name": "Tray",
 					"image": "gifts/tray.jpg"
+				},
+				{
+					"id": "11",
+					"name": "Gift Bags / Box",
+					"image": "gifts/gift-box.jpg"
 				}
 			]
 	  	}
@@ -274,43 +331,39 @@
 	"materials": [
 		{
 			"id": 1,
-			"name": "Material 1"
+			"name": "Paper"
 		},
 		{
 			"id": 2,
-			"name": "Material 2"
+			"name": "Glass"
 		},
 		{
 			"id": 3,
-			"name": "Material 3"
+			"name": "Clay"
 		},
 		{
 			"id": 4,
-			"name": "Material 4"
+			"name": "Bead"
 		},
 		{
 			"id": 5,
-			"name": "Material 5"
+			"name": "Thread"
 		},
 		{
 			"id": 6,
-			"name": "Material 6"
+			"name": "Wood"
 		},
 		{
 			"id": 7,
-			"name": "Material 7"
+			"name": "Metal"
 		},
 		{
 			"id": 8,
-			"name": "Material 8"
+			"name": "Leather"
 		},
 		{
 			"id": 9,
-			"name": "Material 9"
-		},
-		{
-			"id": 10,
-			"name": "Material 10"
+			"name": "Art / Painting"
 		}
 	]
 }

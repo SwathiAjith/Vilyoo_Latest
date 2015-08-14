@@ -23,7 +23,7 @@ get_header(); ?>
 									// var_dump( $products );
 									foreach( $products as $product ) {
 										?>
-										<div class="main-prod-select col-xs-2 <?php if ( $product->id == 1 ): echo 'col-md-offset-1'; endif; ?>">
+										<div class="main-prod-select col-md-2 <?php if ( $product->id == 1 ): echo 'col-md-offset-1'; endif; ?>">
 											<img src="<?php echo get_template_directory_uri() .'/includes/images/customized-products/' .$product->image; ?>" class="img-radio">
 											<button id="<?php echo $product->id; ?>" type="button" class="btn btn-default btn-radio"><?php echo $product->name; ?></button>
 											<input name="prodMainCat" type="checkbox" id="mainCat-<?php echo $product->id; ?>" value="<?php echo $product->name; ?>" class="hidden">
@@ -47,7 +47,7 @@ get_header(); ?>
 											echo '<div id="subCat'. $product->id .'" class="subCat-sel" style="display:none">';
 											foreach( $prod_children as $prod_child ) {
 												?>
-												<div class="sub-prod-select space-20 col-xs-2">
+												<div class="sub-prod-select space-20 col-md-2">
 													<img src="<?php echo get_template_directory_uri() .'/includes/images/customized-products/' .$prod_child->image; ?>" class="img-radio">
 													<button id="<?php echo $prod_child->id; ?>" type="button" class="btn btn-default btn-radio"><?php echo $prod_child->name; ?></button>
 													<input type="checkbox" name="prodSubCat" id="subCat-<?php echo $prod_child->id; ?>" value="<?php echo $prod_child->name; ?>" class="hidden">
@@ -171,7 +171,7 @@ get_header(); ?>
 											$states = $states['IN'];
 											foreach ( $states as $key => $state ) {
 									        ?>
-										        <option value="<?php echo $key; ?>"><?php echo $state; ?></option>
+										        <option value="<?php echo $state; ?>"><?php echo $state; ?></option>
 									        <?php
 										    }
 									    ?>
