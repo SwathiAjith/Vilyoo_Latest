@@ -453,6 +453,10 @@ display: block;
        -moz-box-shadow: 0px 1px 1px rgba( 0, 0, 0, 0.3 );
             box-shadow: 0px 1px 1px rgba( 0, 0, 0, 0.3 );
 }
+#masthead.affix {
+	width: 100%;
+	z-index: 10;
+}
 
 /* Small Top Navigation Bar */
 #small-top-nav {

@@ -24,6 +24,10 @@ jQuery( document ).ready( function( $ ) {
 
     $( 'table#wp-calendar' ).addClass( 'table table-striped');
 
+    $( '#masthead' ).affix({
+        offset: 100
+    });
+
     var featuredBoxHeight = $( '#home-featured-seller-right' ).height();
     featuredBoxHeight = featuredBoxHeight - 14;
     $( '#home-featured-seller-left' ).height( featuredBoxHeight );
