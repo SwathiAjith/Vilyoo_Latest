@@ -3,8 +3,8 @@
 Contributors: yithemes
 Tags: woocommerce, order tracking, order track, order trace, delivery, carriers, shipping, ship orders, e-commerce, send product, product shipping, delivery notes, track carriers, track email, delivery note, order shipping, order, orders, shop, e commerce, ecommerce
 Requires at least: 4.0
-Tested up to: 4.2.2
-Stable tag: 1.0.3
+Tested up to: 4.2.4
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html 
 
@@ -53,6 +53,10 @@ YITH WooCommerce Order Tracking will add a new tab called "Order tracking" in "Y
 
 == Changelog ==
 
+= Version 1.0.4 - RELEASED: AUG 12, 2015 =
+
+* Tweak: update YITH Plugin framework.
+
 = Version 1.0.3 - RELEASED: JUN 25, 2015 =
 
 * Fixed: WPML compatibility issue
@@ -90,9 +94,3 @@ If you have suggestions about how to improve YITH WooCommerce Order Tracking, yo
 
 If you have created your own language pack, or have an update for an existing one, you can send [gettext PO and MO file](http://codex.wordpress.org/Translating_WordPress "Translating WordPress")
 [use](http://yithemes.com/contact/ "Your Inspiration Themes") so we can bundle it into YITH WooCommerce Order Tracking languages.
-
-== Upgrade notice ==
-
-= 1.0.3 =
-
-Last release

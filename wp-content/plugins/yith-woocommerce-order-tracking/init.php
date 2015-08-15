@@ -5,12 +5,12 @@ Plugin URI: http://yithemes.com/themes/plugins/yith-woocommerce-order-tracking/
 Description: Easy managing order tracking information for WooCommerce orders. Set the carrier and the tracking code and your customers will get notified about their shipping.
 Author: Yithemes
 Text Domain: ywot
-Version: 1.0.3
+Version: 1.0.4
 Author URI: http://yithemes.com/
 
 @author Yithemes
 @package YITH WooCommerce Order Tracking
-@version 1.0.3
+@version 1.0.4
 */
 
 /*  Copyright 2015  Your Inspiration Themes  (email : plugins@yithemes.com)
@@ -40,7 +40,7 @@ if ( ! function_exists( 'is_plugin_active' ) ) {
 function yith_ywot_install_woocommerce_admin_notice() {
 	?>
 	<div class="error">
-		<p><?php _e( 'YITH WooCommerce Order Tracking is enabled but not effective. It requires Woocommerce in order to work.', 'yit' ); ?></p>
+		<p><?php _e( 'YITH WooCommerce Order Tracking is enabled but not effective. It requires WooCommerce in order to work.', 'yit' ); ?></p>
 	</div>
 <?php
 }
@@ -64,7 +64,7 @@ if ( ! defined( 'YITH_YWOT_FREE_INIT' ) ) {
 }
 
 if ( ! defined( 'YITH_YWOT_VERSION' ) ) {
-	define( 'YITH_YWOT_VERSION', '1.0.3' );
+	define( 'YITH_YWOT_VERSION', '1.0.4' );
 }
 
 if ( ! defined( 'YITH_YWOT_FILE' ) ) {
