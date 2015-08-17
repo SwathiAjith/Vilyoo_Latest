@@ -25,7 +25,7 @@ jQuery( document ).ready( function( $ ) {
     $( 'table#wp-calendar' ).addClass( 'table table-striped');
 
     $( '#masthead' ).affix({
-        offset: 100
+        offset: 30
     });
 
     var featuredBoxHeight = $( '#home-featured-seller-right' ).height();

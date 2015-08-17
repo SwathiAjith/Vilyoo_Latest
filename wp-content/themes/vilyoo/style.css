@@ -450,8 +450,10 @@ display: block;
 	background: #fff;
 	margin-bottom: 20px;
 	-webkit-box-shadow: 0px 1px 1px rgba( 0, 0, 0, 0.3 );
-       -moz-box-shadow: 0px 1px 1px rgba( 0, 0, 0, 0.3 );
-            box-shadow: 0px 1px 1px rgba( 0, 0, 0, 0.3 );
+	-moz-box-shadow: 0px 1px 1px rgba( 0, 0, 0, 0.3 );
+	box-shadow: 0px 1px 1px rgba( 0, 0, 0, 0.3 );
+	transition: top 1s;
+	-webkit-transition: top 1s; /* Safari */
 }
 #masthead.affix {
 	width: 100%;
@@ -762,7 +764,7 @@ The Bootstrap CSS is unchanged.
 	font-size: 16px;
 	font-weight: normal;
 }
-#home-most-popular .woocommerce {
+#home-most-popular .woocommerce, #home-latest-workshops .woocommerce {
 	padding: 15px 0;
 }
 
@@ -801,6 +803,9 @@ The Bootstrap CSS is unchanged.
 .woocommerce ul.products li.product, .woocommerce-page ul.products li.product {
 	margin-bottom: 20px;
 	border: 1px solid #ccc;
+}
+.woocommerce ul.products li.product:hover, .woocommerce-page ul.products li.product:hover {
+	border-color: #BF326B;
 }
 .woocommerce a.added_to_cart {
 	display: block;
@@ -1123,4 +1128,11 @@ h3.widget-title {
 }
 #customize-form .btn-success {
 	min-width: 50%;
+}
+
+/* Footer */
+#colophon {
+	background: #fcfcfc;
+	border-top: 1px solid #ccc;
+	padding: 20px 0;
 }

@@ -17,6 +17,21 @@
 	<div class="container">
 		<div class="row">
 			<div class="site-footer-inner col-sm-12">
+			
+				<div class="row">
+					<div class="col-md-3">
+						<?php dynamic_sidebar( 'footer-1' ); ?>
+					</div>
+					<div class="col-md-3">
+						<?php dynamic_sidebar( 'footer-2' ); ?>
+					</div>
+					<div class="col-md-3">
+						<?php dynamic_sidebar( 'footer-3' ); ?>
+					</div>
+					<div class="col-md-3">
+						<?php dynamic_sidebar( 'footer-4' ); ?>
+					</div>
+				</div>
 
 				<div class="site-info">
 					<?php do_action( '_tk_credits' ); ?>
