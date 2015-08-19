@@ -28,10 +28,6 @@ jQuery( document ).ready( function( $ ) {
         offset: 30
     });
 
-    var featuredBoxHeight = $( '#home-featured-seller-right' ).height();
-    featuredBoxHeight = featuredBoxHeight - 14;
-    $( '#home-featured-seller-left' ).height( featuredBoxHeight );
-
     // Make all the add to cart button bootstrap combatible and our custom red button class
     $( '.add_to_cart_button' ).addClass( 'btn btn-cart' );
 
@@ -70,18 +66,27 @@ jQuery( document ).ready( function( $ ) {
         window.location = this.href;
     });
 
-    // Equal Heights.
-    $('ul.products').each(function(){  
+    $( window ).load( function() {
 
-        var highestBox = 0;
-        $('li.product', this).each(function(){
+        var featuredBoxHeight = $( '#home-featured-seller-right' ).height();
+        featuredBoxHeight = featuredBoxHeight - 14;
+        $( '#home-featured-seller-left' ).height( featuredBoxHeight );
 
-            if($(this).height() > highestBox) 
-               highestBox = $(this).height(); 
-        });  
 
-        $('li.product',this).height(highestBox);
+        // Equal Heights.
+        $('ul.products').each(function(){  
 
+            var highestBox = 0;
+            $('li.product', this).each(function(){
+
+                if($(this).height() > highestBox) 
+                   highestBox = $(this).height(); 
+            });  
+
+            $('li.product',this).height(highestBox);
+
+        });
+        
     });
 
     //Global Tooltip Init
