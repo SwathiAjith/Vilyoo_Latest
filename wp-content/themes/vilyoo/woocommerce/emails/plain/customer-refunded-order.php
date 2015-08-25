@@ -1,10 +1,10 @@
 <?php
 /**
- * Admin new order email (plain text)
+ * Customer refunded order email (plain text)
  *
- * @author		WooThemes
- * @package 	WooCommerce/Templates/Emails/Plain
- * @version 	2.3.0
+ * @author   WooThemes
+ * @package  WooCommerce/Templates/Emails/Plain
+ * @version  2.4.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 echo "= " . $email_heading . " =\n\n";
 
-echo sprintf( __( 'You have received an order from %s.', 'woocommerce' ), $order->get_formatted_billing_full_name() ) . "\n\n";
+echo sprintf( __( "Hi there. Your order on %s has been refunded. Your order details are shown below for your reference:", 'woocommerce' ), get_option( 'blogname' ) ) . "\n\n";
 
 echo "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n\n";
 
@@ -24,17 +24,19 @@ echo date_i18n( __( 'jS F Y', 'woocommerce' ), strtotime( $order->order_date ) )
 
 do_action( 'woocommerce_email_order_meta', $order, $sent_to_admin, $plain_text );
 
-echo "\n" . $order->email_order_items_table( false, true, '', '', '', true );
+echo "\n" . $order->email_order_items_table( true, false, true, '', '', true );
 
 echo "==========\n\n";
 
-if ( $totals = $order->get_order_item_totals() ) {
-	foreach ( $totals as $total ) {
-		echo $total['label'] . " " . $total['value'] . "\n";
-	}
+if ( $refund && $refund->get_refund_amount() > 0 ) {
+	echo __( 'Amount Refunded', 'woocommerce' ) . "\t " . $refund->get_formatted_refund_amount() . "\n";
 }
 
-echo "\n" . sprintf( __( 'View order: %s', 'woocommerce'), admin_url( 'post.php?post=' . $order->id . '&action=edit' ) ) . "\n";
+if ( $totals = $order->get_order_item_totals() ) {
+	foreach ( $totals as $total ) {
+		echo $total['label'] . "\t " . $total['value'] . "\n";
+	}
+}
 
 echo "\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n\n";
 

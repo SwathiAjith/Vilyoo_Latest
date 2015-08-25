@@ -1,10 +1,10 @@
 <?php
 /**
- * Customer processing order email
+ * Customer refunded order email
  *
- * @author 		WooThemes
- * @package 	WooCommerce/Templates/Emails
- * @version     2.4.0
+ * @author   WooThemes
+ * @package  WooCommerce/Templates/Emails
+ * @version  2.4.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -13,9 +13,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<?php do_action('woocommerce_email_header', $email_heading); ?>
+<?php do_action( 'woocommerce_email_header', $email_heading ); ?>
 
-<p><?php _e( "Your order has been received and is now being processed. Your order details are shown below for your reference:", 'woocommerce' ); ?></p>
+<p><?php
+	if ( $partial_refund ) {
+		printf( __( "Hi there. Your order on %s has been partially refunded.", 'woocommerce' ), get_option( 'blogname' ) );
+	}
+	else {
+		printf( __( "Hi there. Your order on %s has been refunded.", 'woocommerce' ), get_option( 'blogname' ) );
+	}
+?></p>
 
 <?php do_action( 'woocommerce_email_before_order_table', $order, $sent_to_admin, $plain_text ); ?>
 
@@ -30,12 +37,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</tr>
 	</thead>
 	<tbody>
-		<?php echo $order->email_order_items_table( $order->is_download_permitted(), true, $order->has_status( 'processing' ) ); ?>
+		<?php echo $order->email_order_items_table( true, false, true ); ?>
 	</tbody>
 	<tfoot>
 		<?php
 			if ( $totals = $order->get_order_item_totals() ) {
+
 				$i = 0;
+
+				if ( $refund && $refund->get_refund_amount() > 0 ) {
+					?><tr>
+						<th scope="row" colspan="2" style="text-align:left; border: 1px solid #eee;border-top-width: 4px;"><?php _e( 'Amount Refunded', 'woocommerce' ); ?>:</th>
+						<td style="text-align:left; border: 1px solid #eee;border-top-width: 4px;"><?php echo $refund->get_formatted_refund_amount(); ?></td>
+					</tr><?php
+					$i++;
+				}
+
 				foreach ( $totals as $total ) {
 					$i++;
 					?><tr>

@@ -187,7 +187,7 @@ select:focus {
     box-shadow: none !important;
     outline: 0 none !important;
 }
-.btn:focus, .btn.focus, .btn:active:focus, .btn:active.focus, .btn.active:focus, .btn.active.focus {
+.btn:focus, .btn.focus, .btn:active:focus, .btn:active.focus, .btn.active:focus, .btn.active.focus, div:focus  {
 	box-shadow: none !important;
     outline: 0 none !important;
 }
@@ -415,6 +415,21 @@ display: block;
 */
 
 /* Hey, if you don't need my comments anymore, just delete me! :)  */
+
+/* Globals */
+.woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button {
+	background-color: #BF326B;
+	color: #fff;
+	font-weight: 400;
+}
+.woocommerce #respond input#submit:hover, .woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce input.button:hover {
+	background-color: #8c2864;
+	color: #fff;
+}
+.woocommerce .widget_price_filter .ui-slider .ui-slider-range, .woocommerce .widget_price_filter .ui-slider .ui-slider-handle {
+	background-color: #BF326B;
+}
+
 /* Utility Classes */
 .pad-left {
 	padding-left: 0 !important;
@@ -459,7 +474,15 @@ display: block;
 	width: 100%;
 	z-index: 10;
 }
-
+.affix .header-logo img {
+	width: 225px;
+}
+.affix .header-search {
+	padding: 4px 0 0;
+}
+.affix .container {
+	padding-bottom: 5px;
+}
 /* Small Top Navigation Bar */
 #small-top-nav {
 	padding: 8px 0 5px;
@@ -799,6 +822,9 @@ The Bootstrap CSS is unchanged.
 	color: #fff !important;
 	text-transform: uppercase;
 	border-radius: 0;
+	min-height: 32px;
+	position: absolute;
+	bottom: 0;
 }
 .woocommerce ul.products li.product, .woocommerce-page ul.products li.product {
 	margin-bottom: 20px;
@@ -994,6 +1020,16 @@ h3.widget-title {
 .vendor-bg {
 	background-color: #fafafa;
 }
+.dokan-dashboard .dokan-dash-sidebar ul.dokan-dashboard-menu li.active, .dokan-dashboard .dokan-dash-sidebar ul.dokan-dashboard-menu li:hover {
+	background: #BF326B;
+}
+.dokan-dashboard .dokan-dash-sidebar ul.dokan-dashboard-menu li.active:after {
+	border-color: transparent #fafafa transparent transparent;
+	border-left-color: #fafafa;
+}
+.dokan-dashboard .dokan-dash-sidebar ul.dokan-dashboard-menu {
+	background: #393939;
+}
 .dokan-panel, 
 .dokan-dashboard .dokan-dashboard-content article.dashboard-content-area .dashboard-widget, 
 .dokan-product-listing .dokan-product-listing-area,
@@ -1006,7 +1042,8 @@ h3.widget-title {
 .dokan-report-wrap .table,
 .dokan-comments-wrap,
 #shipping-form,
-.dokan-settings-content #settings-form {
+.dokan-settings-content #settings-form,
+.dokan-product-edit-area {
 	background-color: #fff;
 	border: 1px solid #EBEBEB;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
@@ -1017,7 +1054,9 @@ h3.widget-title {
 .report-right.dokan-right,
 .dokan-comments-wrap,
 #shipping-form,
-.dokan-settings-content #settings-form {
+.dokan-settings-content #settings-form,
+.dokan-product-edit-area,
+.tabs_container .dokan-form-horizontal {
 	padding: 15px;
 }
 .dokan-order-filter-serach,

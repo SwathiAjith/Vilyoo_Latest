@@ -25,7 +25,7 @@ jQuery( document ).ready( function( $ ) {
     $( 'table#wp-calendar' ).addClass( 'table table-striped');
 
     $( '#masthead' ).affix({
-        offset: 30
+        offset: 100
     });
 
     // Make all the add to cart button bootstrap combatible and our custom red button class
@@ -83,10 +83,10 @@ jQuery( document ).ready( function( $ ) {
                    highestBox = $(this).height(); 
             });  
 
-            $('li.product',this).height(highestBox);
+            $('li.product',this).height(highestBox + 40);
 
         });
-        
+
     });
 
     //Global Tooltip Init

@@ -80,18 +80,23 @@
                                     <h5><?php _e( 'Choose a category', 'dokan' );  ?></h5>
                                     <ul class="dokan-checkbox-cat">
                                         <?php
-                                        include_once DOKAN_LIB_DIR.'/class.category-walker.php';
-                                        wp_list_categories(array(
 
-                                          'walker'       => new DokanCategoryWalker(),
-                                          'name'         => 'product_cat',
-                                          'title_li'     => '',
-                                          'id'           => 'product_cat',
-                                          'hide_empty'   => 0,
-                                          'taxonomy'     => 'product_cat',
-                                          'hierarchical' => 1,    
-                                          'selected'     => array()
-                                        ));
+                                            $term = array();
+                                            $term = wp_get_post_terms( $post_id, 'product_cat', array( 'fields' => 'ids') );
+
+                                            include_once DOKAN_LIB_DIR.'/class.category-walker.php';
+
+                                            wp_list_categories(array(
+
+                                              'walker'       => new DokanCategoryWalker(),
+                                              'name'         => 'product_cat',
+                                              'title_li'     => '',
+                                              'id'           => 'product_cat',
+                                              'hide_empty'   => 0,
+                                              'taxonomy'     => 'product_cat',
+                                              'hierarchical' => 1,    
+                                              'selected'     => $term
+                                            ));
                                         ?>
                                     </ul>
                                 </div>
@@ -123,11 +128,14 @@
                     </div>
 
                     <!-- <textarea name="post_content" id="" cols="30" rows="10" class="span7" placeholder="Describe your product..."><?php echo dokan_posted_textarea( 'post_content' ); ?></textarea> -->
+
                     <div class="dokan-form-group">
-                        <?php wp_editor( Dokan_Template_Shortcodes::$post_content, 'post_content', array('editor_height' => 50, 'quicktags' => false, 'media_buttons' => false, 'teeny' => true, 'editor_class' => 'post_content') ); ?>
+                        <?php wp_editor( Dokan_Template_Shortcodes::$post_content, 'post_content', array('editor_height' => 100, 'quicktags' => false, 'media_buttons' => false, 'teeny' => true, 'editor_class' => 'post_content') ); ?>
                     </div>
 
                     <?php do_action( 'dokan_new_product_form' ); ?>
+
+
 
                     <div class="dokan-form-group">
                         <?php wp_nonce_field( 'dokan_add_new_product', 'dokan_add_new_product_nonce' ); ?>
