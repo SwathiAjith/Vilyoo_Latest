@@ -343,42 +343,72 @@ function indian_woocommerce_states( $states ) {
   return $states;
 }
 
-/**
- * Redirect users to custom URL based on their role after login
- *
- * @param string $redirect
- * @param object $user
- * @return string
- */
-function wc_custom_user_redirect( $redirect, $user ) {
-    // Get the first of all the roles assigned to the user
-    $role = $user->roles[0];
-    $dashboard = admin_url();
-    $myaccount = get_permalink( wc_get_page_id( 'myaccount' ) );
-    $seller_dash = home_url("/dashboard");
+// /**
+//  * Redirect users to custom URL based on their role after login
+//  *
+//  * @param string $redirect
+//  * @param object $user
+//  * @return string
+//  */
+// function wc_custom_user_redirect( $redirect, $user ) {
+//     // Get the first of all the roles assigned to the user
+//     $role = $user->roles[0];
+//     $dashboard = admin_url();
+//     $myaccount = get_permalink( wc_get_page_id( 'myaccount' ) );
+//     $seller_dash = home_url("/dashboard");
 
-    if( $role == 'administrator' ) {
-        //Redirect administrators to the dashboard
-        $redirect = $dashboard;
-    } elseif ( $role == 'shop-manager' ) {
-        //Redirect shop managers to the dashboard
-        $redirect = $dashboard;
-    } elseif ( $role == 'editor' ) {
-        //Redirect editors to the dashboard
-        $redirect = $dashboard;
-    } elseif ( $role == 'author' ) {
-        //Redirect authors to the dashboard
-        $redirect = $dashboard;
-    } elseif ( $role == 'customer' || $role == 'subscriber' ) {
-        //Redirect customers and subscribers to the "My Account" page
-        $redirect = $myaccount;
-    } elseif ( $role == 'seller' ) {
-        $redirect = $seller_dash;
+//     if( $role == 'administrator' ) {
+//         //Redirect administrators to the dashboard
+//         $redirect = $dashboard;
+//     } elseif ( $role == 'shop-manager' ) {
+//         //Redirect shop managers to the dashboard
+//         $redirect = $dashboard;
+//     } elseif ( $role == 'editor' ) {
+//         //Redirect editors to the dashboard
+//         $redirect = $dashboard;
+//     } elseif ( $role == 'author' ) {
+//         //Redirect authors to the dashboard
+//         $redirect = $dashboard;
+//     } elseif ( $role == 'customer' || $role == 'subscriber' ) {
+//         //Redirect customers and subscribers to the "My Account" page
+//         $redirect = $myaccount;
+//     } elseif ( $role == 'seller' ) {
+//         $redirect = $seller_dash;
 
-    } else {
-        //Redirect any other role to the previous visited page or, if not available, to the home
-        $redirect = wp_get_referer() ? wp_get_referer() : home_url();
+//     } else {
+//         //Redirect any other role to the previous visited page or, if not available, to the home
+//         $redirect = wp_get_referer() ? wp_get_referer() : home_url();
+//     }
+//     return $redirect;
+// }
+// add_filter( 'woocommerce_login_redirect', 'wc_custom_user_redirect', 10, 2 );
+// 
+function reregister_taxonomy_pro_tags() {
+    # the post types that the taxonomy is registered to
+    $post_types = array('product');
+    # set this to the taxonomy name
+    $tax_name = 'product_tag';
+    # load the already created taxonomy as array so we can
+    # pass it back in as $args to register_taxonomy
+    $tax = (array)get_taxonomy($tax_name);
+
+    if ($tax) {
+        # adjust the hierarchical necessities
+        $tax['hierarchical'] = true;
+        $tax['rewrite']['hierarchical'] = true;
+
+        # adjust the hierarchical niceties (these could be ignored)
+        $tax['labels']['parent_item'] = sprintf(__("Parent %s"),
+        $tax->labels->singular_name);
+        $tax['labels']['parent_item_colon'] = sprintf(__("Parent %s:"),
+        $tax->labels->singular_name);
+
+        # cast caps to array as expected by register_taxonomy
+        $tax['capabilities'] = (array)$tax['cap'];
+        # cast labels to array
+        $tax['labels'] = (array)$tax['labels'];
+        # register the taxonomy with our new settings
+        register_taxonomy($tax_name, array('product'), $tax);
     }
-    return $redirect;
 }
-add_filter( 'woocommerce_login_redirect', 'wc_custom_user_redirect', 10, 2 );
+add_action('init', 'reregister_taxonomy_pro_tags', 9999);
