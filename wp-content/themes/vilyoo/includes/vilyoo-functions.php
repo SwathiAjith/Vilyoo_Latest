@@ -398,10 +398,8 @@ function reregister_taxonomy_pro_tags() {
         $tax['rewrite']['hierarchical'] = true;
 
         # adjust the hierarchical niceties (these could be ignored)
-        $tax['labels']['parent_item'] = sprintf(__("Parent %s"),
-        $tax->labels->singular_name);
-        $tax['labels']['parent_item_colon'] = sprintf(__("Parent %s:"),
-        $tax->labels->singular_name);
+        // $tax['labels']['parent_item'] = sprintf(__("Parent %s"), $tax->labels->singular_name);
+        // $tax['labels']['parent_item_colon'] = sprintf(__("Parent %s:"), $tax->labels->singular_name);
 
         # cast caps to array as expected by register_taxonomy
         $tax['capabilities'] = (array)$tax['cap'];
