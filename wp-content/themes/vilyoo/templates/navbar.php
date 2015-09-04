@@ -2,71 +2,110 @@
 	<ul id="main-menu" class="nav navbar-nav">
 		<li id="menu-item-181" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children menu-item-181 mega-dropdown dropdown"><a title="Paper" href="<?php echo site_url(); ?>/category/paper-craft/" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">Shop by medium <span class="fa fa-angle-down"></span></a>
 			<ul role="menu" class=" dropdown-menu mega-dropdown-menu row">
-				<li class="col-sm-3">
-					<ul>
-						<li class="dropdown-header">New in Stores</li>                            
-                        <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                          	<div class="carousel-inner">
-                            	<div class="item active">
-                                	<a href="#"><img src="http://placehold.it/254x150/3498db/f5f5f5/&text=New+Collection" class="img-responsive" alt="product 1"></a>
-                                	<h4><small>Summer dress floral prints</small></h4>                                        
-                                	<button class="btn btn-cart" type="button">Rs. 4999</button>   
-                            	</div><!-- End Item -->
-                                <div class="item">
-                                    <a href="#"><img src="http://placehold.it/254x150/ef5e55/f5f5f5/&text=New+Collection" class="img-responsive" alt="product 2"></a>
-                                    <h4><small>Gold sandals with shiny touch</small></h4>                                        
-                                    <button class="btn btn-cart" type="button">Rs. 999</button>       
-                                </div><!-- End Item -->
-                                <div class="item">
-                                    <a href="#"><img src="http://placehold.it/254x150/2ecc71/f5f5f5/&text=New+Collection" class="img-responsive" alt="product 3"></a>
-                                    <h4><small>Denin jacket stamped</small></h4>                                        
-                                    <button class="btn btn-cart" type="button">Rs. 4999</button>      
-                                </div><!-- End Item -->                                
-                          	</div><!-- End Carousel Inner -->
-                        </div><!-- /.carousel -->
-                        <li class="divider"></li>
-                        <li><a href="#">View more<span class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
-					</ul>
-				</li>
-				<li class="col-sm-3">
-					<ul>
-						<li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-197"><a title="Origami items" href="<?php echo site_url(); ?>/category/paper-craft/origami-items/">Origami items</a></li>
-						<li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-198"><a title="Paper flowers" href="<?php echo site_url(); ?>/category/paper-craft/paper-flowers/">Paper flowers</a></li>
-						<li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-199"><a title="Paper Mosaics" href="<?php echo site_url(); ?>/category/paper-craft/paper-mosaics/">Paper Mosaics</a></li>
-						<li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-200"><a title="papier-mâché" href="<?php echo site_url(); ?>/category/paper-craft/papier-mache/">papier-mâché</a></li>
-						<li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-201"><a title="Parchment craft" href="<?php echo site_url(); ?>/category/paper-craft/parchment-craft/">Parchment craft</a></li>
-					</ul>
-				</li>
-				<li class="col-sm-3">
-					<ul>
-						<li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-202"><a title="Quilled products" href="<?php echo site_url(); ?>/category/paper-craft/quilled-products/">Quilled products</a></li>
-						<li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-203"><a title="Scrapbooks" href="<?php echo site_url(); ?>/category/paper-craft/scrapbooks/">Scrapbooks</a></li>
-						<li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-204"><a title="Sospeso" href="<?php echo site_url(); ?>/category/paper-craft/sospeso/">Sospeso</a></li>
-						<li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-205"><a title="Albums" href="<?php echo site_url(); ?>/category/paper-craft/albums/">Albums</a></li>
-						<li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-206"><a title="Exploding box cards" href="<?php echo site_url(); ?>/category/paper-craft/exploding-box-cards/">Exploding box cards</a></li>
-					</ul>
-				</li>
-				<li class="col-sm-3">
-					<ul>
-						<li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-207"><a title="Gift Bags" href="<?php echo site_url(); ?>/category/paper-craft/gift-bags/">Gift Bags</a></li>
-						<li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-208"><a title="Greeting Cards" href="<?php echo site_url(); ?>/category/paper-craft/greeting-cards/">Greeting Cards</a></li>
-						<li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-209"><a title="Invitation Cards" href="<?php echo site_url(); ?>/category/paper-craft/invitation-cards/">Invitation Cards</a></li>
-						<li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-210"><a title="Decoupage items" href="<?php echo site_url(); ?>/category/paper-craft/decoupage-items/">Decoupage items</a></li>
-					</ul>
-				</li>
+				<div class="col-md-2">
+					<strong>Paper</strong>
+					<?php 
+						woocommerce_tags_from_parent_by_ID( 161 );
+					?>
+					<br>
+					<strong>Leather</strong>
+					<?php 
+						woocommerce_tags_from_parent_by_ID( 170 );
+					?>
+				</div>
+				<div class="col-md-2">
+					<strong>Glass</strong>
+					<?php 
+						woocommerce_tags_from_parent_by_ID( 179 );
+					?>
+					<br>
+					<strong>Bead</strong>
+					<?php 
+						woocommerce_tags_from_parent_by_ID( 197 );
+					?>
+				</div>
+				<div class="col-md-2">
+					<strong>Clay</strong>
+					<?php 
+						woocommerce_tags_from_parent_by_ID( 187 );
+					?>
+					<br>
+					<strong>Wood</strong>
+					<?php 
+						woocommerce_tags_from_parent_by_ID( 223 );
+					?>
+				</div>
+				<div class="col-md-2">
+					<strong>Paintings / Art</strong>
+					<?php 
+						woocommerce_tags_from_parent_by_ID( 231 );
+					?>
+				</div>
+				<div class="col-md-2">
+					<strong>Thread</strong>
+					<?php 
+						woocommerce_tags_from_parent_by_ID( 205 );
+					?>
+					<br>
+					<strong>Metal</strong>
+					<?php 
+						woocommerce_tags_from_parent_by_ID( 216 );
+					?>
+				</div>
+				<div class="col-md-2">
+					<strong>Supplies</strong>
+					<?php 
+						woocommerce_tags_from_parent_by_ID( 253 );
+					?>
+					<br>
+					<strong>Upcycled</strong>
+					<?php 
+						woocommerce_tags_from_parent_by_ID( 247 );
+					?>
+				</div>
 			</ul>
 		</li>
-		<li id="menu-item-211" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children menu-item-211 mega-dropdown dropdown"><a title="Clay" href="<?php echo site_url(); ?>/category/clay-craft/" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">Shop By Product <span class="fa fa-angle-down"></span></a>
-			<ul role="menu" class=" dropdown-menu mega-dropdown-menu row">
-				<li id="menu-item-212" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-212"><a title="Bread Craft" href="<?php echo site_url(); ?>/category/clay-craft/bread-craft/">Bread Craft</a></li>
-				<li id="menu-item-213" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-213"><a title="Clay Dolls" href="<?php echo site_url(); ?>/category/clay-craft/clay-dolls/">Clay Dolls</a></li>
-				<li id="menu-item-214" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-214"><a title="Clay Flowers" href="<?php echo site_url(); ?>/category/clay-craft/clay-flowers/">Clay Flowers</a></li>
-				<li id="menu-item-215" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-215"><a title="Clay Jewelry" href="<?php echo site_url(); ?>/category/clay-craft/clay-jewelry/">Clay Jewelry</a></li>
-				<li id="menu-item-216" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-216"><a title="Clay Pots" href="<?php echo site_url(); ?>/category/clay-craft/clay-pots/">Clay Pots</a></li>
-				<li id="menu-item-217" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-217"><a title="Clay Sculptures" href="<?php echo site_url(); ?>/category/clay-craft/clay-sculptures/">Clay Sculptures</a></li>
-				<li id="menu-item-218" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-218"><a title="Cold Porcelain Items" href="<?php echo site_url(); ?>/category/clay-craft/cold-porcelain-items/">Cold Porcelain Items</a></li>
-				<li id="menu-item-219" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-219"><a title="Lamasa Art" href="<?php echo site_url(); ?>/category/clay-craft/lamasa-art/">Lamasa Art</a></li>
-				<li id="menu-item-220" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-220"><a title="Pottery Products" href="<?php echo site_url(); ?>/category/clay-craft/pottery-products/">Pottery Products</a></li>
+		<li class="menu-item mega-dropdown dropdown">
+			<a title="Shop By Product" href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">
+				Shop By Product <span class="fa fa-angle-down"></span>
+			</a>
+			<ul role="menu" class="dropdown-menu mega-dropdown-menu row">
+				<div class="col-md-2">
+					<strong>Fashion Accessories</strong>
+					<?php 
+						woocommerce_subcats_from_parentcat_by_ID( 98 );
+					?>
+				</div>
+				<div class="col-md-2">
+					<strong>Home Decor</strong>
+					<?php 
+						woocommerce_subcats_from_parentcat_by_ID( 109 );
+					?>
+				</div>
+				<div class="col-md-2">
+					<strong>Tablewear</strong>
+					<?php 
+						woocommerce_subcats_from_parentcat_by_ID( 126 );
+					?>
+				</div>
+				<div class="col-md-2">
+					<strong>Garden Accessories</strong>
+					<?php 
+						woocommerce_subcats_from_parentcat_by_ID( 136 );
+					?>
+				</div>
+				<div class="col-md-2">
+					<strong>Gift / Personal</strong>
+					<?php 
+						woocommerce_subcats_from_parentcat_by_ID( 149 );
+					?>
+				</div>
+				<div class="col-md-2">
+					<strong>Festival Products</strong>
+					<?php 
+						woocommerce_subcats_from_parentcat_by_ID( 144 );
+					?>
+				</div>
 			</ul>
 		</li>
 		<li id="menu-item-221" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children menu-item-221"><a title="Glass" href="<?php echo site_url(); ?>/customize-product/" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">Customize</span></a>

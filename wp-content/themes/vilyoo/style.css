@@ -331,8 +331,8 @@ display: block;
 }
 .dropdown-submenu>a:after{display:block;content:" ";float:right;width:0;height:0;border-color:transparent;border-style:solid;border-width:5px 0 5px 5px;border-left-color:#cccccc;margin-top:5px;margin-right:-10px;}
 .dropdown-submenu:active>a:after{border-left-color:#ffffff;}
-.dropdown-submenu.pull-left{float:none;}.dropdown-submenu.pull-left>.dropdown-menu{left:-100%;margin-left:10px;-webkit-border-radius:6px 0 6px 6px;-moz-border-radius:6px 0 6px 6px;border-radius:6px 0 6px 6px;}
-
+.dropdown-submenu.pull-left{float:none;}
+.dropdown-submenu.pull-left>.dropdown-menu{left:-100%;margin-left:10px;-webkit-border-radius:6px 0 6px 6px;-moz-border-radius:6px 0 6px 6px;border-radius:6px 0 6px 6px;}
 
 /* Here some needed widget styles
  * Most widgets are adapted in the file bootstrap-wp.js - and REALLY easy to modify! ;) */
@@ -607,7 +607,7 @@ display: block;
     /*width:200px;*/
     font-weight:bold;
 }
-.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:active, .navbar-default .navbar-nav>li>a:focusx {
+.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:active, .navbar-default .navbar-nav>li>a:focus {
 	background: #BF326B;
 	color: #fff !important;
 }
@@ -660,9 +660,30 @@ display: block;
 }
 .mega-dropdown-menu > li ul > li > a:hover,
 .mega-dropdown-menu > li ul > li > a:focus {
-  text-decoration: none;
+  text-decoration: underline;
   color: #444;
-  background-color: #f5f5f5;
+  background: none;
+}
+.wooc_sclist {
+	margin: 0;
+	padding: 0;
+}
+.wooc_sclist li, .wooc_sclist li a  {
+	padding-left: 0;
+}
+.wooc_sclist li {
+	border-bottom: 1px dotted #ddd;
+}
+.wooc_sclist li a {
+	white-space: normal;
+	font-size: 13px;
+}
+.wooc_sclist li a:hover {
+	background: none;
+	text-decoration: underline;
+}
+.mega-dropdown-menu strong {
+	font-size: 13px;
 }
 .mega-dropdown-menu .dropdown-header {
   color: #428bca;
@@ -702,7 +723,7 @@ The Bootstrap CSS is unchanged.
 		color: #ec353c;
 	}
 	.navbar-nav .hovernav > .dropdown-menu a:hover {
-		background: #f7f5ee;
+		/* background: #f7f5ee; */
 
 	}
 	.navbar-inverse .navbar-nav > .open > a,
@@ -723,8 +744,49 @@ The Bootstrap CSS is unchanged.
 
 /* Home Page Specific */
 #home-featured-seller-left {
-	background-size: cover;
-	background-position: center center;
+	background: url('includes/images/geometry.png');
+	padding: 50px 0;
+	/*background-size: cover;
+	background-position: center center;*/
+}
+.hero-title {
+	font-weight: 300;
+	font-size: 36px;
+}
+.hero-btn {
+	margin: 20px 0;
+	background: transparent;
+	border: 1px solid #BF326B;
+	border-radius: 22px;
+	font-size: 20px;
+	font-weight: 300;
+	padding: 10px 30px;
+	line-height: 1;
+}
+.hero-btn:hover {
+	background: #BF326B;
+	color: #fff;
+}
+.hero-title span {
+	display: block;
+	font-weight: 700;
+}
+.sell-title {
+	font-weight: 300;
+	line-height: 1.4;
+}
+.btn-sellwithus {
+	background: #00aedf;
+	color: #fff !important;
+	font-weight: 500;
+	border-top: 2px solid #f3f3f3;
+	border-bottom: 2px solid #f3f3f3;
+	border-radius: 0;
+	font-size: 16px;
+	font-style: italic;
+	width: 100%;
+	text-transform: uppercase;
+	margin:15px 0;
 }
 #home-featured-seller .prod-title {
 	color: #333;
@@ -757,7 +819,8 @@ The Bootstrap CSS is unchanged.
 	padding: 4px 8px;
 }
 #home-seller-info {
-	background: #BF326B;
+	background-image: url('includes/images/batthern.png');
+	background-color: #BF326B;
 	color: #fff !important;
 }
 #home-seller-info .seller-name, #home-seller-info .social-profiles a{
@@ -772,6 +835,62 @@ The Bootstrap CSS is unchanged.
 }
 .featured-seller-title {
 	margin-top: 0;
+}
+
+#myCarousel .carousel-control.left, #myCarousel .carousel-control.right {
+	background-image:none !important;
+}
+#myCarousel .carousel-inner .item img {
+	width:100%;
+	height:100%;
+}
+#myCarousel .carousel-indicators {
+	bottom:5px;
+	left:0;
+	width:auto;
+	padding:5px 25px 5px 25px;
+	margin-left:0;
+	background:rgba(0,0,0,0.7);
+}
+#myCarousel .carousel-indicators li {
+	border-radius:0;
+	width:8px;
+	height:8px;
+	background:#fff;
+}
+#myCarousel .carousel-indicators .active {
+	width:10px;
+	height:10px;
+	background:#39b3d7;
+	border-color:#39b3d7;
+}
+#myCarousel .carousel-control {
+	background:	#39b3d7;
+	color:#fff;
+	padding: 4px 0;
+	width:26px;
+	top:auto;	
+	left:auto;
+	bottom:12px;
+	opacity:0.85;
+}
+#myCarousel .carousel-control.right {
+	right:10px;
+}
+#myCarousel .carousel-control.left {
+	right: 46px;
+}
+#myCarousel .carousel-caption {
+	top:auto;
+	width:auto;
+	right:auto;
+	bottom:60px;
+	left:0;
+	padding:20px;
+	background:rgba(0,0,0,0.70);
+	text-align:left;
+  	height:auto;
+	max-width:50%;
 }
 
 /* Homepage Most Popular Products */
@@ -858,8 +977,9 @@ The Bootstrap CSS is unchanged.
 	color: #333;
 }
 .btn-red-cart, #reviews .submit {
-	background: #00aedf !important;
+	background: #BF326B !important;
 	color: #fff !important;
+	text-transform: uppercase;
 }
 .woocommerce .star-rating span {
 	color: #ffd314;
@@ -893,10 +1013,17 @@ The Bootstrap CSS is unchanged.
 	text-align: center;
 	white-space: normal;
 }
-.add_to_wishlist, .woocommerce a.added_to_cart {
-	background-color: #BF326B !important; 
+.add_to_wishlist {
+	background-color: #fff !important;
+	border: 1px solid #BF326B !important;
+	color: #BF326B !important;
+}
+.add_to_wishlist:hover {
+	background-color: #BF326B !important;
+	color: #fff !important;
 }
 .woocommerce a.added_to_cart {
+	background-color: #BF326B !important; 
 	padding: 5px;
 	color: #fff;
 }
@@ -1174,4 +1301,20 @@ h3.widget-title {
 	background: #fcfcfc;
 	border-top: 1px solid #ccc;
 	padding: 20px 0;
+	color: #848484;
+}
+#colophon h3.widget-title {
+	font-weight: 400;
+	font-size: 16px;
+	color: #848484;
+}
+#colophon a {
+	color: #565656;
+	font-size: 12px;
+}
+#colophon li {
+	list-style-type: none;
+}
+#colophon .widget ul li:last-child {
+	border-bottom: 1px solid #eaeaea;
 }

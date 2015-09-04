@@ -68,10 +68,10 @@ jQuery( document ).ready( function( $ ) {
 
     $( window ).load( function() {
 
-        var featuredBoxHeight = $( '#home-featured-seller-right' ).height();
-        featuredBoxHeight = featuredBoxHeight - 14;
-        $( '#home-featured-seller-left' ).height( featuredBoxHeight );
-
+        // Set height for homepage featured seller widgets
+        var featuredBoxHeight = $( '#home-featured-seller-left' ).outerHeight();
+        // featuredBoxHeight = featuredBoxHeight - 14;
+        $( '#home-seller-info' ).height( featuredBoxHeight );
 
         // Equal Heights.
         $('ul.products').each(function(){  

@@ -8,11 +8,7 @@ $sidebars = array(
     array( 'name' => __( 'Shop Archive', 'dokan' ), 'id' => 'sidebar-shop' ),
     array( 'name' => __( 'Seller Sidebar', 'dokan' ), 'id' => 'sidebar-seller' ),
     array( 'name' => __( 'My Account Sidebar', 'dokan' ), 'id' => 'sidebar-my-account' ),
-    array( 'name' => __( 'Single Product', 'dokan' ), 'id' => 'sidebar-single-product' ),
-    array( 'name' => __( 'Footer Sidebar - 1', 'dokan' ), 'id' => 'footer-1' ),
-    array( 'name' => __( 'Footer Sidebar - 2', 'dokan' ), 'id' => 'footer-2' ),
-    array( 'name' => __( 'Footer Sidebar - 3', 'dokan' ), 'id' => 'footer-3' ),
-    array( 'name' => __( 'Footer Sidebar - 4', 'dokan' ), 'id' => 'footer-4' ),
+    array( 'name' => __( 'Single Product', 'dokan' ), 'id' => 'sidebar-single-product' )
 );
 
 foreach ($sidebars as $sidebar) {
@@ -21,6 +17,22 @@ foreach ($sidebars as $sidebar) {
         'id' => $sidebar['id'],
         'before_widget' => '<aside id="%1$s" class="white-bg shadow-it col-xs-12 widget %2$s">',
         'after_widget' => '</aside>',
+        'before_title' => '<h3 class="widget-title">',
+        'after_title' => '</h3>',
+    ) );
+}
+
+$footer_widgets = array(
+    array( 'name' => __( 'Footer Sidebar - 1', 'dokan' ), 'id' => 'footer-1' ),
+    array( 'name' => __( 'Footer Sidebar - 2', 'dokan' ), 'id' => 'footer-2' ),
+    array( 'name' => __( 'Footer Sidebar - 3', 'dokan' ), 'id' => 'footer-3' ),
+    array( 'name' => __( 'Footer Sidebar - 4', 'dokan' ), 'id' => 'footer-4' )
+);
+
+foreach ($footer_widgets as $footer_widget) {
+    register_sidebar( array(
+        'name' => $footer_widget['name'],
+        'id' => $footer_widget['id'],
         'before_title' => '<h3 class="widget-title">',
         'after_title' => '</h3>',
     ) );
@@ -398,7 +410,7 @@ function reregister_taxonomy_pro_tags() {
         $tax['rewrite']['hierarchical'] = true;
 
         # adjust the hierarchical niceties (these could be ignored)
-        // $tax['labels']['parent_item'] = sprintf(__("Parent %s"), $tax->labels->singular_name);
+        // $tax['labels']['parent_item'] = sprintf(__("Parent %s"), $tax->labels->singular_name );
         // $tax['labels']['parent_item_colon'] = sprintf(__("Parent %s:"), $tax->labels->singular_name);
 
         # cast caps to array as expected by register_taxonomy
@@ -410,3 +422,36 @@ function reregister_taxonomy_pro_tags() {
     }
 }
 add_action('init', 'reregister_taxonomy_pro_tags', 9999);
+
+function woocommerce_subcats_from_parentcat_by_ID($parent_cat_ID) {
+    $args = array(
+       'hierarchical' => 1,
+       'show_option_none' => '',
+       'hide_empty' => 0,
+       'parent' => $parent_cat_ID,
+       'taxonomy' => 'product_cat'
+    );
+    $subcats = get_categories($args);
+    echo '<ul class="wooc_sclist">';
+    foreach ($subcats as $sc) {
+        $link = get_term_link( $sc->slug, $sc->taxonomy );
+        echo '<li><a href="'. $link .'">'.$sc->name.'</a></li>';
+    }
+    echo '</ul>';
+}
+
+function woocommerce_tags_from_parent_by_ID($parent_tag_ID) {
+
+    $args = array(
+       'hierarchical' => 1,
+       'hide_empty' => 0,
+       'parent' => $parent_tag_ID
+    );
+    $subtags = get_terms( 'product_tag', $args );
+    echo '<ul class="wooc_sclist">';
+    foreach ($subtags as $st) {
+        $link = get_term_link( $st->slug, $st->taxonomy );
+        echo '<li><a href="'. $link .'">'.$st->name.'</a></li>';
+    }
+    echo '</ul>';
+}
