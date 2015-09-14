@@ -14,7 +14,7 @@ get_header(); ?>
 						<div class="col-md-12 text-center">
 							<h2 class="hero-title">
 								<span>We're on a Mission,</span>
-								to popularize modern <strong><em>Crafting</em></strong> techniques
+								to popularize modern <strong><em>Crafting</em></strong> techniques.
 							</h2>
 							<a href="#" class="btn hero-btn">Learn More</a>
 						</div>

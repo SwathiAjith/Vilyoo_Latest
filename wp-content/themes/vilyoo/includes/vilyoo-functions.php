@@ -455,3 +455,11 @@ function woocommerce_tags_from_parent_by_ID($parent_tag_ID) {
     }
     echo '</ul>';
 }
+add_filter( 'woocommerce_product_single_add_to_cart_text', 'woo_custom_cart_button_text' );    // 2.1 +
+add_filter( 'woocommerce_product_add_to_cart_text', 'woo_custom_cart_button_text' );
+
+function woo_custom_cart_button_text() {
+ 
+    return __( 'Buy Now!', 'woocommerce' );
+ 
+}

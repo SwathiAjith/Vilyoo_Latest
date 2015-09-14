@@ -948,7 +948,7 @@ The Bootstrap CSS is unchanged.
 }
 .products .btn.btn-cart {
 	width: 100%;
-	background-color: #00aedf !important;
+	background-color: rgba(191, 50, 107, 0.4); !important;
 	color: #fff !important;
 	text-transform: uppercase;
 	border-radius: 0;
