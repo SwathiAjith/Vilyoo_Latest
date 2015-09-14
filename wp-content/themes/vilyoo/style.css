@@ -478,44 +478,48 @@ display: block;
 	width: 225px;
 }
 .affix .header-search {
-	padding: 4px 0 0;
+	padding: 4px 0;
 }
 .affix .container {
 	padding-bottom: 5px;
 }
-/* Small Top Navigation Bar */
-#small-top-nav {
-	padding: 8px 0 5px;
-	background: #8c2864;
-	margin-bottom: 6px;
+.affix #hide-on-scroll-nav {
+	display: none;
 }
-#small-top-nav ul {
+#hide-on-scroll-nav {
+	padding-top: 10px;
+}
+#masthead > .container {
+	padding-bottom: 0;
+}
+/* Small Top Navigation Bar */
+
+#header-submenu {
 	list-style: none;
 	margin: 0;
-	padding: 2px 0;
+	padding: 15px 0;
 	/*text-align: right;*/
 }
-#small-top-nav ul li {
+#header-submenu li {
 	display: inline-block;
 	border-right: 1px solid #fff;
 	padding: 0 10px;
 }
-#small-top-nav ul li:last-child {
+#header-submenu li:last-child {
 	border-right: 0;
 }
-#small-top-nav ul li a{
-	color: rgba(255,255,255,0.9);
+#header-submenu li a{
+	color: #BF326B;
 	font-weight: 300;
 	font-size: 13px;
 }
-#small-top-nav ul li a:hover, #small-top-nav ul li a:active {
+#header-submenu li a:hover, #header-submenu li a:active {
 	text-decoration: underline;
-	color: #fff;
 }
-#small-top-nav input {
+#nav-search-visible input {
 	border-top-right-radius: 0;
 	border-bottom-right-radius: 0;
-	border:0;
+	border:1px solid #BF326B;
 	padding: 3px 10px;
 	height: auto;
 	font-weight: 300;
@@ -528,7 +532,7 @@ display: block;
 	background: #BF326B;
 	color: rgba(255, 255, 255, 1);
 	text-shadow: 1px 0 0 #007090;
-	padding: 2.2px 12px;
+	padding: 3px 12px;
 }
 .btn-search:hover, .btn-search:active, .btn-search:focus, .btn-search:visited {
 	color: rgba(255, 255, 255, 0.95) !important;
@@ -537,6 +541,15 @@ display: block;
 	top: 26px;
 	left: 15px;
 }
+/*#nav-search-box {
+	position: absolute;
+	top: 0px;
+	right: 0;
+	width: 100%;
+	background-color: #8c2864;
+	padding: 10px 10px 10px 0;
+	z-index: 15
+}*/
 
 /* Header Search Form */
 .header-search, .header-cart{
@@ -582,9 +595,12 @@ display: block;
 	color: #BF326B;
 	text-transform: uppercase;
 }
+.mega-dropdown-menu a strong, .mega-dropdown-menu a strong:hover {
+	color: #393939 !important;
+}
 @media (min-width: 768px) {
 	.navbar-nav>li {
-		width: 20%;
+		width: 16.66667%;
 		text-align: center;
 	}
 }
@@ -895,16 +911,11 @@ The Bootstrap CSS is unchanged.
 
 /* Homepage Most Popular Products */
 .vilyoo-section-header {
-	border: 1px solid #333;
-	text-shadow: rgba(0,0,0,0.74902) 0 -1px 1px;
-	background: #464646;
-	background: -webkit-gradient(linear,left top,left bottom,from(#464646),to(#424242));
-	background: -moz-linear-gradient(top,#464646,#424242);
-	background: linear-gradient(to bottom,#464646,#424242);
-	background-image: -ms-linear-gradient(top,#464646,#424242);
-	color: #fff;
+	border-left: 5px solid #333;
+	color: #393939;
 	font-size: 16px;
 	font-weight: normal;
+	margin-bottom: 10px;
 }
 #home-most-popular .woocommerce, #home-latest-workshops .woocommerce {
 	padding: 15px 0;

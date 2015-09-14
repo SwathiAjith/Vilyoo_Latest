@@ -6,9 +6,9 @@
 get_header(); ?>
 
 <?php // substitute the class "container-fluid" below if you want a wider content area ?>
-	<div class="container">
+	<div class="container-fluid">
 		<div class="row">
-			<div id="content" class="main-content-inner col-sm-12">
+			<div class="col-md-12">
 				<div id="home-featured-seller">
 					<div class="col-md-9 white-bg pad-left pad-right shadow-it" id="home-featured-seller-left">
 						<div class="col-md-12 text-center">
@@ -34,23 +34,29 @@ get_header(); ?>
 					        </div>
 				        </div>
 					</div><!-- col-md-4 -->
-			</div>
-			<div class="clearfix"></div>
-			<div id="home-most-popular">
-				<div class="vilyoo-section-header col-xs-12">
-					<h4>Most Popular Products</h4>
-				</div>
-				<div class="white-bg col-md-12 shadow-it">
-					<?php echo do_shortcode( '[best_selling_products per_page="5" columns="5"]' ); ?>
 				</div>
 			</div>
-			<div id="home-latest-workshops">
-				<div class="vilyoo-section-header col-xs-12">
-					<h4>Latest Workshopss</h4>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div id="content" class="main-content-inner col-sm-12">
+				<div class="clearfix"></div>
+				<div id="home-most-popular">
+					<div class="vilyoo-section-header col-xs-12">
+						<h4>Most Popular Products</h4>
+					</div>
+					<div class="white-bg col-md-12 shadow-it">
+						<?php echo do_shortcode( '[best_selling_products per_page="5" columns="5"]' ); ?>
+					</div>
 				</div>
-				<div class="white-bg col-md-12 shadow-it">
-					<?php echo do_shortcode( '[best_selling_products per_page="5" columns="5"]' ); ?>
+				<div id="home-latest-workshops">
+					<div class="vilyoo-section-header col-xs-12">
+						<h4>Latest Workshopss</h4>
+					</div>
+					<div class="white-bg col-md-12 shadow-it">
+						<?php echo do_shortcode( '[best_selling_products per_page="5" columns="5"]' ); ?>
+					</div>
 				</div>
-			</div>
 
 <?php get_footer(); ?>
