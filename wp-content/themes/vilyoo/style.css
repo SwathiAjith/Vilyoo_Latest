@@ -423,8 +423,8 @@ display: block;
 	font-weight: 400;
 }
 .woocommerce #respond input#submit:hover, .woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce input.button:hover {
-	background-color: #8c2864;
-	color: #fff;
+	background-color: #fff;
+	color: #8c2864 !important;
 }
 .woocommerce .widget_price_filter .ui-slider .ui-slider-range, .woocommerce .widget_price_filter .ui-slider .ui-slider-handle {
 	background-color: #BF326B;
@@ -721,7 +721,7 @@ The Bootstrap CSS is unchanged.
 @media (min-width: 768px) {
 	/* Use this if you wish to hide the caret
 	.navbar-nav .caret {
-	display: none;
+		display: none;
 	} 
 	*/
 	.navbar-nav .open ul {
@@ -949,8 +949,8 @@ The Bootstrap CSS is unchanged.
 }
 .products .btn.btn-cart {
 	width: 100%;
-	background-color: rgba(191, 50, 107, 0.4); !important;
-	color: #fff !important;
+	background-color:  #f5f5f5 !important;
+	color: rgb(191, 50, 107 ) !important;
 	text-transform: uppercase;
 	border-radius: 0;
 	min-height: 32px;

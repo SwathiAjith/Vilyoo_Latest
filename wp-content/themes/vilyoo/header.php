@@ -44,6 +44,7 @@
 					</div>
 					<div class="col-md-9 pad-right text-right">
 						<ul id="header-submenu">
+							<li><a href="tel:+91-8884981265">+91-8884981265</a>&nbsp;&nbsp;<a href="mailto:support@vilyoo.com">support@vilyoo.com</a></li>
 							<li>
 								<a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>">
 									<?php 
