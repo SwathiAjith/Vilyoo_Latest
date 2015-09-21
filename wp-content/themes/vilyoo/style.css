@@ -1151,6 +1151,9 @@ h3.widget-title {
 	font-weight: 300;
 	border-bottom: 1px solid rgba( 0, 0, 0, 0.3 );
 }
+.woocommerce ul.products li.product .yith-wcqv-button:hover {
+	color: #fff !important;
+}
 .woocommerce ul.products li.product:hover > .yith-wcqv-button {
 	display: block;
 }
