@@ -461,8 +461,9 @@ function dokan_seller_reg_form_fields() {
         <p class="form-row form-group form-row-wide">
             <label for="seller-url" class="pull-left"><?php _e( 'Shop URL', 'dokan' ); ?> <span class="required">*</span></label>
             <strong id="url-alart-mgs" class="pull-right"></strong>
-            <input type="text" class="input-text form-control" name="shopurl" id="seller-url" value="<?php if ( ! empty( $_POST['shopurl'] ) ) echo esc_attr($_POST['shopurl']); ?>" required="required" />
-            <small><?php echo home_url() . '/' . dokan_get_option( 'custom_store_url', 'dokan_selling', 'store' ); ?>/<strong id="url-alart"></strong></small>
+            <input type="text" class="input-text form-control" placeholder="my-awesome-store" name="shopurl" id="seller-url" value="<?php if ( ! empty( $_POST['shopurl'] ) ) echo esc_attr($_POST['shopurl']); ?>" required="required" />
+            <small>This will be the unique URL of your store at Vilyoo!</small>
+            <small><?php echo 'vilyoo.com/' . dokan_get_option( 'custom_store_url', 'dokan_selling', 'store' ); ?>/<strong id="url-alart"></strong></small>
         </p>
 
         <p class="form-row form-group form-row-wide">

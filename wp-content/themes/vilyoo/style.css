@@ -693,6 +693,7 @@ display: block;
 .wooc_sclist li a {
 	white-space: normal;
 	font-size: 13px;
+	color: #BF326B !important;
 }
 .wooc_sclist li a:hover {
 	background: none;
