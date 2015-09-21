@@ -1219,6 +1219,18 @@ h3.widget-title {
 	background: #fafafa;
 	border-bottom:0 !important;
 }
+.dokan-product-edit-left .dokan_tabs li {
+	background: #BF326B;
+}
+.dokan-product-edit-left .dokan_tabs li a {
+	color: #fff;
+}
+.dokan-product-edit-left .dokan_tabs li a:hover, .dokan-product-edit-left .dokan_tabs li.active a {
+	color: #BF326B !important;
+}
+.dokan-product-edit-left .dokan_tabs li.active {
+	background: #f9f9f9;
+}
 
 /* Cart */
 .shop_table {

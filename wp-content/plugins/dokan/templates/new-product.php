@@ -43,13 +43,13 @@
                         </div>
                         <div class="dokan-w6">
                             <div class="dokan-form-group">
-                                <input class="dokan-form-control" name="post_title" id="post-title" type="text" placeholder="<?php esc_attr_e( 'Product name..', 'dokan' ); ?>" value="<?php echo dokan_posted_input( 'post_title' ); ?>">
+                                <input class="dokan-form-control" name="post_title" id="post-title" type="text" placeholder="<?php esc_attr_e( 'Product name..', 'dokan' ); ?>" value="<?php echo dokan_posted_input( 'post_title' ); ?>" required>
                             </div>
 
                             <div class="dokan-form-group">
                                 <div class="dokan-input-group">
                                     <span class="dokan-input-group-addon"><?php echo get_woocommerce_currency_symbol(); ?></span>
-                                    <input class="dokan-form-control" name="price" id="product-price" type="text" placeholder="9.99" value="<?php echo dokan_posted_input( 'price' ); ?>">
+                                    <input class="dokan-form-control" name="price" id="product-price" type="text" placeholder="9.99" value="<?php echo dokan_posted_input( 'price' ); ?>" required>
                                 </div>
                             </div>
 
@@ -119,7 +119,7 @@
                                     'echo'             => 0
                                 ) );
 
-                                echo str_replace( '<select', '<select data-placeholder="Select product tags" multiple="multiple" ', $drop_down_tags );
+                                echo str_replace( '<select', '<select required data-placeholder="Select product medium" multiple="multiple" ', $drop_down_tags );
                                 ?>
                             </div>
 
@@ -130,7 +130,7 @@
                     <!-- <textarea name="post_content" id="" cols="30" rows="10" class="span7" placeholder="Describe your product..."><?php echo dokan_posted_textarea( 'post_content' ); ?></textarea> -->
 
                     <div class="dokan-form-group">
-                        <?php wp_editor( Dokan_Template_Shortcodes::$post_content, 'post_content', array('editor_height' => 100, 'quicktags' => false, 'media_buttons' => false, 'teeny' => true, 'editor_class' => 'post_content') ); ?>
+                        <?php wp_editor( Dokan_Template_Shortcodes::$post_content, 'post_content', array('editor_height' => 300, 'quicktags' => false, 'media_buttons' => false, 'teeny' => true, 'editor_class' => 'post_content') ); ?>
                     </div>
 
                     <?php do_action( 'dokan_new_product_form' ); ?>
@@ -139,7 +139,7 @@
 
                     <div class="dokan-form-group">
                         <?php wp_nonce_field( 'dokan_add_new_product', 'dokan_add_new_product_nonce' ); ?>
-                        <input type="submit" name="add_product" class="dokan-btn dokan-btn-danger dokan-btn-theme" value="<?php esc_attr_e( 'Add Product', 'dokan' ); ?>"/>
+                        <input type="submit" name="add_product" class="dokan-btn dokan-btn-danger dokan-btn-theme" value="<?php esc_attr_e( 'Proceed to Next Step', 'dokan' ); ?>"/>
                     </div>
 
                 </form>
