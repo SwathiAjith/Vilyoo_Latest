@@ -5,7 +5,7 @@ $_downloadable   = get_post_meta( $post->ID, '_downloadable', true );
 
 ?>
 <div class="update-button-wrap">
-    <input type="submit" name="update_product" class="dokan-btn dokan-btn-theme dokan-btn-lg" value="<?php esc_attr_e( 'Update Product', 'dokan' ); ?>"/>
+    <input type="submit" name="update_product" class="dokan-btn btn-danger dokan-btn-lg" value="<?php esc_attr_e( 'Update Product', 'dokan' ); ?>"/>
 </div>
 
 <div class="toggle-sidebar-container">

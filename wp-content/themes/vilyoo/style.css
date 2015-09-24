@@ -1231,6 +1231,10 @@ h3.widget-title {
 .dokan-product-edit-left .dokan_tabs li.active {
 	background: #f9f9f9;
 }
+.clickNextTrigger, .clickNextTrigger:active, .clickNextTrigger:hover {
+	color: #fff !important;
+}
+
 
 /* Cart */
 .shop_table {

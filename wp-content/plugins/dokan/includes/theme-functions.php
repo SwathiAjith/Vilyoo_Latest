@@ -430,18 +430,19 @@ function dokan_post_input_box( $post_id, $meta_key, $attr = array(), $type = 'te
     $name        = isset( $attr['name'] ) ? esc_attr( $attr['name'] ) : $meta_key;
     $value       = isset( $attr['value'] ) ? $attr['value'] : get_post_meta( $post_id, $meta_key, true );
     $size        = isset( $attr['size'] ) ? $attr['size'] : 30;
+    $required    = isset( $attr['required'] ) ? $attr['required'] : '';
 
     switch ($type) {
         case 'text':
             ?>
-            <input type="text" name="<?php echo $name; ?>" id="<?php echo $name; ?>" value="<?php echo esc_attr( $value ); ?>" class="<?php echo $class; ?>" placeholder="<?php echo $placeholder; ?>">
+            <input type="text" name="<?php echo $name; ?>" id="<?php echo $name; ?>" value="<?php echo esc_attr( $value ); ?>" class="<?php echo $class; ?>" placeholder="<?php echo $placeholder; ?>" <?php echo $required; ?>>
             <?php
             break;
 
         case 'textarea':
             $rows = isset( $attr['rows'] ) ? absint( $attr['rows'] ) : 4;
             ?>
-            <textarea name="<?php echo $name; ?>" id="<?php echo $name; ?>" rows="<?php echo $rows; ?>" class="<?php echo $class; ?>" placeholder="<?php echo $placeholder; ?>"><?php echo esc_textarea( $value ); ?></textarea>
+            <textarea name="<?php echo $name; ?>" id="<?php echo $name; ?>" rows="<?php echo $rows; ?>" class="<?php echo $class; ?>" placeholder="<?php echo $placeholder; ?>" <?php echo $required; ?>><?php echo esc_textarea( $value ); ?></textarea>
             <?php
             break;
 
@@ -452,7 +453,7 @@ function dokan_post_input_box( $post_id, $meta_key, $attr = array(), $type = 'te
 
             <label class="<?php echo $class; ?>" for="<?php echo $name; ?>">
                 <input type="hidden" name="<?php echo $name; ?>" value="no">
-                <input name="<?php echo $name; ?>" id="<?php echo $name; ?>" value="yes" type="checkbox"<?php checked( $value, 'yes' ); ?>>
+                <input name="<?php echo $name; ?>" id="<?php echo $name; ?>" value="yes" type="checkbox"<?php checked( $value, 'yes' ); ?> <?php echo $required; ?>>
                 <?php echo $label; ?>
             </label>
 
@@ -462,7 +463,7 @@ function dokan_post_input_box( $post_id, $meta_key, $attr = array(), $type = 'te
         case 'select':
             $options = is_array( $attr['options'] ) ? $attr['options'] : array();
             ?>
-            <select name="<?php echo $name; ?>" id="<?php echo $name; ?>" class="<?php echo $class; ?>">
+            <select name="<?php echo $name; ?>" id="<?php echo $name; ?>" class="<?php echo $class; ?>" <?php echo $required; ?>>
                 <?php foreach ($options as $key => $label) { ?>
                     <option value="<?php echo esc_attr( $key ); ?>"<?php selected( $value, $key ); ?>><?php echo $label; ?></option>
                 <?php } ?>
@@ -475,7 +476,7 @@ function dokan_post_input_box( $post_id, $meta_key, $attr = array(), $type = 'te
             $min = isset( $attr['min'] ) ? $attr['min'] : 0;
             $step = isset( $attr['step'] ) ? $attr['step'] : 'any';
             ?>
-            <input type="number" name="<?php echo $name; ?>" id="<?php echo $name; ?>" value="<?php echo esc_attr( $value ); ?>" class="<?php echo $class; ?>" placeholder="<?php echo $placeholder; ?>" min="<?php echo esc_attr( $min ); ?>" step="<?php echo esc_attr( $step ); ?>" size="<?php echo esc_attr( $size ); ?>">
+            <input type="number" name="<?php echo $name; ?>" id="<?php echo $name; ?>" value="<?php echo esc_attr( $value ); ?>" class="<?php echo $class; ?>" placeholder="<?php echo $placeholder; ?>" min="<?php echo esc_attr( $min ); ?>" step="<?php echo esc_attr( $step ); ?>" size="<?php echo esc_attr( $size ); ?>" <?php echo $required; ?>>
             <?php
             break;
     }

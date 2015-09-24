@@ -328,6 +328,8 @@ if ( ! $from_shortcode ) {
                                         </div>
 
                                         <?php do_action( 'dokan_product_edit_after_main' ); ?>
+                                        <br>
+                                        <a href="#product-options" class="btn col-md-12 btn-danger clickNextTrigger">Next</a>
 
                                     </div> <!-- #edit-product -->
 
@@ -335,6 +337,8 @@ if ( ! $from_shortcode ) {
                                     
                                         <?php dokan_get_template_part( 'edit/options' ); ?>
                                         <?php do_action( 'dokan_product_edit_after_options' ); ?>
+                                        <br>
+                                        <a href="#product-inventory" class="btn col-md-12 btn-danger clickNextTrigger">Next</a>
 
                                     </div> <!-- #product-options -->
 
@@ -342,6 +346,8 @@ if ( ! $from_shortcode ) {
 
                                         <?php dokan_get_template_part( 'edit/inventory' ); ?>
                                         <?php do_action( 'dokan_product_edit_after_inventory' ); ?>
+                                        <br>
+                                        <a href="#product-shipping" class="btn col-md-12 btn-danger clickNextTrigger">Next</a>
 
                                     </div> <!-- #product-inventory -->
 
@@ -349,6 +355,8 @@ if ( ! $from_shortcode ) {
                                         
                                         <?php dokan_get_template_part( 'edit/shipping' ); ?> 
                                         <?php do_action( 'dokan_product_edit_after_shipping' ); ?>
+                                        <br>
+                                        <a href="#product-attributes" class="btn col-md-12 btn-danger clickNextTrigger">Next</a>
                                     
                                     </div>
 
@@ -398,6 +406,13 @@ if ( ! $from_shortcode ) {
     (function($){
         $(document).ready(function(){
             $('#tab-container').easytabs();
+
+            $( '.clickNextTrigger' ).click( function(e) {
+                e.preventDefault();
+                var navToTab = $(this).attr('href');
+                $( this ).parent().hide();
+                $( navToTab ).show(); 
+            });
         });
     })(jQuery)
 </script>

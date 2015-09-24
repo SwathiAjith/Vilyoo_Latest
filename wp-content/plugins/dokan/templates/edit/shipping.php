@@ -30,16 +30,16 @@ $porduct_shipping_pt = ( $_processing_time ) ? $_processing_time : $dps_pt;
     <div class="dokan-form-group show_if_simple">
         <label class="dokan-w4 dokan-control-label" for="_backorders"><?php _e( 'Weight (kg)', 'dokan' ); ?></label>
         <div class="dokan-w4 dokan-text-left">
-            <?php dokan_post_input_box( $post->ID, '_weight' ); ?>
+            <?php dokan_post_input_box( $post->ID, '_weight', array( 'required' => 'required' ) ); ?>
         </div>
     </div>
 
     <div class="dokan-form-group show_if_simple">
         <label class="dokan-w4 dokan-control-label" for="_backorders"><?php _e( 'Dimensions (cm)', 'dokan' ); ?></label>
         <div class="dokan-w8 dokan-text-left product-dimension">
-            <?php dokan_post_input_box( $post->ID, '_length', array( 'class' => 'form-control col-sm-1', 'placeholder' => __( 'length', 'dokan' ) ), 'number' ); ?>
-            <?php dokan_post_input_box( $post->ID, '_width', array( 'class' => 'form-control col-sm-1', 'placeholder' => __( 'width', 'dokan' ) ), 'number' ); ?>
-            <?php dokan_post_input_box( $post->ID, '_height', array( 'class' => 'form-control col-sm-1', 'placeholder' => __( 'height', 'dokan' ) ), 'number' ); ?>
+            <?php dokan_post_input_box( $post->ID, '_length', array( 'class' => 'form-control col-sm-1', 'placeholder' => __( 'length', 'dokan' ), 'required' => 'required' ), 'number' ); ?>
+            <?php dokan_post_input_box( $post->ID, '_width', array( 'class' => 'form-control col-sm-1', 'placeholder' => __( 'width', 'dokan' ), 'required' => 'required' ), 'number' ); ?>
+            <?php dokan_post_input_box( $post->ID, '_height', array( 'class' => 'form-control col-sm-1', 'placeholder' => __( 'height', 'dokan' ), 'required' => 'required' ), 'number' ); ?>
         </div>
     </div>
 
@@ -71,7 +71,7 @@ $porduct_shipping_pt = ( $_processing_time ) ? $_processing_time : $dps_pt;
         <label class="dokan-w4 dokan-control-label" for="dps_additional_qty"><?php _e( 'Processing Time', 'dokan' ); ?></label>
 
         <div class="dokan-w4 dokan-text-left">
-            <select name="_dps_processing_time" id="_dps_processing_time" class="dokan-form-control">
+            <select name="_dps_processing_time" id="_dps_processing_time" class="dokan-form-control" required>
                 <?php foreach ( $processing_time as $processing_key => $processing_value ): ?>
                       <option value="<?php echo $processing_key; ?>" <?php selected( $porduct_shipping_pt, $processing_key ); ?>><?php echo $processing_value; ?></option>
                 <?php endforeach ?>
