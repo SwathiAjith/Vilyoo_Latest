@@ -54,7 +54,16 @@
                             </div>
 
                             <div class="dokan-form-group">
-                                <textarea name="post_excerpt" id="post-excerpt" rows="5" class="dokan-form-control" placeholder="<?php esc_attr_e( 'Short description about the product...', 'dokan' ); ?>"><?php echo dokan_posted_textarea( 'post_excerpt' ); ?></textarea>
+                                <small><?php echo "Maximum 100 Characters"; ?></small>
+                                <textarea name="post_excerpt" id="post-excerpt" rows="5" class="dokan-form-control" placeholder="<?php esc_attr_e( 'Short description about the product...( Maximum 100 Characters )', 'dokan' ); ?>" maxlength="60"><?php echo dokan_posted_textarea( 'post_excerpt' ); ?></textarea>
+                            </div>
+
+                            <div class="dokan-form-group">
+                                <label> <?php echo "Does this product require personalization?"; ?></label>
+                                <select class="form-control" name="is_this_product_customizable" required>
+                                    <option value="yes">Yes</option>
+                                    <option value="no" selected>No</option>
+                                </select>
                             </div>
                             
                             <?php if ( dokan_get_option( 'product_category_style', 'dokan_selling', 'single' ) == 'single' ): ?>

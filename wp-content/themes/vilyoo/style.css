@@ -221,6 +221,11 @@ a {
 a:hover, a:visited {
 	color: #BF326B;
 }
+@media (min-width: 1200px) {
+	.container {
+		width: 1270px;
+	}
+}
 
 /* Images and wp-captions should always fit and be responsive */
 img {
@@ -1165,6 +1170,12 @@ h3.widget-title {
 .dokan-dashboard .dokan-dash-sidebar ul.dokan-dashboard-menu li.active, .dokan-dashboard .dokan-dash-sidebar ul.dokan-dashboard-menu li:hover {
 	background: #BF326B;
 }
+.dokan-product-edit-area .dokan-product-edit-right {
+	position: relative;
+}
+.product-edit-sidebar-fixed {
+	position: fixed;
+}
 .dokan-dashboard .dokan-dash-sidebar ul.dokan-dashboard-menu li.active:after {
 	border-color: transparent #fafafa transparent transparent;
 	border-left-color: #fafafa;
@@ -1233,10 +1244,15 @@ h3.widget-title {
 }
 .clickNextTrigger, .clickNextTrigger:active, .clickNextTrigger:hover {
 	color: #fff !important;
+	display: none !important;
 }
 
 
 /* Cart */
+.woocommerce #content div.product div.thumbnails a, .woocommerce div.product div.thumbnails a, .woocommerce-page #content div.product div.thumbnails a, .woocommerce-page div.product div.thumbnails a {
+	width: 15% !important;
+}
+
 .shop_table {
 	border-radius: 0 !important;
 }

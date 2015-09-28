@@ -421,13 +421,13 @@ function reregister_taxonomy_pro_tags() {
         register_taxonomy($tax_name, array('product'), $tax);
     }
 }
-add_action('init', 'reregister_taxonomy_pro_tags', 9999);
+// add_action('init', 'reregister_taxonomy_pro_tags', 9999);
 
 function woocommerce_subcats_from_parentcat_by_ID($parent_cat_ID) {
     $args = array(
        'hierarchical' => 1,
        'show_option_none' => '',
-       'hide_empty' => 0,
+       'hide_empty' => 1,
        'parent' => $parent_cat_ID,
        'taxonomy' => 'product_cat'
     );
@@ -444,7 +444,7 @@ function woocommerce_tags_from_parent_by_ID($parent_tag_ID) {
 
     $args = array(
        'hierarchical' => 1,
-       'hide_empty' => 0,
+       'hide_empty' => 1,
        'parent' => $parent_tag_ID
     );
     $subtags = get_terms( 'product_tag', $args );

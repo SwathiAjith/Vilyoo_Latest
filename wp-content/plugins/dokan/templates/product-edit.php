@@ -131,12 +131,12 @@ if ( ! $from_shortcode ) {
 
                                     ) );
 
-                                    foreach ( $dokan_product_data_tabs as $key => $tab ) { ?>
-                                        <li class="<?php echo $key; ?>_options <?php echo $key; ?>_tab <?php echo implode( ' ' , $tab['class'] ); ?>">
+                                    // foreach ( $dokan_product_data_tabs as $key => $tab ) { ?>
+                                       <!--  <li class="<?php echo $key; ?>_options <?php echo $key; ?>_tab <?php echo implode( ' ' , $tab['class'] ); ?>">
                                             <a href="#<?php echo $tab['target']; ?>" data-toggle="tab"><?php echo esc_html( $tab['label'] ); ?></a>
-                                        </li>
+                                        </li> -->
                                     <?php
-                                    }
+                                    // }
 
                                     do_action( 'dokan_product_data_panel_tabs' );
                                     ?>
@@ -239,6 +239,15 @@ if ( ! $from_shortcode ) {
                                                 <div class="dokan-form-group">
                                                     <?php dokan_post_input_box( $post_id, 'post_excerpt', array( 'placeholder' => 'Short description about the product...', 'value' => $post->post_excerpt ), 'textarea' ); ?>
                                                 </div>
+                                                <div class="dokan-form-group">
+                                                    <label> <?php echo "Does this product require personalization?"; ?></label><span class="required">*</span>
+                                                    <?php $selected_value = get_post_meta( $post_id, 'is_this_product_customizable' )[0]; ?>
+                                                    <select class="form-control" name="is_this_product_customizable" required>
+
+                                                        <option value="yes" <?php if( $selected_value == "yes" ) echo "selected"; ?>>Yes</option>
+                                                        <option value="no" <?php if( $selected_value == "no" ) echo "selected"; ?>>No</option>
+                                                    </select>
+                                                </div>
                                                 
                                                 <?php if ( dokan_get_option( 'product_category_style', 'dokan_selling', 'single' ) == 'single' ): ?>
                                                     <div class="dokan-form-group">
@@ -268,7 +277,7 @@ if ( ! $from_shortcode ) {
                                                     </div>
                                                 <?php elseif ( dokan_get_option( 'product_category_style', 'dokan_selling', 'single' ) == 'multiple' ): ?>
                                                     <div class="dokan-form-group dokan-list-category-box">
-                                                        <h5><?php _e( 'Choose a category', 'dokan' );  ?></h5>
+                                                        <h5><?php _e( 'Choose a category', 'dokan' );  ?><span class="required">*</span></h5>
                                                         <ul class="dokan-checkbox-cat">
                                                             <?php
                                                             $term = array();
@@ -313,7 +322,7 @@ if ( ! $from_shortcode ) {
                                                             'walker'           => new Dokan_Walker_Tag_Multi()
                                                         ) );
 
-                                                        echo str_replace( '<select', '<select data-placeholder="Select product tags" multiple="multiple" ', $drop_down_tags );
+                                                        echo str_replace( '<select', '<select data-placeholder="Select product tags" required multiple="multiple" ', $drop_down_tags );
 
                                                         ?>
                                                 </div>
@@ -323,7 +332,7 @@ if ( ! $from_shortcode ) {
 
                                         <div class="dokan-rich-text-wrap">
                                             <div>
-                                                <?php wp_editor( esc_textarea( wpautop( $post->post_content ) ), 'post_content', array('editor_height' => 300, 'quicktags' => false, 'media_buttons' => false, 'teeny' => true, 'editor_class' => 'post_content') ); ?>
+                                                <?php wp_editor( wpautop( $post->post_content ), 'post_content', array('editor_height' => 300, 'quicktags' => false, 'media_buttons' => false, 'teeny' => true, 'editor_class' => 'post_content') ); ?>
                                             </div>
                                         </div>
 

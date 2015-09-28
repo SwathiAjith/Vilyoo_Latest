@@ -126,7 +126,8 @@ class Dokan_Template_Settings {
             'gravatar'              => absint( $_POST['dokan_gravatar'] ),
         );
 
-        $customized_products = sanitize_text_field( $_POST['customized_products'] );
+        $customized_products    = sanitize_text_field( $_POST['customized_products'] );
+        $seller_desc            = sanitize_text_field( $_POST['seller_desc'] );
 
         if ( isset( $_POST['settings']['bank'] ) ) {
             $bank = $_POST['settings']['bank'];
@@ -159,6 +160,7 @@ class Dokan_Template_Settings {
 
         update_user_meta( $store_id, 'dokan_profile_settings', $dokan_settings );
         update_usermeta( $store_id, 'offer_product_customization', $customized_products );
+        update_usermeta( $store_id, 'seller_desc', $seller_desc );
 
         do_action( 'dokan_store_profile_saved', $store_id, $dokan_settings );
 
@@ -209,6 +211,7 @@ class Dokan_Template_Settings {
         $dokan_category  = isset( $profile_info['dokan_category'] ) ? $profile_info['dokan_category'] : '';
 
         $customized_products = get_usermeta( $current_user->ID, 'offer_product_customization' );
+        $seller_desc = get_usermeta( $current_user->ID, 'seller_desc' );
 
 
 
@@ -361,6 +364,13 @@ class Dokan_Template_Settings {
                             </div> <!-- .tabs_container -->
                         </div> <!-- .payment method tab -->
                     </div> <!-- .dokan-w4 -->
+                </div> <!-- .dokan-form-group -->
+
+                <div class="dokan-form-group">
+                    <label class="dokan-w3 dokan-control-label" for="seller_desc"><?php _e( 'Shop Description', 'dokan' ); ?><small> ( Max. 180 characters ).</small></label>
+                    <div class="dokan-w4 dokan-text-left">
+                        <textarea name="seller_desc" class="form-control" id="seller_desc" maxlength="180" required><?php echo $seller_desc; ?></textarea>
+                    </div> <!-- col.md-4 -->
                 </div> <!-- .dokan-form-group -->
 
                 <div class="dokan-form-group">

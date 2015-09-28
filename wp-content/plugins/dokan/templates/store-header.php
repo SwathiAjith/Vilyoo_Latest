@@ -1,6 +1,7 @@
 <?php
-$store_user = get_userdata( get_query_var( 'author' ) );
-$store_info = dokan_get_store_info( $store_user->ID );
+$store_user     = get_userdata( get_query_var( 'author' ) );
+$store_info     = dokan_get_store_info( $store_user->ID );
+$seller_desc    = get_usermeta( $store_user->ID, 'seller_desc' );
 
 ?>
 <div class="profile-frame">
@@ -24,7 +25,12 @@ $store_info = dokan_get_store_info( $store_user->ID );
                 <?php if ( isset( $store_info['store_name'] ) ) { ?>
                     <li class="store-name"><?php echo esc_html( $store_info['store_name'] ); ?></li>
                 <?php } ?>
-
+                <?php if ( isset( $seller_desc ) ) { ?>
+                    <li class="store-desc">
+                        <i class="fa fa-certificate"></i> <?php echo esc_html( $seller_desc ); ?>
+                    </li>
+                <?php } ?>
+            <!--
                 <?php if ( isset( $store_info['address'] ) && !empty( $store_info['address'] ) ) { ?>
                     <li class="dokan-store-address"><i class="fa fa-map-marker"></i> <?php echo esc_html( $store_info['address'] ); ?></li>
                 <?php } ?>
@@ -42,6 +48,7 @@ $store_info = dokan_get_store_info( $store_user->ID );
                         <a href="mailto:<?php echo antispambot( $store_user->user_email ); ?>"><?php echo antispambot( $store_user->user_email ); ?></a>
                     </li>
                 <?php } ?>
+            -->
 
                 <li>
                     <i class="fa fa-star"></i>

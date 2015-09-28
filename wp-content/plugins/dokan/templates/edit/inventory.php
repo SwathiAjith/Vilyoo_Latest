@@ -29,7 +29,7 @@ if ( $tax_classes ) {
     </div>
 
     <div class="dokan-form-group">
-        <label class="dokan-w4 dokan-control-label" for="_stock_qty"><?php _e( 'Stock Qty', 'dokan' ); ?></label>
+        <label class="dokan-w4 dokan-control-label" for="_stock_qty"><?php _e( 'Stock Qty', 'dokan' ); ?><span class="required">*</span></label>
         <div class="dokan-w4 dokan-text-left">
             <?php dokan_post_input_box( $post->ID, '_stock', array( 'placeholder' => '10', 'required' => 'required' ) ); ?>
         </div>
