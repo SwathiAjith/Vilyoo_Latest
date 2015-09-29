@@ -465,3 +465,86 @@ function woocommerce_tags_from_parent_by_ID($parent_tag_ID) {
 //     return __( 'Buy Now!', 'woocommerce' );
  
 // }
+// 
+
+function add_js_for_customizable_product() {
+
+    // This script will only be added to footer if the product on page is customizable
+
+    global $post;
+
+    $is_customizable = get_post_meta( $post->ID, 'is_this_product_customizable' )[0];
+
+    if( $is_customizable == "yes" ) {
+
+    ?>
+
+        <script type="text/javascript">
+            jQuery( function($) {
+                var currentProductId = <?php echo $post->ID; ?>;
+                $( '#addCustomizationMessage' ).click( function(e) {
+                    e.preventDefault();
+                    console.log( 'Clicked');
+                    $( '#personalizedNoteWrap' ).removeClass('hide')
+                });
+                $( '#savePersonalizationNote' ).click( function(e) {
+                    e.preventDefault();
+                    var productCustomNote = $( '#personalizedNoteData' ).val();
+                    if( productCustomNote == '' || productCustomNote == undefined || productCustomNote.length < 10 ) {
+                        $( '#personalizedNoteData').focus();
+                    } else {
+                        localStorage.setItem( currentProductId, productCustomNote )
+                        $( '#personalizedNoteWrap' ).addClass('hide');
+                        $( '#addCustomizationMessageNotif' ).removeClass( 'hide' ).addClass( 'alert' ).text( 'Personalization Message Saved.' );
+                    }
+                });
+            });
+        </script>
+    <?php 
+    }
+}
+
+add_action( 'wp_footer', 'add_js_for_customizable_product', 99 );
+
+function add_js_for_customisable_product_on_checkout() {
+
+    if( is_woocommerce && is_checkout ) {
+        foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
+            $_product     = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
+            $is_customizable = get_post_meta( $_product->id, 'is_this_product_customizable' )[0];
+            if( $is_customizable == "yes" ) {
+                ?>
+
+                <script type="text/javascript">
+                    jQuery( function($) {
+                        var customizableProdId = <?php echo $_product->id; ?>;
+                        var customizableProdMsg = localStorage.getItem( customizableProdId );
+                        $( '#order_comments' ).val( $( '#order_comments' ).val() + 'Customization Message for Product "<?php echo $_product->post->post_title; ?> : "' + customizableProdMsg + '\n');
+                    });
+                </script>
+
+                <?php
+            }
+        }
+    }
+
+}
+add_action( 'wp_footer', 'add_js_for_customisable_product_on_checkout', 99 );
+
+add_filter( 'woocommerce_currencies', 'vilyoo_add_indian_currency' );
+add_filter( 'woocommerce_currency_symbol', 'vilyoo_add_indian_currency_symbol' );
+
+function vilyoo_add_indian_currency( $currencies ) {
+    $currencies['INR'] = 'INR';
+    return $currencies;
+}
+
+function vilyoo_add_indian_currency_symbol( $symbol ) {
+    $currency = get_option( 'woocommerce_currency' );
+    switch( $currency ) {
+        case 'INR': $symbol = '<i class="fa fa-rupee"></i>'; break;
+    }
+    return $symbol;
+}
+
+
