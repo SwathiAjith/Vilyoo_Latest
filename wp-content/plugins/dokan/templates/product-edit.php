@@ -412,18 +412,18 @@ if ( ! $from_shortcode ) {
 </div><!-- container -->
 
 <script>
-    (function($){
-        $(document).ready(function(){
-            $('#tab-container').easytabs();
+    // (function($){
+    //     $(document).ready(function(){
+    //         $('#tab-container').easytabs();
 
-            $( '.clickNextTrigger' ).click( function(e) {
-                e.preventDefault();
-                var navToTab = $(this).attr('href');
-                $( this ).parent().hide();
-                $( navToTab ).show(); 
-            });
-        });
-    })(jQuery)
+    //         $( '.clickNextTrigger' ).click( function(e) {
+    //             e.preventDefault();
+    //             var navToTab = $(this).attr('href');
+    //             $( this ).parent().hide();
+    //             $( navToTab ).show(); 
+    //         });
+    //     });
+    // })(jQuery)
 </script>
 
 <?php

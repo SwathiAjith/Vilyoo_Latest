@@ -431,6 +431,7 @@ function dokan_post_input_box( $post_id, $meta_key, $attr = array(), $type = 'te
     $value       = isset( $attr['value'] ) ? $attr['value'] : get_post_meta( $post_id, $meta_key, true );
     $size        = isset( $attr['size'] ) ? $attr['size'] : 30;
     $required    = isset( $attr['required'] ) ? $attr['required'] : '';
+    $checked_box = isset( $attr['checked'] ) ? $attr['checked'] : '';
 
     switch ($type) {
         case 'text':
@@ -453,7 +454,7 @@ function dokan_post_input_box( $post_id, $meta_key, $attr = array(), $type = 'te
 
             <label class="<?php echo $class; ?>" for="<?php echo $name; ?>">
                 <input type="hidden" name="<?php echo $name; ?>" value="no">
-                <input name="<?php echo $name; ?>" id="<?php echo $name; ?>" value="yes" type="checkbox"<?php checked( $value, 'yes' ); ?> <?php echo $required; ?>>
+                <input name="<?php echo $name; ?>" id="<?php echo $name; ?>" value="yes" type="checkbox"<?php checked( $value, 'yes' ); ?> <?php echo $required; ?> <?php echo $checked_box; ?>>
                 <?php echo $label; ?>
             </label>
 

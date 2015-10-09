@@ -504,8 +504,6 @@ function add_js_for_customizable_product() {
     }
 }
 
-add_action( 'wp_footer', 'add_js_for_customizable_product', 99 );
-
 function add_js_for_customisable_product_on_checkout() {
 
     if( is_woocommerce && is_checkout ) {
@@ -529,6 +527,8 @@ function add_js_for_customisable_product_on_checkout() {
     }
 
 }
+
+add_action( 'wp_footer', 'add_js_for_customizable_product', 99 );
 add_action( 'wp_footer', 'add_js_for_customisable_product_on_checkout', 99 );
 
 add_filter( 'woocommerce_currencies', 'vilyoo_add_indian_currency' );
