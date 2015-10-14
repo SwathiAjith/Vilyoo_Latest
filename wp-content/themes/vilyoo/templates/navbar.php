@@ -4,62 +4,75 @@
 			<a title="Shop by medium" href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">Shop by medium</a>
 			<ul role="menu" class=" dropdown-menu mega-dropdown-menu row">
 				<div class="col-md-2">
-					<strong>Paper</strong>
+					<a href="<?php echo get_bloginfo('wpurl')?>/medium/paper/"><strong>Paper</strong></a>
 					<?php 
 						woocommerce_tags_from_parent_by_ID( 161 );
 					?>
 					<br>
-					<strong>Leather</strong>
+					<a href="<?php echo get_bloginfo('wpurl')?>/medium/leather/"><strong>Leather</strong></a>
 					<?php 
 						woocommerce_tags_from_parent_by_ID( 170 );
 					?>
 				</div>
 				<div class="col-md-2">
-					<strong>Glass</strong>
+
+					<a href="<?php echo get_bloginfo('wpurl')?>/medium/glass/"><strong>Glass</strong></a>
+
 					<?php 
 						woocommerce_tags_from_parent_by_ID( 179 );
 					?>
 					<br>
-					<strong>Bead</strong>
+
+					<a href="<?php echo get_bloginfo('wpurl')?>/medium/bead/"><strong>Bead</strong></a>
+
 					<?php 
 						woocommerce_tags_from_parent_by_ID( 197 );
 					?>
 				</div>
 				<div class="col-md-2">
-					<strong>Clay</strong>
+					<a href="<?php echo get_bloginfo('wpurl')?>/medium/clay/"><strong>Clay</strong></a>
 					<?php 
 						woocommerce_tags_from_parent_by_ID( 187 );
 					?>
 					<br>
-					<strong>Wood</strong>
+					<a href="<?php echo get_bloginfo('wpurl')?>/medium/wood/"><strong>Wood</strong></a>
 					<?php 
 						woocommerce_tags_from_parent_by_ID( 223 );
 					?>
 				</div>
 				<div class="col-md-2">
-					<strong>Paintings / Art</strong>
+
+					<a href="<?php echo get_bloginfo('wpurl')?>/medium/paintings-art/"><strong>Paintings / Art</strong></a>
+
 					<?php 
 						woocommerce_tags_from_parent_by_ID( 231 );
 					?>
 				</div>
 				<div class="col-md-2">
-					<strong>Thread</strong>
+
+					<a href="<?php echo get_bloginfo('wpurl')?>/medium/thread/"><strong>Thread</strong></a>
+
 					<?php 
 						woocommerce_tags_from_parent_by_ID( 205 );
 					?>
 					<br>
-					<strong>Metal</strong>
+
+					<a href="<?php echo get_bloginfo('wpurl')?>/medium/metal/"><strong>Metal</strong></a>
+
 					<?php 
 						woocommerce_tags_from_parent_by_ID( 216 );
 					?>
 				</div>
 				<div class="col-md-2">
-					<strong>Supplies</strong>
+
+					<a href="<?php echo get_bloginfo('wpurl')?>/medium/supplies/"><strong>Supplies</strong></a>
+
 					<?php 
 						woocommerce_tags_from_parent_by_ID( 253 );
 					?>
 					<br>
-					<strong>Upcycled</strong>
+					<a href="<?php echo get_bloginfo('wpurl')?>/medium/upcycled/"><strong>Upcycled</strong></a>
+
 					<?php 
 						woocommerce_tags_from_parent_by_ID( 247 );
 					?>

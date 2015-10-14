@@ -473,7 +473,7 @@ function add_js_for_customizable_product() {
 
     global $post;
 
-    $is_customizable = get_post_meta( $post->ID, 'is_this_product_customizable' )[0];
+    $is_customizable = get_post_meta( $post->ID, 'is_this_product_customizable' );
 
     if( $is_customizable == "yes" ) {
 
@@ -509,7 +509,7 @@ function add_js_for_customisable_product_on_checkout() {
     if( is_woocommerce && is_checkout ) {
         foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
             $_product     = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
-            $is_customizable = get_post_meta( $_product->id, 'is_this_product_customizable' )[0];
+            $is_customizable = get_post_meta( $_product->id, 'is_this_product_customizable' );
             if( $is_customizable == "yes" ) {
                 ?>
 
