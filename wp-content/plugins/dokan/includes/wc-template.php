@@ -74,6 +74,7 @@ function dokan_product_seller_tab( $val ) {
                     <?php printf( '<a href="%s">%s</a>', dokan_get_store_url( $author->ID ), $author->display_name ); ?>
                 </span>
             </li>
+<!--
             <?php if ( !empty( $store_info['address'] ) ) { ?>
                 <li class="store-address">
                     <span><?php _e( 'Address:', 'dokan' ); ?></span>
@@ -82,12 +83,12 @@ function dokan_product_seller_tab( $val ) {
                     </span>
                 </li>
             <?php } ?>
+-->
 
             <li class="clearfix">
                 <?php dokan_get_readable_seller_rating( $author->ID ); ?>
             </li>
             <li>
-                <!-- <a href="<?php echo dokan_get_store_url( $author->ID ); ?>#contact-seller-form">Contact Seller</a> -->
                 <a href="#contact-seller-form-popup" data-toggle="modal" class="btn btn-success">Contact Seller</a>
             </li>
         </ul>
