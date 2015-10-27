@@ -41,7 +41,25 @@ get_header(); ?>
 	<div class="container">
 		<div class="row">
 			<div id="content" class="main-content-inner col-sm-12">
-				<div class="clearfix"></div>
+				<div class="promoBanners">
+					<div class="col-md-8 pad-left pad-right">
+						<a href="#">
+							<img src="<?php echo get_site_url()?>/wp-content/themes/vilyoo/includes/images/home_banners/Banner_product.jpg">
+						</a>
+					</div>
+					<div class="col-md-4">
+						<div class="col-xs-12 pad-left pad-right">
+							<a href="#">
+								<img src="<?php echo get_site_url()?>/wp-content/themes/vilyoo/includes/images/home_banners/Banner_Workshop-01.jpg">
+							</a>
+						</div>
+						<div class="col-xs-12 pad-left pad-right mt-15">
+							<a href="#">
+								<img src="<?php echo get_site_url()?>/wp-content/themes/vilyoo/includes/images/home_banners/Banner_DIY.jpg">
+							</a>
+						</div>
+					</div>
+				</div>
 				<div id="home-most-popular">
 					<div class="vilyoo-section-header col-xs-12">
 						<h4>Latest Items</h4>
