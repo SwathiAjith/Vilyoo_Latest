@@ -27,7 +27,7 @@ get_header(); ?>
 					           		<br>with<br>
 					           		<strong><em>Vilyoo!</em></strong>
 					           	</h3>
-					           	<a href="#" class="btn btn-sellwithus">Start Selling!</a>
+					           	<a href="<?php echo get_site_url()?>/my-account/" class="btn btn-sellwithus">Start Selling!</a>
 					           	<p class="col-xs-12">
 					           		<small><em>*Sign up now to get early-stage seller benefits!</em></small>
 					           	</p>
@@ -48,7 +48,7 @@ get_header(); ?>
 					</div>
 					<div class="white-bg col-md-12 shadow-it">
 						<?php // echo do_shortcode( '[best_selling_products per_page="5" columns="5"]' ); ?>
-						<?php echo do_shortcode( '[products per_page="12" orderby="rand" columns="4"]' ); ?>
+						<?php echo do_shortcode( '[products per_page="10" orderby="rand" columns="5"]' ); ?>
 					</div>
 				</div>
 				
