@@ -766,10 +766,10 @@ The Bootstrap CSS is unchanged.
 
 /* Home Page Specific */
 #home-featured-seller-left {
-	background: url('includes/images/geometry.png');
+	background: url('includes/images/iStock_000004615474Small-2.jpg');
 	padding: 50px 0;
-	/*background-size: cover;
-	background-position: center center;*/
+	background-size: cover;
+	background-position: center center;
 }
 .hero-title {
 	font-weight: 300;
