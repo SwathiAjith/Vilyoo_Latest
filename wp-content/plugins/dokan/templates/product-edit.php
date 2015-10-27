@@ -241,7 +241,7 @@ if ( ! $from_shortcode ) {
                                                 </div>
                                                 <div class="dokan-form-group">
                                                     <label> <?php echo "Does this product require personalization?"; ?></label><span class="required">*</span>
-                                                    <?php $selected_value = get_post_meta( $post_id, 'is_this_product_customizable' )[0]; ?>
+                                                    <?php $selected_value = get_post_meta( $post_id, 'is_this_product_customizable' ); ?>
                                                     <select class="form-control" name="is_this_product_customizable" required>
 
                                                         <option value="yes" <?php if( $selected_value == "yes" ) echo "selected"; ?>>Yes</option>
