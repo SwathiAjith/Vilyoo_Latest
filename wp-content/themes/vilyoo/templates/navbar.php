@@ -143,6 +143,9 @@
 		<li class="menu-item mega-dropdown dropdown">
 			<a title="Workshops" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true" href="<?php echo esc_url( get_term_link( 264, 'product_cat' ) ); ?>">Workshops</a>
 			<ul role="menu" class="dropdown-menu mega-dropdown-menu row">
+				<div class="col-md-2"></div>
+				<div class="col-md-2"></div>
+				<div class="col-md-2"></div>				
 				<div class="col-md-2">
 					<a title="Workshops" href="<?php echo esc_url( get_term_link( 264, 'product_cat' ) ); ?>">
 						<strong>Work Shops</strong>
@@ -151,6 +154,7 @@
 						woocommerce_subcats_from_parentcat_by_ID( 264 );
 					?>
 				</div>
+				<div class="col-md-2"></div>
 			</ul>
 		</li>
 		<li class="menu-item">
