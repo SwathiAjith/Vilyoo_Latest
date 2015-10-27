@@ -12,4 +12,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
-<h3><?php the_title(); ?></h3>
+<h3><b><?php the_title(); ?></b></h3>

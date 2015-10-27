@@ -212,6 +212,9 @@ function agentwp_add_indian_currency_symbol( $symbol ) {
     return $symbol;
 }
 
+/*
+* Added for remving add to cart button
+*/
 
 function remove_loop_button(){
 remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
