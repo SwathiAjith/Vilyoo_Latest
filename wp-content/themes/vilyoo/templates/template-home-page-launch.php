@@ -48,7 +48,7 @@ get_header(); ?>
 						</a>
 					</div>
 					<div class="col-md-4">
-						<div class="col-xs-12 pad-left pad-right">
+						<div class="col-xs-12 pad-left pad-right mb-15">
 							<a href="#">
 								<img src="<?php echo get_site_url()?>/wp-content/themes/vilyoo/includes/images/home_banners/Banner_Workshop-01.jpg">
 							</a>
@@ -61,7 +61,7 @@ get_header(); ?>
 					</div>
 				</div>
 				<div id="home-most-popular">
-					<div class="vilyoo-section-header col-xs-12">
+					<div class="vilyoo-section-header col-xs-12 mt-15">
 						<h4>Latest Items</h4>
 					</div>
 					<div class="white-bg col-md-12 shadow-it">
