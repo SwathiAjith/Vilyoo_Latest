@@ -194,7 +194,7 @@ require get_template_directory() . '/includes/bootstrap-wp-navwalker.php';
 require get_template_directory() . '/includes/vilyoo-functions.php';
 
 /**
-*
+* Addded for indian currency symbol adding
 */
 add_filter( 'woocommerce_currencies', 'agentwp_add_indian_currency' );
 add_filter( 'woocommerce_currency_symbol', 'agentwp_add_indian_currency_symbol' );
@@ -213,7 +213,10 @@ function agentwp_add_indian_currency_symbol( $symbol ) {
 }
 
 
-
+function remove_loop_button(){
+remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
+}
+add_action('init','remove_loop_button');
 
 
 /**
