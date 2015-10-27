@@ -23,7 +23,7 @@ $heading = apply_filters( 'woocommerce_product_additional_information_heading', 
 
 <?php $product->list_attributes(); ?>
 <?php
-	$index = get_post_meta( $product->id, $key = '_dps_processing_time' )[0];
+	$index = get_post_meta( $product->id, $key = '_dps_processing_time' );
 	$times = array(
         '' => __( 'Ready to ship in...', 'dokan' ),
         '1' => __( '1 business day', 'dokan' ),

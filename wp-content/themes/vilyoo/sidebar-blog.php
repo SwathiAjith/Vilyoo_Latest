@@ -6,14 +6,9 @@
  * @package dokan - 2014 1.0
  */
 ?>
-<div id="secondary" class="col-md-3 clearfix" role="complementary">
+<div id="secondary" class="col-md-3 clearfix pad-left" role="complementary">
 
-    <button type="button" class="navbar-toggle widget-area-toggle" data-toggle="collapse" data-target=".widget-area">
-        <i class="fa fa-bars"></i>
-        <span class="bar-title"><?php _e( 'Toggle Sidebar', 'dokan' ); ?></span>
-    </button>
-
-    <div class="widget-area collapse widget-collapse">
+    <div class="widget-area">
 
         <?php do_action( 'before_sidebar' ); ?>
         <?php if ( !dynamic_sidebar( 'sidebar-blog' ) ) : ?>

@@ -135,8 +135,18 @@
 		<li class="menu-item">
 			<a title="Request your Customized Product" href="<?php echo site_url(); ?>/customize-product/">Customize</a>
 		</li>
-		<li class="menu-item">
-			<a title="Workshops" href="<?php echo esc_url( get_term_link( 264, 'product_cat' ) ); ?>">Workshops</a>
+		<li class="menu-item mega-dropdown dropdown">
+			<a title="Workshops" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true" href="<?php echo esc_url( get_term_link( 264, 'product_cat' ) ); ?>">Workshops</a>
+			<ul role="menu" class="dropdown-menu mega-dropdown-menu row">
+				<div class="col-md-2">
+					<a title="Workshops" href="<?php echo esc_url( get_term_link( 264, 'product_cat' ) ); ?>">
+						<strong>Work Shops</strong>
+					</a>
+					<?php 
+						woocommerce_subcats_from_parentcat_by_ID( 264 );
+					?>
+				</div>
+			</ul>
 		</li>
 		<li class="menu-item">
 			<a title="DIY KITS" href="<?php echo esc_url( get_term_link( 265, 'product_cat' ) ); ?>">DIY KITS</a>

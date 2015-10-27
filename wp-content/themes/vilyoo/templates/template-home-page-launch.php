@@ -44,20 +44,13 @@ get_header(); ?>
 				<div class="clearfix"></div>
 				<div id="home-most-popular">
 					<div class="vilyoo-section-header col-xs-12">
-						<h4>Latest Products</h4>
+						<h4>Latest Items</h4>
 					</div>
 					<div class="white-bg col-md-12 shadow-it">
 						<?php // echo do_shortcode( '[best_selling_products per_page="5" columns="5"]' ); ?>
 						<?php echo do_shortcode( '[products per_page="12" orderby="rand" columns="4"]' ); ?>
 					</div>
 				</div>
-				<div id="home-latest-workshops">
-					<div class="vilyoo-section-header col-xs-12">
-						<h4>Latest Workshops</h4>
-					</div>
-					<div class="white-bg col-md-12 shadow-it">
-						<?php echo do_shortcode( '[best_selling_products per_page="5" columns="5"]' ); ?>
-					</div>
-				</div>
+				
 
 <?php get_footer(); ?>

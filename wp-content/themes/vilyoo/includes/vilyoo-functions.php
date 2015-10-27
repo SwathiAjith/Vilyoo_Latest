@@ -421,7 +421,7 @@ function reregister_taxonomy_pro_tags() {
         register_taxonomy($tax_name, array('product'), $tax);
     }
 }
-// add_action('init', 'reregister_taxonomy_pro_tags', 9999);
+add_action('init', 'reregister_taxonomy_pro_tags', 9999);
 
 function woocommerce_subcats_from_parentcat_by_ID($parent_cat_ID) {
     $args = array(
