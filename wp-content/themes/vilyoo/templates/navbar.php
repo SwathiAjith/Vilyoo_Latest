@@ -13,6 +13,7 @@
 					<?php 
 						woocommerce_tags_from_parent_by_ID( 170 );
 					?>
+					
 				</div>
 				<div class="col-md-2">
 
@@ -46,6 +47,10 @@
 
 					<?php 
 						woocommerce_tags_from_parent_by_ID( 231 );
+					?>
+					<a href="<?php echo get_bloginfo('wpurl')?>/medium/wax/"><strong>Wax</strong></a>
+					<?php 
+						woocommerce_tags_from_parent_by_ID( 272 );
 					?>
 				</div>
 				<div class="col-md-2">

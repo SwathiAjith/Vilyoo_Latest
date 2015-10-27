@@ -194,6 +194,29 @@ require get_template_directory() . '/includes/bootstrap-wp-navwalker.php';
 require get_template_directory() . '/includes/vilyoo-functions.php';
 
 /**
+*
+*/
+add_filter( 'woocommerce_currencies', 'agentwp_add_indian_currency' );
+add_filter( 'woocommerce_currency_symbol', 'agentwp_add_indian_currency_symbol' );
+
+function agentwp_add_indian_currency( $currencies ) {
+    $currencies['INR'] = 'INR';
+    return $currencies;
+}
+
+function agentwp_add_indian_currency_symbol( $symbol ) {
+    $currency = get_option( 'woocommerce_currency' );
+    switch( $currency ) {
+        case 'INR': $symbol = '<i class="fa fa-inr"></i>'; break;
+    }
+    return $symbol;
+}
+
+
+
+
+
+/**
  * Add WooCommerce support
  */
 add_theme_support( 'woocommerce' );
