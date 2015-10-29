@@ -18,10 +18,10 @@
 		<div class="entry-content-thumbnail">
 			<?php the_post_thumbnail(); ?>
 		</div>
-		<h2 class="page-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+		<h2 class="page-title blog-list-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
 
 		<?php if ( 'post' == get_post_type() ) : ?>
-		<div class="entry-meta">
+		<div class="entry-meta entry-meta-top">
 			<?php _tk_posted_on(); ?>
 		</div><!-- .entry-meta -->
 		<?php endif; ?>

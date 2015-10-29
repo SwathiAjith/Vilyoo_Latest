@@ -1391,3 +1391,12 @@ h3.widget-title {
     font-weight: 300;
     border-bottom: 1px solid rgba( 0, 0, 0, 0.3 );
 }
+
+.entry-meta-top{
+	border-bottom: 1px solid #c2c2c2;
+    margin-bottom: 5px;
+    font-size: 12px;
+}
+.blog-list-title{
+	font-size: 22px;
+}
