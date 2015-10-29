@@ -35,7 +35,7 @@ $average      = $product->get_average_rating();
 			</div>
 
 		<?php endif; ?>
-		<div class="single-sold-by col-md-6">
+		<!-- <div class="single-sold-by col-md-6">
 			<?php
 				$author     = get_user_by( 'id', $product->post->post_author );
 			    $store_info = dokan_get_store_info( $author->ID );
@@ -49,7 +49,7 @@ $average      = $product->get_average_rating();
 		</div>
 		<div class="col-md-12 text-center mb-15">
 			<a href="#contact-seller-form-popup" data-toggle="modal" class="btn btn-default">Contact Seller</a>
-		</div>
+		</div> -->
 	</div>
 	<div class="clearfix"></div>
 	<div id="contact-seller-form-popup" class="modal fade">
