@@ -709,7 +709,6 @@ class Dokan_Template_Shortcodes {
 
                     <div class="dokan-single-seller col-md-3">
                         <div class="dokan-store-thumbnail">
-
                             <a href="<?php echo $store_url; ?>">
                                 <?php if ( $banner_id ) {
                                     $banner_url = wp_get_attachment_image_src( $banner_id, 'medium' );
