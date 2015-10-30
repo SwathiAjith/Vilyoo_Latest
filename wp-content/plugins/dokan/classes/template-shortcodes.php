@@ -698,7 +698,7 @@ class Dokan_Template_Shortcodes {
 
         if ( $sellers['users'] ) {
             ?>
-            <ul class="dokan-seller-wrap">
+            <div class="dokan-seller-wrap col-md-12">
                 <?php
                 foreach ( $sellers['users'] as $seller ) {
                     $store_info = dokan_get_store_info( $seller->ID );
@@ -707,7 +707,7 @@ class Dokan_Template_Shortcodes {
                     $store_url  = dokan_get_store_url( $seller->ID );
                     ?>
 
-                    <li class="dokan-single-seller">
+                    <div class="dokan-single-seller col-md-3">
                         <div class="dokan-store-thumbnail">
 
                             <a href="<?php echo $store_url; ?>">
@@ -723,27 +723,14 @@ class Dokan_Template_Shortcodes {
                             <div class="dokan-store-caption">
                                 <h3><a href="<?php echo $store_url; ?>"><?php echo $store_name; ?></a></h3>
 
-                                <address>
-                                    <?php if ( isset( $store_info['address'] ) ) {
-                                        $address = esc_html( $store_info['address'] );
-                                        echo nl2br( $address );
-                                    } ?>
-
-                                    <?php if ( isset( $store_info['phone'] ) && !empty( $store_info['phone'] ) ) { ?>
-                                        <br>
-                                        <abbr title="<?php _e( 'Phone', 'dokan' ); ?>"><?php _e( 'P:', 'dokan' ); ?></abbr> <?php echo esc_html( $store_info['phone'] ); ?>
-                                    <?php } ?>
-
-                                </address>
-
                                 <p><a class="dokan-btn dokan-btn-theme" href="<?php echo $store_url; ?>"><?php _e( 'Visit Store', 'dokan' ); ?></a></p>
 
                             </div> <!-- .caption -->
                         </div> <!-- .thumbnail -->
-                    </li> <!-- .single-seller -->
+                    </div> <!-- .single-seller -->
                 <?php } ?>
 
-            </ul> <!-- .dokan-seller-wrap -->
+            </div> <!-- .dokan-seller-wrap -->
 
             <?php
             $user_count = $sellers['count'];
