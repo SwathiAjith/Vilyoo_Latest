@@ -707,7 +707,7 @@ class Dokan_Template_Shortcodes {
                     $store_url  = dokan_get_store_url( $seller->ID );
                     ?>
 
-                    <li class="dokan-single-seller">
+                    <li class="dokan-single-seller col-md-3">
                         <div class="dokan-store-thumbnail">
 
                             <a href="<?php echo $store_url; ?>">

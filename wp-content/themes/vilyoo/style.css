@@ -1400,3 +1400,9 @@ h3.widget-title {
 .blog-list-title{
 	font-size: 22px;
 }
+ul.dokan-seller-wrap li.dokan-single-seller:nth-child(2n+1) {
+	margin-right: 0 !important;
+}
+ul.dokan-seller-wrap li.dokan-single-seller {
+	width: auto;
+}
