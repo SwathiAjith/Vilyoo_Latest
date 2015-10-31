@@ -1412,3 +1412,10 @@ ul.dokan-seller-wrap li.dokan-single-seller {
     padding: 10px;
     width: 24%;
 }
+.seller-tabs{
+	margin-top: 4px;
+}
+.seller-tabs a{
+	padding: 10px 5px !important;
+
+}
