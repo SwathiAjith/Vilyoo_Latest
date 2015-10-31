@@ -83,6 +83,21 @@ get_header();
 		</div>
 		<div class="col-md-12 text-center mb-15">
 			<a href="#contact-seller-form-popup" data-toggle="modal" class="btn btn-default">Contact Seller</a>
+			<ul class="nav nav-tabs seller-tabs">
+				    <li class="active"><a data-toggle="tab" href="#sectionA">Shopping</a></li>
+				    <li><a data-toggle="tab" href="#sectionB">Return</a></li>
+				    <li><a data-toggle="tab" href="#sectionC">Policy</a></li>
+			</ul>
+			<div class="tab-content">
+			    <div id="sectionA" class="tab-pane fade in active">
+			        <p>Section A content…</p>
+			    </div>
+			    <div id="sectionB" class="tab-pane fade in">
+			        <p>Section B content…</p>
+			    </div>
+			    <div id="sectionC" class="tab-pane fade in">
+			        <p>Section C content…</p>
+			    </div>
 		</div> 
 	</aside>
     </div>
