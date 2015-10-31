@@ -16,13 +16,14 @@ get_header(); ?>
 <?php // substitute the class "container-fluid" below if you want a wider content area ?>
 	<div class="container">
 		<div class="row">
-			<div id="content" class="main-content-inner col-sm-12 shadow-it white-bg blog-page-main">
-				<div class="col-md-9">
+			<div id="content" class="main-content-inner col-sm-12 blog-page-main">
+				<div class="col-md-12">
+					
 						<?php if ( have_posts() ) : ?>
 
 							<?php /* Start the Loop */ ?>
 							<?php while ( have_posts() ) : the_post(); ?>
-			                    <div class="col-md-3 blog-item">
+			                    <div class="shadow-it white-bg col-md-3 blog-item">
 										<?php
 											/* Include the Post-Format-specific template for the content.
 											 * If you want to overload this in a child theme then include a file
@@ -41,8 +42,8 @@ get_header(); ?>
 					<?php get_template_part( 'no-results', 'index' ); ?>
 
 				<?php endif; ?>
-			</div>
+					</div>
+			
 	
-	           <?php get_sidebar('blog'); ?>
             
 <?php get_footer(); ?>

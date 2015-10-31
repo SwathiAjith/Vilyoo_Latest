@@ -78,7 +78,7 @@ get_header();
 			    printf( '<strong>SOLD BY</strong><br><a href="%s">%s</a>', dokan_get_store_url( $author->ID ), $store_name );
 			    $rating_info = dokan_get_seller_rating( $author->ID );
 			?>
-				<span class="seller-rating-tooltip" title="Based on <?php echo $rating_info['count']; ?> reviews."><?php echo $rating_info['rating'];?> / 5</span><br>
+				<span class="seller-rating-tooltip" title="Based on <?php echo $rating_info['count']; ?> reviews."><br><?php echo $rating_info['rating'];?> / 5</span><br>
 			</p>
 		</div>
 		<div class="col-md-12 text-center mb-15">
