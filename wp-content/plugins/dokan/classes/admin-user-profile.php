@@ -75,6 +75,12 @@ class Dokan_Admin_User_Profile {
                         </div> <!-- .dokan-banner -->
                     </td>
                 </tr>
+							
+							<tr>
+                    <th><?php _e( 'Bank Account Details', 'dokan' ); ?></th>
+                    <td><?php dokan_withdraw_method_bank( $store_settings ); ?>
+								</td>
+							</tr>
 
                 <tr>
                     <th><?php _e( 'Store name', 'dokan' ); ?></th>
@@ -327,6 +333,13 @@ class Dokan_Admin_User_Profile {
             'linkedin' => filter_var( $social['linkedin'], FILTER_VALIDATE_URL ),
             'youtube' => filter_var( $social['youtube'], FILTER_VALIDATE_URL ),
         );
+				$store_settings['payment']['bank']['ac_name'] = sanitize_text_field( $_POST[settings][bank][ac_name] );
+				$store_settings['payment']['bank']['ac_number'] = sanitize_text_field( $_POST[settings][bank][ac_number] );
+				$store_settings['payment']['bank']['bank_name'] = sanitize_text_field( $_POST[settings][bank][bank_name] );
+				$store_settings['payment']['bank']['bank_addr'] = sanitize_text_field( $_POST[settings][bank][bank_addr] );
+				$store_settings['payment']['bank']['swift'] = sanitize_text_field( $_POST[settings][bank][swift] );
+			
+				 // die( print_r( $_POST[settings][bank][ac_name] ) );
 
         update_user_meta( $user_id, 'dokan_profile_settings', $store_settings );
         update_user_meta( $user_id, 'dokan_enable_selling', $selling );
