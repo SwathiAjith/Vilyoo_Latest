@@ -1406,3 +1406,9 @@ ul.dokan-seller-wrap li.dokan-single-seller:nth-child(2n+1) {
 ul.dokan-seller-wrap li.dokan-single-seller {
 	width: auto;
 }
+.dokan-single-seller.col-md-3 {
+    border: 1px solid #BF326B;
+    margin: 4px;
+    padding: 10px;
+    width: 24%;
+}
