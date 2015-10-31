@@ -48,6 +48,7 @@
 					<?php 
 						woocommerce_tags_from_parent_by_ID( 231 );
 					?>
+					<br />
 					<a href="<?php echo get_bloginfo('wpurl')?>/medium/wax/"><strong>Wax</strong></a>
 					<?php 
 						woocommerce_tags_from_parent_by_ID( 272 );
