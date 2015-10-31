@@ -719,10 +719,11 @@ class Dokan_Template_Shortcodes {
                                 <?php } ?>
                             </a>
 
-                            <div class="dokan-store-caption">
+                            <div class="dokan-store-caption text-center">
                                 <h3><a href="<?php echo $store_url; ?>"><?php echo $store_name; ?></a></h3>
-
-                                <p><a class="dokan-btn dokan-btn-theme" href="<?php echo $store_url; ?>"><?php _e( 'Visit Store', 'dokan' ); ?></a></p>
+                                <?php $rating_info = dokan_get_seller_rating( $seller->ID ); ?>
+                                <p><span class="seller-rating-tooltip" title="Based on <?php echo $rating_info['count']; ?> reviews."><?php echo $rating_info['rating'];?> / 5</span><br></p>
+                    
 
                             </div> <!-- .caption -->
                         </div> <!-- .thumbnail -->

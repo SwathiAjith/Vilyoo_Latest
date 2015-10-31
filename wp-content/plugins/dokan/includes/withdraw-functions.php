@@ -147,6 +147,7 @@ function dokan_withdraw_method_skrill( $store_settings ) {
  * @param array $store_settings
  */
 function dokan_withdraw_method_bank( $store_settings ) {
+    die(print_r($store_settings));
     $account_name   = isset( $store_settings['payment']['bank']['ac_name'] ) ? esc_attr( $store_settings['payment']['bank']['ac_name'] ) : '';
     $account_number = isset( $store_settings['payment']['bank']['ac_number'] ) ? esc_attr( $store_settings['payment']['bank']['ac_number'] ) : '';
     $bank_name      = isset( $store_settings['payment']['bank']['bank_name'] ) ? esc_attr( $store_settings['payment']['bank']['bank_name'] ) : '';
