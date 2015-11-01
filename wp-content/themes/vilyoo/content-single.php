@@ -15,7 +15,7 @@
 
 	<div class="entry-content">
 		<div class="entry-content-thumbnail">
-			<?php the_post_thumbnail(); ?>
+			<?php // the_post_thumbnail(); ?>
 		</div>
 		<?php the_content(); ?>
 		<?php
