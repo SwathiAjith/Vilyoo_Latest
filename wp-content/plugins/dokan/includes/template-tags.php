@@ -486,7 +486,7 @@ function dokan_seller_reg_form_fields() {
 
         <p class="form-row form-group offer-customization">
             <input type="checkbox" name="agreeTerms" id="regAgreeTerms" required>
-            <label for="regAgreeTerms">I agree to the seller terms and conditions.</label>
+            <label for="regAgreeTerms"><a target="_blank" href="http://vilyoo.com/sellers-policy/">I agree to the seller terms and conditions.</a></label>
         </p>
 
         <?php  do_action( 'dokan_seller_registration_field_after' ); ?>
