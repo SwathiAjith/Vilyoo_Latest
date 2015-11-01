@@ -155,31 +155,31 @@ function dokan_withdraw_method_bank( $store_settings ) {
     ?>
     <div class="dokan-form-group">
         <div class="doakn-w8">
-            <input name="settings[bank][ac_name]" value="<?php echo $account_name; ?>" class="dokan-form-control" placeholder="<?php esc_attr_e( 'Your bank account name', 'dokan' ); ?>" type="text">
+            <input name="settings[bank][ac_name]" value="<?php echo $account_name; ?>" class="dokan-form-control" placeholder="<?php esc_attr_e( 'Your bank account name', 'dokan' ); ?>" type="text" required>
         </div>
     </div>
 
     <div class="dokan-form-group">
         <div class="doakn-w8">
-            <input name="settings[bank][ac_number]" value="<?php echo $account_number; ?>" class="dokan-form-control" placeholder="<?php esc_attr_e( 'Your bank account number', 'dokan' ); ?>" type="text">
+            <input name="settings[bank][ac_number]" value="<?php echo $account_number; ?>" class="dokan-form-control" placeholder="<?php esc_attr_e( 'Your bank account number', 'dokan' ); ?>" type="text" required>
         </div>
     </div>
 
     <div class="dokan-form-group">
         <div class="doakn-w8">
-            <input name="settings[bank][bank_name]" value="<?php echo $bank_name; ?>" class="dokan-form-control" placeholder="<?php _e( 'Name of bank', 'dokan' ) ?>" type="text">
+            <input name="settings[bank][bank_name]" value="<?php echo $bank_name; ?>" class="dokan-form-control" placeholder="<?php _e( 'Name of bank', 'dokan' ) ?>" type="text" required>
         </div>
     </div>
 
     <div class="dokan-form-group">
         <div class="doakn-w8">
-            <textarea name="settings[bank][bank_addr]" class="dokan-form-control" placeholder="<?php esc_attr_e( 'Address of your bank', 'dokan' ) ?>"><?php echo $bank_addr; ?></textarea>
+            <textarea name="settings[bank][bank_addr]" class="dokan-form-control" placeholder="<?php esc_attr_e( 'Address of your bank', 'dokan' ) ?>" required><?php echo $bank_addr; ?></textarea>
         </div>
     </div>
 
     <div class="dokan-form-group">
         <div class="col-md-10">
-            <input value="<?php echo $swift_code; ?>" name="settings[bank][swift]" class="dokan-form-control" placeholder="<?php esc_attr_e( 'IFSC code', 'dokan' ); ?>" type="text">
+            <input value="<?php echo $swift_code; ?>" name="settings[bank][swift]" class="dokan-form-control" placeholder="<?php esc_attr_e( 'IFSC code', 'dokan' ); ?>" type="text" required>
         </div>
     </div> <!-- .dokan-form-group -->
     <?php

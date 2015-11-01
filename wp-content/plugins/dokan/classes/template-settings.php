@@ -128,6 +128,8 @@ class Dokan_Template_Settings {
 
         $customized_products    = sanitize_text_field( $_POST['customized_products'] );
         $seller_desc            = sanitize_text_field( $_POST['seller_desc'] );
+        $pan_number             = sanitize_text_field( $_POST['pan_number'] );
+
 
         if ( isset( $_POST['settings']['bank'] ) ) {
             $bank = $_POST['settings']['bank'];
@@ -161,7 +163,8 @@ class Dokan_Template_Settings {
         update_user_meta( $store_id, 'dokan_profile_settings', $dokan_settings );
         update_usermeta( $store_id, 'offer_product_customization', $customized_products );
         update_usermeta( $store_id, 'seller_desc', $seller_desc );
-
+        update_usermeta( $store_id, 'pan_number', $pan_number );
+                                        
         do_action( 'dokan_store_profile_saved', $store_id, $dokan_settings );
 
         if ( ! defined( 'DOING_AJAX' ) ) {
@@ -365,6 +368,13 @@ class Dokan_Template_Settings {
                         </div> <!-- .payment method tab -->
                     </div> <!-- .dokan-w4 -->
                 </div> <!-- .dokan-form-group -->
+
+                <div class="dokan-form-group">
+                    <label class="dokan-w3 dokan-control-label" for="seller_desc"><?php _e( 'PAN Number', 'dokan' ); ?></label>
+                    <div class="dokan-w4 dokan-text-left">
+                        <input id="pan_number" value="<?php echo $pan_number; ?>" name="pan_number" placeholder="PAN Number" class="dokan-form-control input-md" type="text" required>
+                    </div> <!-- col.md-4 -->
+                </div>
 
                 <div class="dokan-form-group">
                     <label class="dokan-w3 dokan-control-label" for="seller_desc"><?php _e( 'Shop Description', 'dokan' ); ?><small> ( Max. 180 characters ).</small></label>
