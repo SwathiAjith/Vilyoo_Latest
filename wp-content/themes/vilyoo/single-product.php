@@ -91,7 +91,7 @@ get_header();
 			        </p>
 			    </div>
 			    <div id="sectionB" class="tab-pane fade in">
-			        <p>Contact support@vilyoo.com in case the item received is damaged or not as displayed
+			        <p>Contact <a href="mailto:support@vilyoo.com?Subject=Product Complaint" target="_top">support@vilyoo.com</a> in case the item received is damaged or not as displayed
 			           on the site, within 24 hour of the receipt of the shipment.
 			           Further details on <a href="http://vilyoo.com/returns-shipping/">Here</a>
 
