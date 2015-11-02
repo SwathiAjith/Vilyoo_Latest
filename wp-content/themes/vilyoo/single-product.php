@@ -86,7 +86,7 @@ get_header();
 			<div class="tab-content">
 			    <div id="sectionA" class="tab-pane fade in active">
 			        <p>Items will be shiipped <?php echo "within <b>" . $times[$index].'</b>'; ?>
-			           working days from <?php echo $store_info['address'];?>. 
+			           working days from <b><?php echo $store_info['address'];?></b>. 
 			           Currently shipping to all locations in india.
 			        </p>
 			    </div>
