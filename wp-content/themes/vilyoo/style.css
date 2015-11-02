@@ -1419,3 +1419,9 @@ ul.dokan-seller-wrap li.dokan-single-seller {
 	padding: 10px 5px !important;
 
 }
+.widget ul li {
+    padding: 1px !important;
+}
+.widget ul{
+	margin-top: 15px;
+}
