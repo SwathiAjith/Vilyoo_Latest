@@ -722,7 +722,7 @@ class Dokan_Template_Shortcodes {
                             <div class="dokan-store-caption text-center">
                                 <h3><a href="<?php echo $store_url; ?>"><?php echo $store_name; ?></a></h3>
                                 <?php $rating_info = dokan_get_seller_rating( $seller->ID ); ?>
-                                <p><span class="seller-rating-tooltip" title="Based on <?php echo $rating_info['count']; ?> reviews."><?php echo $rating_info['rating'];?> / 5</span><br></p>
+                                <a href="<?php echo $store_url; ?>" class="visit_store">Visit Seller</a>
                     
 
                             </div> <!-- .caption -->
