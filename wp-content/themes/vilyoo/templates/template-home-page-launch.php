@@ -66,7 +66,8 @@ get_header(); ?>
 					</div>
 					<div class="white-bg col-md-12 shadow-it">
 						<?php // echo do_shortcode( '[best_selling_products per_page="5" columns="5"]' ); ?>
-						<?php echo do_shortcode( '[products per_page="10" orderby="rand" columns="5"]' ); ?>
+						<?php  echo do_shortcode( '[products per_page="10" orderby="rand" columns="5"]' ); ?>
+						
 					</div>
 				</div>
 				
