@@ -80,8 +80,8 @@ get_header();
 			<a href="#contact-seller-form-popup" data-toggle="modal" class="btn btn-default">Contact Seller</a>
 			<ul class="nav nav-tabs seller-tabs">
 				    <li class="active"><a data-toggle="tab" href="#sectionA">Shipping</a></li>
-				    <li><a data-toggle="tab" href="#sectionB">Return</a></li>
-				    <li><a data-toggle="tab" href="#sectionC">Policy</a></li>
+				    <li><a data-toggle="tab" href="#sectionB">Returns</a></li>
+				    <li><a data-toggle="tab" href="#sectionC">Payment</a></li>
 			</ul>
 			<div class="tab-content">
 			    <div id="sectionA" class="tab-pane fade in active">
