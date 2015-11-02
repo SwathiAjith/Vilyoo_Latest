@@ -71,6 +71,7 @@ get_header();
 			    echo "<p class='text-center'>";
 			    printf( '<strong>SOLD BY</strong><br><a href="%s">%s</a>', dokan_get_store_url( $author->ID ), $store_name );
 			    $rating_info = dokan_get_seller_rating( $author->ID );
+			    //print_r($store_info);
 			?>
 				<span class="seller-rating-tooltip" title="Based on <?php echo $rating_info['count']; ?> reviews."><br><?php echo $rating_info['rating'];?> / 5</span><br>
 			</p>
@@ -85,7 +86,7 @@ get_header();
 			<div class="tab-content">
 			    <div id="sectionA" class="tab-pane fade in active">
 			        <p>Items will be shiipped <?php echo "within <b>" . $times[$index].'</b>'; ?>
-			           working days from <?php echo $store_info['location'];?>. 
+			           working days from <?php echo $store_info['address'];?>. 
 			           Currently shipping to all locations in india.
 			        </p>
 			    </div>
