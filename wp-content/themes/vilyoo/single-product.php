@@ -1,4 +1,5 @@
 <?php
+//print_r($product);
 /**
  * The Template for displaying all single products.
  *
@@ -24,7 +25,23 @@ get_header();
 
 			<?php while ( have_posts() ) : the_post(); ?>
 
-				<?php wc_get_template_part( 'content', 'single-product' ); ?>
+				<?php 
+					wc_get_template_part( 'content', 'single-product' ); 
+					$index = get_post_meta( $product->id, $key = '_dps_processing_time' );
+					$times = array(
+				        '' => __( 'Ready to ship in...', 'dokan' ),
+				        '1' => __( '1 business day', 'dokan' ),
+				        '2' => __( '1-2 business day', 'dokan' ),
+				        '3' => __( '1-3 business day', 'dokan' ),
+				        '4' => __( '3-5 business day', 'dokan' ),
+				        '5' => __( '1-2 weeks', 'dokan' ),
+				        '6' => __( '2-3 weeks', 'dokan' ),
+				        '7' => __( '3-4 weeks', 'dokan' ),
+				        '8' => __( '4-6 weeks', 'dokan' ),
+				        '9' => __( '6-8 weeks', 'dokan' ),
+				    );
+
+				?>
 
 			<?php endwhile; // end of the loop. ?>
 
@@ -61,19 +78,26 @@ get_header();
 		<div class="col-md-12 text-center mb-15">
 			<a href="#contact-seller-form-popup" data-toggle="modal" class="btn btn-default">Contact Seller</a>
 			<ul class="nav nav-tabs seller-tabs">
-				    <li class="active"><a data-toggle="tab" href="#sectionA">Shopping</a></li>
+				    <li class="active"><a data-toggle="tab" href="#sectionA">Shipping</a></li>
 				    <li><a data-toggle="tab" href="#sectionB">Return</a></li>
 				    <li><a data-toggle="tab" href="#sectionC">Policy</a></li>
 			</ul>
 			<div class="tab-content">
 			    <div id="sectionA" class="tab-pane fade in active">
-			        <p>Section A content…</p>
+			        <p>Items will be shiipped <?php echo "within <b>" . $times[$index].'</b>'; ?>
+			           working days from <?php echo $store_info['location'];?>. 
+			           Currently shipping to all locations in india.
+			        </p>
 			    </div>
 			    <div id="sectionB" class="tab-pane fade in">
-			        <p>Section B content…</p>
+			        <p>Contact support@vilyoo.com in case the item received is damaged or not as displayed
+			           on the site, within 24 hour of the receipt of the shipment.
+			           Further details on <a href="http://vilyoo.com/returns-shipping/">Here</a>
+
+			        </p>
 			    </div>
 			    <div id="sectionC" class="tab-pane fade in">
-			        <p>Section C content…</p>
+			        <p>We accept payment through PayUMoney</p>
 			    </div>
 		</div> 
 	</aside>
