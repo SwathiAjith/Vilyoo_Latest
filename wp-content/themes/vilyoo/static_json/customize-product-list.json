@@ -254,12 +254,12 @@
 					"image": "festival/rakhi.jpg"
 				},
 				{
-					"id": "1",
+					"id": "3",
 					"name": "Kites",
-					"image": "festival/kites.jpg"
+					"image": "festival/kite.png"
 				},
 				{
-					"id": "1",
+					"id": "4",
 					"name": "Rangoli",
 					"image": "festival/rangoli.jpg"
 				}
