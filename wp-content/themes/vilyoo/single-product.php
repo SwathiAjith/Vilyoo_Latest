@@ -67,6 +67,8 @@ get_header();
 			<?php
 				$author     = get_user_by( 'id', $product->post->post_author );
 			    $store_info = dokan_get_store_info( $author->ID );
+			    $shipping_city = get_user_meta($author->ID , 'shipping_city');
+			    
 			    $store_name = $store_info['store_name'];
 			    echo "<p class='text-center'>";
 			    printf( '<strong>SOLD BY</strong><br><a href="%s">%s</a>', dokan_get_store_url( $author->ID ), $store_name );
@@ -86,7 +88,7 @@ get_header();
 			<div class="tab-content">
 			    <div id="sectionA" class="tab-pane fade in active">
 			        <p>Items will be shiipped <?php echo "within <b>" . $times[$index].'</b>'; ?>
-			           working days from <b><?php echo $store_info['address'];?></b>. 
+			           working days from <b><?php echo $shipping_city[0];?></b>. 
 			           Currently shipping to all locations in india.
 			        </p>
 			    </div>
