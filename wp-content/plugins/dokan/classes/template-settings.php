@@ -130,6 +130,7 @@ class Dokan_Template_Settings {
         $seller_desc            = sanitize_text_field( $_POST['seller_desc'] );
         $pan_number             = sanitize_text_field( $_POST['pan_number'] );
 
+        $shipping_city          = sanitize_text_field( $_POST['shipping_city'] );
 
         if ( isset( $_POST['settings']['bank'] ) ) {
             $bank = $_POST['settings']['bank'];
@@ -163,6 +164,7 @@ class Dokan_Template_Settings {
         update_user_meta( $store_id, 'dokan_profile_settings', $dokan_settings );
         update_usermeta( $store_id, 'offer_product_customization', $customized_products );
         update_usermeta( $store_id, 'seller_desc', $seller_desc );
+        update_usermeta( $store_id, 'shipping_city', $shipping_city );
         update_usermeta( $store_id, 'pan_number', $pan_number );
                                         
         do_action( 'dokan_store_profile_saved', $store_id, $dokan_settings );
@@ -215,8 +217,8 @@ class Dokan_Template_Settings {
 
         $customized_products = get_usermeta( $current_user->ID, 'offer_product_customization' );
         $seller_desc = get_usermeta( $current_user->ID, 'seller_desc' );
-
-
+        $shipping_city = get_usermeta( $current_user->ID, 'shipping_city' );
+        $pan_number = get_usermeta( $current_user->ID, 'pan_number' );
 
         if ( is_wp_error( $validate ) ) {
             $social       = $_POST['settings']['social'];
@@ -407,6 +409,13 @@ class Dokan_Template_Settings {
                     <label class="dokan-w3 dokan-control-label" for="setting_address"><?php _e( 'Address', 'dokan' ); ?></label>
                     <div class="dokan-w5 dokan-text-left">
                         <textarea class="dokan-form-control" rows="4" id="setting_address" name="setting_address"><?php echo $address; ?></textarea>
+                    </div>
+                </div>
+
+                <div class="dokan-form-group">
+                    <label class="dokan-w3 dokan-control-label" for="shipping_city"><?php _e( 'Shpping City', 'dokan' ); ?></label>
+                    <div class="dokan-w5 dokan-text-left">
+                        <input id="shipping_city" class="dokan-form-control" type="text" name="shipping_city" value="<?php echo $shipping_city; ?>" />
                     </div>
                 </div>
 

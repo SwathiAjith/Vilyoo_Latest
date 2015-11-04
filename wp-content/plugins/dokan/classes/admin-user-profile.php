@@ -46,6 +46,7 @@ class Dokan_Admin_User_Profile {
         $is_ngo_shop = get_user_meta( $user->ID, 'vilyoo_ngo_shop', true );
 
         $pan_number = get_user_meta( $user->ID, 'pan_number', true );
+        $city = get_user_meta( $user->ID, 'city', true );
 
         $fb = isset( $store_settings['social']['fb'] ) ? esc_url( $store_settings['social']['fb'] ) : '';
         $twitter = isset( $store_settings['social']['twitter'] ) ? esc_url( $store_settings['social']['twitter'] ) : '';
@@ -108,6 +109,9 @@ class Dokan_Admin_User_Profile {
                         <textarea name="dokan_store_address" rows="4" cols="30"><?php echo esc_textarea( $store_settings['address'] ); ?></textarea>
                     </td>
                 </tr>
+
+                 
+
 
                 <tr>
                     <th><?php _e( 'Phone', 'dokan' ); ?></th>
@@ -354,6 +358,7 @@ class Dokan_Admin_User_Profile {
 				$store_settings['payment']['bank']['swift'] = sanitize_text_field( $_POST[settings][bank][swift] );
 			
 				 // die( print_r( $_POST[settings][bank][ac_name] ) );
+
         update_user_meta( $user_id, 'pan_number', $pan_number );
         update_user_meta( $user_id, 'dokan_profile_settings', $store_settings );
         update_user_meta( $user_id, 'dokan_enable_selling', $selling );
