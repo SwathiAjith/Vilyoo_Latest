@@ -181,7 +181,9 @@ function dokan_withdraw_method_bank( $store_settings ) {
         <div class="col-md-10">
             <input value="<?php echo $swift_code; ?>" name="settings[bank][swift]" class="dokan-form-control" placeholder="<?php esc_attr_e( 'IFSC code', 'dokan' ); ?>" type="text" required>
         </div>
-    </div> <!-- .dokan-form-group -->
+    </div>
+
+     <!-- .dokan-form-group -->
     <?php
 }
 
