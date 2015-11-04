@@ -135,7 +135,7 @@
 				{
 					"id": "15",
 					"name": "Wall Art",
-					"image": "home-decor/wallart.jpg"
+					"image": "home-decor/wall-art.jpg"
 				},
 				{
 					"id": "16",
@@ -162,7 +162,7 @@
 				{
 					"id": "3",
 					"name": "Embroidered Table Linens",
-					"image": "table-wear/baskets.jpg"
+					"image": "table-wear/embroidered-table-linen.jpg"
 				},
 				{
 					"id": "4",
@@ -254,12 +254,12 @@
 					"image": "festival/rakhi.jpg"
 				},
 				{
-					"id": "1",
+					"id": "3",
 					"name": "Kites",
-					"image": "festival/kites.jpg"
+					"image": "festival/kite.png"
 				},
 				{
-					"id": "1",
+					"id": "4",
 					"name": "Rangoli",
 					"image": "festival/rangoli.jpg"
 				}
@@ -273,7 +273,7 @@
 				{
 					"id": "1",
 					"name": "Albums",
-					"image": "gifts/baskets.jpg"
+					"image": "gifts/album.jpg"
 				},
 				{
 					"id": "2",
