@@ -87,6 +87,20 @@ jQuery( document ).ready( function( $ ) {
 
         });
 
+
+        $('.dokan-seller-wrap').each(function(){  
+
+            var highestBox = 0;
+            $('.dokan-single-seller', this).each(function(){
+
+                if($(this).height() > highestBox) 
+                   highestBox = $(this).height(); 
+            });  
+
+            $('.dokan-single-seller',this).height(highestBox + 40);
+
+        });
+
     });
 
     //Global Tooltip Init
