@@ -24,7 +24,7 @@ $heading = apply_filters( 'woocommerce_product_additional_information_heading', 
 <?php $product->list_attributes(); ?>
 <?php
 	$index = get_post_meta( $product->id, $key = '_dps_processing_time' );
-	$index = $index[0];
+    $index = $index[0];
 	$times = array(
         0 => __( 'Ready to ship in...', 'dokan' ),
         1 => __( '1 business day', 'dokan' ),
@@ -37,6 +37,5 @@ $heading = apply_filters( 'woocommerce_product_additional_information_heading', 
         8 => __( '4-6 weeks', 'dokan' ),
         9 => __( '6-8 weeks', 'dokan' ),
     );
-
 	echo "Shipping in " . $times[$index] .'.';
 ?>
