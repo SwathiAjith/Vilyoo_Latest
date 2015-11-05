@@ -406,13 +406,40 @@ class WC_Meta_Box_Product_Data {
 					);
 					?><p class="form-field dimensions_field"><label for="product_shipping_class"><?php _e( 'Shipping class', 'woocommerce' ); ?></label> <?php wp_dropdown_categories( $args ); ?> <img class="help_tip" data-tip="<?php esc_attr_e( 'Shipping classes are used by certain shipping methods to group similar products.', 'woocommerce' ); ?>" src="<?php echo esc_url( WC()->plugin_url() ); ?>/assets/images/help.png" height="16" width="16" /></p><?php
 
-					do_action( 'woocommerce_product_options_shipping' );
+					
 
 				echo '</div>';
+				$shipping_time = get_post_meta( $post->ID, '_dps_processing_time', true )[0];
+
+				echo '<div class="options_group">';
+
+						
+				echo '</div>';
+				$times = array(
+				        0 => __( 'Ready to ship in...', 'dokan' ),
+				        1 => __( '1 business day', 'dokan' ),
+				        2 => __( '1-2 business day', 'dokan' ),
+				        3 => __( '1-3 business day', 'dokan' ),
+				        4 => __( '3-5 business day', 'dokan' ),
+				        5 => __( '1-2 weeks', 'dokan' ),
+				        6 => __( '2-3 weeks', 'dokan' ),
+				        7 => __( '3-4 weeks', 'dokan' ),
+				        8 => __( '4-6 weeks', 'dokan' ),
+				        9 => __( '6-8 weeks', 'dokan' ),
+				    );
 				?>
+				<p class="form-field dimensions_field">
+				<label for="processing_time"><?php _e( 'processing_time', 'woocommerce' ); ?></label> 
 
+				<select name="processing_time">
+						<?php foreach( $times as $var => $time ): ?>
+							<option value="<?php echo $var ?>"<?php if( $var == $shipping_time ): ?> selected="selected"<?php endif; ?>><?php echo $time ?></option>
+						<?php endforeach; ?>
+			    </select>
+
+				<img class="help_tip" data-tip="<?php esc_attr_e( 'Shipping classes are used by certain shipping methods to group similar products.', 'woocommerce' ); ?>" src="<?php echo esc_url( WC()->plugin_url() ); ?>/assets/images/help.png" height="16" width="16" /></p>
 			</div>
-
+			<?php do_action( 'woocommerce_product_options_shipping' ); ?>
 			<div id="product_attributes" class="panel wc-metaboxes-wrapper">
 				<div class="toolbar toolbar-top">
 					<span class="expand-close">
@@ -802,10 +829,12 @@ class WC_Meta_Box_Product_Data {
 			update_post_meta( $post_id, '_sale_price', ( $_POST['_sale_price'] === '' ? '' : wc_format_decimal( $_POST['_sale_price'] ) ) );
 		}
 
-		if ( isset( $_POST['_tax_status'] ) ) {
+		if ( isset( $_POST['processing_time'] ) ) {
+			update_post_meta( $post_id, '_dps_processing_time', wc_clean( $_POST['processing_time'] ) );
+		}
+		if(isset( $_POST['_tax_status'] )){
 			update_post_meta( $post_id, '_tax_status', wc_clean( $_POST['_tax_status'] ) );
 		}
-
 		if ( isset( $_POST['_tax_class'] ) ) {
 			update_post_meta( $post_id, '_tax_class', wc_clean( $_POST['_tax_class'] ) );
 		}
