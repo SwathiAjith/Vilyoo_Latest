@@ -45,12 +45,15 @@ class Dokan_Admin_User_Profile {
         $feature_seller = get_user_meta( $user->ID, 'dokan_feature_seller', true );
         $is_ngo_shop = get_user_meta( $user->ID, 'vilyoo_ngo_shop', true );
 
+        $pan_number = get_user_meta( $user->ID, 'pan_number', true );
+        $city = get_user_meta( $user->ID, 'city', true );
+
         $fb = isset( $store_settings['social']['fb'] ) ? esc_url( $store_settings['social']['fb'] ) : '';
         $twitter = isset( $store_settings['social']['twitter'] ) ? esc_url( $store_settings['social']['twitter'] ) : '';
         $gplus = isset( $store_settings['social']['gplus'] ) ? esc_url ( $store_settings['social']['gplus'] ) : '';
         $linkedin = isset( $store_settings['social']['linkedin'] ) ? esc_url( $store_settings['social']['linkedin'] ) : '';
         $youtube = isset( $store_settings['social']['youtube'] ) ? esc_url( $store_settings['social']['youtube'] ) : '';
-
+        
         ?>
         <h3><?php _e( 'Vilyoo Options', 'dokan' ); ?></h3>
 
@@ -80,7 +83,16 @@ class Dokan_Admin_User_Profile {
                     <th><?php _e( 'Bank Account Details', 'dokan' ); ?></th>
                     <td><?php dokan_withdraw_method_bank( $store_settings ); ?>
 								</td>
-							</tr>
+				
+                			</tr>
+
+
+                <tr>
+                    <th><?php _e( 'Pan Number', 'dokan' ); ?></th>
+                    <td>
+                        <input type="text" name="pan_number" class="regular-text" value="<?php echo esc_attr( $pan_number ); ?>">
+                    </td>
+                </tr>
 
                 <tr>
                     <th><?php _e( 'Store name', 'dokan' ); ?></th>
@@ -89,12 +101,17 @@ class Dokan_Admin_User_Profile {
                     </td>
                 </tr>
 
+
+
                 <tr>
                     <th><?php _e( 'Address', 'dokan' ); ?></th>
                     <td>
                         <textarea name="dokan_store_address" rows="4" cols="30"><?php echo esc_textarea( $store_settings['address'] ); ?></textarea>
                     </td>
                 </tr>
+
+                 
+
 
                 <tr>
                     <th><?php _e( 'Phone', 'dokan' ); ?></th>
@@ -315,6 +332,7 @@ class Dokan_Admin_User_Profile {
         }
 
         $selling = sanitize_text_field( $_POST['dokan_enable_selling'] );
+        $pan_number = sanitize_text_field( $_POST['pan_number'] );
         $publishing = sanitize_text_field( $_POST['dokan_publish'] );
         $percentage = floatval( $_POST['dokan_seller_percentage'] );
         $feature_seller = sanitize_text_field( $_POST['dokan_feature'] );
@@ -341,6 +359,7 @@ class Dokan_Admin_User_Profile {
 			
 				 // die( print_r( $_POST[settings][bank][ac_name] ) );
 
+        update_user_meta( $user_id, 'pan_number', $pan_number );
         update_user_meta( $user_id, 'dokan_profile_settings', $store_settings );
         update_user_meta( $user_id, 'dokan_enable_selling', $selling );
         update_user_meta( $user_id, 'dokan_publishing', $publishing );
