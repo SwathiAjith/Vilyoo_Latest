@@ -1429,3 +1429,7 @@ ul.dokan-seller-wrap li.dokan-single-seller {
 	/*clear: none;
 	margin-left: 10px;*/
 }
+.profile-frame{
+	background-size: cover !important;
+    background-repeat: no-repeat;
+}
