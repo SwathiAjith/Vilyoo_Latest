@@ -43,6 +43,7 @@ class Dokan_Admin_User_Profile {
         $banner = isset( $store_settings['banner'] ) ? absint( $store_settings['banner'] ) : 0;
         $seller_percentage = get_user_meta( $user->ID, 'dokan_seller_percentage', true );
         $feature_seller = get_user_meta( $user->ID, 'dokan_feature_seller', true );
+        $store_desc = get_user_meta( $user->ID, 'seller_desc', true );
         $is_ngo_shop = get_user_meta( $user->ID, 'vilyoo_ngo_shop', true );
 
         $pan_number = get_user_meta( $user->ID, 'pan_number', true );
@@ -109,7 +110,12 @@ class Dokan_Admin_User_Profile {
                         <textarea name="dokan_store_address" rows="4" cols="30"><?php echo esc_textarea( $store_settings['address'] ); ?></textarea>
                     </td>
                 </tr>
-
+                <tr>
+                    <th><?php _e( 'Store description', 'dokan' ); ?></th>
+                    <td>
+                        <textarea name="seller_desc" rows="4" cols="30"><?php echo esc_textarea( $store_desc ); ?></textarea>
+                    </td>
+                </tr>
                  
 
 
@@ -338,11 +344,14 @@ class Dokan_Admin_User_Profile {
         $feature_seller = sanitize_text_field( $_POST['dokan_feature'] );
         $is_ngo_shop = sanitize_text_field( $_POST['ngo_shop'] );
         $store_settings = dokan_get_store_info( $user_id );
+        $seller_desc = sanitize_text_field( $_POST['seller_desc'] );
         $social = $_POST['dokan_social'];
 
         $store_settings['banner'] = intval( $_POST['dokan_banner'] );
         $store_settings['store_name'] = sanitize_text_field( $_POST['dokan_store_name'] );
         $store_settings['address'] = wp_kses_post( $_POST['dokan_store_address'] );
+        
+
         $store_settings['phone'] = sanitize_text_field( $_POST['dokan_store_phone'] );
         $store_settings['social'] = array(
             'fb' => filter_var( $social['fb'], FILTER_VALIDATE_URL ),
@@ -360,6 +369,7 @@ class Dokan_Admin_User_Profile {
 				 // die( print_r( $_POST[settings][bank][ac_name] ) );
 
         update_user_meta( $user_id, 'pan_number', $pan_number );
+        update_user_meta( $user_id, 'seller_desc', $seller_desc );
         update_user_meta( $user_id, 'dokan_profile_settings', $store_settings );
         update_user_meta( $user_id, 'dokan_enable_selling', $selling );
         update_user_meta( $user_id, 'dokan_publishing', $publishing );
