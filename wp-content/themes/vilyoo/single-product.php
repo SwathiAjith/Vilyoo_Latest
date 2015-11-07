@@ -100,7 +100,8 @@ get_header();
 			        </p>
 			    </div>
 			    <div id="sectionC" class="tab-pane fade in">
-			        <p>We accept payment through PayUMoney</p>
+			        <p>We accept payment through</p>
+			        <img src="http://vilyoo.com/wp-content/uploads/2015/11/payumoney-visa.jpg" width="150">
 			    </div>
 		</div> 
 	</aside>
