@@ -227,7 +227,7 @@ function vilyoo_contact_seller_init() {
     $v_email = trim( strip_tags( $_POST['email'] ) );
     $v_message = $_POST['message'];
     $multiple_recipients = array();
-    array_push($multiple_recipients,$multiple_recipients);
+    array_push($multiple_recipients,$v_seller->user_email);
     array_push($multiple_recipients,'sales@vilyoo.com');
     $content_to_send = "<b>From : </b>" . $v_name ."<br>";
     $content_to_send .= "<b>Email : </b>". $v_email ."<br>";
