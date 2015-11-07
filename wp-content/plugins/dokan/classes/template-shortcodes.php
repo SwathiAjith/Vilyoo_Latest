@@ -715,7 +715,7 @@ class Dokan_Template_Shortcodes {
                                     ?>
                                     <img class="dokan-store-img" src="<?php echo esc_url( $banner_url[0] ); ?>" alt="<?php echo esc_attr( $store_name ); ?>">
                                 <?php } else { ?>
-                                    <img class="dokan-store-img" src="<?php echo dokan_get_no_seller_image(); ?>" alt="<?php _e( 'No Image', 'dokan' ); ?>">
+                                    <img class="dokan-store-img" src="http://vilyoo.com/wp-content/uploads/2015/11/placeholder-logo-300x100.png" alt="<?php _e( 'No Image', 'dokan' ); ?>">
                                 <?php } ?>
                             </a>
 
