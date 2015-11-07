@@ -226,12 +226,15 @@ function vilyoo_contact_seller_init() {
     $v_phone = trim( strip_tags( $_POST['phone'] ) );
     $v_email = trim( strip_tags( $_POST['email'] ) );
     $v_message = $_POST['message'];
+    $multiple_recipients = array();
+    array_push($multiple_recipients,$multiple_recipients);
+    array_push($multiple_recipients,'sales@vilyoo.com');
     $content_to_send = "<b>From : </b>" . $v_name ."<br>";
     $content_to_send .= "<b>Email : </b>". $v_email ."<br>";
     $content_to_send .= "<b>Phone : </b>". $v_phone ."<br>";
     $content_to_send .= "<b>Message: </b>". $v_message ."<br>";
     $content_to_send .= "<br><b>From Page: </b>". $_POST['page_url'];
-    wp_mail( $v_seller->user_email, '[Vilyoo.com] New message from '.$v_name, $content_to_send );
+    wp_mail( $multiple_recipients, '[Vilyoo.com] New message from '.$v_name, $content_to_send );
     $message = "Message successfully sent!";
     wp_send_json_success( $message );
     die();
