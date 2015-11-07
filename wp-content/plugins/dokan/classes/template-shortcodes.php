@@ -685,7 +685,7 @@ class Dokan_Template_Shortcodes {
         global $post;
 
         $attr = shortcode_atts( array(
-                'per_page' => 10,
+                'per_page' => 12,
             ), $atts );
 
         $paged  = max( 1, get_query_var( 'paged' ) );
