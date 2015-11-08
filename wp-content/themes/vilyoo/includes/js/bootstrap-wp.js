@@ -1,7 +1,7 @@
 jQuery( document ).ready( function( $ ) {
 
     $( 'input.search-field' ).addClass( 'form-control' );
-
+    $('.yith_magnifier_thumbnail').css('width',90);
     // here for each comment reply link of wordpress
     $( '.comment-reply-link' ).addClass( 'btn btn-primary' );
 
