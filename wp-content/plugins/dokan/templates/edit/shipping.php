@@ -55,13 +55,13 @@ $porduct_shipping_pt = ( $_processing_time ) ? $_processing_time : $dps_pt;
         </div>
     </div>
 
-    <div class="dokan-form-group show_if_simple hide_if_disable">
+    <!-- <div class="dokan-form-group show_if_simple hide_if_disable">
         <label class="dokan-w4 dokan-control-label" for="_overwrite_shipping"><?php _e( 'Override Shipping', 'dokan' ); ?></label>
         <div class="dokan-w8 dokan-text-left">
             <?php dokan_post_input_box( $post->ID, '_overwrite_shipping', array( 'label' => __( 'Override default shipping cost for this product', 'dokan' ) ), 'checkbox' ); ?>
         </div>
     </div>
-
+ -->
 
     <div class="dokan-form-group dokan-shipping-price dokan-shipping-type-price show_if_override hide_if_disable">
         <label class="dokan-w4 dokan-control-label" for="shipping_type_price"><?php _e( 'Additional cost', 'dokan' ); ?></label>
