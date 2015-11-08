@@ -93,7 +93,7 @@ class WC_Post_types {
 		register_taxonomy( 'product_tag',
 			apply_filters( 'woocommerce_taxonomy_objects_product_tag', array( 'product' ) ),
 			apply_filters( 'woocommerce_taxonomy_args_product_tag', array(
-				'hierarchical'          => false,
+				'hierarchical'          => true,
 				'update_count_callback' => '_wc_term_recount',
 				'label'                 => __( 'Product Tags', 'woocommerce' ),
 				'labels'                => array(

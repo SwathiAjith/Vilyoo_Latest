@@ -4,6 +4,7 @@
 var tagBox, array_unique_noempty;
 
 ( function( $ ) {
+
 	// Return an array with any duplicate, whitespace or empty values removed
 	array_unique_noempty = function( array ) {
 		var out = [];
@@ -134,6 +135,7 @@ var tagBox, array_unique_noempty;
 		},
 
 		get : function( id ) {
+
 			var tax = id.substr( id.indexOf('-') + 1 );
 
 			$.post( ajaxurl, { 'action': 'get-tagcloud', 'tax': tax }, function( r, stat ) {
@@ -154,7 +156,7 @@ var tagBox, array_unique_noempty;
 
 		init : function() {
 			var t = this, ajaxtag = $('div.ajaxtag');
-
+         
 			$('.tagsdiv').each( function() {
 				tagBox.quickClicks(this);
 			});
