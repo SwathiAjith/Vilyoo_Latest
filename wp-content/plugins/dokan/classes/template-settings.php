@@ -117,7 +117,6 @@ class Dokan_Template_Settings {
             ),
             'payment'               => array(),
             'phone'                 => sanitize_text_field( $_POST['setting_phone'] ),
-            'show_email'            => sanitize_text_field( $_POST['setting_show_email'] ),
             'seller_vacation'       => sanitize_text_field( $_POST['setting_seller_vacation'] ),
             'address'               => strip_tags( $_POST['setting_address'] ),
             'location'              => sanitize_text_field( $_POST['location'] ),
@@ -392,7 +391,7 @@ class Dokan_Template_Settings {
                     </div>
                 </div>
 
-                <div class="dokan-form-group">
+               <!--  <div class="dokan-form-group">
                     <label class="dokan-w3 dokan-control-label" for="setting_phone"><?php _e( 'Email', 'dokan' ); ?></label>
                     <div class="dokan-w5 dokan-text-left">
                         <div class="checkbox">
@@ -403,7 +402,7 @@ class Dokan_Template_Settings {
                         </div>
                     </div>
                 </div>
-
+ -->
 
                 <div class="dokan-form-group">
                     <label class="dokan-w3 dokan-control-label" for="setting_address"><?php _e( 'Address', 'dokan' ); ?></label>
