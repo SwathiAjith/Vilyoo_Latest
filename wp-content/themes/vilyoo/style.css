@@ -1437,3 +1437,6 @@ a.yith_magnifier_thumbnail{
 	min-width: 64px;
 	min-height: 64px;
 }
+#addCustomizationMessage {
+	margin-bottom: 15px;
+}

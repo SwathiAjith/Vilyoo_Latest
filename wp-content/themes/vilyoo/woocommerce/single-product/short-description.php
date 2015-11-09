@@ -22,7 +22,8 @@ if ( ! $post->post_excerpt ) {
 	<?php echo apply_filters( 'woocommerce_short_description', $post->post_excerpt ) ?>
 </div>
 <?php
-	$is_customizable = get_post_meta( $post->ID, 'is_this_product_customizable' );
+	$is_customizable = get_post_meta( $post->ID, 'is_this_product_customizable' )[0];
+	// die( print_r( $is_customizable ) );
 	if( $is_customizable == "yes" ) {
 		?>
 		<a id="addCustomizationMessage" href="#" class="btn btn-default">Add Customization Message</a>
