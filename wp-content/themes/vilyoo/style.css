@@ -796,6 +796,8 @@ The Bootstrap CSS is unchanged.
 .sell-title {
 	font-weight: 300;
 	line-height: 1.4;
+	margin-top: 7.5px;
+	color: #BF326B;
 }
 .btn-sellwithus {
 	background: #00aedf;
@@ -841,9 +843,18 @@ The Bootstrap CSS is unchanged.
 	padding: 4px 8px;
 }
 #home-seller-info {
-	background-image: url('includes/images/batthern.png');
-	background-color: #BF326B;
+/*	background-image: url('includes/images/batthern.png');*/
+/*	background-color: #BF326B;*/
+/*	background-color: rgba( 191, 50, 107, 0.7 );*/
+	background-color: transparent;
 	color: #fff !important;
+	position: relative;
+	z-index: 4;
+	border: 1px solid #fff;
+	
+}
+#home-seller-info small {
+	color: #111;
 }
 #home-seller-info .seller-name, #home-seller-info .social-profiles a{
 	color: #fff;
@@ -917,12 +928,22 @@ The Bootstrap CSS is unchanged.
 
 /* Homepage Most Popular Products */
 .vilyoo-section-header {
-	border-left: 5px solid #333;
+/*	border-left: 5px solid #333;*/
 	color: #393939;
 	font-size: 16px;
 	font-weight: normal;
-	margin-bottom: 10px;
+	margin-bottom: 30px;
+	background-color: #393939;
 }
+.vilyoo-section-header h4 {
+	padding: 10px;
+	text-align: center;
+	color: #fff;
+	border: 1px solid #fff;
+	text-transform: uppercase;
+	font-weight: 400;
+}
+	
 #home-most-popular .woocommerce, #home-latest-workshops .woocommerce {
 	padding: 15px 0;
 }
@@ -1439,4 +1460,43 @@ a.yith_magnifier_thumbnail{
 }
 #addCustomizationMessage {
 	margin-bottom: 15px;
+}
+.homgBannerBg {
+	margin-top: -20px;
+	margin-bottom: 20px;
+	background-image: url('includes/images/banner_home.jpg');
+	background-position: center;
+	background-size: cover;
+	padding: 15px 0 0;
+	position: relative;
+	min-height: 350px;
+}
+#homeLinksToProduct {
+	padding: 0;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba( 0, 0, 0, 0.6 );
+}
+#homeLinksToProduct .container {
+	padding-bottom: 0;
+}
+#homeLinksToProduct .colProdLinks {
+	padding: 15px;
+}	
+.homeBannerFooterLinks {
+	margin-bottom: 0;
+}
+.homeBannerFooterLinks a {
+	border: 1px solid #fff;
+	padding: 20px;
+	width: 100%;
+	color: #fff;
+	text-transform: uppercase;
+	display: block;
+}
+.homeBannerFooterLinks a:hover {
+	text-decoration: none;
+	color: #fefefe;
 }
