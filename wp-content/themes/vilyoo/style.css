@@ -781,9 +781,9 @@ The Bootstrap CSS is unchanged.
 	background: #BF326B;
 	border: 2px solid #BF326B;
 	border-radius: 22px;
-	font-size: 20px;
+	font-size: 18px;
 	font-weight: 300;
-	padding: 6px 20px;
+	padding: 6px 18px;
 	line-height: 1;
 	color: #fff !important;
 }
