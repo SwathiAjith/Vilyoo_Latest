@@ -9,7 +9,7 @@ get_header(); ?>
 <div class="container-fluid">
 <?php the_post_thumbnail('img-responsive'); ?>
 </div>
-	<div class="container">
+	<div class="container-fluid">
 		<div class="row">
 			<div id="content" class="white-bg shadow-it main-content-inner col-sm-12 col-md-12">
 				<?php while ( have_posts() ) : the_post(); ?>		
