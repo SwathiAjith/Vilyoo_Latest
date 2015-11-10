@@ -1539,9 +1539,6 @@ a.yith_magnifier_thumbnail{
 .price_table_row:nth-of-type(even) {
     background: #F8F8F8;
 }
-.btn{
-	border-radius:0px;
-}
 
 .recommended{
 /*USER DEFINED COLOUR*/	
