@@ -14,7 +14,8 @@ get_header(); ?>
 						<div class="col-md-9 pad-left pad-right">
 							<div class="col-md-12 text-left">
 								<h2 class="hero-title">
-									<span>Exquisite craft products directly from the maker</span>
+									<span>Exquisite craft products directly</span><br />
+									<span>from the maker</span>
 								</h2>
 								<a href="#" class="btn hero-btn">Shop Now</a>
 							</div>
