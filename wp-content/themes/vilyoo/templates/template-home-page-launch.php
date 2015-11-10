@@ -4,7 +4,11 @@
  */
 
 get_header(); ?>
-
+<style type="text/css">
+	#masthead.affix {
+		margin-top:20px;
+	}
+</style>
 <?php // substitute the class "container-fluid" below if you want a wider content area ?>
 	<div class="container-fluid pad-left pad-right homgBannerBg">
 		<div class="container">
