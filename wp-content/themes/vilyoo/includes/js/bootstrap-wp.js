@@ -1,13 +1,20 @@
 jQuery( document ).ready( function( $ ) {
 
     $( 'input.search-field' ).addClass( 'form-control' );
-    $('.yith_magnifier_thumbnail').css('width',90);
+    $('#_sku').attr('readonly', true);
     // here for each comment reply link of wordpress
     $( '.comment-reply-link' ).addClass( 'btn btn-primary' );
 
     // here for the submit button of the comment reply form
     $( '#commentsubmit' ).addClass( 'btn btn-primary' );
-
+    $("#update_product").click(function(){
+        
+         var productId = getParameterByName('product_id');
+         if(productId){
+           
+            $('#_sku').val("PROD"+productId);
+         }
+    });
     // The WordPress Default Widgets
     // Now we'll add some classes for the wordpress default widgets - let's go
 
@@ -156,6 +163,14 @@ jQuery( document ).ready( function( $ ) {
         $( '.prod-bottom-part' ).slideDown();
         $( subCat ).show();
         $( '.subCat-sel' ).not( subCat ).hide();
+    }
+
+    /** Added for getting query string */
+    function getParameterByName(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
     }
 
     imgArray = [];
