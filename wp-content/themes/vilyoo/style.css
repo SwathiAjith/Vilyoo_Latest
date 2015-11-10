@@ -773,7 +773,7 @@ The Bootstrap CSS is unchanged.
 }
 .hero-title {
 	font-weight: 300;
-	font-size: 36px;
+	font-size: 32px;
 	line-height: 1.6
 }
 .hero-btn {
@@ -783,7 +783,7 @@ The Bootstrap CSS is unchanged.
 	border-radius: 22px;
 	font-size: 20px;
 	font-weight: 300;
-	padding: 10px 30px;
+	padding: 6px 20px;
 	line-height: 1;
 	color: #fff !important;
 }
