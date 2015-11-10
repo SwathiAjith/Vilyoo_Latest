@@ -12,15 +12,12 @@ get_header(); ?>
 				<div class="col-md-12">
 					<div id="home-featured-seller">
 						<div class="col-md-9 pad-left pad-right">
-<!--
-							<div class="col-md-12 text-center">
+							<div class="col-md-12 text-left">
 								<h2 class="hero-title">
-									<span>We're on a Mission,</span>
-									to popularize modern <strong><em>Crafting</em></strong> techniques.
+									<span>Exquisite craft products directly from the maker</span>
 								</h2>
-								<a href="#" class="btn hero-btn">Learn More</a>
+								<a href="#" class="btn hero-btn">Shop Now</a>
 							</div>
--->
 						</div>
 						<div class="col-md-3 pad-right" id="home-featured-seller-right">
 							<div class="col-xs-12 pad-left pad-right">
@@ -57,7 +54,7 @@ get_header(); ?>
 						</div>
 						<div class="col-md-4 colProdLinks">
 							<p class="text-center homeBannerFooterLinks">
-								<a href="#">Supplies</a>
+								<a href="<?php echo get_site_url(); ?>/medium/supplies/">Supplies</a>
 							</p>
 						</div>
 					</div>

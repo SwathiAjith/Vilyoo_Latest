@@ -774,30 +774,36 @@ The Bootstrap CSS is unchanged.
 .hero-title {
 	font-weight: 300;
 	font-size: 36px;
+	line-height: 1.6
 }
 .hero-btn {
 	margin: 20px 0;
-	background: transparent;
-	border: 1px solid #BF326B;
+	background: #BF326B;
+	border: 2px solid #BF326B;
 	border-radius: 22px;
 	font-size: 20px;
 	font-weight: 300;
 	padding: 10px 30px;
 	line-height: 1;
+	color: #fff !important;
 }
 .hero-btn:hover {
 	background: #BF326B;
 	color: #fff;
+	border-color: #fff;
 }
 .hero-title span {
-	display: block;
-	font-weight: 700;
+	font-weight: 300;
+	background-color: rgba(0,0,0,0.6);
+	padding: 5px;
+	color: #fff;
+	margin-bottom: 15px;
 }
 .sell-title {
 	font-weight: 300;
 	line-height: 1.4;
 	margin-top: 7.5px;
-	color: #BF326B;
+/*	color: #BF326B;*/
 }
 .btn-sellwithus {
 	background: #00aedf;
@@ -843,10 +849,10 @@ The Bootstrap CSS is unchanged.
 	padding: 4px 8px;
 }
 #home-seller-info {
-/*	background-image: url('includes/images/batthern.png');*/
-/*	background-color: #BF326B;*/
+	background-image: url('includes/images/batthern.png');
+	background-color: #BF326B;
 /*	background-color: rgba( 191, 50, 107, 0.7 );*/
-	background-color: transparent;
+/*	background-color: transparent;*/
 	color: #fff !important;
 	position: relative;
 	z-index: 4;
