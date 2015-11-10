@@ -14,8 +14,7 @@ get_header(); ?>
 						<div class="col-md-9 pad-left pad-right">
 							<div class="col-md-12 text-left">
 								<h2 class="hero-title">
-									<span>Get the latest crafts from your peers!</span><br>
-									<span>Some text</span>
+									<span>Exquisite craft products directly from the maker</span>
 								</h2>
 								<a href="#" class="btn hero-btn">Shop Now</a>
 							</div>
@@ -55,7 +54,7 @@ get_header(); ?>
 						</div>
 						<div class="col-md-4 colProdLinks">
 							<p class="text-center homeBannerFooterLinks">
-								<a href="#">Supplies</a>
+								<a href="<?php echo get_site_url(); ?>/medium/supplies/">Supplies</a>
 							</p>
 						</div>
 					</div>
