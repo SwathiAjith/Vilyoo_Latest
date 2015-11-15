@@ -42,7 +42,7 @@ jQuery( document ).ready( function( $ ) {
             }
             finalWeight = Math.ceil(finalWeight);
             //alert(finalWeight);
-            shipping = finalWeight*50;
+            shipping = finalWeight*30;
             //alert(shipping);
             shipping = shipping+(shipping*(30/100));
             shipping = shipping+(shipping*(14/100));
