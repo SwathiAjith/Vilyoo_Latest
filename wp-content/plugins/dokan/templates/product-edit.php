@@ -194,7 +194,7 @@ if ( ! $from_shortcode ) {
                                                             <?php $seller_price = get_post_meta( $post_id, 'product_seller_price' )[0];
                                                                 if($seller_price){
                                                              ?>
-                                                            <span class="dokan-input-group-addon">Updated  <?php echo get_woocommerce_currency_symbol(); ?></span>
+                                                            <span class="dokan-input-group-addon">Price Including Shipping  <?php echo get_woocommerce_currency_symbol(); ?></span>
                                                             <?php } else { ?>
                                                             <span class="dokan-input-group-addon"><?php echo get_woocommerce_currency_symbol(); ?></span>
                                                             <?php } ?>
@@ -212,7 +212,7 @@ if ( ! $from_shortcode ) {
                                                                 //$seller_price = get_post_meta( $post_id, 'product_seller_price' )[0];
                                                                 if($seller_price){
                                                              ?>
-                                                                     <span class="dokan-input-group-addon">Seller  <?php echo get_woocommerce_currency_symbol(); ?></span>
+                                                                     <span class="dokan-input-group-addon">Your Price  <?php echo get_woocommerce_currency_symbol(); ?></span>
 
                                                                     <input type="text" class="dokan-form-control" name="seller_price_db" id="seller_price_db" value="<?php echo $seller_price;?>">
                                                              <?php } ?>
