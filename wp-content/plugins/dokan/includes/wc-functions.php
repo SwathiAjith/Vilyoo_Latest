@@ -469,8 +469,9 @@ function dokan_process_product_meta( $post_id ) {
     add_post_meta( $post_id, 'total_sales', '0', true );
 
     $is_this_product_customizable = $_POST['is_this_product_customizable'];
+    $seller_price = $_POST['prod_seller_price'];
     update_post_meta( $post_id, 'is_this_product_customizable', $is_this_product_customizable );
-
+    update_post_meta( $post_id, 'product_seller_price', $seller_price );
     // Get types
     $product_type       = empty( $_POST['_product_type'] ) ? 'simple' : sanitize_title( stripslashes( $_POST['_product_type'] ) );
     $is_downloadable    = isset( $_POST['_downloadable'] ) ? 'yes' : 'no';
