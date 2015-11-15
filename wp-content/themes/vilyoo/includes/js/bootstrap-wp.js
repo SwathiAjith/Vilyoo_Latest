@@ -14,7 +14,50 @@ jQuery( document ).ready( function( $ ) {
            
             $('#_sku').val("PROD"+productId);
          }
+         var weight = parseFloat($('#_weight').val());
+         var length = parseFloat($('#_length').val());
+         var width = parseFloat($('#_width').val());
+         var height = parseFloat($('#_height').val());
+         var regularPrice  = 0;
+         if($('#seller_price_db').val()){
+            regularPrice = parseFloat($('#seller_price_db').val());
+         }else{
+           regularPrice = parseFloat($('#_regular_price').val());
+         }
+         $('#prod_seller_price').val(regularPrice);
+         var finalWeight = 0;
+         var shipping = 0;
+         var finalPriceShipping = 0;
+         var finalPrice = 0;
+         var volumetricMass = 0;
+         if(weight && length && width && height){
+            var volume = length*width*height;
+            volumetricMass = volume/5000;
+            //alert(volumetricMass);
+            if(volumetricMass > weight){
+                finalWeight = volumetricMass/0.5;
+            }else{
+                finalWeight= weight/0.5;
+                //alert(finalWeight);
+            }
+            finalWeight = Math.ceil(finalWeight);
+            //alert(finalWeight);
+            shipping = finalWeight*50;
+            //alert(shipping);
+            shipping = shipping+(shipping*(30/100));
+            shipping = shipping+(shipping*(14/100));
+            //alert(shipping);
+            regularPrice = regularPrice+(regularPrice*(10/100));
+            //alert(regularPrice);
+            finalPriceShipping = regularPrice+shipping;    
+            
+            $('#_regular_price').val(finalPriceShipping);
+            //$('#prod_seller_price').show();
+         }
+         
     });
+
+
     // The WordPress Default Widgets
     // Now we'll add some classes for the wordpress default widgets - let's go
 

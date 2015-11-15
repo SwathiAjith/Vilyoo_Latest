@@ -191,8 +191,31 @@ if ( ! $from_shortcode ) {
                                                 <div class="show_if_simple dokan-clearfix">
                                                     <div class="dokan-form-group">
                                                         <div class="dokan-input-group">
+                                                            <?php $seller_price = get_post_meta( $post_id, 'product_seller_price' )[0];
+                                                                if($seller_price){
+                                                             ?>
+                                                            <span class="dokan-input-group-addon">Updated  <?php echo get_woocommerce_currency_symbol(); ?></span>
+                                                            <?php } else { ?>
                                                             <span class="dokan-input-group-addon"><?php echo get_woocommerce_currency_symbol(); ?></span>
+                                                            <?php } ?>
                                                             <?php dokan_post_input_box( $post_id, '_regular_price', array( 'placeholder' => '9.99' ) ); ?>
+                                                            <input type="hidden" name="prod_seller_price" id="prod_seller_price">
+                    
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                    <div class="show_if_simple dokan-clearfix">
+                                                    <div class="dokan-form-group">
+                                                        <div class="dokan-input-group">
+
+                                                             <?php 
+                                                                //$seller_price = get_post_meta( $post_id, 'product_seller_price' )[0];
+                                                                if($seller_price){
+                                                             ?>
+                                                                     <span class="dokan-input-group-addon">Seller  <?php echo get_woocommerce_currency_symbol(); ?></span>
+
+                                                                    <input type="text" class="dokan-form-control" name="seller_price_db" id="seller_price_db" value="<?php echo $seller_price;?>">
+                                                             <?php } ?>
                                                         </div>
                                                     </div>
 
