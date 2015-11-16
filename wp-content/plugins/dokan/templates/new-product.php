@@ -30,7 +30,7 @@
                         <div class="dokan-w4">
                             <div class="dokan-feat-image-upload">
                                 <div class="instruction-inside">
-                                    <input type="hidden" name="feat_image_id" class="dokan-feat-image-id" value="0">
+                                    <input type="hidden" name="feat_image_id" id="product_image_first"class="dokan-feat-image-id" value="0" required>
                                     <i class="fa fa-cloud-upload"></i>
                                     <a href="#" class="dokan-feat-image-btn dokan-btn"><?php _e( 'Upload Product Image', 'dokan' ); ?></a>
                                 </div>
@@ -148,7 +148,7 @@
 
                     <div class="dokan-form-group">
                         <?php wp_nonce_field( 'dokan_add_new_product', 'dokan_add_new_product_nonce' ); ?>
-                        <input type="submit" name="add_product" class="dokan-btn dokan-btn-danger dokan-btn-theme" value="<?php esc_attr_e( 'Proceed to Next Step', 'dokan' ); ?>"/>
+                        <input type="submit" id="add_product_first" name="add_product" class="dokan-btn dokan-btn-danger dokan-btn-theme" value="<?php esc_attr_e( 'Proceed to Next Step', 'dokan' ); ?>"/>
                     </div>
 
                 </form>
