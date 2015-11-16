@@ -286,8 +286,8 @@ function vilyoo_request_product_customization_init() {
 
     $content_to_send .= "<b>Delivery Location : </b>". $delivery ."<br>";
 
-    $toSend = array( get_option( 'admin_email' ) );
-    
+    $toSend = array();
+    array_push( $toSend, 'sales@vilyoo.com' );
     if( $posted['prefShop'] ) {
         $prefShop   = $posted['prefShop']; // Multiple values
         

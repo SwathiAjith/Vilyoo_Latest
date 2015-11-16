@@ -7,9 +7,18 @@ jQuery( document ).ready( function( $ ) {
 
     // here for the submit button of the comment reply form
     $( '#commentsubmit' ).addClass( 'btn btn-primary' );
+    $('#add_product_first').click(function(){
+        var productImage = $('#product_image_first').val();  
+
+        if(productImage == 0){
+            alert('Please add a product Image');
+            return false;
+        }
+    });
     $("#update_product").click(function(){
         
          var productId = getParameterByName('product_id');
+         
          if(productId){
            
             $('#_sku').val("PROD"+productId);
