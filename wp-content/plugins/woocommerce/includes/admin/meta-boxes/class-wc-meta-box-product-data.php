@@ -161,6 +161,13 @@ class WC_Meta_Box_Product_Data {
 					// Price
 					woocommerce_wp_text_input( array( 'id' => '_regular_price', 'label' => __( 'Regular Price', 'woocommerce' ) . ' (' . get_woocommerce_currency_symbol() . ')', 'data_type' => 'price' ) );
 
+					//Seller Price
+					$seller_price = get_post_meta( $post->ID, 'product_seller_price', true );
+					if($seller_price){
+						echo '<p class="form-field _sale_price_field ">
+						<label for="seller_price">Seller Price</label>
+						<input class="short wc_input_price" type="text" name="seller_price" value="' . esc_attr( $seller_price ) . '" id="seller_price"></p>';
+					}
 					// Special Price
 					woocommerce_wp_text_input( array( 'id' => '_sale_price', 'data_type' => 'price', 'label' => __( 'Sale Price', 'woocommerce' ) . ' ('.get_woocommerce_currency_symbol().')', 'description' => '<a href="#" class="sale_schedule">' . __( 'Schedule', 'woocommerce' ) . '</a>' ) );
 
@@ -832,6 +839,10 @@ class WC_Meta_Box_Product_Data {
 		if ( isset( $_POST['processing_time'] ) ) {
 			update_post_meta( $post_id, '_dps_processing_time', wc_clean( $_POST['processing_time'] ) );
 		}
+		if ( isset( $_POST['seller_price'] ) ) {
+			update_post_meta( $post_id, 'product_seller_price', wc_clean( $_POST['seller_price'] ) );
+		}
+
 		if(isset( $_POST['_tax_status'] )){
 			update_post_meta( $post_id, '_tax_status', wc_clean( $_POST['_tax_status'] ) );
 		}
