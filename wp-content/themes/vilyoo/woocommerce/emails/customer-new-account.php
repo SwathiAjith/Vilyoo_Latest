@@ -15,11 +15,29 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php do_action( 'woocommerce_email_header', $email_heading ); ?>
 
-<p><?php printf( __( "Thanks for creating an account on %s. Your username is <strong>%s</strong>.", 'woocommerce' ), esc_html( $blogname ), esc_html( $user_login ) ); ?></p>
+<p><?php printf( __( "Thank you for registering with Vilyoo %s. Your username is <strong>%s</strong>.", 'woocommerce' ), esc_html( $blogname ), esc_html( $user_login ) ); ?></p>
 
 <?php if ( get_option( 'woocommerce_registration_generate_password' ) == 'yes' && $password_generated ) : ?>
 
 	<p><?php printf( __( "Your password has been automatically generated: <strong>%s</strong>", 'woocommerce' ), esc_html( $user_pass ) ); ?></p>
+
+<?php endif; ?>
+
+<?php
+	$userid = username_exists( $user_login );
+	$vilyoo_user = get_user_by( 'id', $userid );
+
+	if ( in_array( 'seller', (array) $vilyoo_user->roles ) ):
+?>
+	
+	<p>
+		Your account is activated now and you can start selling.   
+	</p> 
+	<p>
+		1. Please read the sellers policy at <a href="http://vilyoo.com/sellers-policy/">http://vilyoo.com/sellers-policy/</a>.<br>
+		2. Check <a href="http://vilyoo.com/sellers-guide/">http://vilyoo.com/sellers-guide/</a>  for guidance on how to open a shop, list your products and manage the shop. <br>
+		3. Products will be approved within 24hrs from the time you list/upload and submit. <br>
+	</p>
 
 <?php endif; ?>
 
