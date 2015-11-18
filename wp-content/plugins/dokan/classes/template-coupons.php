@@ -379,10 +379,15 @@ class Dokan_Template_Coupons{
         $description = isset( $post->post_content ) ? $post->post_content : '';
 
         $discount_type = isset( $discount_type ) ? $discount_type : '';
+				$percent_prod_selected = '';
+				$fixed_prod_selected = '';
         if ( isset( $discount_type ) ) {
-            if ( $discount_type == 'coupon_percent_product' ) {
+            if ( $discount_type == 'percent_product' ) {
+								$percent_prod_selected = "selected";
                 $discount_type = 'selected';
-            }
+            } else {
+							$fixed_prod_selected = 'selected';
+						}
         }
 
         $amount           = isset( $amount ) ? $amount : '';
@@ -421,7 +426,7 @@ class Dokan_Template_Coupons{
 
             $discount_type = $_POST['discount_type'];
 
-            if ( $discount_type == 'coupon_percent_product' ) {
+            if ( $discount_type == 'percent_product' ) {
                 $discount_type = 'selected';
             }
 
@@ -505,8 +510,8 @@ class Dokan_Template_Coupons{
 
                 <div class="dokan-w5 dokan-text-left">
                     <select id="discount_type" name="discount_type" class="dokan-form-control">
-                        <option value="fixed_product"><?php _e( 'Product Discount', 'dokan' ); ?></option>
-                        <option value="percent_product"><?php _e( 'Product % Discount', 'dokan' ); ?></option>
+                        <option value="fixed_product" <?php echo $fixed_prod_selected; ?>><?php _e( 'Product Discount', 'dokan' ); ?></option>
+                        <option value="percent_product" <?php echo $percent_prod_selected; ?>><?php _e( 'Product % Discount', 'dokan' ); ?></option>
                     </select>
                 </div>
             </div>
