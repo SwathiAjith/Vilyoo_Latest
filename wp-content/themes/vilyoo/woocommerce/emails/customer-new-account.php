@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php do_action( 'woocommerce_email_header', $email_heading ); ?>
 
-<p><?php printf( __( "Thank you for registering with Vilyoo %s. Your username is <strong>%s</strong>.", 'woocommerce' ), esc_html( $blogname ), esc_html( $user_login ) ); ?></p>
+<p><?php printf( __( "Thank you for registering with Vilyoo! Your username is <strong>%s</strong>.", 'woocommerce' ), esc_html( $user_login ) ); ?></p>
 
 <?php if ( get_option( 'woocommerce_registration_generate_password' ) == 'yes' && $password_generated ) : ?>
 
