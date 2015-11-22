@@ -1489,7 +1489,7 @@ a.yith_magnifier_thumbnail{
 	padding-bottom: 0;
 }
 #homeLinksToProduct .colProdLinks {
-	padding: 15px;
+	padding: 8px;
 }	
 .homeBannerFooterLinks {
 	margin-bottom: 0;
@@ -1647,7 +1647,10 @@ font-family: 'Open Sans', sans-serif;
   background-image: none;
 }
 
-
+.homeBannerFooterLinks a {
+    padding: 8px !important;
+    font-size: 16px;
+}
 
 
 
