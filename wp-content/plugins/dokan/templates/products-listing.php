@@ -11,7 +11,7 @@
                     $selling = get_user_meta( $user_id, 'pan_number', true );
             if(!$selling){
             ?>
-                <div class="alert alert-danger" role="alert"><h3>Please store details in settings</h3></div>
+                <div class="alert alert-danger" role="alert"><h5>Please update store details in settings</h5></div>
             <?php } ?>
                 <div class="product-listing-top dokan-clearfix">
                     <?php dokan_product_listing_status_filter(); ?>

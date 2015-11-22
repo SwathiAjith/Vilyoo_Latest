@@ -183,15 +183,13 @@ get_header(); ?>
 									<h3 class="customize-q">Email<span class="required">*</span></h3>
 								</div>
 								<div class="col-md-8">
-									<input type="email" class="form-control" name="userEmail" value="
-										<?php 
+									<?php 
 											if( is_user_logged_in() ){
 												global $current_user;
 												get_currentuserinfo();
-												echo $current_user->user_email;
 											}
 										?>
-									" placeholder="Email Address" required>
+									<input type="email" class="form-control" name="userEmail" value="<?php echo $current_user->user_email; ?>" placeholder="Email Address" required>
 								</div>
 							</div>
 						</div>
