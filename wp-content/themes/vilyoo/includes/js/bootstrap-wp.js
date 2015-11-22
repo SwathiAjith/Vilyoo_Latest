@@ -258,7 +258,7 @@ jQuery( document ).ready( function( $ ) {
             });
         }
         
-        console.log( cusFormData );
+//        console.log( cusFormData );
         // alert( $('#refImg').val() );
         var submitCustomize = $.ajax({
             cache: false,
