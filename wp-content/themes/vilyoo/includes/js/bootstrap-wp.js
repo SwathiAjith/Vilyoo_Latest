@@ -63,7 +63,7 @@ jQuery( document ).ready( function( $ ) {
             regularPrice = regularPrice+(regularPrice*(10/100));
             //alert(regularPrice);
             finalPriceShipping = regularPrice+shipping;    
-            
+            finalPriceShipping = Math.ceil(finalPriceShipping);
             $('#_regular_price').val(finalPriceShipping);
             //$('#prod_seller_price').show();
          }
