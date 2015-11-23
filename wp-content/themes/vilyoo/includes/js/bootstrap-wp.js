@@ -24,7 +24,7 @@ jQuery( document ).ready( function( $ ) {
             $('#_sku').val("PROD"+productId);
          }
          var weight = parseFloat($('#_weight').val());
-         if(weight > 99.99){
+         if(weight > 99.99 || weight == 0){
             alert('Please make sure that weight entered is in KG');
 
          }
