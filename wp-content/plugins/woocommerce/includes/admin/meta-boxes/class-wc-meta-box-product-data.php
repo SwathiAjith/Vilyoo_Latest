@@ -168,6 +168,21 @@ class WC_Meta_Box_Product_Data {
 						<label for="seller_price">Seller Price</label>
 						<input class="short wc_input_price" type="text" name="seller_price" value="' . esc_attr( $seller_price ) . '" id="seller_price"></p>';
 					}
+
+					//Personalisation message
+
+					$productPersonalisation = get_post_meta( $post->ID, 'is_this_product_customizable', true );
+					
+					if($productPersonalisation){ ?>
+					<p class="form-field">
+					<label for="_is_product_customisable">Is product customisable</label>
+							<select name="_is_product_customisable">
+								<option value="yes" <?php if($productPersonalisation == 'yes'){echo "selected='selected'";}?>>Yes</option>
+								<option value="no" <?php if($productPersonalisation == 'no'){echo "selected='selected'";}?>>No</option>
+							</select>
+					</p>
+					<?php }
+
 					// Special Price
 					woocommerce_wp_text_input( array( 'id' => '_sale_price', 'data_type' => 'price', 'label' => __( 'Sale Price', 'woocommerce' ) . ' ('.get_woocommerce_currency_symbol().')', 'description' => '<a href="#" class="sale_schedule">' . __( 'Schedule', 'woocommerce' ) . '</a>' ) );
 
@@ -839,6 +854,10 @@ class WC_Meta_Box_Product_Data {
 		if ( isset( $_POST['processing_time'] ) ) {
 			update_post_meta( $post_id, '_dps_processing_time', wc_clean( $_POST['processing_time'] ) );
 		}
+		if ( isset( $_POST['_is_product_customisable'] ) ) {
+			update_post_meta( $post_id, 'is_this_product_customizable', wc_clean( $_POST['_is_product_customisable'] ) );
+		}
+
 		if ( isset( $_POST['seller_price'] ) ) {
 			update_post_meta( $post_id, 'product_seller_price', wc_clean( $_POST['seller_price'] ) );
 		}
