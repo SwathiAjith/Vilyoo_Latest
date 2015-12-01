@@ -21,7 +21,7 @@ get_header(); ?>
 									<span>Exquisite craft products directly</span><br />
 									<span>from the maker</span>
 								</h2>
-								<a href="http://vilyoo.com/products/" class="btn hero-btn">Shop Now</a>
+								<a href="<?php echo get_site_url()?>/products/" class="btn hero-btn">Shop Now</a>
 							</div>
 						</div>
 						<div class="col-md-3 pad-right" id="home-featured-seller-right">
@@ -94,10 +94,14 @@ get_header(); ?>
 				<div id="home-most-popular">
 					<div class="vilyoo-section-header col-xs-12 mt-15">
 						<h4>Latest Products</h4>
+						<span class="home-free-shipping">
+							<img src="<?php echo get_site_url()?>/wp-content/themes/vilyoo/includes/images/bf326b-free-shipping-48.png" alt="Free Shipping" class="">
+						</span>
 					</div>
+					<div class="clearfix"></div>
 					<div class="white-bg col-md-12 shadow-it">
 						<?php // echo do_shortcode( '[best_selling_products per_page="5" columns="5"]' ); ?>
-						<?php  echo do_shortcode( '[products per_page="10" orderby="rand" columns="5"]' ); ?>
+						<?php  echo do_shortcode( '[recent_products per_page="8" columns="4"]' ); ?>
 						
 					</div>
 				</div>
