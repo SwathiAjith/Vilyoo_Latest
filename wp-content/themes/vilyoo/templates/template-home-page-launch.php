@@ -21,7 +21,7 @@ get_header(); ?>
 									<span>Exquisite craft products directly</span><br />
 									<span>from the maker</span>
 								</h2>
-								<a href="#" class="btn hero-btn">Shop Now</a>
+								<a href="http://vilyoo.com/products/" class="btn hero-btn">Shop Now</a>
 							</div>
 						</div>
 						<div class="col-md-3 pad-right" id="home-featured-seller-right">

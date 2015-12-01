@@ -1478,6 +1478,7 @@ a.yith_magnifier_thumbnail{
 	min-height: 350px;
 }
 #homeLinksToProduct {
+	margin-top: 47px;
 	padding: 0;
 	position: relative;
 	bottom: 0;
