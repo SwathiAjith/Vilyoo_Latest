@@ -960,7 +960,8 @@ The Bootstrap CSS is unchanged.
 	color: #333;
 }
 .woocommerce ul.products li.product a img {
-	border-bottom: 1px solid #ccc;
+	/*border-bottom: 1px solid #ccc;*/
+	padding: 5px;
 }
 .woocommerce ul.products li.product .star-rating {
 	margin: 0 auto;
