@@ -1680,3 +1680,9 @@ font-family: 'Open Sans', sans-serif;
 .btn-shop-all:hover {
 	border-color: transparent;
 }
+@media( max-width: 500px ) {
+	.dokan-single-seller.col-md-3 {
+		width: 47%;
+		display: inline-block;
+	}
+}
