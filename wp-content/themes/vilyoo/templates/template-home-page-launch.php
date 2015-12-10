@@ -95,14 +95,31 @@ get_header(); ?>
 					<div class="vilyoo-section-header col-xs-12 mt-15">
 						<h4>Latest Products</h4>
 						<span class="home-free-shipping">
-							<img src="<?php echo get_site_url()?>/wp-content/themes/vilyoo/includes/images/bf326b-free-shipping-48.png" alt="Free Shipping" class="">
+							<img src="<?php echo get_site_url()?>/wp-content/themes/vilyoo/includes/images/bf326b-free-shipping-48.png" alt="Free Shipping" class="img-circle">
 						</span>
 					</div>
 					<div class="clearfix"></div>
 					<div class="white-bg col-md-12 shadow-it">
-						<?php // echo do_shortcode( '[best_selling_products per_page="5" columns="5"]' ); ?>
-						<?php  echo do_shortcode( '[recent_products per_page="8" columns="4"]' ); ?>
-						
+						<?php  echo do_shortcode( '[recent_products per_page="8" columns="4" orderby="rand" order="rand"]' ); ?>
+						<p class="text-center">
+							<a href="<?php echo get_site_url()?>/products" class="btn hero-btn btn-shop-all">More...</a>
+						</p>
+					</div>
+				</div>
+
+				<div id="home-latest-workshops">
+					<div class="vilyoo-section-header col-xs-12 mt-15">
+						<h4>Workshops & DIY Kits</h4>
+						<span class="home-free-shipping">
+							<img src="<?php echo get_site_url()?>/wp-content/themes/vilyoo/includes/images/bf326b-free-shipping-48.png" alt="Free Shipping" class="img-circle">
+						</span>
+					</div>
+					<div class="clearfix"></div>
+					<div class="white-bg col-md-12 shadow-it">
+						<?php echo do_shortcode( '[product_category per_page="4" columns="4" category="diy-kits,workshops"]' ); ?>
+						<p class="text-center">
+							<a href="<?php echo get_site_url()?>/category/diy-kits" class="btn hero-btn btn-shop-all">More...</a>
+						</p>
 					</div>
 				</div>
 				

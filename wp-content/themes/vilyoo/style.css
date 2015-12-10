@@ -951,7 +951,7 @@ The Bootstrap CSS is unchanged.
 }
 	
 #home-most-popular .woocommerce, #home-latest-workshops .woocommerce {
-	padding: 15px 0;
+	padding: 15px 0 0;
 }
 
 /* WooCommerce Global */
@@ -1655,21 +1655,21 @@ font-family: 'Open Sans', sans-serif;
 }
 .home-free-shipping {
 	position: absolute;
-	right: 0;
-	top: 0;
-	bottom: 0;
-	padding: 0 10px;
-	background-color: #fff;
+	right: -20px;
+	top: -2px;
 }
-.home-free-shipping img{
-	padding: 3px 0;
+.home-free-shipping img {
+	border: 1px solid #BF326B;
 }
 @media( min-width: 400px ) {
 	.navbar-default .navbar-nav>li>a {
 		margin-left: 20px;
 	}
 }
-
-
-
-
+.btn-shop-all {
+	font-size: 15px;
+	margin: 0 0 15px;
+}
+.btn-shop-all:hover {
+	border-color: transparent;
+}
