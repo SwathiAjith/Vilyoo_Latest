@@ -1471,7 +1471,7 @@ a.yith_magnifier_thumbnail{
 .homgBannerBg {
 	margin-top: -20px;
 	margin-bottom: 20px;
-	background-image: url('includes/images/banner_home_xmas.jpg');
+	background-image: url('includes/images/banner_home.jpg');
 	background-position: center;
 	background-size: cover;
 	padding: 15px 0 0;
@@ -1653,13 +1653,20 @@ font-family: 'Open Sans', sans-serif;
     padding: 8px !important;
     font-size: 16px;
 }
+.free-shipping-holder {
+	height: 1px;
+	background: #BF326B;
+	margin: 45px 0;
+}
 .home-free-shipping {
-	position: absolute;
-	right: -20px;
-	top: -2px;
+	position: relative;
+	top: -22px;
+	padding: 0 25px;
+	background: #f7f5ee;
 }
 .home-free-shipping img {
 	border: 1px solid #BF326B;
+	margin-top: -11px;
 }
 @media( min-width: 400px ) {
 	.navbar-default .navbar-nav>li>a {

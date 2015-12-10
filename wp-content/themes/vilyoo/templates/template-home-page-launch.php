@@ -92,11 +92,13 @@ get_header(); ?>
 				</div>
 -->
 				<div id="home-most-popular">
-					<div class="vilyoo-section-header col-xs-12 mt-15">
-						<h4>Latest Products</h4>
+					<p class="text-center free-shipping-holder">
 						<span class="home-free-shipping">
 							<img src="<?php echo get_site_url()?>/wp-content/themes/vilyoo/includes/images/bf326b-free-shipping-48.png" alt="Free Shipping" class="img-circle">
 						</span>
+					</p>
+					<div class="vilyoo-section-header col-xs-12 mt-15">
+						<h4>Latest Products</h4>
 					</div>
 					<div class="clearfix"></div>
 					<div class="white-bg col-md-12 shadow-it">
