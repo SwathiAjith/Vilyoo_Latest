@@ -110,16 +110,16 @@ get_header(); ?>
 				<div id="home-latest-workshops">
 					<div class="vilyoo-section-header col-xs-12 mt-15">
 						<h4>Workshops & DIY Kits</h4>
-						<span class="home-free-shipping">
+						<!-- <span class="home-free-shipping">
 							<img src="<?php echo get_site_url()?>/wp-content/themes/vilyoo/includes/images/bf326b-free-shipping-48.png" alt="Free Shipping" class="img-circle">
-						</span>
+						</span> -->
 					</div>
 					<div class="clearfix"></div>
 					<div class="white-bg col-md-12 shadow-it">
 						<?php echo do_shortcode( '[product_category per_page="4" columns="4" category="diy-kits,workshops"]' ); ?>
-						<p class="text-center">
+						<!-- <p class="text-center">
 							<a href="<?php echo get_site_url()?>/category/diy-kits" class="btn hero-btn btn-shop-all">More...</a>
-						</p>
+						</p> -->
 					</div>
 				</div>
 				
