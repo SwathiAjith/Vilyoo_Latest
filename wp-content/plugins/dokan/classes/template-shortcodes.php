@@ -680,12 +680,13 @@ class Dokan_Template_Shortcodes {
      *
      * @param  array $atts
      * @return string
+     * @Swathi - Changed per_page to 80
      */
     function store_listing( $atts ) {
         global $post;
 
         $attr = shortcode_atts( array(
-                'per_page' => 12,
+                'per_page' => 80,
             ), $atts );
 
         $paged  = max( 1, get_query_var( 'paged' ) );
