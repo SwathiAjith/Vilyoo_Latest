@@ -7,6 +7,7 @@
  * @subpackage WooCommerce/Templates
  * @version 1.6.4
  */
+//Added by swathi ajith free-shipping-holder div for free shipping
 get_header();
 ?>
 <div class="container">
@@ -91,6 +92,11 @@ get_header();
 			            from <b><?php echo $shipping_city[0];?></b>. 
 			           Currently shipping to all locations in india.
 			        </p>
+			       <p class="text-center free-shipping-holder_product">
+						<span class="home-free-shipping_product">
+							<img src="<?php echo get_site_url()?>/wp-content/themes/vilyoo/includes/images/bf326b-free-shipping-48.png" alt="Free Shipping" class="img-circle">
+						</span>
+					</p>
 			    </div>
 			    <div id="sectionB" class="tab-pane fade in">
 			        <p>Contact <a href="mailto:support@vilyoo.com?Subject=Product Complaint" target="_top">support@vilyoo.com</a> in case the item received is damaged or not as displayed

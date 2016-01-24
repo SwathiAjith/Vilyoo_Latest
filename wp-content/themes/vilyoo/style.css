@@ -1668,6 +1668,19 @@ font-family: 'Open Sans', sans-serif;
 	border: 1px solid #BF326B;
 	margin-top: -11px;
 }
+.free-shipping-holder_product {
+	height: 1px;
+	margin: 45px 0;
+}
+.home-free-shipping_product {
+	position: relative;
+	top: -22px;
+	padding: 0 25px;
+ }
+.home-free-shipping_product img {
+	border: 1px solid #BF326B;
+	margin-top: -11px;
+}
 @media( min-width: 400px ) {
 	.navbar-default .navbar-nav>li>a {
 		margin-left: 20px;
