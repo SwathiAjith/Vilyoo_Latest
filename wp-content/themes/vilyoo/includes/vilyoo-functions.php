@@ -551,3 +551,46 @@ function vilyoo_add_indian_currency_symbol( $symbol ) {
 }
 
 
+add_action( 'pre_get_posts', 'custom_pre_get_posts_query' );
+
+function custom_pre_get_posts_query( $q ) {
+
+	if ( ! $q->is_main_query() ) return;
+	//if ( ! $q->is_post_type_archive() ) return;
+
+	if ( ! is_admin()) {
+
+		$q->set( 'tax_query', array(array(
+			'taxonomy' => 'product_cat',
+			'field' => 'slug',
+			'terms' => array( 'christmas' ), // Don't display products in the knives category on the shop page
+			'operator' => 'NOT IN',
+			//'include_children' => false
+		)));
+
+	}
+
+	remove_action( 'pre_get_posts', 'custom_pre_get_posts_query' );
+
+}
+/* Exclude Category from Shop 
+   
+   Added by Swathi Ajith on 1/12/2016 */
+
+function se_customize_product_shortcode( $args, $atts) {
+
+    if ( ! is_admin() && $atts['category'] != "diy-kits,workshops") {
+        $args['tax_query'] = array(
+            array(
+                'taxonomy' => 'product_cat',
+                'field'    => 'slug',
+                'terms'    => array( 'christmas','diy-kits','workshops'),
+                'operator' => 'NOT IN'
+            )
+       );
+    }
+ 
+    return $args;
+}
+add_filter( 'woocommerce_shortcode_products_query', 'se_customize_product_shortcode', 10, 2 );
+ 
