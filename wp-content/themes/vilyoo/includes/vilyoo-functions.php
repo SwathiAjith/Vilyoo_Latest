@@ -431,6 +431,7 @@ function woocommerce_subcats_from_parentcat_by_ID($parent_cat_ID) {
        'hierarchical' => 1,
        'show_option_none' => '',
        'hide_empty' => 1,
+       'exclude' => '290',
        'parent' => $parent_cat_ID,
        'taxonomy' => 'product_cat'
     );
