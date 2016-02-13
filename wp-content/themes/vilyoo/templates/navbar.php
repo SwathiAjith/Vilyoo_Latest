@@ -139,7 +139,7 @@
 			</ul>
 		</li>
 		<li class="menu-item">
-			<a title="Request your Customized Product" href="<?php echo site_url(); ?>/customize-product/">Customize</a>
+			<a title="Request your Customized Product" href="<?php echo site_url(); ?>/customize-product/">Made to Order</a>
 		</li>
 		<li class="menu-item mega-dropdown dropdown">
 			<a title="Workshops" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true" href="<?php echo esc_url( get_term_link( 264, 'product_cat' ) ); ?>">Workshops</a>
