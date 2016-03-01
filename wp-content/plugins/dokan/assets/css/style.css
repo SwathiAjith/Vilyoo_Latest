@@ -12,7 +12,12 @@
 .dokan-dashboard .dokan-dash-sidebar ul.dokan-dashboard-menu {
   background: #242424;
   list-style: none;
-  margin: 0 0 20px 0;65thgfgrhy
+  margin: 0 0 20px 0;
+  padding: 0;
+}
+.dokan-dashboard .dokan-dash-sidebar ul.dokan-dashboard-menu li {
+  margin: 0;
+  border-bottom: 1px solid #454545;
   position: relative;
 }
 .dokan-dashboard .dokan-dash-sidebar ul.dokan-dashboard-menu li a {
