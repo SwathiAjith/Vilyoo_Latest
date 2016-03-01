@@ -23,8 +23,10 @@ if ( ! $product->is_purchasable() ) {
 	// Availability
 	$availability      = $product->get_availability();
 	$availability_html = empty( $availability['availability'] ) ? '' : '<p class="stock ' . esc_attr( $availability['class'] ) . '">' . esc_html( $availability['availability'] ) . '</p>';
-
-	echo apply_filters( 'woocommerce_stock_html', $availability_html, $availability['availability'], $product );
+	$workshop_type = get_post_meta($product->id,'_workshop_type')[0];
+	if(!$workshop_type){
+		echo apply_filters( 'woocommerce_stock_html', $availability_html, $availability['availability'], $product );
+    }
 ?>
 
 <?php if ( $product->is_in_stock() ) : ?>
@@ -43,8 +45,9 @@ if ( ! $product->is_purchasable() ) {
 	 	?>
 
 	 	<input type="hidden" name="add-to-cart" value="<?php echo esc_attr( $product->id ); ?>" />
-
-	 	<button type="submit" class="btn-red-cart single_add_to_cart_button button alt"><?php echo $product->single_add_to_cart_text(); ?></button>
+        <?php if(!$workshop_type || $workshop_type == 'sell'){?>
+	 		<button type="submit" class="btn-red-cart single_add_to_cart_button button alt"><?php echo $product->single_add_to_cart_text(); ?></button>
+	 	<?php } ?>
 
 		<?php do_action( 'woocommerce_after_add_to_cart_button' ); ?>
 	</form>

@@ -29,8 +29,10 @@ $porduct_shipping_pt = ( $_processing_time ) ? $_processing_time : $dps_pt;
 
     <div class="dokan-form-group show_if_simple">
         <label class="dokan-w4 dokan-control-label" for="_backorders"><?php _e( 'Weight (kg)', 'dokan' ); ?><span class="required">*</span></label>
-        <div class="dokan-w4 dokan-text-left">
-            <?php dokan_post_input_box( $post->ID, '_weight', array( 'required' => 'required' ), 'number' ); ?>
+        <div class="dokan-w8 dokan-text-left">
+            <!--<?php dokan_post_input_box( $post->ID, '_weight', array( 'class' => 'form-control col-sm-1','required' => 'required' ), 'number' ); ?>-->
+            <!-- Added by Swathi Ajith for validating weight-->
+             <?php dokan_post_input_box( $post->ID, '_weight', array( 'class' => 'form-control col-sm-1', 'placeholder' => __( 'weight', 'dokan' ), 'required' => 'required' ), 'number' ); ?>
         </div>
     </div>
 

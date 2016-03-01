@@ -19,6 +19,21 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 $tabs = apply_filters( 'woocommerce_product_tabs', array() );
 
+global $product;
+$workshop_type = get_post_meta($product->id,'_workshop_type')[0];
+
+if($workshop_type){
+
+$tabs['additional_information'] = array
+        (
+            'title' => 'Additional Information',
+            'priority' => '20',
+            'callback' => 'woocommerce_product_additional_information_tab'
+        );
+}
+
+
+
 if ( ! empty( $tabs ) ) : ?>
 
 	<div class="woocommerce-tabs wc-tabs-wrapper">

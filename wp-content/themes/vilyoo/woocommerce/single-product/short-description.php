@@ -13,18 +13,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 global $post;
 
+global $product;
+
 if ( ! $post->post_excerpt ) {
 	return;
 }
-
+$workshop_type = get_post_meta($post->ID,'_workshop_type')[0];
+$workshop = get_post_meta($post->ID,'workshop_type',true);
 ?>
-<div itemprop="description" class="font-verdana">
-	<?php echo apply_filters( 'woocommerce_short_description', $post->post_excerpt ) ?>
-</div>
+
 <?php
 	$is_customizable = get_post_meta( $post->ID, 'is_this_product_customizable' )[0];
-	// die( print_r( $is_customizable ) );
-	if( $is_customizable == "yes" ) {
+
+	if( $is_customizable == "yes" && !$workshop_type) {
 		?>
 		<a id="addCustomizationMessage" href="#" class="btn btn-default">Add Customization Message</a>
 		<p id="addCustomizationMessageNotif" class="mt-15 hide">
@@ -37,6 +38,24 @@ if ( ! $post->post_excerpt ) {
 			</p>
 		</div>
 		<?php
+	}
+	else if($workshop == '1'){
+		if(get_post_meta($product->id,'_date')[0]){
+
+    echo "<b>Date : </b>" .get_post_meta($product->id,'_date')[0] .'. <br >';
+}
+else{
+    echo "<b>Date </b>: No dates specified you can contact the author to inform the date <br>";
+}
+$stock = get_post_meta($product->id,'_stock')[0];
+$stock = round($stock, 0);
+echo "<b>No of Seats : </b>" .$stock.'<br >';
+
+echo "<b>Venue : </b>" .get_post_meta($product->id,'_venue')[0].'<br >';
+
+echo "<b>City : </b>" .get_post_meta($product->id,'_city')[0].'<br >';
+
+echo "<br>";		
 	}
 ?>
 

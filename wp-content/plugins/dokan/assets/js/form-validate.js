@@ -10,6 +10,27 @@
  */
 
 (function($) {
+	
+//Added by SWathi Ajith for tooltip error messages	
+$(document).ready(function() {
+	 
+   		 $('#registrationForm').formValidation({
+      		  	 framework: 'bootstrap',
+       			 icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+       			 err: {
+            // You can set it to popover
+            // The message then will be shown in Bootstrap popover
+            container: 'tooltip'
+        }  
+       		 }
+    	});
+});
+ 
+ 
 
 $.extend($.fn, {
 	// http://docs.jquery.com/Plugins/Validation/validate
@@ -275,6 +296,9 @@ $.extend($.validator, {
 		required: "This field is required.",
 		remote: "Please fix this field.",
 		email: "Please enter a valid email address.",
+		phoneno:"Please enter a valid phone number.",
+		pincode:"Please enter a valid pincode.",
+		PANno:"Please enter a valid PAN number.",
 		url: "Please enter a valid URL.",
 		date: "Please enter a valid date.",
 		dateISO: "Please enter a valid date (ISO).",
@@ -807,6 +831,9 @@ $.extend($.validator, {
 	classRuleSettings: {
 		required: {required: true},
 		email: {email: true},
+		phoneno: {phoneno: true},
+		pincode:{pincode: true},
+		PANno: {PANno: true},
 		url: {url: true},
 		date: {date: true},
 		dateISO: {dateISO: true},
@@ -1092,6 +1119,25 @@ $.extend($.validator, {
 			return this.optional(element) || /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))$/i.test(value);
 		},
 
+		// http://docs.jquery.com/Plugins/Validation/Methods/phoneno
+		phoneno: function( value, element ) {
+			// contributed by Scott Gonzalez: http://projects.scottsplayground.com/phone_no_validation/
+			return this.optional(element) || /^\d{10}$/.test(value);
+		},
+
+		// http://docs.jquery.com/Plugins/Validation/Methods/pincode
+		// Changes added for Address Modification by Swathi Ajith on 28/12/2015
+		pincode: function( value, element ) {
+			// contributed by Scott Gonzalez: http://projects.scottsplayground.com/phone_no_validation/
+			return this.optional(element) || /^\d{6}$/.test(value);
+		},
+
+		// http://docs.jquery.com/Plugins/Validation/Methods/PANno
+		PANno: function( value, element ) {
+			alert('i came to javascript');
+			// contributed by Scott Gonzalez: http://projects.scottsplayground.com/phone_no_validation/
+			return this.optional(element) || /^([a-zA-Z]{5})(\d{4})([a-zA-Z]{1})$/.test(value);
+		},
 		// http://docs.jquery.com/Plugins/Validation/Methods/url
 		url: function( value, element ) {
 			// contributed by Scott Gonzalez: http://projects.scottsplayground.com/iri/

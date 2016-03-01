@@ -12,6 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 global $product;
+$workshop_type = get_post_meta($product->id,'_workshop_type')[0];
 
 $heading = apply_filters( 'woocommerce_product_additional_information_heading', __( 'Additional Information', 'woocommerce' ) );
 
@@ -20,6 +21,8 @@ $heading = apply_filters( 'woocommerce_product_additional_information_heading', 
 <?php if ( $heading ): ?>
 	<h2><?php echo $heading; ?></h2>
 <?php endif; ?>
+
+<?php if(!$workshop_type) { ?>
 
 <?php $product->list_attributes(); ?>
 <?php
@@ -39,3 +42,25 @@ $heading = apply_filters( 'woocommerce_product_additional_information_heading', 
     );
 	echo "Shipping in " . $times[$index] .'.';
 ?>
+
+<?php } else { 
+
+if(get_post_meta($product->id,'_date')[0]){
+
+    echo "Date :" .get_post_meta($product->id,'_date')[0] .'. <br >';
+}
+else{
+    echo "Date :No dates specified you can contact the author to inform the date <br>";
+}
+
+echo "Duration :" .get_post_meta($product->id,'_duration')[0].'Days <br >';
+
+echo "Start Time :" .get_post_meta($product->id,'_workshop_start_time')[0].'. <br >';
+
+echo "End Time :" .get_post_meta($product->id,'_workshop_end_time')[0].'. <br >';
+
+echo "Venue :" .get_post_meta($product->id,'_venue')[0].'. <br >';
+
+echo "City :" .get_post_meta($product->id,'_city')[0].'. <br >';
+
+} ?>

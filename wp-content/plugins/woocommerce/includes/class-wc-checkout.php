@@ -93,7 +93,7 @@ class WC_Checkout {
 
 		// Define all Checkout fields
 		$this->checkout_fields['billing'] 	= WC()->countries->get_address_fields( $this->get_value( 'billing_country' ), 'billing_' );
-		$this->checkout_fields['shipping'] 	= WC()->countries->get_address_fields( $this->get_value( 'shipping_country' ), 'shipping_' );
+		$this->checkout_fields['shipping'] 	= WC()->countries->get_shippingaddress_fields( $this->get_value( 'shipping_country' ), 'shipping_' );
 
 		if ( get_option( 'woocommerce_registration_generate_username' ) == 'no' ) {
 			$this->checkout_fields['account']['account_username'] = array(

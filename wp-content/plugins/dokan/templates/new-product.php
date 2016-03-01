@@ -25,7 +25,11 @@
                 if ( dokan_is_seller_enabled( get_current_user_id() ) ) { ?>
 
                 <form class="dokan-form-container" method="post">
-
+                    <?php if($_GET['type'] == 'workshop') { ?>
+                    <input type="hidden" name="workshop_type" id="workshop_type" class="dokan-feat-image-id" value="1">
+                <?php } else { ?>
+                    <input type="hidden" name="workshop_type" id="workshop_type" class="dokan-feat-image-id" value="0">
+                <?php } ?>
                     <div class="row product-edit-container dokan-clearfix">
                         <div class="dokan-w4">
                             <div class="dokan-feat-image-upload">
@@ -57,32 +61,45 @@
                                 <small><?php echo "Maximum 100 Characters"; ?></small>
                                 <textarea name="post_excerpt" id="post-excerpt" rows="5" class="dokan-form-control" placeholder="<?php esc_attr_e( 'Short description about the product...( Maximum 100 Characters )', 'dokan' ); ?>" maxlength="60"><?php echo dokan_posted_textarea( 'post_excerpt' ); ?></textarea>
                             </div>
-
-                            <div class="dokan-form-group">
-                                <label> <?php echo "Does this product require personalization?"; ?></label>
-                                <select class="form-control" name="is_this_product_customizable" required>
-                                    <option value="yes">Yes</option>
-                                    <option value="no" selected>No</option>
-                                </select>
-                            </div>
-                            
+                            <?php if($_GET['type'] != 'workshop') { ?>
+                                <div class="dokan-form-group">
+                                    <label> <?php echo "Does this product require personalization?"; ?></label>
+                                    <select class="form-control" name="is_this_product_customizable" required>
+                                        <option value="yes">Yes</option>
+                                        <option value="no" selected>No</option>
+                                    </select>
+                                </div>
+                            <?php } ?>
                             <?php if ( dokan_get_option( 'product_category_style', 'dokan_selling', 'single' ) == 'single' ): ?>
                                 <div class="dokan-form-group">
 
                                     <?php
-                                    wp_dropdown_categories( array(
-                                        'show_option_none' => __( '- Select a category -', 'dokan' ),
-                                        'hierarchical'     => 1,
-                                        'hide_empty'       => 0,
-                                        'name'             => 'product_cat',
-                                        'id'               => 'product_cat',
-                                        'taxonomy'         => 'product_cat',
-                                        'title_li'         => '',
-                                        'class'            => 'product_cat dokan-form-control chosen',
-                                        'exclude'          => '',
-                                        'selected'         => Dokan_Template_Shortcodes::$product_cat,
-                                    ) );
-                                    ?>
+
+                                         if($_GET['type'] == 'workshop') { ?>
+                                           <select name="product_cat" class="product_cat dokan-form-control chosen" id="product_cat">
+                                                <option value="268">Location based</option>
+                                                <option value="269">Online</option>
+                                            </select>
+
+                                        <?php } elseif($_GET['type'] == 'diy') { ?>
+                                            <select name="product_cat" class="product_cat dokan-form-control chosen" id="product_cat">
+                                                <option value="265">DIY Kits</option>
+                                            </select>
+                                        <?php } else { 
+                                            
+                                             wp_dropdown_categories( array(
+                                                'show_option_none' => __( '- Select a category -', 'dokan' ),
+                                                'hierarchical'     => 1,
+                                                'hide_empty'       => 0,
+                                                'name'             => 'product_cat',
+                                                'id'               => 'product_cat',
+                                                'taxonomy'         => 'product_cat',
+                                                'title_li'         => '',
+                                                'class'            => 'product_cat dokan-form-control chosen',
+                                                'exclude'          => '',
+                                                'selected'         => Dokan_Template_Shortcodes::$product_cat,
+                                            ) );
+                                        } ?>
                                 </div>
                             <?php elseif ( dokan_get_option( 'product_category_style', 'dokan_selling', 'single' ) == 'multiple' ): ?>
                                 <div class="dokan-form-group dokan-list-category-box">

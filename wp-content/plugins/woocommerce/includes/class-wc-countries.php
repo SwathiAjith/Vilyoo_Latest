@@ -982,4 +982,56 @@ class WC_Countries {
 
 		return $address_fields;
 	}
+
+	/**
+	 * Apply locale and get address fields
+	 * @param  mixed  $country
+	 * @param  string $type (default: 'shipping_')
+	 * @return array
+	 * Added by Swathi Ajith to show phone no in shipping form
+	 */
+	public function get_shippingaddress_fields( $country = '', $type = 'shipping_' ) {
+		if ( ! $country ) {
+			$country = $this->get_base_country();
+		}
+
+		$fields = $this->get_default_address_fields();
+		$locale = $this->get_country_locale();
+
+		if ( isset( $locale[ $country ] ) ) {
+			$fields = wc_array_overlay( $fields, $locale[ $country ] );
+		}
+
+		// Prepend field keys
+		$address_fields = array();
+
+		foreach ( $fields as $key => $value ) {
+			$address_fields[ $type . $key ] = $value;
+
+			// Add phone after company or last
+			if ( $type == 'shipping_' && ( 'company' === $key || ( ! array_key_exists( 'company', $fields ) && $key === end( array_keys( $fields ) ) ) ) ) {
+				
+				 $address_fields['shipping_email'] = array(
+					'label'		=> __( 'Email Address', 'woocommerce' ),
+					'required'	=> true,
+					'type'		=> 'email',
+					'class'		=> array( 'form-row-first' ),
+					'validate'	=> array( 'email' ),
+				);
+				
+				$address_fields['shipping_phone'] = array(
+					'label'    	=> __( 'Phone', 'woocommerce' ),
+					'required' 	=> true,
+					'type'		=> 'tel',
+					'class'    	=> array( 'form-row-first' ),
+					'clear'    	=> true,
+					'validate' 	=> array( 'phone' ),
+				);
+			}
+		}
+
+		$address_fields = apply_filters( 'woocommerce_' . $type . 'fields', $address_fields, $country );
+
+		return $address_fields;
+	}
 }

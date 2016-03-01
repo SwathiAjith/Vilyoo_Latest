@@ -29,9 +29,9 @@ if ( $tax_classes ) {
     </div>
 
     <div class="dokan-form-group">
-        <label class="dokan-w4 dokan-control-label" for="_stock_qty"><?php _e( 'Stock Qty', 'dokan' ); ?><span class="required">*</span></label>
+        <label class="dokan-w4 dokan-control-label" for="_stock_qty"><?php if($_workshop_type != 1) { _e( 'Stock Qty', 'dokan' ); } else { _e( 'Number Of Seats', 'dokan' );} ?><span class="required">*</span></label>
         <div class="dokan-w4 dokan-text-left">
-            <?php dokan_post_input_box( $post->ID, '_stock', array( 'placeholder' => '10', 'required' => 'required' ) ); ?>
+            <?php dokan_post_input_stock( $post->ID, '_stock', array( 'placeholder' => '10', 'required' => 'required' ) ); ?>
         </div>
     </div>
 

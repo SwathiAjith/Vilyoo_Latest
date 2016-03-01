@@ -16,7 +16,14 @@
                 <div class="product-listing-top dokan-clearfix">
                     <?php dokan_product_listing_status_filter(); ?>
 
+                    
+                     <span class="dokan-add-product-link pull-right">
+                       <a href="<?php echo dokan_get_navigation_url( 'new-product' ); ?>?type=workshop" class="dokan-btn dokan-btn-theme dokan-right"><i class="fa fa-briefcase">&nbsp;</i> <?php _e( 'Add new workshop', 'dokan' ); ?></a>
+                    </span>
                     <span class="dokan-add-product-link">
+                       <a href="<?php echo dokan_get_navigation_url( 'new-product' ); ?>?type=diy" class="dokan-btn dokan-btn-theme dokan-right"><i class="fa fa-briefcase">&nbsp;</i> <?php _e( 'Add new DIY kit', 'dokan' ); ?></a>
+                    </span>
+                    <span class="dokan-add-product-link pull-left">
                         <a href="<?php echo dokan_get_navigation_url( 'new-product' ); ?>" class="dokan-btn dokan-btn-theme dokan-right"><i class="fa fa-briefcase">&nbsp;</i> <?php _e( 'Add new product', 'dokan' ); ?></a>
                     </span>
                 </div>

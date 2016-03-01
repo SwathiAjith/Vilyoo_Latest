@@ -1032,6 +1032,10 @@ The Bootstrap CSS is unchanged.
 .woocommerce div.product p.price, .woocommerce div.product span.price {
 	font-size: 1.75em;
 }
+.woocommerce div.product p.freeshipping, .woocommerce div.product span.freeshipping {
+	font-size: 1em;
+	color: #bf326b;
+}
 .woocommerce div.product .woocommerce-tabs .panel {
 	padding: 0 15px !important;
 }
@@ -1240,6 +1244,13 @@ h3.widget-title {
 .tabs_container .dokan-form-horizontal {
 	padding: 15px;
 }
+.dokan-form-horizontal .dokan-form-group label {
+  text-align: right;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding-right: 15px;
+}
+
 .dokan-order-filter-serach,
 .dokan-orders-content .dokan-table {
 	padding: 15px !important;

@@ -808,7 +808,7 @@ if ( ! function_exists( 'woocommerce_template_single_meta' ) ) {
 	 * @subpackage	Product
 	 */
 	function woocommerce_template_single_meta() {
-		wc_get_template( 'single-product/meta.php' );
+		//wc_get_template( 'single-product/meta.php' );
 	}
 }
 if ( ! function_exists( 'woocommerce_template_single_sharing' ) ) {

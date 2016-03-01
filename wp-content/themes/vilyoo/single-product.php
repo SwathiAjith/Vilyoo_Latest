@@ -29,6 +29,8 @@ get_header();
 				<?php 
 					wc_get_template_part( 'content', 'single-product' ); 
 					$index = get_post_meta( $product->id, $key = '_dps_processing_time' )[0];
+					$post_id        = $product->id; 
+					$workshop_type = get_post_meta($post_id,'workshop_type',true);
 					$times = array(
 				        0 => __( 'Ready to ship in...', 'dokan' ),
 				        1 => __( '1 business day', 'dokan' ),
@@ -81,6 +83,18 @@ get_header();
 		</div>
 		<div class="col-md-12 text-center mb-15">
 			<a href="#contact-seller-form-popup" data-toggle="modal" class="btn btn-default">Contact Seller</a>
+				<?php if($workshop_type  == 1)
+			{?>
+				<ul class="nav nav-tabs seller-tabs">
+				    <li class="active"><a data-toggle="tab" href="#sectionA">Payment</a></li>
+				     
+			</ul>
+			<div id="sectionA" class="tab-pane fade in active">
+			       <p>We accept payment through</p>
+			        <img src="http://vilyoo.com/wp-content/uploads/2015/11/payumoney-visa.jpg" width="150">
+			    </div>
+			<?php }
+			else{?>
 			<ul class="nav nav-tabs seller-tabs">
 				    <li class="active"><a data-toggle="tab" href="#sectionA">Shipping</a></li>
 				    <li><a data-toggle="tab" href="#sectionB">Returns</a></li>
@@ -109,7 +123,9 @@ get_header();
 			        <p>We accept payment through</p>
 			        <img src="http://vilyoo.com/wp-content/uploads/2015/11/payumoney-visa.jpg" width="150">
 			    </div>
-		</div> 
+			</div> 
+<?php }?>
+		</div>
 	</aside>
         <?php if ( !dynamic_sidebar( 'sidebar-single-product' ) ) : ?>
 

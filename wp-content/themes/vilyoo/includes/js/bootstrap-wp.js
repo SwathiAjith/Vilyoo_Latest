@@ -7,6 +7,19 @@ jQuery( document ).ready( function( $ ) {
 
     // here for the submit button of the comment reply form
     $( '#commentsubmit' ).addClass( 'btn btn-primary' );
+     if($('#is_workshop').val() == 0)
+     {
+
+     }
+
+     if($('#_workshop_type').val() == 'publish')
+     {
+            $('#seat_numbers').hide();
+            $('#_stock').val(1);
+     }else{
+            $('#seat_numbers').show();
+     }
+
     $('#add_product_first').click(function(){
         var productImage = $('#product_image_first').val();  
 
@@ -15,7 +28,42 @@ jQuery( document ).ready( function( $ ) {
             return false;
         }
     });
-    $("#update_product").click(function(){
+
+    /*
+    *
+    *
+    */
+    $('#_disable_shipping').change(function()
+    {
+        alert('here');
+        $('#_weight').removeAttr('required');
+        $('#_length').removeAttr('required');
+        $('#_width').removeAttr('required');
+        $('#_height').removeAttr('required');
+        //$('#_weight').prop('required', false);;????
+        /*$('#_length').removeAttr('required');?????
+        $('#_width').removeAttr('required');?????
+        $('#_height').removeAttr('required');?????*/
+    });
+
+
+    /*
+    * Hiding the quantity field if worksho type is publish
+    *
+    */
+    $('#_workshop_type').change(function()
+    {
+        if($('#_workshop_type').val() == 'publish')
+        {
+            $('#seat_numbers').hide();
+            $('#_stock').val(1);
+        }else
+        {
+            $('#seat_numbers').show();
+        }
+    });
+
+    /*$("#update_product").click(function(){
         
          var productId = getParameterByName('product_id');
          
@@ -28,47 +76,60 @@ jQuery( document ).ready( function( $ ) {
             alert('Please make sure that weight entered is in KG');
 
          }
-         var length = parseFloat($('#_length').val());
-         var width = parseFloat($('#_width').val());
-         var height = parseFloat($('#_height').val());
-         var regularPrice  = 0;
-         if($('#seller_price_db').val()){
+
+         if($('#seller_price_db').val())
+         {
             regularPrice = parseFloat($('#seller_price_db').val());
-         }else{
-           regularPrice = parseFloat($('#_regular_price').val());
+         }
+         else
+         {
+               regularPrice = parseFloat($('#_regular_price').val());
          }
          $('#prod_seller_price').val(regularPrice);
-         var finalWeight = 0;
-         var shipping = 0;
-         var finalPriceShipping = 0;
-         var finalPrice = 0;
-         var volumetricMass = 0;
-         if(weight && length && width && height){
-            var volume = length*width*height;
-            volumetricMass = volume/5000;
-            //alert(volumetricMass);
-            if(volumetricMass > weight){
-                finalWeight = volumetricMass/0.5;
-            }else{
-                finalWeight= weight/0.5;
+
+         if($('#is_workshop').val() == 0)
+         {
+             var length = parseFloat($('#_length').val());
+             var width = parseFloat($('#_width').val());
+             var height = parseFloat($('#_height').val());
+             var regularPrice  = 0;
+             
+             var finalWeight = 0;
+             var shipping = 0;
+             var finalPriceShipping = 0;
+             var finalPrice = 0;
+             var volumetricMass = 0;
+             if(weight && length && width && height){
+                var volume = length*width*height;
+                volumetricMass = volume/5000;
+                //alert(volumetricMass);
+                if(volumetricMass > weight){
+                    finalWeight = volumetricMass/0.5;
+                }else{
+                    finalWeight= weight/0.5;
+                    //alert(finalWeight);
+                }
+                finalWeight = Math.ceil(finalWeight);
                 //alert(finalWeight);
-            }
-            finalWeight = Math.ceil(finalWeight);
-            //alert(finalWeight);
-            shipping = finalWeight*30;
-            //alert(shipping);
-            shipping = shipping+(shipping*(30/100));
-            shipping = shipping+(shipping*(14/100));
-            //alert(shipping);
-            regularPrice = regularPrice+(regularPrice*(10/100));
-            //alert(regularPrice);
-            finalPriceShipping = regularPrice+shipping;    
-            finalPriceShipping = Math.ceil(finalPriceShipping);
-            $('#_regular_price').val(finalPriceShipping);
-            //$('#prod_seller_price').show();
+                shipping = finalWeight*30;
+                //alert(shipping);
+                shipping = shipping+(shipping*(30/100));
+                shipping = shipping+(shipping*(14/100));
+                //alert(shipping);
+                regularPrice = regularPrice+(regularPrice*(10/100));
+                //alert(regularPrice);
+                finalPriceShipping = regularPrice+shipping;    
+                finalPriceShipping = Math.ceil(finalPriceShipping);
+                $('#_regular_price').val(finalPriceShipping);
+                //$('#prod_seller_price').show();
+             }
          }
-         
-    });
+         else
+         {
+            regularPrice = regularPrice+(regularPrice*(10/100));
+            $('#_regular_price').val(regularPrice);
+         }
+    });*/
 
 
     // The WordPress Default Widgets

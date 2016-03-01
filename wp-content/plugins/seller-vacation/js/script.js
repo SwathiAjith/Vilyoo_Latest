@@ -5,9 +5,11 @@ $(document).ready(function(){
     var vacation_message = $('.vacation_message'),
         datewise_area = $('.datewise_close_store'),
         go_vacation = $('.show_if_go_vacation');
+        show_shipping = $('.show_if_pickupaddress');
         
         datewise_area.hide();
         go_vacation.hide();
+        show_shipping.hide();
         vacation_message.hide();
 
     $('.sotre_vacation').on('change', '#settings_closing_style', function(){
@@ -32,8 +34,18 @@ $(document).ready(function(){
             go_vacation.fadeOut();
         }
     })
+    
+    $('.pickup_address_settings').on('change', '#pickup_address', function(){
+        var self = $(this);
+        if( self.prop('checked') ) {
+            show_shipping.hide().fadeIn();
+        } else {
+            show_shipping.fadeOut();
+        }
+    })
 
     $('#setting_go_vacation').trigger('change');
+    $('#pickup_address').trigger('change');
 
     $('#settings_closing_style').trigger( 'change' );
 

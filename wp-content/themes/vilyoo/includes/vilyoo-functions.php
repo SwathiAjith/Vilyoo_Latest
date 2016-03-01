@@ -318,7 +318,7 @@ add_filter( 'woocommerce_states', 'indian_woocommerce_states' );
 function indian_woocommerce_states( $states ) {
 
   $states['IN'] = array(
-                'AP' => __('Andra Pradesh', 'woocommerce'),
+                'AP' => __('Andhra Pradesh', 'woocommerce'),
                 'AR' => __('Arunachal Pradesh', 'woocommerce'),
                 'AS' => __('Assam', 'woocommerce'),
                 'BR' => __('Bihar', 'woocommerce'),
@@ -552,6 +552,15 @@ function vilyoo_add_indian_currency_symbol( $symbol ) {
 }
 
 
+  //Will effect both the woocommerce archive page and the wordpress archive page to display 48 items
+function set_row_count_archive($query){
+    if ($query->is_archive) {
+            $query->set('posts_per_page', 20);
+   }
+    return $query;
+}
+ 
+add_filter('pre_get_posts', 'set_row_count_archive');
 add_action( 'pre_get_posts', 'custom_pre_get_posts_query' );
 
 function custom_pre_get_posts_query( $q ) {
@@ -595,3 +604,460 @@ function se_customize_product_shortcode( $args, $atts) {
 }
 add_filter( 'woocommerce_shortcode_products_query', 'se_customize_product_shortcode', 10, 2 );
  
+// CUSTOM FIELD IN USER ADMIN - SAVE
+add_action( 'personal_options_update', 'my_save_extra_profile_fields' );
+add_action( 'edit_user_profile_update', 'my_save_extra_profile_fields' );
+function my_show_extra_profile_fields( $user ) { 
+ 
+$product_commission = get_user_meta( $user->ID, 'dokan_product_commission', true );
+$supply_commission = get_user_meta( $user->ID, 'dokan_supply_commission', true );
+?>
+
+    <h3>Commission</h3>
+
+	<table class="form-table">
+
+			<tr>
+												   		<th>
+												   		<?php _e( 'Product Commission', 'dokan' ); ?>
+												   		</th>
+
+												   		<td>
+												   			<input type="number" name="dokan_product_commission" class="regular-text" placeholder="%" value="<?php echo esc_attr( $product_commission ); ?>"><p class="description"><?php _e( 'Product Commission(%)', 'dokan' ) ?></p>
+												   		</td>
+												   	</tr>
+			<tr>
+												   		<th>
+												   		<?php _e( 'Supply Commission', 'dokan' ); ?>
+												   		</th>
+
+												   		<td>
+												   			<input type="number" name="dokan_supply_commission" class="regular-text" placeholder="%" value="<?php echo esc_attr( $supply_commission ); ?>">
+												   			<p class="description"><?php _e( 'Supply Commission(%)', 'dokan' ) ?></p>
+												   		</td>
+												   	</tr>
+
+	</table>
+<?php }  
+
+// CUSTOM FIELD IN USER ADMIN
+add_action( 'show_user_profile', 'my_show_extra_profile_fields' );
+add_action( 'edit_user_profile', 'my_show_extra_profile_fields' );
+
+function my_save_extra_profile_fields( $user_id ) {
+
+    if ( !current_user_can( 'edit_user', $user_id ) )
+        {return false;}
+	$product_commission = sanitize_text_field( $_POST['dokan_product_commission'] );
+	$supply_commission = sanitize_text_field( $_POST['dokan_supply_commission'] );
+    /* Copy and paste this line for additional fields. Make sure to change 'twitter' to the field ID. */
+    update_user_meta( $user_id, 'dokan_product_commission', $product_commission );
+    update_user_meta( $user_id, 'dokan_supply_commission', $supply_commission );
+}
+
+//Add columns to the CSV 
+function wpg_add_columns($cols) {
+
+	
+    $cols['wc_settings_tab_sellername'] = __('Seller Name', 'mytheme');	
+	$cols['wc_settings_tab_customeraddress'] = __('Customer Address', 'mytheme');
+	$cols['wc_settings_tab_selleraddress'] = __('Seller Address', 'mytheme');
+	$cols['wc_settings_tab_sellingprice'] = __('Selling Price', 'mytheme');
+	return $cols;
+}
+add_filter('wpg_order_columns', 'wpg_add_columns');
+// Add field to settings
+function wpg_add_fields($settings) {
+
+	$settings['sellingprice'] = array(
+								'name' => __( 'Selling Price', 'woocommerce-simply-order-export' ),
+								'type' => 'checkbox',
+								'desc' => __( 'Selling Price', 'woocommerce-simply-order-export' ),
+								'id'   => 'wc_settings_tab_sellingprice'
+							);
+	$settings['sellername'] = array(
+								'name' => __( 'Seller Name', 'woocommerce-simply-order-export' ),
+								'type' => 'checkbox',
+								'desc' => __( 'Seller Name', 'woocommerce-simply-order-export' ),
+								'id'   => 'wc_settings_tab_sellername'
+							);
+	$settings['customeraddress'] = array(
+								'name' => __( 'Customer Address', 'woocommerce-simply-order-export' ),
+								'type' => 'checkbox',
+								'desc' => __( 'Customer Address', 'woocommerce-simply-order-export' ),
+								'id'   => 'wc_settings_tab_customeraddress'
+							);
+	$settings['selleraddress'] = array(
+								'name' => __( 'Seller Address', 'woocommerce-simply-order-export' ),
+								'type' => 'checkbox',
+								'desc' => __( 'Seller Address', 'woocommerce-simply-order-export' ),
+								'id'   => 'wc_settings_tab_selleraddress'
+							);
+
+	return $settings;
+
+}
+ 
+add_filter('wc_settings_tab_order_export', 'wpg_add_fields');
+//Calculate shipping price based on commission
+function woocommerce_calculate_shipping($post_id)
+{
+	$seller_id      = get_current_user_id();
+	$product_commission = get_user_meta( $seller_id , 'dokan_product_commission', true );
+	$supply_commission = get_user_meta( $seller_id , 'dokan_supply_commission', true );
+	$_regular_price  = $_POST['_regular_price'];
+	$_sale_price     =$_POST['_sale_price'];
+	$seller_price =  $_POST['seller_price_db']; 
+	$workshop_type = get_post_meta($product->id,'_workshop_type')[0];
+	$_weight         = stripslashes($_POST['_weight']);
+	$_length         = stripslashes($_POST['_length']);
+	$_width          = stripslashes ($_POST['_width']);
+	$_height         = stripslashes($_POST['_height']);
+	$workshop_type = get_post_meta($post_id,'workshop_type',true);
+	if($post_id != ''){
+          
+         if($seller_price !=""){
+            $regularPrice = $seller_price;
+         }else{
+           $regularPrice = $_regular_price;
+         }
+         update_post_meta( $post_id, 'product_seller_price', $regularPrice );
+        
+         if($_weight != "" && $_length != "" && $_width != "" && $_height != ""){
+            $volume = $_length*$_width*$_height;
+            $volumetricMass = $volume/5000;
+             
+            if($volumetricMass > $_weight){
+                $finalWeight = $volumetricMass/0.5;
+            }else{
+                $finalWeight= $_weight/0.5;
+                
+            }
+            $finalWeight = ceil($finalWeight);
+            }
+             if($workshop_type == 1)
+             {
+			 	 //shipping rate iszero in case of workshop
+			   $shippingcost = 0;
+			 }
+			 else
+			 {
+				 //shipping rate
+	            $shippingrate = get_option('base_shipping_rate');
+	            $shippingcost = $finalWeight*$shippingrate;
+			 }
+            
+            
+            
+            //Surcharge rate 
+            $surchargerate = get_option('surcharge_rate');
+            $surchargeshipping = ($shippingcost*($surchargerate/100));
+            update_post_meta( $post_id, 'surcharge_rate', $surchargeshipping );
+            
+            //Service Tax rate
+            $servicetaxrate = get_option('service_tax');
+            $serviceTax = ($shippingcost+$surchargeshipping)*($servicetaxrate/100);
+            update_post_meta( $post_id, 'service_tax', $serviceTax );
+            
+            //Final shipping price
+            $finalPriceShipping = $shippingcost+$surchargeshipping+$serviceTax; 
+            update_post_meta( $post_id, 'product_shipping_cost', $finalPriceShipping );
+            
+            //Vilyoo Comission
+            if($workshop_type == '1')
+            {
+				 $VilyooComission = ($regularPrice *($supply_commission/100));
+			}
+			else{
+				 $VilyooComission = ($regularPrice *($product_commission/100));
+			}
+           
+            update_post_meta( $post_id, 'vilyoo_commission', $VilyooComission );
+            
+            //Sales Tax
+            $salestaxrate = get_option('sales_tax');
+            $salesTax = ($regularPrice *(5/100));
+            update_post_meta( $post_id, 'sales_tax', $salesTax );
+            
+            //Final Price 
+            $finalPrice = $regularPrice+$finalPriceShipping+$VilyooComission+$salesTax;    
+            $finalPrice = floor($finalPrice);
+            update_post_meta( $post_id, '_regular_price', $finalPrice ); 
+}
+	
+}
+
+ add_filter('dokan_process_product_meta', 'woocommerce_calculate_shipping');
+ 
+// Display Fields
+add_action( 'woocommerce_product_options_general_product_data', 'woo_add_custom_general_fields' );
+ 
+ 
+// Save Fields using WooCommerce Action Hook
+add_action( 'woocommerce_process_product_meta', 'woocommerce_process_product_meta_fields_save' );
+ 
+function woocommerce_process_product_meta_fields_save( $post_id ){
+    $seller_id = $_POST['post_author'];
+    $product_commission = get_user_meta( $seller_id , 'dokan_product_commission', true );
+	$supply_commission = get_user_meta( $seller_id , 'dokan_supply_commission', true );
+	$_regular_price  = $_POST['_regular_price'];
+	$_sale_price     =$_POST['_sale_price'];
+	$seller_price =  $_POST['seller_price'];
+	update_post_meta( $post_id, 'product_seller_price', $serviceTax ); 
+	$workshop_type = get_post_meta($product->id,'_workshop_type')[0];
+	$_weight         = stripslashes($_POST['_weight']);
+	$_length         = stripslashes($_POST['_length']);
+	$_width          = stripslashes ($_POST['_width']);
+	$_height         = stripslashes($_POST['_height']);
+	$workshop_type = get_post_meta($post_id,'workshop_type',true);
+	if($post_id != ''){
+          
+         if($seller_price !=""){
+            $regularPrice = $seller_price;
+         }else{
+           $regularPrice = $_regular_price;
+         }
+         update_post_meta( $post_id, 'product_seller_price', $regularPrice );
+        
+         if($_weight != "" && $_length != "" && $_width != "" && $_height != ""){
+            $volume = $_length*$_width*$_height;
+            $volumetricMass = $volume/5000;
+             
+            if($volumetricMass > $_weight){
+                $finalWeight = $volumetricMass/0.5;
+            }else{
+                $finalWeight= $_weight/0.5;
+                
+            }
+            $finalWeight = ceil($finalWeight);
+            }
+             if($workshop_type == 1)
+             {
+			 	 //shipping rate iszero in case of workshop
+			   $shippingcost = 0;
+			 }
+			 else
+			 {
+				 //shipping rate
+	            $shippingrate = get_option('base_shipping_rate');
+	            $shippingcost = $finalWeight*$shippingrate;
+			 }
+            
+            
+            
+            //Surcharge rate 
+            $surchargerate = get_option('surcharge_rate');
+            $surchargeshipping = ($shippingcost*($surchargerate/100));
+            update_post_meta( $post_id, 'surcharge_rate', $surchargeshipping );
+            
+            //Service Tax rate
+            $servicetaxrate = get_option('service_tax');
+            $serviceTax = ($shippingcost+$surchargeshipping)*($servicetaxrate/100);
+            update_post_meta( $post_id, 'service_tax', $serviceTax );
+            
+            //Final shipping price
+            $finalPriceShipping = $shippingcost+$surchargeshipping+$serviceTax; 
+            update_post_meta( $post_id, 'product_shipping_cost', $finalPriceShipping );
+            
+            //Vilyoo Comission
+            if($workshop_type == '1')
+            {
+				 $VilyooComission = ($regularPrice *($supply_commission/100));
+			}
+			else{
+				 $VilyooComission = ($regularPrice *($product_commission/100));
+			}
+           
+            update_post_meta( $post_id, 'vilyoo_commission', $VilyooComission );
+            
+            //Sales Tax
+            $salestaxrate = get_option('sales_tax');
+            $salesTax = ($regularPrice *(5/100));
+            update_post_meta( $post_id, 'sales_tax', $salesTax );
+            
+            //Final Price 
+            $finalPrice = $regularPrice+$finalPriceShipping+$VilyooComission+$salesTax;    
+            $finalPrice = floor($finalPrice);
+            update_post_meta( $post_id, '_regular_price', $finalPrice ); 
+            update_post_meta( $post_id, 'vilyoo_price', $finalPrice ); 
+}
+    
+}
+
+// Save Fields
+add_action( 'woocommerce_process_product_meta', 'woo_add_custom_general_fields_save' );
+function woo_add_custom_general_fields() {
+
+  global $woocommerce, $post;
+  $seller_price = get_post_meta( $post->ID, 'product_seller_price', true );
+  $vilyooprice =  get_post_meta( $post->ID, 'vilyoo_price', true );
+  $shipping_price = get_post_meta( $post->ID, 'product_shipping_cost', true );
+  $VilyooComission = get_post_meta( $post->ID, 'vilyoo_commission', true );
+  $salesTax = get_post_meta( $post->ID, 'sales_tax', true );
+  $finalshippingprice = get_post_meta( $post->ID, '_regular_price', true );
+  //echo '<div class="options_group">';
+
+  // Custom fields will be created here...
+
+// Text Field
+woocommerce_wp_text_input( 
+    array( 
+        'id'          => 'seller_price', 
+        'label'       => __( 'Seller Price', 'woocommerce' ), 
+        'placeholder' => '',
+        'desc_tip'    => 'true',
+        'description' => __( '', 'woocommerce' ),
+        'value'       => $seller_price
+    )
+);
+woocommerce_wp_text_input( 
+    array( 
+        'id'          => 'shipping_cost', 
+        'label'       => __( 'Shipping Cost', 'woocommerce' ), 
+        'placeholder' => '',
+        'desc_tip'    => 'true',
+        'description' => __( '', 'woocommerce' ),
+        'value'       => $shipping_price
+    )
+);
+woocommerce_wp_text_input( 
+    array( 
+        'id'          => 'vilyoo_comission', 
+        'label'       => __( 'Vilyoo Commission', 'woocommerce' ), 
+        'placeholder' => '',
+        'desc_tip'    => 'true',
+        'description' => __( '', 'woocommerce' ),
+        'value'       => $VilyooComission
+    )
+);
+woocommerce_wp_text_input( 
+    array( 
+        'id'          => 'sales_tax', 
+        'label'       => __( 'Sales Tax', 'woocommerce' ), 
+        'placeholder' => '',
+        'desc_tip'    => 'true',
+        'description' => __( '', 'woocommerce' ),
+        'value'       => $salesTax
+    )
+);
+woocommerce_wp_text_input( 
+    array( 
+        'id'          => 'vilyoo_price', 
+        'label'       => __( 'Vilyoo Price', 'woocommerce' ), 
+        'placeholder' => '',
+        'desc_tip'    => 'true',
+        'description' => __( '', 'woocommerce' ),
+        'value'       => $vilyooprice
+    )
+);
+ 
+}
+/**
+ * Create the section beneath the products tab
+ **/
+add_filter( 'woocommerce_get_sections_products', 'shipping_add_section' );
+function shipping_add_section( $sections ) {
+	
+	$sections['wcslider'] = __( 'Vilyoo Shipping', 'text-domain' );
+	return $sections;
+	
+}
+/**
+ * Add settings to the specific section we created before
+ */
+add_filter( 'woocommerce_get_settings_products', 'wcslider_all_settings', 10, 2 );
+function wcslider_all_settings( $settings, $current_section ) {
+	/**
+	 * Check the current section is what we want
+	 **/
+	if ( $current_section == 'wcslider' ) {
+		$settings_slider = array();
+		// Add Title to the Settings
+		$settings_slider[] = array( 'name' => __( 'Vilyoo Shipping Rates', 'text-domain' ), 'type' => 'title', 'desc' => __( 'The following options are used to configure Base Shipping Rate,Surcharge and Service Tax', 'text-domain' ), 'id' => 'wcslider' );
+		 
+		// Add text field option
+		$settings_slider[] = array(
+			'name'     => __( 'Base Shipping Rate', 'text-domain' ),
+			'type'	   => 'number',
+			'class'    => 'textfield',
+			'desc_tip' => __( 'Base Shipping Rate', 'text-domain' ),
+			'id'       => 'base_shipping_rate',
+			'placeholder'     => '%',
+			'desc'     => __( 'Base Shipping Rate(%)', 'text-domain' ),
+		);
+		$settings_slider[] = array(
+			'name'     => __( 'Surcharge', 'text-domain' ),
+			'type'	   => 'number',
+			'class'    => 'textfield',
+			'desc_tip' => __( 'Surcharge', 'text-domain' ),
+			'id'       => 'surcharge_rate',
+			'placeholder'     => '%',
+			'desc'     => __( 'Surcharge(%)', 'text-domain' ),
+		);
+		$settings_slider[] = array(
+			'name'     => __( 'Service Tax', 'text-domain' ),
+			'type'	   => 'number',
+			'class'    => 'textfield',
+			'desc_tip' => __( 'Service Tax', 'text-domain' ),
+			'id'       => 'service_tax',
+			'placeholder'     => '%',
+			'desc'     => __( 'Service Tax(%)', 'text-domain' ),
+		);
+		$settings_slider[] = array(
+			'name'     => __( 'Sales Tax', 'text-domain' ),
+			'type'	   => 'number',
+			'class'    => 'textfield',
+			'desc_tip' => __( 'Sales Tax', 'text-domain' ),
+			'id'       => 'sales_tax',
+			'placeholder'     => '%',
+			'desc'     => __( 'Sales Tax(%)', 'text-domain' ),
+		);
+		
+		$settings_slider[] = array( 'type' => 'sectionend', 'id' => 'wcslider' );
+		return $settings_slider;
+	
+	/**
+	 * If not, return the standard settings
+	 **/
+	} else {
+		return $settings;
+	}
+}
+
+
+function doctype_opengraph($output) {
+    return $output . '
+    xmlns:og="http://opengraphprotocol.org/schema/"
+    xmlns:fb="http://www.facebook.com/2008/fbml"';
+}
+add_filter('language_attributes', 'doctype_opengraph');
+
+
+//Add Facebook Open Graph Meta Tags
+function add_facebook_open_graph_tags() {
+	if (is_single()) { 
+	global $post; 
+	$image = get_post_meta($post->ID, 'thesis_post_image', $single = true); 
+	if (!$image)
+		$image = 'ENTER URL TO DEFAULT IMAGE HERE';
+	?>	
+	<meta property="og:title" content="<?php the_title(); ?>" />
+	<meta property="og:type" content="article" />
+	<meta property="og:image" content="<?php echo $image; ?>" />
+	<meta property="og:url" content="<?php the_permalink(); ?>" />
+	<meta property="og:description" content="<?php echo get_bloginfo('description'); ?>" />
+	<meta property="og:site_name" content="<?php echo get_bloginfo('name'); ?>" />
+	<meta property="fb:admins" content="ENTER YOUR FACEBOOK USER ID HERE" />
+	<?php }
+}
+ 
+ 
+ 
+// Hide the custome meta fields from admin page 
+add_action( 'admin_head', 'hidecustomfields' );
+
+function hidecustomfields() {
+	echo "<style type='text/css'>#postcustom { display: none; }</style>
+";
+}
+?>

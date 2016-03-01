@@ -20,6 +20,8 @@ if ( $post->post_author != $seller_id ) {
 }
 
 $_regular_price         = get_post_meta( $post_id, '_regular_price', true );
+$_workshop_type         = get_post_meta( $post_id, 'workshop_type', true );
+$_venue                 = get_post_meta( $post_id, '_venue', true );
 $_sale_price            = get_post_meta( $post_id, '_sale_price', true );
 $is_discount            = ( $_sale_price != '' ) ? true : false;
 $_sale_price_dates_from = get_post_meta( $post_id, '_sale_price_dates_from', true );
@@ -194,7 +196,7 @@ if ( ! $from_shortcode ) {
                                                             <?php $seller_price = get_post_meta( $post_id, 'product_seller_price' )[0];
                                                                 if($seller_price){
                                                              ?>
-                                                            <span class="dokan-input-group-addon">Price Including Shipping  <?php echo get_woocommerce_currency_symbol(); ?></span>
+                                                            <span class="dokan-input-group-addon">Vilyoo Price  <?php echo get_woocommerce_currency_symbol(); ?></span>
                                                             <?php } else { ?>
                                                             <span class="dokan-input-group-addon"><?php echo get_woocommerce_currency_symbol(); ?></span>
                                                             <?php } ?>
@@ -262,41 +264,64 @@ if ( ! $from_shortcode ) {
                                                 <div class="dokan-form-group">
                                                     <?php dokan_post_input_box( $post_id, 'post_excerpt', array( 'placeholder' => 'Short description about the product...', 'value' => $post->post_excerpt ), 'textarea' ); ?>
                                                 </div>
+                                                <?php 
+                                                    if($_workshop_type != 1)
+                                                    {
+                                                ?>
                                                 <div class="dokan-form-group">
                                                     <label> <?php echo "Does this product require personalization?"; ?></label><span class="required">*</span>
-                                                    <?php $selected_value = get_post_meta( $post_id, 'is_this_product_customizable' ); ?>
+                                                    <?php $selected_value = get_post_meta( $post_id, 'is_this_product_customizable' )[0]; ?>
                                                     <select class="form-control" name="is_this_product_customizable" required>
 
-                                                        <option value="yes" <?php if( $selected_value == "yes" ) echo "selected"; ?>>Yes</option>
-                                                        <option value="no" <?php if( $selected_value == "no" ) echo "selected"; ?>>No</option>
+                                                        <option value="yes" <?php if( $selected_value == 'yes' ) echo 'selected'; ?>>Yes</option>
+                                                        <option value="no" <?php if( $selected_value == 'no' ) echo 'selected'; ?>>No</option>
                                                     </select>
                                                 </div>
+                                                <?php } ?>
                                                 
                                                 <?php if ( dokan_get_option( 'product_category_style', 'dokan_selling', 'single' ) == 'single' ): ?>
                                                     <div class="dokan-form-group">
             
                                                         <?php
-                                                        $product_cat = -1;
-                                                        $term = array();
-                                                        $term = wp_get_post_terms( $post_id, 'product_cat', array( 'fields' => 'ids') );
-
-                                                        if ( $term ) {
-                                                            $product_cat = reset( $term );
-                                                        }
-
-                                                        wp_dropdown_categories( array(
-                                                            'show_option_none' => __( '- Select a category -', 'dokan' ),
-                                                            'hierarchical'     => 1,
-                                                            'hide_empty'       => 0,
-                                                            'name'             => 'product_cat',
-                                                            'id'               => 'product_cat',
-                                                            'taxonomy'         => 'product_cat',
-                                                            'title_li'         => '',
-                                                            'class'            => 'product_cat dokan-form-control chosen',
-                                                            'exclude'          => '',
-                                                            'selected'         => $product_cat,
-                                                        ) );
+                                                            $product_cat = -1;
+                                                            $term = array();
+                                                            $term = wp_get_post_terms( $post_id, 'product_cat', array( 'fields' => 'ids') );
+                                                            
+                                                            if ( $term ) {
+                                                                $product_cat = reset( $term );
+                                                            }
                                                         ?>
+                                                        <?php 
+                                                            if($_workshop_type != 1)
+                                                            {
+                                                                wp_dropdown_categories( array(
+                                                                    'show_option_none' => __( '- Select a category -', 'dokan' ),
+                                                                    'hierarchical'     => 1,
+                                                                    'hide_empty'       => 0,
+                                                                    'name'             => 'product_cat',
+                                                                    'id'               => 'product_cat',
+                                                                    'taxonomy'         => 'product_cat',
+                                                                    'title_li'         => '',
+                                                                    'class'            => 'product_cat dokan-form-control chosen',
+                                                                    'exclude'          => '',
+                                                                    'selected'         => $product_cat,
+                                                                ) );
+                                                            }
+                                                            else
+                                                            { 
+                                                        ?>
+                                                            <select name="product_cat" class="product_cat dokan-form-control chosen" id="product_cat">
+                                                                <option value="268" <?php if( $product_cat == "268" ) echo "selected"; ?> >Location based</option>
+                                                                <option value="269" <?php if( $product_cat == "269" ) echo "selected"; ?> >Online</option>
+                                                            </select>
+
+                                                        <?php
+                                                             }
+
+                                                        ?>
+                                                    </div>
+                                                    <div class="dokan-form-group">
+
                                                     </div>
                                                 <?php elseif ( dokan_get_option( 'product_category_style', 'dokan_selling', 'single' ) == 'multiple' ): ?>
                                                     <div class="dokan-form-group dokan-list-category-box">
@@ -305,7 +330,7 @@ if ( ! $from_shortcode ) {
                                                             <?php
                                                             $term = array();
                                                             $term = wp_get_post_terms( $post_id, 'product_cat', array( 'fields' => 'ids') );
-                                                             
+                                                            
                                                             include_once DOKAN_LIB_DIR.'/class.category-walker.php';
                                                             wp_list_categories(array(
                                                                 'walker'       => new DokanCategoryWalker(),
@@ -375,8 +400,13 @@ if ( ! $from_shortcode ) {
                                     </div> <!-- #product-options -->
 
                                     <div id="product-inventory">
-
-                                        <?php dokan_get_template_part( 'edit/inventory' ); ?>
+                                        <?php if($_workshop_type != 1) { ?>
+                                            <input type="hidden" value="0" name="is_workshop" id='is_workshop'>
+                                            <?php dokan_get_template_part( 'edit/inventory' ); ?>
+                                        <?php } else { ?>
+                                            <input type="hidden" value="1" name="is_workshop" id='is_workshop'>
+                                            <?php dokan_get_template_part( 'edit/inventory_workshop' ); ?>
+                                        <?php } ?> 
                                         <?php do_action( 'dokan_product_edit_after_inventory' ); ?>
                                         <br>
                                         <a href="#product-shipping" class="btn col-md-12 btn-danger clickNextTrigger">Next</a>
@@ -384,8 +414,9 @@ if ( ! $from_shortcode ) {
                                     </div> <!-- #product-inventory -->
 
                                     <div id="product-shipping">
-                                        
-                                        <?php dokan_get_template_part( 'edit/shipping' ); ?> 
+                                        <?php if($_workshop_type != 1) { ?>
+                                            <?php dokan_get_template_part( 'edit/shipping' ); ?> 
+                                        <?php } ?>
                                         <?php do_action( 'dokan_product_edit_after_shipping' ); ?>
                                         <br>
                                         <a href="#product-attributes" class="btn col-md-12 btn-danger clickNextTrigger">Next</a>
