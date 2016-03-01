@@ -111,6 +111,24 @@ class Dokan_Admin_User_Profile {
                     </td>
                 </tr>
                 <tr>
+                    <th><?php _e( 'City', 'dokan' ); ?></th>
+                    <td>
+                        <input name="dokan_store_address" class="regular-text" value="<?php echo esc_attr( $store_settings['city'] ); ?>">
+                    </td>
+                </tr>
+                <tr>
+                    <th><?php _e( 'State', 'dokan' ); ?></th>
+                    <td>
+                        <input name="dokan_store_address" class="regular-text" value="<?php echo esc_attr( $store_settings['state'] ); ?>">
+                    </td>
+                </tr>
+                <tr>
+                    <th><?php _e( 'Pincode', 'dokan' ); ?></th>
+                    <td>
+                        <input name="dokan_store_address" class="regular-text" value="<?php echo esc_attr( $store_settings['pincode'] ); ?>">
+                    </td>
+                </tr>
+                <tr>
                     <th><?php _e( 'Store description', 'dokan' ); ?></th>
                     <td>
                         <textarea name="seller_desc" rows="4" cols="30"><?php echo esc_textarea( $store_desc ); ?></textarea>

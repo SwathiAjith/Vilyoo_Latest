@@ -116,9 +116,27 @@ class Dokan_Template_Settings {
                 'instagram' => filter_var( $social['instagram'], FILTER_VALIDATE_URL ),
             ),
             'payment'               => array(),
-            'phone'                 => sanitize_text_field( $_POST['setting_phone'] ),
+            
+             
+            // Changes added by Swathi Ajith for Address,City, State and Pincode on 28/12/2015
+           
+            'address'   => strip_tags( $_POST['setting_address'] ),
+            'city' => strip_tags( $_POST['setting_city'] ),
+            'state' => strip_tags( $_POST['setting_state'] ),
+            'pincode' => strip_tags( $_POST['setting_pincode'] ),
+            'phone'     => strip_tags( $_POST['phone'] ),
+            
+             // Changes added by Swathi Ajith for Pick Address,City, State and Pincode on 19/2/2016
+            
+            'pickup_address1'               => strip_tags( $_POST['pickup_address1'] ),
+            'pickup_city'               => strip_tags( $_POST['pickup_city'] ),
+            'shipping_city'               => strip_tags( $_POST['pickup_city'] ),  
+            'pickup_state'               => strip_tags( $_POST['pickup_state'] ),
+            'pickup_pincode'               => strip_tags( $_POST['pickup_pincode'] ),
+            //End of changes
             'seller_vacation'       => sanitize_text_field( $_POST['setting_seller_vacation'] ),
-            'address'               => strip_tags( $_POST['setting_address'] ),
+             
+            
             'location'              => sanitize_text_field( $_POST['location'] ),
             'find_address'          => sanitize_text_field( $_POST['find_address'] ),
             'banner'                => absint( $_POST['dokan_banner'] ),
@@ -128,9 +146,14 @@ class Dokan_Template_Settings {
         $customized_products    = sanitize_text_field( $_POST['customized_products'] );
         $seller_desc            = sanitize_text_field( $_POST['seller_desc'] );
         $pan_number             = sanitize_text_field( $_POST['pan_number'] );
-
-        $shipping_city          = sanitize_text_field( $_POST['shipping_city'] );
-
+         $dokan_settings['pickup_address']      = $_POST['pickup_address'];
+        if($_POST['pickup_address'] == 'yes')
+        {
+			update_user_meta( $store_id, 'pickup_address', true );
+		}
+        
+        
+        update_user_meta( $store_id, 'dokan_profile_settings', $dokan_settings );
         if ( isset( $_POST['settings']['bank'] ) ) {
             $bank = $_POST['settings']['bank'];
 
@@ -160,11 +183,15 @@ class Dokan_Template_Settings {
         $profile_completeness = $this->calculate_profile_completeness_value( $dokan_settings );
         $dokan_settings['profile_completion'] = $profile_completeness;
 
-        update_user_meta( $store_id, 'dokan_profile_settings', $dokan_settings );
+        
         update_usermeta( $store_id, 'offer_product_customization', $customized_products );
         update_usermeta( $store_id, 'seller_desc', $seller_desc );
-        update_usermeta( $store_id, 'shipping_city', $shipping_city );
         update_usermeta( $store_id, 'pan_number', $pan_number );
+        
+        
+         
+        
+        
                                         
         do_action( 'dokan_store_profile_saved', $store_id, $dokan_settings );
 
@@ -209,7 +236,24 @@ class Dokan_Template_Settings {
         // bank
         $phone           = isset( $profile_info['phone'] ) ? esc_attr( $profile_info['phone'] ) : '';
         $show_email      = isset( $profile_info['show_email'] ) ? esc_attr( $profile_info['show_email'] ) : 'no';
-        $address         = isset( $profile_info['address'] ) ? esc_textarea( $profile_info['address'] ) : '';
+
+        
+        //Address
+        $address       = isset( $profile_info['address'] ) ? esc_attr( $profile_info['address'] ) : '';
+        $city            = isset( $profile_info['city'] ) ? esc_attr( $profile_info['city'] ) : '';
+        $state           = isset( $profile_info['state'] ) ? esc_attr( $profile_info['state'] ) : '';
+        
+        $pincode         = isset( $profile_info['pincode'] ) ? esc_attr( $profile_info['pincode'] ) : '';
+
+//Pickup Address
+ $pickup_address = isset( $profile_info['pickup_address'] ) ? esc_attr( $profile_info['pickup_address'] ) : 'no';
+        $pickup_address1       = isset( $profile_info['pickup_address1'] ) ? esc_attr( $profile_info['pickup_address1'] ) : '';
+        $pickup_city            = isset( $profile_info['pickup_city'] ) ? esc_attr( $profile_info['pickup_city'] ) : '';
+        $pickup_state           = isset( $profile_info['pickup_state'] ) ? esc_attr( $profile_info['pickup_state'] ) : '';
+        
+        $pickup_pincode         = isset( $profile_info['pickup_pincode'] ) ? esc_attr( $profile_info['pickup_pincode'] ) : '';
+
+
         $map_location    = isset( $profile_info['location'] ) ? esc_attr( $profile_info['location'] ) : '';
         $map_address     = isset( $profile_info['find_address'] ) ? esc_attr( $profile_info['find_address'] ) : '';
         $dokan_category  = isset( $profile_info['dokan_category'] ) ? $profile_info['dokan_category'] : '';
@@ -218,7 +262,7 @@ class Dokan_Template_Settings {
         $seller_desc = get_usermeta( $current_user->ID, 'seller_desc' );
         $shipping_city = get_usermeta( $current_user->ID, 'shipping_city' );
         $pan_number = get_usermeta( $current_user->ID, 'pan_number' );
-
+ 		 
         if ( is_wp_error( $validate ) ) {
             $social       = $_POST['settings']['social'];
             $storename    = $_POST['dokan_store_name'];
@@ -229,8 +273,8 @@ class Dokan_Template_Settings {
             $linkedin     = esc_url( $social['linkedin'] );
             $youtube      = esc_url( $social['youtube'] );
 
-            $phone        = $_POST['setting_phone'];
-            $address      = $_POST['setting_address'];
+           
+           
             $map_location = $_POST['location'];
             $map_address  = $_POST['find_address'];
         }
@@ -373,7 +417,10 @@ class Dokan_Template_Settings {
                 <div class="dokan-form-group">
                     <label class="dokan-w3 dokan-control-label" for="seller_desc"><?php _e( 'PAN Number', 'dokan' ); ?></label>
                     <div class="dokan-w4 dokan-text-left">
-                        <input id="pan_number" value="<?php echo $pan_number; ?>" name="pan_number" placeholder="PAN Number" class="dokan-form-control input-md" type="text" required>
+		    <!-- Added by Swathi for PAN number validation -->
+                     <p class="form-row form-group form-row-wide">
+                     <input class="input-text form-control " id="pan_number" value="<?php echo $pan_number; ?>" name="pan_number" placeholder="PAN Number" maxlength="10" class="dokan-form-control input-md" type="text" required  PANno="PANno" >
+                       </p>
                     </div> <!-- col.md-4 -->
                 </div>
 
@@ -387,9 +434,13 @@ class Dokan_Template_Settings {
                 <div class="dokan-form-group">
                     <label class="dokan-w3 dokan-control-label" for="setting_phone"><?php _e( 'Phone No', 'dokan' ); ?></label>
                     <div class="dokan-w5 dokan-text-left">
-                        <input id="setting_phone" value="<?php echo $phone; ?>" name="setting_phone" placeholder="+123456.." class="dokan-form-control input-md" type="text">
+                     <!-- Added by Swathi for Phone number validation -->
+                        <input type="text" value="+91" align="left"  readonly="readonly" style="color:#888;width:10%;">
+                <input type="text" align="right" style="width:88%;" maxlength="10" name="phone" id="shop-phone" value="<?php echo $phone; ?>" required="required"/>
+                        
                     </div>
                 </div>
+                 
 
                <!--  <div class="dokan-form-group">
                     <label class="dokan-w3 dokan-control-label" for="setting_phone"><?php _e( 'Email', 'dokan' ); ?></label>
@@ -410,13 +461,126 @@ class Dokan_Template_Settings {
                         <textarea class="dokan-form-control" rows="4" id="setting_address" name="setting_address"><?php echo $address; ?></textarea>
                     </div>
                 </div>
-
                 <div class="dokan-form-group">
-                    <label class="dokan-w3 dokan-control-label" for="shipping_city"><?php _e( 'Shpping City', 'dokan' ); ?></label>
+                    <label class="dokan-w3 dokan-control-label" for="setting_city"><?php _e( 'City', 'dokan' ); ?></label>
                     <div class="dokan-w5 dokan-text-left">
-                        <input id="shipping_city" class="dokan-form-control" type="text" name="shipping_city" value="<?php echo $shipping_city; ?>" />
+                     <input type="text" id="setting_city" name="setting_city"  class="dokan-form-control" required="required" value="<?php echo $city; ?>" ></input>         
                     </div>
                 </div>
+                <div class="dokan-form-group">
+                    <label class="dokan-w3 dokan-control-label" for="setting_state"><?php _e( 'State', 'dokan' ); ?></label>
+                    <div class="dokan-w5 dokan-text-left">
+                        <select name="setting_state" class="form-control" id="setting_state" required="required">
+                <option value="">Select State</option>
+                <?php
+											global $woocommerce;
+											$states = indian_woocommerce_states();
+											$states = $states['IN'];
+											foreach ( $states as $key => $statename ) {
+									        ?>
+									        <?php if($state == $statename){
+												$selected = 'selected';
+											}?>
+										        <option value="<?php echo $statename; ?>"><?php echo $statename; ?></option>
+									        <?php
+										    }?>
+										<option selected="<?php echo $selected;?>" value="<?php echo $state; ?>"><?php echo $state; ?></option>    
+            </select>
+             
+                    </div>
+                </div>
+                
+ 
+                <div class="dokan-form-group">
+                    <label class="dokan-w3 dokan-control-label" for="shop-pincode"><?php _e( 'Pincode', 'dokan' ); ?></label>
+                    <div class="dokan-w5 dokan-text-left">
+                        <input id="setting_pincode" value="<?php echo $pincode; ?>" name="setting_pincode" class="dokan-form-control input-md"  maxlength="6" type="text" required="">
+                    </div>
+                </div>
+
+
+				<!--<div class="dokan-form-group ship-to-different-address">
+					<label class="dokan-w3 dokan-control-label" for="ship_to_different_address">
+						<?php _e( 'Pick up from different address?', 'dokan' ); ?>
+					</label>
+					<div class="dokan-w5">
+						<div class="checkbox">
+							<label>
+								<input type="hidden" name="ship_to_different_address" value="no">
+								<input id="ship_to_different_address" class="input-checkbox" type="checkbox" name="ship_to_different_address" value="yes"<?php checked( $ship_to_different_address, 'yes' ); ?>>
+									<?php _e( 'Do you want to pick up from different address?', 'dokan_sv' ); ?>
+								</input>
+							</label>
+						</div>
+					</div>
+				</div>-->
+				
+        <div class="dokan-form-group pickup_address_settings">
+            <label class="dokan-w3 control-label" for="pickup_address"><?php _e( 'Pick up from different address?', 'dokan_sv' ); ?></label>
+            <div class="dokan-w5">
+                <div class="checkbox"> 
+                    <label>
+                        <input type="hidden" name="pickup_address" value="no">
+                        <input type="checkbox" id="pickup_address" name="pickup_address" value="yes"<?php checked( $pickup_address, 'yes' ); ?>> <?php _e( 'Do you want to pick up from different address?', 'dokan_sv' ); ?>
+                    </label>
+                </div>
+            </div>
+        </div>
+                
+				<div class="show_if_pickupaddress">
+                <div class="dokan-form-group">
+					<label class="dokan-w3 dokan-control-label" for="pickup_address1">
+						<?php _e( 'Address', 'dokan' ); ?>
+					</label>
+					<div class="dokan-w5 dokan-text-left">
+						<textarea class="dokan-form-control" rows="4" id="pickup_address1" name="pickup_address1"><?php echo $pickup_address1; ?></textarea>
+					</div>
+				</div>
+				<div class="dokan-form-group">
+					<label class="dokan-w3 dokan-control-label" for="pickup_city">
+						<?php _e( 'City', 'dokan' ); ?>
+					</label>
+					<div class="dokan-w5 dokan-text-left">
+					<input type="text" id="pickup_city" name="pickup_city" value="<?php echo $pickup_city; ?>"  class="dokan-form-control"></input>  
+            </select>
+					</div>
+				</div>
+				<div class="dokan-form-group">
+					<label class="dokan-w3 dokan-control-label" for="pickup_state">
+						<?php _e( 'State', 'dokan' ); ?>
+					</label>
+					<div class="dokan-w5 dokan-text-left">
+					 <select name="pickup_state" class="form-control" id="pickup_state">
+                <option value="">Select State</option>
+                 <?php
+											global $woocommerce;
+											$states = indian_woocommerce_states();
+											$states = $states['IN'];
+											foreach ( $states as $key => $statename ) {
+									        ?>
+									        <?php if($pickup_state == $statename){
+												$selected = 'selected';
+											}?>
+										        <option value="<?php echo $statename; ?>"><?php echo $statename; ?></option>
+									        <?php
+										    }
+									    ?>
+									    <option selected="<?php echo $selected;?>" value="<?php echo $pickup_state; ?>"><?php echo $pickup_state; ?></option>
+            </select>
+						 
+					</div>
+				</div>
+				<div class="dokan-form-group">
+					<label class="dokan-w3 dokan-control-label" for="pickup_pincode">
+						<?php _e( 'Pincode', 'dokan' ); ?>
+					</label>
+					<div class="dokan-w5 dokan-text-left">
+					 	<input id="pickup_pincode" name="pickup_pincode" class="dokan-form-control input-md" value="<?php echo $pickup_pincode; ?>"   maxlength="6" type="text">
+					</div>
+				</div>
+
+
+				</div>
 
                 <div class="dokan-form-group">
                     <label class="dokan-w3 dokan-control-label" for="setting_map"><?php _e( 'Map', 'dokan' ); ?></label>

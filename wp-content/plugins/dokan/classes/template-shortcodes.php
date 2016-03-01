@@ -81,6 +81,10 @@ class Dokan_Template_Shortcodes {
             dokan_get_template_part( 'new-product' );
             return;
         }
+         if ( isset( $wp->query_vars['new-workshop'] ) ) {
+            dokan_get_template_part( 'new-product' );
+            return;
+        }
 
         if ( isset( $wp->query_vars['orders'] ) ) {
             dokan_get_template_part( 'orders' );
@@ -157,6 +161,7 @@ class Dokan_Template_Shortcodes {
             $post_title     = trim( $_POST['post_title'] );
             $post_content   = trim( $_POST['post_content'] );
             $post_excerpt   = trim( $_POST['post_excerpt'] );
+            $workshop_type  = $_POST['workshop_type'];
             $price          = floatval( $_POST['price'] );
             $featured_image = absint( $_POST['feat_image_id'] );
 
@@ -220,7 +225,7 @@ class Dokan_Template_Shortcodes {
                     update_post_meta( $product_id, '_sale_price', '' );
                     update_post_meta( $product_id, '_price', $price );
                     update_post_meta( $product_id, '_visibility', 'visible' );
-
+                    update_post_meta($product_id, 'workshop_type', $workshop_type);
                     do_action( 'dokan_new_product_added', $product_id, $post_data );
 
                     if ( dokan_get_option( 'product_add_mail', 'dokan_general', 'on' ) == 'on' ) {
@@ -245,6 +250,27 @@ class Dokan_Template_Shortcodes {
 
 
         if ( isset( $_POST['update_product'] ) && wp_verify_nonce( $_POST['dokan_edit_product_nonce'], 'dokan_edit_product' ) ) {
+            
+            $_workshop_type         = $_POST['_workshop_type'];
+            $_workshop_start_time   = $_POST['_workshop_start_time'];
+            $_workshop_end_time     = $_POST['_workshop_end_time'];
+            $_date                  = $_POST['_date'];
+            $_duration              = $_POST['_duration'];
+
+            $workshop_city                  =  $_POST['workshop_city'];
+            $workshop_state                  =  $_POST['workshop_state'];
+            $_venue                  =  $_POST['_venue'];
+
+            update_post_meta($post_id, '_workshop_type', $_workshop_type);
+            update_post_meta($post_id, '_workshop_start_time', $_workshop_start_time);
+            update_post_meta($post_id, '_workshop_end_time', $_workshop_end_time);
+            update_post_meta($post_id, '_date', $_date);
+            update_post_meta($post_id, '_duration', $_duration);
+            update_post_meta($post_id, 'workshop_city', $workshop_city);
+            update_post_meta($post_id, 'workshop_state', $workshop_state);
+            update_post_meta($post_id, '_venue', $_venue);
+
+
             $product_info = array(
                 'ID'             => $post_id,
                 'post_title'     => sanitize_text_field( $_POST['post_title'] ),

@@ -435,6 +435,8 @@ add_action( 'save_post', 'dokan_store_category_delete_transient' );
 
 
 
+
+/** Changes added by Swathi Ajith for Address,City, State and Pincode on 28/12/2015 **/
 function dokan_seller_reg_form_fields() {
     $role = isset( $_POST['role'] ) ? $_POST['role'] : 'customer';
     $role_style = ( $role == 'customer' ) ? ' style="display:none"' : '';
@@ -461,19 +463,61 @@ function dokan_seller_reg_form_fields() {
         <p class="form-row form-group form-row-wide">
             <label for="seller-url" class="pull-left"><?php _e( 'Shop URL', 'dokan' ); ?> <span class="required">*</span></label>
             <strong id="url-alart-mgs" class="pull-right"></strong>
-            <input type="text" class="input-text form-control" placeholder="my-awesome-store" name="shopurl" id="seller-url" value="<?php if ( ! empty( $_POST['shopurl'] ) ) echo esc_attr($_POST['shopurl']); ?>" required="required" />
+            <input type="text" class="input-text form-control" placeholder="my-awesome-store" name="shopurl" id="seller-url" value="<?php if ( ! empty( $_POST['shopurl'] ) ) echo esc_attr($_POST['shopurl']); ?> " required="required" />
             <small>This will be the unique URL of your store at Vilyoo!</small>
             <small><?php echo 'vilyoo.com/' . dokan_get_option( 'custom_store_url', 'dokan_selling', 'store' ); ?>/<strong id="url-alart"></strong></small>
         </p>
-
+        
         <p class="form-row form-group form-row-wide">
             <label for="seller-address"><?php _e( 'Address', 'dokan' ); ?><span class="required">*</span></label>
-            <textarea type="text" id="seller-address" name="address" class="form-control input" required="required"><?php if ( ! empty( $_POST['address'] ) ) echo esc_textarea($_POST['address']); ?></textarea>
+            <input type="text" id="seller-address" name="address" class="form-control input" required="required"><?php if ( ! empty( $_POST['address'] ) ) echo esc_textarea($_POST['address']); ?></input>
+        </p>
+         <p class="form-row form-group form-row-wide">
+            <label for="seller-state"><?php _e( 'State', 'dokan' ); ?><span class="required">*</span></label>
+             
+            <select name="state" class="form-control" id="seller-state" required="required">
+                <option value="">Select State</option>
+               
+                 <?php
+											global $woocommerce;
+											$states = indian_woocommerce_states();
+											$states = $states['IN'];
+											foreach ( $states as $key => $state ) {
+									        ?>
+										        <option value="<?php echo $state; ?>"><?php echo $state; ?></option>
+									        <?php
+										    }
+									    ?>
+								 
+            </select>
+        </p>
+        <p class="form-row form-group form-row-wide">
+            <label for="seller-city"><?php _e( 'City', 'dokan' ); ?><span class="required">*</span></label>
+           <input type="text" id="seller-city" name="city" class="form-control input" required="required"><?php if ( ! empty( $_POST['city'] ) ) echo esc_attr($_POST['city']); ?></input>
+           <!--<select name="city" class="form-control cities" id="seller-city" required="required">
+                <option value="">Select City</option>
+            </select>-->
+        </p>
+       
+        <p class="form-row form-group form-row-wide">
+            <label for="shop-pincode"><?php _e( 'Pincode', 'dokan' ); ?><span class="required">*</span></label>
+            <input type="text" class="input-text form-control" maxlength="6" name="pincode" id="shop-pincode" value="<?php if ( ! empty( $_POST['pincode'] ) ) echo esc_attr($_POST['pincode']); ?>" onkeypress="if ( event.keyCode == 46 || event.keyCode == 8 ) {
+			// let it happen, don't do anything
+		}
+		else {
+			// Ensure that it is a number and stop the keypress
+			if (event.keyCode < 48 || event.keyCode > 57 ) {
+				event.preventDefault();	
+			}	
+		}" required pincode="pincode" />
         </p>
 
         <p class="form-row form-group form-row-wide">
             <label for="shop-phone"><?php _e( 'Phone', 'dokan' ); ?><span class="required">*</span></label>
-            <input type="text" class="input-text form-control" name="phone" id="shop-phone" value="<?php if ( ! empty( $_POST['phone'] ) ) echo esc_attr($_POST['phone']); ?>" required="required" />
+            <div id="phoneno">
+                <input type="text" value="+91" align="left"  readonly="readonly" style="color:#888;width:10%;">
+                <input type="text" align="right" style="width:88%;" maxlength="10" name="phone" id="shop-phone" value="<?php if ( ! empty( $_POST['phone'] ) ) echo esc_attr($_POST['phone']); ?>" required="required" phoneno="phoneno" />
+            </div>
         </p>
 
         <p class="form-row form-group offer-customization">
@@ -483,6 +527,7 @@ function dokan_seller_reg_form_fields() {
                 <option value="false" <?php selected( $customized_products, 'false' ); ?>><?php _e( 'No, I don\'t do product customization', 'dokan' ); ?></option>
             </select>
         </p>
+        
 
         <p class="form-row form-group offer-customization">
             <input type="checkbox" name="agreeTerms" id="regAgreeTerms" required>

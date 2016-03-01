@@ -469,7 +469,7 @@ function dokan_process_product_meta( $post_id ) {
     add_post_meta( $post_id, 'total_sales', '0', true );
 
     $is_this_product_customizable = $_POST['is_this_product_customizable'];
-    $seller_price = $_POST['prod_seller_price'];
+    $seller_price = $_POST['seller_price_db'];
     update_post_meta( $post_id, 'is_this_product_customizable', $is_this_product_customizable );
     update_post_meta( $post_id, 'product_seller_price', $seller_price );
     // Get types
@@ -1189,7 +1189,7 @@ function dokan_create_seller_order( $parent_order, $seller_id, $seller_products 
             '_billing_address_1', '_billing_address_2', '_billing_city', '_billing_state', '_billing_postcode',
             '_billing_email', '_billing_phone', '_shipping_country', '_shipping_first_name', '_shipping_last_name',
             '_shipping_company', '_shipping_address_1', '_shipping_address_2', '_shipping_city',
-            '_shipping_state', '_shipping_postcode'
+            '_shipping_state', '_shipping_postcode','_shipping_email','_shipping_email'
         );
 
         // save billing and shipping address
@@ -1469,6 +1469,9 @@ function dokan_on_create_seller( $user_id, $data ) {
         'phone'          => $_POST['phone'],
         'show_email'     => 'no',
         'address'        => strip_tags( $_POST['address'] ),
+        'city'           => strip_tags( $_POST['city'] ),
+        'state'          => strip_tags( $_POST['state'] ),
+        'pincode'        => strip_tags( $_POST['pincode'] ),
         'location'       => '',
         'find_address'   => '',
         'dokan_category' => '',

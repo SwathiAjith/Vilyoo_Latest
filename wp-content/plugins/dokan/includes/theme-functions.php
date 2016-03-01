@@ -483,7 +483,32 @@ function dokan_post_input_box( $post_id, $meta_key, $attr = array(), $type = 'te
     }
 }
 
+/**
+ * Added by Swathi Ajith to remove decimals from Stock and seats
+ *
+ * @param int $post_id
+ * @param string $meta_key
+ * @param array $attr
+ * @param string $type
+ */
 
+function dokan_post_input_stock( $post_id, $meta_key, $attr = array(), $type = 'text'  ) {
+    $placeholder = isset( $attr['placeholder'] ) ? esc_attr( $attr['placeholder'] ) : '';
+    $class       = isset( $attr['class'] ) ? esc_attr( $attr['class'] ) : 'dokan-form-control';
+    $name        = isset( $attr['name'] ) ? esc_attr( $attr['name'] ) : $meta_key;
+    $value       = isset( $attr['value'] ) ? $attr['value'] : get_post_meta( $post_id, $meta_key, true );
+    $stock = round($value, 0);
+    $size        = isset( $attr['size'] ) ? $attr['size'] : 30;
+    $required    = isset( $attr['required'] ) ? $attr['required'] : '';
+    $checked_box = isset( $attr['checked'] ) ? $attr['checked'] : '';
+    $min = isset( $attr['min'] ) ? $attr['min'] : 0;
+    $step = isset( $attr['step'] ) ? $attr['step'] : 'any';
+            ?>
+            <input type="number" name="<?php echo $name; ?>" id="<?php echo $name; ?>" value="<?php echo esc_attr( $stock ); ?>" class="<?php echo $class; ?>" placeholder="<?php echo $placeholder; ?>" min="<?php echo esc_attr( $min ); ?>" step="<?php echo esc_attr( $step ); ?>" size="<?php echo esc_attr( $size ); ?>" <?php echo $required; ?>>
+             <?php
+             }
+            
+            
 
 /**
  * Get user friendly post status based on post
