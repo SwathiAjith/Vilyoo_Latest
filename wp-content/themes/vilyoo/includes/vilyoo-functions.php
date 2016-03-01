@@ -776,7 +776,7 @@ function woocommerce_calculate_shipping($post_id)
             
             //Sales Tax
             $salestaxrate = get_option('sales_tax');
-            $salesTax = ($regularPrice *(5/100));
+            $salesTax = ($regularPrice *($salestaxrate/100));
             update_post_meta( $post_id, 'sales_tax', $salesTax );
             
             //Final Price 
