@@ -462,14 +462,14 @@
   margin-bottom: 15px;
 }
 .dokan-product-listing .dokan-product-listing-area .product-listing-top ul.dokan-listing-filter {
-  width: 70%;
+  width: 35%;
 }
 .dokan-product-listing .dokan-product-listing-area .product-listing-top ul.dokan-listing-filter li {
   display: inline-block;
   padding: 0px 10px 0px 0px;
 }
 .dokan-product-listing .dokan-product-listing-area .product-listing-top span.dokan-add-product-link {
-  width: 30%;
+  width: 22%;
 }
 .dokan-product-listing .dokan-product-listing-area table.product-listing-table span.product-type:before {
   font-family: FontAwesome;
