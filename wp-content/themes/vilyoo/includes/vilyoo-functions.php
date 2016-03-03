@@ -553,14 +553,14 @@ function vilyoo_add_indian_currency_symbol( $symbol ) {
 
 
   //Will effect both the woocommerce archive page and the wordpress archive page to display 48 items
-function set_row_count_archive($query){
+/*function set_row_count_archive($query){
     if ($query->is_archive) {
             $query->set('posts_per_page', 20);
    }
     return $query;
-}
+}*/
  
-add_filter('pre_get_posts', 'set_row_count_archive');
+//add_filter('pre_get_posts', 'set_row_count_archive');
 add_action( 'pre_get_posts', 'custom_pre_get_posts_query' );
 
 function custom_pre_get_posts_query( $q ) {
@@ -715,7 +715,8 @@ function woocommerce_calculate_shipping($post_id)
 	$_height         = stripslashes($_POST['_height']);
 	$workshop_type = get_post_meta($post_id,'workshop_type',true);
 	if($post_id != ''){
-          
+		$newsku = "PROD".$post_id;
+          update_post_meta( $post_id, '_sku', $newsku );
          if($seller_price !=""){
             $regularPrice = $seller_price;
          }else{
@@ -811,7 +812,8 @@ function woocommerce_process_product_meta_fields_save( $post_id ){
 	$_height         = stripslashes($_POST['_height']);
 	$workshop_type = get_post_meta($post_id,'workshop_type',true);
 	if($post_id != ''){
-          
+        $newsku = "PROD".$post_id;
+        update_post_meta( $post_id, '_sku', $newsku );
          if($seller_price !=""){
             $regularPrice = $seller_price;
          }else{
