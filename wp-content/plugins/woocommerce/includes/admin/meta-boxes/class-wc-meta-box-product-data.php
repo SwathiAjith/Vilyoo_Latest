@@ -137,7 +137,20 @@ class WC_Meta_Box_Product_Data {
 
 					// SKU
 					if ( wc_product_sku_enabled() ) {
-						woocommerce_wp_text_input( array( 'id' => '_sku', 'label' => '<abbr title="'. __( 'Stock Keeping Unit', 'woocommerce' ) .'">' . __( 'SKU', 'woocommerce' ) . '</abbr>', 'desc_tip' => 'true', 'description' => __( 'SKU refers to a Stock-keeping unit, a unique identifier for each distinct product and service that can be purchased.', 'woocommerce' ) ) );
+						$sku = get_post_meta( $post->ID, '_sku', true );
+						if($sku == '')
+						{
+							$sku =  get_post_meta( $post->ID, '_newsku', true );
+						}
+						woocommerce_wp_text_input( 
+						array( 
+						'id' => '_sku', 
+						'value'       => $sku , 
+						'label' => '<abbr title="'. __( 'Stock Keeping Unit', 'woocommerce' ) .'">' . __( 'SKU', 'woocommerce' ) . '</abbr>', 
+						'desc_tip' => 'true', 
+						'description' => __( 'SKU refers to a Stock-keeping unit, a unique identifier for each distinct product and service that can be purchased.', 'woocommerce' ) 
+						 
+						) );
 					} else {
 						echo '<input type="hidden" name="_sku" value="' . esc_attr( get_post_meta( $thepostid, '_sku', true ) ) . '" />';
 					}
@@ -159,15 +172,26 @@ class WC_Meta_Box_Product_Data {
 				echo '<div class="options_group pricing show_if_simple show_if_external">';
 
 					// Price
-					woocommerce_wp_text_input( array( 'id' => '_regular_price', 'label' => __( 'Regular Price', 'woocommerce' ) . ' (' . get_woocommerce_currency_symbol() . ')', 'data_type' => 'price' ) );
+					$price = get_post_meta( $post->ID, '_regular_price', true );
+					if($price == '')
+						{
+							$price =  get_post_meta( $post->ID, 'vilyoo_price', true );
+						}
+					woocommerce_wp_text_input(
+					 array(
+					  'id' => '_regular_price', 
+					  'value'       => $price , 
+					  'label' => __( 'Regular Price', 'woocommerce' ) . ' (' . get_woocommerce_currency_symbol() . ')', 
+					  'data_type' => 'price' 
+					  ) );
 
 					//Seller Price
-					$seller_price = get_post_meta( $post->ID, 'product_seller_price', true );
+					/*$seller_price = get_post_meta( $post->ID, 'product_seller_price', true );
 					if($seller_price){
 						echo '<p class="form-field _sale_price_field ">
 						<label for="seller_price">Seller Price</label>
 						<input class="short wc_input_price" type="text" name="seller_price" value="' . esc_attr( $seller_price ) . '" id="seller_price"></p>';
-					}
+					}*/
 
 					//Personalisation message
 

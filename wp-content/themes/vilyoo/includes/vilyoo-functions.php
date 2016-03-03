@@ -813,7 +813,7 @@ function woocommerce_process_product_meta_fields_save( $post_id ){
 	$workshop_type = get_post_meta($post_id,'workshop_type',true);
 	if($post_id != ''){
         $newsku = "PROD".$post_id;
-        update_post_meta( $post_id, '_sku', $newsku );
+        update_post_meta( $post_id, '_newsku', $newsku );
          if($seller_price !=""){
             $regularPrice = $seller_price;
          }else{
@@ -874,7 +874,7 @@ function woocommerce_process_product_meta_fields_save( $post_id ){
             
             //Sales Tax
             $salestaxrate = get_option('sales_tax');
-            $salesTax = ($regularPrice *(5/100));
+            $salesTax = ($regularPrice *($salestaxrate/100));
             update_post_meta( $post_id, 'sales_tax', $salesTax );
             
             //Final Price 
