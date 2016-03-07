@@ -61,6 +61,6 @@ echo "End Time :" .get_post_meta($product->id,'_workshop_end_time')[0].'. <br >'
 
 echo "Venue :" .get_post_meta($product->id,'_venue')[0].'. <br >';
 
-echo "City :" .get_post_meta($product->id,'_city')[0].'. <br >';
+echo "City :" .get_post_meta($product->id,'workshop_city')[0].'. <br >';
 
 } ?>
