@@ -53,7 +53,7 @@ echo "<b>No of Seats : </b>" .$stock.'<br >';
 
 echo "<b>Venue : </b>" .get_post_meta($product->id,'_venue')[0].'<br >';
 
-echo "<b>City : </b>" .get_post_meta($product->id,'_city')[0].'<br >';
+echo "<b>City : </b>" .get_post_meta($product->id,'workshop_city')[0].'<br >';
 
 echo "<br>";		
 	}
