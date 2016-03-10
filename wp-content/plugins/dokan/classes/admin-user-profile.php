@@ -113,19 +113,19 @@ class Dokan_Admin_User_Profile {
                 <tr>
                     <th><?php _e( 'City', 'dokan' ); ?></th>
                     <td>
-                        <input name="dokan_store_address" class="regular-text" value="<?php echo esc_attr( $store_settings['city'] ); ?>">
+                        <input name="dokan_store_city" class="regular-text" value="<?php echo esc_attr( $store_settings['city'] ); ?>">
                     </td>
                 </tr>
                 <tr>
                     <th><?php _e( 'State', 'dokan' ); ?></th>
                     <td>
-                        <input name="dokan_store_address" class="regular-text" value="<?php echo esc_attr( $store_settings['state'] ); ?>">
+                        <input name="dokan_store_state" class="regular-text" value="<?php echo esc_attr( $store_settings['state'] ); ?>">
                     </td>
                 </tr>
                 <tr>
                     <th><?php _e( 'Pincode', 'dokan' ); ?></th>
                     <td>
-                        <input name="dokan_store_address" class="regular-text" value="<?php echo esc_attr( $store_settings['pincode'] ); ?>">
+                        <input name="dokan_store_pincode" class="regular-text" value="<?php echo esc_attr( $store_settings['pincode'] ); ?>">
                     </td>
                 </tr>
                 <tr>
@@ -368,6 +368,10 @@ class Dokan_Admin_User_Profile {
         $store_settings['banner'] = intval( $_POST['dokan_banner'] );
         $store_settings['store_name'] = sanitize_text_field( $_POST['dokan_store_name'] );
         $store_settings['address'] = wp_kses_post( $_POST['dokan_store_address'] );
+        //Added by swathi for city,state nd pincode changes
+        $store_settings['city'] = wp_kses_post( $_POST['dokan_store_city'] );
+        $store_settings['state'] = wp_kses_post( $_POST['dokan_store_state'] );
+        $store_settings['pincode'] = wp_kses_post( $_POST['dokan_store_pincode'] );
         
 
         $store_settings['phone'] = sanitize_text_field( $_POST['dokan_store_phone'] );
