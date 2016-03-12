@@ -1069,7 +1069,7 @@ jQuery(function($) {
 
 (function($) {
 
-    $.validator.setDefaults({ ignore: ":hidden" });
+    //$.validator.setDefaults({ ignore: ":hidden" });
 
     var validatorError = function(error, element) {
         var form_group = $(element).closest('.form-group');
