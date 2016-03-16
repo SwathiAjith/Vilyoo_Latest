@@ -130,7 +130,7 @@ class Dokan_Template_Settings {
             
             'pickup_address1'               => strip_tags( $_POST['pickup_address1'] ),
             'pickup_city'               => strip_tags( $_POST['pickup_city'] ),
-            'shipping_city'               => strip_tags( $_POST['pickup_city'] ),  
+            //'shipping_city'               => strip_tags( $_POST['pickup_city'] ),  
             'pickup_state'               => strip_tags( $_POST['pickup_state'] ),
             'pickup_pincode'               => strip_tags( $_POST['pickup_pincode'] ),
             //End of changes
@@ -146,6 +146,7 @@ class Dokan_Template_Settings {
         $customized_products    = sanitize_text_field( $_POST['customized_products'] );
         $seller_desc            = sanitize_text_field( $_POST['seller_desc'] );
         $pan_number             = sanitize_text_field( $_POST['pan_number'] );
+        $shipping_city          = sanitize_text_field( $_POST['pickup_city'] );
          $dokan_settings['pickup_address']      = $_POST['pickup_address'];
         if($_POST['pickup_address'] == 'yes')
         {
@@ -187,7 +188,7 @@ class Dokan_Template_Settings {
         update_usermeta( $store_id, 'offer_product_customization', $customized_products );
         update_usermeta( $store_id, 'seller_desc', $seller_desc );
         update_usermeta( $store_id, 'pan_number', $pan_number );
-        
+        update_usermeta( $store_id, 'shipping_city', $shipping_city );
         
          
         

@@ -71,7 +71,12 @@ get_header();
 				$author     = get_user_by( 'id', $product->post->post_author );
 			    $store_info = dokan_get_store_info( $author->ID );
 			    $shipping_city = get_user_meta($author->ID , 'shipping_city');
-			    
+			    $shipping_city = $shipping_city[0];
+			    //Added by swathi if pickup city not there then just city
+			    if($shipping_city == '')
+			    {
+					  $shipping_city = $store_info['city'];
+				}
 			    $store_name = $store_info['store_name'];
 			    echo "<p class='text-center'>";
 			    printf( '<strong>SOLD BY</strong><br><a href="%s">%s</a>', dokan_get_store_url( $author->ID ), $store_name );
@@ -103,7 +108,7 @@ get_header();
 			<div class="tab-content">
 			    <div id="sectionA" class="tab-pane fade in active">
 			        <p>Items will be shipped <?php echo "within <b>" . $times[$index].'</b>'; ?>
-			            from <b><?php echo $shipping_city[0];?></b>. 
+			            from <b><?php echo $shipping_city;?></b>. 
 			           Currently shipping to all locations in india.
 			        </p>
 			       <p class="text-center free-shipping-holder_product">
