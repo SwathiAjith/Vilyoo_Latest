@@ -727,13 +727,18 @@ class Dokan_Template_Shortcodes {
             ?>
             <div class="dokan-seller-wrap col-md-12">
                 <?php
+                global $wpdb;
                 foreach ( $sellers['users'] as $seller ) {
-                    $store_info = dokan_get_store_info( $seller->ID );
+                	 
+ 					$store_info = dokan_get_store_info( $seller->ID );
+ 					$seller_id =  $seller->ID;
                     $banner_id  = isset( $store_info['banner'] ) ? $store_info['banner'] : 0;
                     $store_name = isset( $store_info['store_name'] ) ? esc_html( $store_info['store_name'] ) : __( 'N/A', 'dokan' );
                     $store_url  = dokan_get_store_url( $seller->ID );
+                    //Added by swathi to list seller who are having products
+				    $author_post_count = $wpdb->get_var("SELECT COUNT(*) FROM $wpdb->posts WHERE post_author = '" . $seller_id . "'AND post_status = 'publish' AND post_type = 'product'");
                     ?>
-
+				<?php if($author_post_count > 0) {?>
                     <div class="dokan-single-seller col-md-3">
                         <div class="dokan-store-thumbnail">
                             <a href="<?php echo $store_url; ?>">
@@ -747,7 +752,7 @@ class Dokan_Template_Shortcodes {
                             </a>
 
                             <div class="dokan-store-caption text-center">
-                                <h3><a href="<?php echo $store_url; ?>"><?php echo $store_name; ?></a></h3>
+                                <h3><a href="<?php echo $store_url; ?>"><?php echo $store_name;?></a></h3>
                                 <?php $rating_info = dokan_get_seller_rating( $seller->ID ); ?>
                                 <a href="<?php echo $store_url; ?>" class="visit_store">Visit Seller</a>
                     
@@ -755,6 +760,8 @@ class Dokan_Template_Shortcodes {
                             </div> <!-- .caption -->
                         </div> <!-- .thumbnail -->
                     </div> <!-- .single-seller -->
+
+				<?php } ?>
                 <?php } ?>
 
             </div> <!-- .dokan-seller-wrap -->
