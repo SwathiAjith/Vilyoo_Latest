@@ -15,9 +15,12 @@ jQuery( document ).ready( function( $ ) {
      if($('#_workshop_type').val() == 'publish')
      {
             $('#seat_numbers').hide();
+            $('#stock_status').hide();
+            
             $('#_stock').val(1);
      }else{
             $('#seat_numbers').show();
+            $('#stock_status').show();
      }
 
     $('#add_product_first').click(function(){
@@ -56,10 +59,12 @@ jQuery( document ).ready( function( $ ) {
         if($('#_workshop_type').val() == 'publish')
         {
             $('#seat_numbers').hide();
+            $('#stock_status').hide();
             $('#_stock').val(1);
         }else
         {
             $('#seat_numbers').show();
+            $('#stock_status').show();
         }
     });
 
