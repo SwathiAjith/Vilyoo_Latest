@@ -49,8 +49,11 @@ else{
 }
 $stock = get_post_meta($product->id,'_stock')[0];
 $stock = round($stock, 0);
-echo "<b>No of Seats : </b>" .$stock.'<br >';
-
+//if it is publishing workshop down show no of seats
+if($workshop_type != 'publish')
+{
+	echo "<b>No of Seats : </b>" .$stock.'<br >';
+}
 echo "<b>Venue : </b>" .get_post_meta($product->id,'_venue')[0].'<br >';
 
 echo "<b>City : </b>" .get_post_meta($product->id,'workshop_city')[0].'<br >';
