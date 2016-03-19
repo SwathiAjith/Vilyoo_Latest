@@ -1,6 +1,9 @@
 <?php 
 global $post;
+$post_id = $post->ID;
 global $product;
+$_workshop_start_time = get_post_meta($post_id,'_workshop_start_time', true);
+$_workshop_end_time = get_post_meta($post_id,'_workshop_end_time', true);
 $tax_classes = array_filter( array_map( 'trim', explode( "\n", get_option( 'woocommerce_tax_classes' ) ) ) );
 $classes_options = array();
 $classes_options[''] = __( 'Standard', 'dokan' );
@@ -45,7 +48,7 @@ if ( $tax_classes ) {
         </div>
     </div>
 
-    <div class="dokan-form-group hide_if_variable">
+    <div class="dokan-form-group hide_if_variable" id="stock_status">
         <label class="dokan-w4 dokan-control-label" for="_stock_status"><?php _e( 'Seat Status', 'dokan' ); ?></label>
         <div class="dokan-w4 dokan-text-left">
             <?php dokan_post_input_box( $post->ID, '_stock_status', array( 'options' => array(
@@ -59,7 +62,7 @@ if ( $tax_classes ) {
     <div class="dokan-form-group hide_if_variable">
         <label class="dokan-w4 dokan-control-label" for="_workshop_start_time"><?php _e( 'Start Time', 'dokan' ); ?></label>
         <div class="dokan-w4 dokan-text-left">
-            <select name="_workshop_start_time" id="_workshop_start_time" class="dokan-form-control">
+           <!-- <select name="_workshop_start_time" id="_workshop_start_time" class="dokan-form-control">
                 <option value="5:00 AM">5:00 AM</option>
                 <option value="5:15 AM">5:15 AM</option>
                 <option value="5:30 AM">5:30 AM</option>
@@ -154,13 +157,41 @@ if ( $tax_classes ) {
                 <option value="11:15 PM">11:15 PM</option>
                 <option value="11:30 PM">11:30 PM</option>
                 <option value="11:45 PM">11:45 PM</option>
-            </select>
+            </select>-->
+            
+			 
+			<?php
+			$start = '09:00AM';
+			$end = '6:00PM';
+ 			$interval = '+15 minutes';
+
+			$start_str = strtotime($start);
+			$end_str = strtotime($end);
+			$now_str = $start_str;
+							 
+			echo '<select name="_workshop_start_time" id="_workshop_start_time" class="dokan-form-control">';
+			 
+			while($now_str <= $end_str){
+				$starttime = date('h:i A', $now_str);
+				if($_workshop_start_time == $starttime){
+				$selected = 'selected';
+			}
+   			 echo '<option value="' . date('h:i A', $now_str) . '">' . date('h:i A', $now_str) . '</option>';
+   			 $now_str = strtotime($interval, $now_str);
+			}
+			if($_workshop_start_time != "")
+			{
+				echo '<option selected="'.$selected.'" value="' . $_workshop_start_time . '">' . $_workshop_start_time . '</option>';
+			}
+			 echo '</select>';
+			?> 
+		
         </div>
     </div>
     <div class="dokan-form-group hide_if_variable">
         <label class="dokan-w4 dokan-control-label" for="_workshop_end_time"><?php _e( 'End Time', 'dokan' ); ?></label>
         <div class="dokan-w4 dokan-text-left">
-            <select name="_workshop_end_time" id="_workshop_end_time" class="dokan-form-control">
+            <!--<select name="_workshop_end_time" id="_workshop_end_time" class="dokan-form-control">
                 <option value="5:00 AM">5:00 AM</option>
                 <option value="5:15 AM">5:15 AM</option>
                 <option value="5:30 AM">5:30 AM</option>
@@ -255,7 +286,33 @@ if ( $tax_classes ) {
                 <option value="11:15 PM">11:15 PM</option>
                 <option value="11:30 PM">11:30 PM</option>
                 <option value="11:45 PM">11:45 PM</option>
-            </select>
+            </select>-->
+            <?php
+			$start = '09:00AM';
+			$end = '6:00PM';
+ 			$interval = '+15 minutes';
+
+			$start_str = strtotime($start);
+			$end_str = strtotime($end);
+			$now_str = $start_str;
+							 
+			echo '<select name="_workshop_end_time" id="_workshop_end_time" class="dokan-form-control">';
+			 
+			while($now_str <= $end_str){
+				$starttime = date('h:i A', $now_str);
+				if($_workshop_end_time == $starttime){
+				$selected = 'selected';
+			}
+   			 echo '<option value="' . date('h:i A', $now_str) . '">' . date('h:i A', $now_str) . '</option>';
+   			 $now_str = strtotime($interval, $now_str);
+			}
+			if($_workshop_end_time != "")
+			{
+				echo '<option selected="'.$selected.'" value="' . $_workshop_end_time . '">' . $_workshop_end_time . '</option>';
+			}
+			 echo '</select>';
+			?> 
+		
         </div>
     </div>
 
@@ -276,8 +333,8 @@ if ( $tax_classes ) {
  <div class="dokan-form-group">
          <label class="dokan-w4 dokan-control-label" for="workshop_city"><?php _e( 'City', 'dokan' ); ?></label>
          <div class="dokan-w4 dokan-text-left">
-         <?php $workshop_city = get_post_meta($product->id,'workshop_city')[0];
-         $workshop_state = get_post_meta($product->id,'workshop_state')[0];
+         <?php $workshop_city = get_post_meta($post_id,'workshop_city')[0];
+         $workshop_state = get_post_meta($post_id,'workshop_state')[0];
          ?>
          <input type="text" id="workshop_city" name="workshop_city"  class="form-control" required="required" value="<?php echo $workshop_city; ?>"></input> 
             </div>
@@ -301,7 +358,10 @@ if ( $tax_classes ) {
 									        <?php
 										    }
 									    ?>
-									    <option selected="<?php echo $selected;?>" value="<?php echo $workshop_state; ?>"><?php echo $workshop_state; ?></option>
+									    <?php if($workshop_state != ""){ ?>
+									      <option selected="<?php echo $selected;?>" value="<?php echo $workshop_state; ?>"><?php echo $workshop_state; ?></option>
+										<?php } ?>
+									  
             </select>
          </div>
      </div>
@@ -309,7 +369,7 @@ if ( $tax_classes ) {
         <div class="dokan-form-group">
         <label class="dokan-w4 dokan-control-label" for="_venue"><?php if($_workshop_type != 1) { _e( 'Venue', 'dokan' ); } else { _e( 'venue', 'dokan' );} ?></label>
         <div class="dokan-w4 dokan-text-left">
-            <?php dokan_post_input_box( $post->ID, '_venue', array( 'placeholder' => 'Venue', 'class' => "dokan-form-control" ) ); ?>
+            <?php dokan_post_input_box( $post->ID, '_venue', array( 'placeholder' => 'Venue', 'class' => "dokan-form-control",'required' => 'required' ) ); ?>
         </div>
     </div>
     </div> <!-- .form-horizontal -->
