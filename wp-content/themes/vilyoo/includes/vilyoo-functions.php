@@ -116,6 +116,21 @@ function vilyoo_most_sales_shop() {
 }
 
 /**
+	 * Returns whether or not the product is in stock.
+	 *
+	 * @return bool
+	 */
+	function is_expired($product) {
+		 $date = get_post_meta($product->id,'_date')[0];
+		 if($date != "")
+		 {
+			 $date = strtotime($date);
+			 if(time() > $date)
+			 return true;
+		 } 
+	}
+
+/**
  * Get NGO Shop list
  *
  * @param  integer $limit
@@ -1062,4 +1077,33 @@ function hidecustomfields() {
 	echo "<style type='text/css'>#postcustom { display: none; }</style>
 ";
 }
+// display an 'Out of Stock' label on archive pages
+/*add_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_stock', 10 );
+function woocommerce_template_loop_stock() {
+    global $product;
+    $stock = $product->get_stock_quantity();
+    if ( $stock === 0 )
+        echo '<p class="stock out-of-stock">Out of Stock</p>';
+}*/
+add_action( 'woocommerce_before_shop_loop_item_title', function() {
+    global $product;
+	$workshop_type = get_post_meta($product->id,'_workshop_type')[0];
+    if ( !$product->is_in_stock() ) {
+	    if($workshop_type)
+	    {
+	     echo '<span class="outofstock">No Seats</span>';
+	    }
+	    else
+	    {
+		 echo '<span class="outofstock">Out of stock</span>';	
+		}
+	}
+    if($workshop_type)
+    {
+		 if (is_expired($product)) {
+        echo '<div class="expired">Expired</div>';
+    }
+	}
+   
+})
 ?>

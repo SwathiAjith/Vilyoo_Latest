@@ -1161,6 +1161,9 @@ h3.widget-title {
 .woocommerce span.onsale {
 	background-color: #BF326B;
 }
+.woocommerce span.outofstock {
+	background-color:#6ac451;
+}
 /*My Account */
 .ywot_order_details {
 	display: block;
@@ -1193,6 +1196,15 @@ h3.widget-title {
 }
 .woocommerce ul.products li.product:hover > .yith-wcqv-button {
 	display: block;
+}
+
+.woocommerce ul.products li.product div.expired{
+	 font-size:200%;
+	 position: relative;
+	 text-align:center;
+	 color:#BF326B;
+    margin:10px 10px 0 0;
+     
 }
 
 /* Vendor Dashboard */
