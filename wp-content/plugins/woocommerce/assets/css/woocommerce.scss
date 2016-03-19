@@ -460,6 +460,25 @@ p.demo_store {
 		-webkit-font-smoothing: antialiased;
 	}
 
+	span.outofstock {
+		min-height: 3.236em;
+		min-width: 3.236em;
+		padding: .202em;
+		font-size: 1em;
+		font-weight: 700;
+		position: absolute;
+		text-align: center;
+		line-height: 3.236;
+		top: -.5em;
+		//left: -.5em;
+		margin: 0;
+		border-radius: 100%;
+		background-color: $highlight;
+		color: $highlightext;
+		font-size: .857em;
+		-webkit-font-smoothing: antialiased;
+	}
+
 	/**
 	 * Product loops
 	 */
