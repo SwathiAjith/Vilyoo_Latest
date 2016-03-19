@@ -1482,6 +1482,9 @@ function dokan_on_create_seller( $user_id, $data ) {
 
     update_user_meta( $user_id, 'dokan_profile_settings', $dokan_settings );
     update_usermeta( $user_id, 'offer_product_customization', $seller_product_customization );
+    //Added by swathi to add commission on seller creation
+    update_usermeta( $user_id , 'dokan_product_commission', 10 );
+	update_usermeta( $user_id , 'dokan_supply_commission', 10 );
 
     Dokan_Email::init()->new_seller_registered_mail( $user_id );
 }
