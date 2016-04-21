@@ -1717,6 +1717,225 @@ font-family: 'Open Sans', sans-serif;
 .btn-shop-all:hover {
 	border-color: transparent;
 }
+/***My CSS***/
+.btn-search-event
+{
+	background: #bf326b none repeat scroll 0 0;
+	border-radius: 0;
+	color: rgba(255, 255, 255, 1);
+	font-weight: 500;
+	padding-bottom: 6px;
+	padding-right: 12px;
+	padding-top: 5px;
+	text-shadow: 1px 0 0 #007090;
+	text-transform: uppercase;
+	float: right;
+}
+.searchforminputdiv
+{
+	float: right;
+	padding-left: 0px;
+	border-radius: 0px;
+}
+.allevents
+{
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.eventpostdiv
+{
+	margin-top: 20px;
+}
+.postdiv
+{
+	position: relative;
+}
+.imagediv
+{
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+.detaildiv
+{
+	background: #e53789 none repeat scroll 0 0;
+	border-radius: 50px;
+	height: 100px;
+	left: -12%;
+	opacity: 0.60;
+	position: absolute;
+	top: 17%;
+	width: 100px;
+}
+.datespan
+{
+	position: absolute;
+	top: 21%;
+	text-align: center;
+	width: 100%;
+	color: rgb(255, 255, 255);
+	font-weight: bold;
+}
+.span2
+{
+	position: absolute;
+	color: rgb(255, 255, 255);
+	text-align: center;
+	width: 100%;
+	top: 39%;
+	font-weight: bold;
+}
+.locationspan
+{
+	position: absolute;
+	top: 56%;
+	color: rgb(255, 255, 255);
+	width: 100%;
+	text-align: center;
+	font-weight: bold;
+}
+.goinglink
+{
+	color: rgb(255, 255, 255);
+}
+.eventsidebar
+{
+	position: relative;
+}
+.addevent
+{
+	padding: 5px;
+	background: #bf326b none repeat scroll 0 0;
+	color: rgb(255, 255, 255);
+	position: absolute;
+	top: -2%;
+	left: 32%;
+}
+.sidebarmaindiv
+{
+	padding: 15px;
+}
+.formdiv
+{
+	margin-bottom: 5px;
+}
+.formbnrdiv
+{
+	margin-bottom: 17%;
+	margin-top: 4%;
+}
+.formbnrdiv input
+{
+	width: 40%;
+	float: left;
+}
+.formbutton
+{
+	margin-bottom: 5px;
+	margin-top: 20px;
+}
+.formbutton button
+{
+	border: 1px solid rgb(204, 204, 204);
+	background: rgb(191, 50, 107) none repeat scroll 0% 0%;
+	color: rgb(255, 255, 255);
+	padding: 5px;
+}
+.formlabel
+{
+	width: 100%;
+	margin-bottom: 0;
+}
+.forminput
+{
+	width: 100%;
+	border: 1px solid rgb(204, 204, 204);
+}
+.labelbnrimg
+{
+	margin-bottom: 0px;
+	float: left;
+	width: 50%;
+	padding-top: 3px;
+}
+.postdiv .contentHeight
+{
+	height: 60px;
+}
+.singletopdiv
+{
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.md8div
+{
+	width: 100%;
+	float: left;
+}
+.md8duration
+{
+	width: 100%;
+	float: left;
+	border-bottom: 2px solid rgb(204, 204, 204);
+	padding-bottom: 15px;
+	margin-bottom: 30px;
+}
+.md8detail
+{
+	width: 100%;
+	float: left;
+	margin-bottom: 50px;
+}
+.md8label
+{
+	float: left;
+	width: 15%;
+}
+.md8labelfl
+{
+	float: left;
+}
+.md8labelfr
+{
+	float: left;
+}
+.singlesidebar
+{
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.singlesidebarheading
+{
+	color: rgb(255, 255, 255);
+	background: #bf326b;
+	font-size: 20px;
+	padding: 5px 70px 10px;
+}
+.singlesidebarpostdiv
+{
+	padding: 10px;
+}
+.singlesidebarpostdiv span
+{
+	width: 100%;
+}
+.searchinput
+{
+	height: 33px;
+	border-radius: 0;
+}
+.imagediv img
+{
+	width: 100%;
+	height: 120px;
+}
+.duration
+{
+	height: 25px;
+}
+.duration option
+{
+	padding: 4px;
+}
 @media( max-width: 500px ) {
 	.dokan-single-seller.col-md-3 {
 		width: 47%;

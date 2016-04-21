@@ -129,6 +129,19 @@ function vilyoo_most_sales_shop() {
 			 return true;
 		 } 
 	}
+	
+	/**
+	 * Returns difference b/w two dates.
+	 *
+	 * @return integer
+	 */
+	function dateDiff($start, $end)
+	{
+		$start_ts = strtotime($start);
+		$end_ts   = strtotime($end);
+		$diff     = $end_ts - $start_ts;
+		return round($diff / 86400);
+	}
 
 /**
  * Get NGO Shop list
@@ -1068,6 +1081,254 @@ function add_facebook_open_graph_tags() {
 	<?php }
 }
  
+ // First Register the Tab by hooking into the 'woocommerce_product_data_tabs' filter
+add_filter( 'woocommerce_product_data_tabs', 'add_my_custom_product_data_tab' );
+function add_my_custom_product_data_tab( $product_data_tabs ) {
+	$product_data_tabs['Workshops'] = array(
+		'label' => __( 'Workshops', 'my_text_domain' ),
+		'target' => 'Workshop_product_data',
+	);
+	$product_data_tabs['DIY Kits'] = array(
+		'label' => __( 'DIY Kits', 'my_text_domain' ),
+		'target' => 'my_custom_product_data',
+	);
+	return $product_data_tabs;
+}
+ 
+add_action( 'woocommerce_product_data_panels', 'add_my_custom_product_data_fields' );
+function add_my_custom_product_data_fields() {
+	global $woocommerce, $post;
+	$post_id = $post->ID;
+	$_workshop_type = get_post_meta($post_id,'_workshop_type', true);
+	$_stock = get_post_meta($post_id,'workshop_stock', true);
+	$_stock_status = get_post_meta($post_id,'_stock_status', true);
+	 
+	$_workshop_start_time = get_post_meta($post_id,'_workshop_start_time', true);
+	$_workshop_end_time = get_post_meta($post_id,'_workshop_end_time', true);
+	$_date = get_post_meta($post_id,'_date', true);
+	$workshop_city = get_post_meta($post_id,'workshop_city', true);
+	$workshop_state = get_post_meta($post_id,'workshop_state', true);
+	$venue = get_post_meta($post_id,'_venue', true);
+	?>
+	<!-- id below must match  registered in above add_my_custom_product_data_tab function -->
+	
+  	 
+     <script>jQuery(document).ready(function( $ ){  	 
+    jQuery('.datepicker').datepicker(); 
+    
+     if($('#_workshop_type').val() == 'publish')
+     {
+           $('._stock').hide();
+            $('._stock_status').hide();
+     }else{
+            $('._stock').show();
+            $('._stock_status').show();
+     }
+    $('#_workshop_type').change(function()
+    {
+    	 
+    if($('#_workshop_type').val() == 'publish')
+     {
+     	
+            $('._stock').hide();
+            $('._stock_status').hide();
+     }else{
+            $('._stock').show();
+            $('._stock_status').show();
+     }
+      });
+    })</script> 
+	<div id="Workshop_product_data" class="panel woocommerce_options_panel">
+		<?php
+		woocommerce_wp_select( 
+			array( 
+					'id'      => '_workshop_type', 
+					'label'   => __( 'Workshop Type', 'dokan' ), 
+					'class' => '_workshop_type',
+					'options' => array(
+					'sell'   => __( 'Sell', 'dokan' ),
+					'publish'   => __( 'Publish/Advertise', 'dokan' ),
+					 		 
+				)
+		));
+		woocommerce_wp_text_input( 
+		    array( 
+		        'id'          => '_stock', 
+		        'label'       => __( 'Number Of Seats', 'woocommerce' ), 
+		        'placeholder' => '',
+		        'type' => 'number',
+		        'class' => '_stock',
+		        'desc_tip'    => 'true',
+		        'value'       => $_stock
+         ));
+		woocommerce_wp_select( 
+			array( 
+					'id'      => '_stock_status', 
+					'label'   => __( 'Seat Status', 'dokan' ), 
+					'class' => '_stock_status',
+					'options' => array(
+					'instock'   => __( 'Seats Available', 'dokan' ),
+					'outofstock'   => __( 'Not Available', 'dokan' ),
+				 
+				)
+		));
+		
+		?>
+		<p class="form-field _workshop_time_field ">
+			<label for="_workshop_start_time">
+				<?php _e( 'Start Time', 'dokan' ); ?>
+			</label>
+			<?php
+			$start = '12:00AM';
+			$end = '11:59PM';
+ 			$interval = '+15 minutes';
+
+			$start_str = strtotime($start);
+			$end_str = strtotime($end);
+			$now_str = $start_str;
+							 
+			echo '<select id="_workshop_start_time" name="_workshop_start_time">';
+			while($now_str <= $end_str){
+				$starttime = date('h:i A', $now_str);
+				if($_workshop_start_time == $starttime){
+				$selected = 'selected';
+			}
+   			 echo '<option value="' . date('h:i A', $now_str) . '">' . date('h:i A', $now_str) . '</option>';
+   			 $now_str = strtotime($interval, $now_str);
+			}
+			echo '<option selected="'.$selected.'" value="' . $_workshop_start_time . '">' . $_workshop_start_time . '</option>';
+			 echo '</select>';
+			?> 
+		</p>
+		<p class="form-field _workshop_time_field">
+			<label for="_workshop_end_time">
+				<?php _e( 'End Time', 'dokan' ); ?>
+			</label>
+			<?php
+			$start = '12:00AM';
+			$end = '11:59PM';
+ 			$interval = '+15 minutes';
+
+			$start_str = strtotime($start);
+			$end_str = strtotime($end);
+			$now_str = $start_str;
+			echo '<select  id="_workshop_end_time" name="_workshop_end_time">';
+			while($now_str <= $end_str){
+			$endtime = date('h:i A', $now_str);
+			if($_workshop_end_time == $endtime){
+				$selected = 'selected';
+			}
+   			 echo '<option value="' . date('h:i A', $now_str) . '">' . date('h:i A', $now_str) . '</option>';
+   			 $now_str = strtotime($interval, $now_str);
+			}
+			echo '<option selected="'.$selected.'" value="' . $_workshop_end_time . '">' . $_workshop_end_time . '</option>';
+			 echo '</select>';
+			?> 
+		</p>
+		<?php
+		woocommerce_wp_text_input( 
+		    array( 
+		        'id'          => '_date', 
+		        'label'       => __( 'Date', 'woocommerce' ), 
+		        'placeholder' => '',
+		        'desc_tip'    => 'true',
+		        'class' => 'datepicker',
+		        'description' => __( 'Enter Date', 'woocommerce' ),
+		        'value'       => $date
+         )); 
+         woocommerce_wp_text_input( 
+		    array( 
+		        'id'          => '_duration', 
+		        'label'       => __( 'Duration', 'woocommerce' ), 
+		        'placeholder' => 'Days',
+		        'type' => 'number',
+		        'desc_tip'    => 'true',
+		        'description' => __( 'Enter Days', 'woocommerce' ), 
+		        'value'       => $duration
+         ));
+         woocommerce_wp_text_input( 
+		    array( 
+		        'id'          => 'workshop_city', 
+		        'label'       => __( 'City', 'woocommerce' ), 
+		        'placeholder' => '',
+		        'desc_tip'    => 'true',
+		        'value'       => $workshop_city
+         ));?>
+         <p class="form-field _state_field">
+         <label for="workshop_state"><?php _e( 'State', 'dokan' ); ?></label>
+          <select name="workshop_state" class="form-control" id="workshop_state">
+                <option value="">Select State</option>
+                <?php
+											global $woocommerce;
+											$states = indian_woocommerce_states();
+											$states = $states['IN'];
+											foreach ( $states as $key => $state ) {
+									        ?>
+									        <?php if($workshop_state == $state){
+												$selected = 'selected';
+											}?>
+										        <option value="<?php echo $state; ?>"><?php echo $state; ?></option>
+									        <?php
+										    }
+									    ?>
+									    <option selected="<?php echo $selected;?>" value="<?php echo $workshop_state; ?>"><?php echo $workshop_state; ?></option>
+            </select>
+		 </p>
+         <?php 
+         woocommerce_wp_text_input( 
+		    array( 
+		        'id'          => '_venue', 
+		        'label'       => __( 'Venue', 'woocommerce' ), 
+		        'placeholder' => '',
+		        'desc_tip'    => 'true',
+		        'value'       => $venue
+         ));
+		?>
+	</div>
+	 
+			 										
+												  
+	<?php
+	 
+} 
+ 
+/**
+ * 
+ *
+ * Processes the custom tab options when a post is saved
+ */
+function process_product_meta_custom_tab_down( $post_id ) {
+		
+		$workshoptype= $_POST['tax_input']['product_cat'][1];
+		$workshopsubtype= $_POST['tax_input']['product_cat'][2];
+		
+		if($workshoptype == '264' || $workshopsubtype == '268' || $workshopsubtype == '269')
+		{
+		update_post_meta( $post_id, 'workshop_type', '1' );
+        update_post_meta( $post_id, '_workshop_type', $_POST['_workshop_type'] );
+        update_post_meta( $post_id, 'workshop_stock', $_POST['_stock']);
+        update_post_meta( $post_id, '_stock_status', $_POST['_stock_status']);
+        if(isset($_POST["_workshop_start_time"]))
+	    {
+	        $_workshop_start_time = $_POST["_workshop_start_time"];
+	    }   
+        update_post_meta( $post_id, '_workshop_start_time',$_workshop_start_time);
+        if(isset($_POST["_workshop_end_time"]))
+	    {
+	        $_workshop_end_time = $_POST["_workshop_end_time"];
+	    }
+        update_post_meta( $post_id, '_workshop_end_time', $_POST['_workshop_end_time']);
+        update_post_meta( $post_id, '_date', $_POST['_date']);
+        update_post_meta( $post_id, '_duration', $_POST['_duration']);
+        update_post_meta( $post_id, 'workshop_city', $_POST['workshop_city']);
+        update_post_meta( $post_id, 'workshop_state', $_POST['workshop_state']);
+        update_post_meta( $post_id, '_venue', $_POST['_venue']);
+        }
+	
+        
+}
+add_action('woocommerce_process_product_meta', 'process_product_meta_custom_tab_down', 10, 2); 
+ 
  
  
 // Hide the custome meta fields from admin page 
@@ -1077,6 +1338,21 @@ function hidecustomfields() {
 	echo "<style type='text/css'>#postcustom { display: none; }</style>
 ";
 }
+ 
+function enqueue_date_picker(){
+    wp_enqueue_script(
+        'field-date', 
+        get_template_directory_uri() . '/admin/field-date.js', 
+        array('jquery', 'jquery-ui-core', 'jquery-ui-datepicker'),
+        time(),
+        true
+    );  
+
+    wp_enqueue_style( 'jquery-ui-datepicker' );
+}
+
+add_action('admin_enqueue_scripts', 'enqueue_date_picker');
+
 // display an 'Out of Stock' label on archive pages
 /*add_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_stock', 10 );
 function woocommerce_template_loop_stock() {
@@ -1091,17 +1367,17 @@ add_action( 'woocommerce_before_shop_loop_item_title', function() {
     if ( !$product->is_in_stock() ) {
 	    if($workshop_type)
 	    {
-	     echo '<span class="outofstock">No Seats</span>';
+	     echo '<span class="outofstock">Sold</span>';
 	    }
 	    else
 	    {
-		 echo '<span class="outofstock">Out of stock</span>';	
+		 echo '<span class="outofstock">Sold</span>';	
 		}
 	}
     if($workshop_type)
     {
 		 if (is_expired($product)) {
-        echo '<div class="expired">Expired</div>';
+        echo '<div class="expired">Closed</div>';
     }
 	}
    
