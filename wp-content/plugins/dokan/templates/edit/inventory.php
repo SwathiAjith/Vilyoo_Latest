@@ -4,7 +4,6 @@ global $post;
 $tax_classes = array_filter( array_map( 'trim', explode( "\n", get_option( 'woocommerce_tax_classes' ) ) ) );
 $classes_options = array();
 $classes_options[''] = __( 'Standard', 'dokan' );
-
 if ( $tax_classes ) {
 
     foreach ( $tax_classes as $class ) {
