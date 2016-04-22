@@ -1,4 +1,5 @@
 jQuery( document ).ready( function( $ ) {
+    $( "#datepicker" ).datepicker();
 
     $( 'input.search-field' ).addClass( 'form-control' );
     $('#_sku').attr('readonly', true);
