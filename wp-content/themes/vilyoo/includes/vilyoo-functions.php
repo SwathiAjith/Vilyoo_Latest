@@ -116,6 +116,15 @@ function vilyoo_most_sales_shop() {
 }
 
 /**
+ * This code should be added to functions.php of your theme
+ **/
+add_filter('woocommerce_default_catalog_orderby', 'custom_default_catalog_orderby');
+
+function custom_default_catalog_orderby() {
+     return 'date'; // Can also use title and price
+}
+
+/**
 	 * Returns whether or not the product is in stock.
 	 *
 	 * @return bool
