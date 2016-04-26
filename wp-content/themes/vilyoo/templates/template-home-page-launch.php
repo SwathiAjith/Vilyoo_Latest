@@ -115,7 +115,7 @@ get_header(); ?>
 					</div>
 					<div class="clearfix"></div>
 					<div class="white-bg col-md-12 shadow-it">
-						<?php echo do_shortcode( '[product_category per_page="4" columns="4" category="diy-kits,workshops" orderby="date" order="ASC"]' ); ?>
+						<?php echo do_shortcode( '[product_category per_page="4" columns="4" category="diy-kits,workshops"]' ); ?>
 						<p class="text-center">
 							<a href="<?php echo get_site_url()?>/category/diy-kits" class="btn hero-btn btn-shop-all">More...</a>
 						</p>
