@@ -1097,10 +1097,6 @@ function add_my_custom_product_data_tab( $product_data_tabs ) {
 		'label' => __( 'Workshops', 'my_text_domain' ),
 		'target' => 'Workshop_product_data',
 	);
-	$product_data_tabs['DIY Kits'] = array(
-		'label' => __( 'DIY Kits', 'my_text_domain' ),
-		'target' => 'my_custom_product_data',
-	);
 	return $product_data_tabs;
 }
  
@@ -1162,7 +1158,7 @@ function add_my_custom_product_data_fields() {
 		));
 		woocommerce_wp_text_input( 
 		    array( 
-		        'id'          => '_stock', 
+		        'id'          => 'workshop_stock', 
 		        'label'       => __( 'Number Of Seats', 'woocommerce' ), 
 		        'placeholder' => '',
 		        'type' => 'number',
@@ -1315,6 +1311,7 @@ function process_product_meta_custom_tab_down( $post_id ) {
 		{
 		update_post_meta( $post_id, 'workshop_type', '1' );
         update_post_meta( $post_id, '_workshop_type', $_POST['_workshop_type'] );
+        update_post_meta( $post_id, 'workshop_stock', $_POST['workshop_stock']);
         update_post_meta( $post_id, 'workshop_stock', $_POST['_stock']);
         update_post_meta( $post_id, '_stock_status', $_POST['_stock_status']);
         if(isset($_POST["_workshop_start_time"]))
