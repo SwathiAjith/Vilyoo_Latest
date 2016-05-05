@@ -71,6 +71,7 @@ get_header();
               <label class="md8labelfl">Email : </label>
               <p class="md8labelfr"><?php echo $event_email; ?></p>
             </div>
+             <?php echo do_shortcode( '[woocommerce_social_media_share_buttons]' ); ?>
           </div>
           <div class="clearfix"></div>
         </div>

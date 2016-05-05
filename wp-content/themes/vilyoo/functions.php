@@ -274,6 +274,9 @@ function custom_post_type_event() {
 		'exclude_from_search' => false,
 		'publicly_queryable'  => true,
 		'capability_type'     => 'page',
+		//'rewrite' => array("slug" => "events"), 
+		'register_meta_box_cb' => 'add_events_metaboxes'
+
 	);
 	// Registering your Custom Post Type
 	register_post_type( 'event', $args );

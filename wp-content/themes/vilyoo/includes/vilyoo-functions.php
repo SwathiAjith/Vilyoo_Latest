@@ -1,5 +1,9 @@
 <?php
 
+
+ // Display 80 products per page. Goes in functions.php
+add_filter( 'loop_shop_per_page', create_function( '$cols', 'return 80;' ), 20 );
+
 $sidebars = array(
     array( 'name' => __( 'General Sidebar', 'dokan' ), 'id' => 'sidebar-1' ),
     array( 'name' => __( 'Home Sidebar', 'dokan' ), 'id' => 'sidebar-home' ),
@@ -1340,10 +1344,131 @@ add_action('woocommerce_process_product_meta', 'process_product_meta_custom_tab_
 // Hide the custome meta fields from admin page 
 add_action( 'admin_head', 'hidecustomfields' );
 
+
+// Add the Events Meta Boxes
+//add_action( 'add_meta_boxes', 'add_events_metaboxes' );
+function add_events_metaboxes() {
+	add_meta_box('wpt_events_location', 'Add New Event', 'wpt_events_location', 'event', 'side', 'default');
+}
+
+
+ // The Add New Event Location Metabox
+
+function wpt_events_location() {
+	global $post;
+	$postID = $post->ID;
+	$title = $post->post_title;
+	$description = $post->post_content;
+	$event_date = get_post_meta( $postID, 'event_date', true);
+			  $event_time = get_post_meta( $postID, 'event_time', true);
+			  $event_location = get_post_meta( $postID, 'event_location', true);
+			  $event_city = get_post_meta( $postID, 'event_city', true);
+			  $event_duration = get_post_meta( $postID, 'event_duration', true);
+			  $event_publisher_name = get_post_meta( $postID, 'event_publisher_name', true);
+			  $event_email = get_post_meta( $postID, 'event_email', true);
+			  $event_phone = get_post_meta( $postID, 'event_phone', true);
+	 // Noncename needed to verify where the data originated
+	echo '<input type="hidden" name="eventmeta_noncename" id="eventmeta_noncename" value="' . 
+	wp_create_nonce( plugin_basename(__FILE__) ) . '" />';
+	
+	// Get the location data if its already been entered
+	$location = get_post_meta($post->ID, '_location', true);
+        $dresscode = get_post_meta($post->ID, '_dresscode', true);
+	echo '<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">';
+	echo '<script>jQuery(document).ready(function( $ ){  	 
+    jQuery(".datepicker").datepicker();
+    });</script>';
+	// Echo out the field
+        echo '<p>Title</p>';
+	echo ' <input name="title" class="forminput" value="' . $title  . '" required="required" type="text" />';
+        echo '<p>Date</p>';
+        echo '<input name="date" class="datepicker" value="' . $event_date  . '" required="required" id="datepicker" />';
+        echo '<p>Time</p>';
+			$start = '12:00AM';
+			$end = '11:59PM';
+ 			$interval = '+15 minutes';
+
+			$start_str = strtotime($start);
+			$end_str = strtotime($end);
+			$now_str = $start_str;
+							 
+			echo '<select id="timepicker" name="timepicker" class="forminput" required="required">';
+			while($now_str <= $end_str){
+				$starttime = date('h:i A', $now_str);
+			 if($event_time == $starttime){
+				$selected = 'selected';
+			}
+   			 echo '<option value="' . date('h:i A', $now_str) . '">' . date('h:i A', $now_str) . '</option>';
+   			 $now_str = strtotime($interval, $now_str);
+			}
+			 if($event_time != "")
+			{
+				echo '<option selected="'.$selected.'" value="' . $event_time . '">' . $event_time . '</option>';
+			}
+			 echo '</select>';
+		echo '<p>Duration</p>';
+		echo '<select class="forminput duration"  name="duration">
+        	<option value="">Select Duration</option>
+            <option value="0.5 Day">0.5 Day</option>
+            <option value="1 Day">1 Day</option>';
+            for($d=2;$d<=30;$d++){ 
+            if($event_duration == $d){
+				$selected = 'selected';
+			}
+            echo'<option value='.$d.'Days>';
+            echo $d.'Days';
+            echo '</option>';
+            } 
+            if($event_duration != "")
+            {
+				   echo '<option selected="'.$selected.'" value="' . $event_duration . '">' . $event_duration . '</option>';
+			}
+            echo '</select>';
+            echo '<p>Location</p>';
+	echo ' <input name="location" class="forminput" value="' . $event_location  . '" required="required" type="text" />';
+	echo '<p>City</p>';
+	echo ' <input name="eventcity" class="forminput" value="' . $event_city  . '" required="required" type="text" />';
+	echo '<p>Description</p>';
+	echo ' <textarea name="description" required="required" class="forminput" >'.$description.'</textarea>';
+	//wp_nonce_field( 'bImage', 'my_image_upload_nonce' );
+	//echo '<p>Banner Image</p>';	
+	//echo '<input name="bImage" type="file" align="left" />';
+	echo '<p>Publisher Name</p>';
+	echo '<input name="pubName" type="text" value="' . $event_publisher_name  . '" required="required" class="forminput" />';
+	echo '<p>Contact Email</p>';
+	echo '<input name="email" type="email" value="' . $event_email  . '" required="required" class="forminput" />';
+	echo '<p>Contact Number</p>';
+	echo '<input name="phone" type="text" value="' . $event_phone  . '" maxlength="10" data-validation="length numeric" required="required" data-validation-length="min10" class="forminput"  pattern="[789][0-9]{9}" />';
+}
 function hidecustomfields() {
 	echo "<style type='text/css'>#postcustom { display: none; }</style>
 ";
 }
+ 
+ 
+// Save the Metabox Data
+
+function wpt_save_events_meta($post_id, $post) {
+	
+	if($post->post_type == "event")
+	{
+		
+	
+				$d1 = $_POST['date'];
+				$d2 = date('d-m-Y', strtotime($d1));
+				update_post_meta( $post_id, 'event_date', $d2 );
+				update_post_meta( $post_id, 'event_time', $_POST['timepicker'] );
+				update_post_meta( $post_id, 'event_duration', $_POST['duration'] );
+				update_post_meta( $post_id, 'event_location', $_POST['location'] );
+				update_post_meta( $post_id, 'event_city', $_POST['eventcity'] );
+				update_post_meta( $post_id, 'event_publisher_name', $_POST['pubName'] );
+				update_post_meta( $post_id, 'event_email', $_POST['email'] );
+				update_post_meta( $post_id, 'event_phone', $_POST['phone'] );
+	}
+                
+}
+				
+add_action('save_post', 'wpt_save_events_meta', 1, 2); // save the custom fields 
  
 function enqueue_date_picker(){
     wp_enqueue_script(
