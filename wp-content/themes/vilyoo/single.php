@@ -14,9 +14,9 @@ get_header(); ?>
 				<div class="col-md-9">
 					<div class="shadow-it white-bg col-md-12">
 						<?php while ( have_posts() ) : the_post(); ?>
-
+ 						<?php echo do_shortcode( '[woocommerce_social_media_share_buttons]' ); ?>
 							<?php get_template_part( 'content', 'single' ); ?>
-
+<?php echo do_shortcode( '[woocommerce_social_media_share_buttons]' ); ?>
 							<?php _tk_content_nav( 'nav-below' ); ?>
 
 							<?php
