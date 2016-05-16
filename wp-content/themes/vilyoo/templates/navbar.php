@@ -77,7 +77,7 @@
 						woocommerce_tags_from_parent_by_ID( 253 );
 					?>
 					<br>
-					<a href="<?php echo get_bloginfo('wpurl')?>/medium/upcycled/"><strong>Upcycled</strong></a>
+					<a href="<?php echo get_bloginfo('wpurl')?>/medium/acrylic/"><strong>Acrylic</strong></a>
 
 					<?php 
 						woocommerce_tags_from_parent_by_ID( 247 );
