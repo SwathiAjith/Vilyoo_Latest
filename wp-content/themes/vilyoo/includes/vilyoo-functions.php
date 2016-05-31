@@ -1005,6 +1005,17 @@ function shipping_add_section( $sections ) {
 	return $sections;
 	
 }
+
+/**
+ * Create the section beneath the products tab
+ **/
+add_filter( 'woocommerce_get_sections_products', 'shipping_add_recommendedproduct_section' );
+function shipping_add_recommendedproduct_section( $sections ) {
+	
+	$sections['wcproduct'] = __( 'Recommended Product', 'text-domain' );
+	return $sections;
+	
+}
 /**
  * Add settings to the specific section we created before
  */
@@ -1057,6 +1068,53 @@ function wcslider_all_settings( $settings, $current_section ) {
 		);
 		
 		$settings_slider[] = array( 'type' => 'sectionend', 'id' => 'wcslider' );
+		return $settings_slider;
+	
+	/**
+	 * If not, return the standard settings
+	 **/
+	} else {
+		return $settings;
+	}
+}
+
+/**
+ * Add settings to the specific section we created before
+ */
+add_filter( 'woocommerce_get_settings_products', 'wcproduct_all_settings', 10, 2 );
+function wcproduct_all_settings( $settings, $current_section ) {
+	/**
+	 * Check the current section is what we want
+	 **/
+	if ( $current_section == 'wcproduct' ) {
+		$settings_slider = array();
+		// Add Title to the Settings
+		$settings_slider[] = array( 'name' => __( 'Recommended Product', 'text-domain' ), 'type' => 'title', 'desc' => __( 'The following option is used to configure the recommended product of a category', 'text-domain' ), 'id' => 'wcslider' );
+		 
+		 
+		 
+		 
+		$settings_slider[] = array(
+					'title'    => __( 'Recommended Product Category', 'woocommerce' ),
+					'desc'     => __( 'This product category will be shown on the home page' ),
+					'id'       => 'woocommerce_product_category',
+					'css'      => 'min-width:150px;',
+					'class'    => 'wc-enhanced-select',
+					'default'  => '',
+					'type'     => 'select',
+					'options'  => array(
+						'98' => __( 'Fashion Accessories' , 'woocommerce' ),
+						'109' => __( 'Home Decor' , 'woocommerce' ),
+						'126'  => __( 'Tablewear' , 'woocommerce' ),
+						'136'  => __( 'Garden Accessories' , 'woocommerce' ),
+						'149'  => __( 'Gift / Personal' , 'woocommerce' ),
+						'144'  => __( 'Festival Products' , 'woocommerce' ),
+						'265'  => __( 'DIY Kits' , 'woocommerce' ),
+					),
+					'desc_tip' =>  true,
+				);
+		
+		$settings_slider[] = array( 'type' => 'sectionend', 'id' => 'wcproduct' );
 		return $settings_slider;
 	
 	/**
@@ -1346,7 +1404,7 @@ add_action( 'admin_head', 'hidecustomfields' );
 
 
 // Add the Events Meta Boxes
-//add_action( 'add_meta_boxes', 'add_events_metaboxes' );
+add_action( 'add_meta_boxes', 'add_events_metaboxes' );
 function add_events_metaboxes() {
 	add_meta_box('wpt_events_location', 'Add New Event', 'wpt_events_location', 'event', 'side', 'default');
 }
