@@ -42,33 +42,40 @@
 							</a>
 						<?php } ?>
 					</div>
-					<div class="col-md-9 pad-right text-right">
-						<ul id="header-submenu">
-							<li><a href="tel:+91-7411300425">+91-7411300425</a>&nbsp;&nbsp;<a href="mailto:support@vilyoo.com">support@vilyoo.com</a></li>
+					<div class="col-md-9 pad-right text-right text_font">
+                    <div class="col-md-12"><ul id="header-submenu" class="header-subtop text_font">
+							
 							<li>
 								<a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>">
-									<?php 
+									<strong><span class="fa fa-user"></span> <?php 
 									if (is_user_logged_in()) { 
 										echo "My Account";
 									} else {
-										echo "Sign in / Sign up";
+										echo "Login";
 									}
-									?>
+									?> </strong>
 								</a>
 							</li>
-							<li>
-								<a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>">Track order</a>
+                            <li><a title="Shopping Bag" href="#"><strong><i class="fa fa-shopping-cart"></i></strong>  ( 0 )</a></li>
+						</ul></div>
+                         <div class="col-md-12"><ul id="header-submenu" class="header-subtop">
+							
+							
+							<li class="bold_text">
+							
+									<strong>
+                                    <span class="fa fa-envelope"></span>&nbsp;
+                                    <a href="mailto:support@vilyoo.com"> support@vilyoo.com</a></strong> 
+                                
 							</li>
-							<li>
-								<a href="<?php echo home_url( '/' ); ?>wishlist/view/">
-									<strong><span class="fa fa-heart"></span></strong>
-								</a>
-							</li>
-							<?php
-								$cart_total = floatval( preg_replace( '#[^\d.]#', '', WC()->cart->get_cart_total() ) );
-							?>
-							<li><a title="Shopping Bag" href="<?php echo WC()->cart->get_cart_url(); ?>"><strong><i class="fa fa-shopping-cart"></i></strong>  ( <?php echo sprintf (_n( '%d', '%d', WC()->cart->cart_contents_count ), WC()->cart->cart_contents_count ); ?> )</a></li>
-						</ul>
+                            
+							<li class="bold_text">
+									<strong>
+                                    <span class="fa fa-phone"></span>&nbsp;
+                                    <a href="tel:+91-7411300425"> +91-7411300425</a></strong> 
+                                    </li>
+						</ul></div>
+						
 					</div>
 				</div>
 				<div class="col-md-12 header-search">

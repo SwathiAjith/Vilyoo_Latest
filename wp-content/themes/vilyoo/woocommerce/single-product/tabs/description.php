@@ -30,3 +30,6 @@ $heading = esc_html( apply_filters( 'woocommerce_product_description_heading', _
 <?php endif; ?>
 
 <?php wpautop( the_content() ); ?>
+<?php if($workshop_type  != 1) { 
+	echo "<span class='woocommerce-disclaimer'>Note: As these products are handmade there maybe slight variation in sizes and colour shades from what is described on the website.</span>";
+}?>

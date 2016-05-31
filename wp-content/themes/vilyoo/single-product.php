@@ -87,7 +87,7 @@ get_header();
 			</p>
 		</div>
 		<div class="col-md-12 text-center mb-15">
-			<a href="#contact-seller-form-popup" data-toggle="modal" class="btn btn-default">Contact Seller</a>
+			<a href="#contact-seller-form-popup" data-toggle="modal" class="btn btn-default">Contact Artist</a>
 				<?php if($workshop_type  == 1)
 			{?>
 				<ul class="nav nav-tabs seller-tabs">

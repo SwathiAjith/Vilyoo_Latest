@@ -19,8 +19,8 @@ class Dokan_Announcement {
 	function __construct() {
         $this->assign_type = array(
             ''                => __( '-- Select --', 'dokan' ),
-            'all_seller'      => __( 'All Seller' ),
-            'selected_seller' => __( 'Selected Seller' )
+            'all_seller'      => __( 'All Artists' ),
+            'selected_seller' => __( 'Selected Artist' )
         );
 
         add_action( 'init', array($this, 'post_types') );

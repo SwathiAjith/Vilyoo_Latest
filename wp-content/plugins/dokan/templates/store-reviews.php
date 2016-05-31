@@ -37,7 +37,7 @@ get_header( 'shop' );
                         the_widget( 'Dokan_Store_Location', array( 'title' => __( 'Store Location', 'dokan' ) ), $args );
                     }
                     if( dokan_get_option( 'contact_seller', 'dokan_general', 'on' ) == 'on' ) {
-                        the_widget( 'Dokan_Store_Contact_Form', array( 'title' => __( 'Contact Seller', 'dokan' ) ), $args );
+                        the_widget( 'Dokan_Store_Contact_Form', array( 'title' => __( 'Contact Artist', 'dokan' ) ), $args );
                     }
                 }
 
@@ -70,7 +70,7 @@ get_header( 'shop' );
         <div id="reviews">
             <div id="comments">
 
-                <h2 class="headline"><?php _e( 'Seller Review', 'dokan' ); ?></h2>
+                <h2 class="headline"><?php _e( 'Artist Review', 'dokan' ); ?></h2>
 
                 <ol class="commentlist">
                     <?php

@@ -1,10 +1,10 @@
 <div class="dokan-form-horizontal">
-    <div class="dokan-form-group">
+    <!--<div class="dokan-form-group">
         <label class="dokan-w4 dokan-control-label" for="_purchase_note"><?php _e( 'Purchase Note', 'dokan' ); ?></label>
         <div class="dokan-w6 dokan-text-left">
             <?php dokan_post_input_box( $post->ID, '_purchase_note', array(), 'textarea' ); ?>
         </div>
-    </div>
+    </div>-->
 
     <div class="dokan-form-group">
         <label class="dokan-w4 dokan-control-label" for="_enable_reviews"><?php _e( 'Reviews', 'dokan' ); ?></label>

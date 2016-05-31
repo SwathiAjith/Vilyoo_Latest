@@ -206,7 +206,7 @@ class Dokan_Admin_User_Profile {
                 </tr>
 
                 <tr>
-                    <th><?php _e( 'Seller Percentage', 'dokan' ); ?></th>
+                    <th><?php _e( 'Artist Percentage', 'dokan' ); ?></th>
                     <td>
                         <input type="text" class="small-text" name="dokan_seller_percentage" value="<?php echo esc_attr( $seller_percentage ); ?>">
 
@@ -215,7 +215,7 @@ class Dokan_Admin_User_Profile {
                 </tr>
 
                 <tr>
-                    <th><?php _e( 'Feature Seller', 'wedevs' ); ?></th>
+                    <th><?php _e( 'Feature Artist', 'wedevs' ); ?></th>
                     <td>
                         <label for="dokan_feature">
                             <input type="hidden" name="dokan_feature" value="no">

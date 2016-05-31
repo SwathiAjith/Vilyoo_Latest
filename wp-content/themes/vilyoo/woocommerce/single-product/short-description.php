@@ -32,7 +32,7 @@ $workshop = get_post_meta($post->ID,'workshop_type',true);
 			
 		</p>
 		<div id="personalizedNoteWrap" class="hide">
-			<textarea id="personalizedNoteData" name="personalizedNoteData" class="form-control mt-15" placeholder="Enter Instructions for Customization to Seller."></textarea>
+			<textarea id="personalizedNoteData" name="personalizedNoteData" class="form-control mt-15" placeholder="Enter Instructions for Customization to Artist."></textarea>
 			<p class="mt-15">
 				<button id="savePersonalizationNote" type="button" class="btn btn-primary">Save Notes</button>
 			</p>

@@ -161,6 +161,17 @@
 		<li class="menu-item">
 			<a title="DIY KITS" href="<?php echo esc_url( get_term_link( 265, 'product_cat' ) ); ?>">DIY KITS</a>
 		</li>
+		<li class="menu-item">
+			<a title="Supplies" href="<?php echo get_site_url(); ?>/medium/supplies/">SUPPLIES</a>
+		</li>
+		<li class="menu-item">
+			<a href="http://vilyoo.com/blog/" title="Blog" href="blog">Blog</a>
+		</li>
+<!--  GIFT CARD navigation
+                <li class="menu-item">
+                        <a title="GIFT CARD" href="<?php echo site_url(); ?>/gift-card/">GIFT CARD</a>
+                </li>
+-->
 		<li class="menu-item mega-dropdown dropdown">
 			<a href="#" id="nav-search-icon">
 				<span class="fa fa-search"></span>

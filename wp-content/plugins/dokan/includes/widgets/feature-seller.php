@@ -94,7 +94,7 @@ class Dokan_Feature_Seller_Widget extends WP_Widget {
      **/
     function form( $instance ) {
         $instance = wp_parse_args( (array) $instance, array(
-            'title' => __( 'Feature Seller', 'dokan' ),
+            'title' => __( 'Feature Artist', 'dokan' ),
             'count' => __( '3', 'dokan' )
         ) );
 
@@ -106,7 +106,7 @@ class Dokan_Feature_Seller_Widget extends WP_Widget {
             <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id( 'count' ); ?>"><?php _e( 'No of Seller:', 'dokan' ); ?></label>
+            <label for="<?php echo $this->get_field_id( 'count' ); ?>"><?php _e( 'No of Artist:', 'dokan' ); ?></label>
             <input class="widefat" id="<?php echo $this->get_field_id( 'count' ); ?>" name="<?php echo $this->get_field_name( 'count' ); ?>" type="text" value="<?php echo esc_attr( $count ); ?>" />
         </p>
         <?php

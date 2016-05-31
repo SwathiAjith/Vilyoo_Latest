@@ -190,7 +190,7 @@ class Dokan_Admin_Settings {
             'dokan_selling' => array(
                 'new_seller_enable_selling' => array(
                     'name'    => 'new_seller_enable_selling',
-                    'label'   => __( 'New Seller Enable Selling', 'dokan' ),
+                    'label'   => __( 'New Artist Enable Selling', 'dokan' ),
                     'desc'    => __( 'Make selling status enable for new registred seller', 'dokan' ),
                     'type'    => 'checkbox',
                     'default' => 'on'
@@ -219,7 +219,7 @@ class Dokan_Admin_Settings {
                 ),
                 'seller_percentage' => array(
                     'name'    => 'seller_percentage',
-                    'label'   => __( 'Seller Percentage', 'dokan' ),
+                    'label'   => __( 'Artist Percentage', 'dokan' ),
                     'desc'    => __( 'How much amount (%) a seller will get from each order', 'dokan' ),
                     'default' => '90',
                     'type'    => 'text',
@@ -227,7 +227,7 @@ class Dokan_Admin_Settings {
                 'order_status_change' => array(
                     'name'    => 'order_status_change',
                     'label'   => __( 'Order Status Change', 'dokan' ),
-                    'desc'    => __( 'Seller can change order status', 'dokan' ),
+                    'desc'    => __( 'Artist can change order status', 'dokan' ),
                     'type'    => 'checkbox',
                     'default' => 'on'
                 ),
@@ -263,7 +263,7 @@ class Dokan_Admin_Settings {
                 ),
                 'custom_store_url' => array(
                     'name'    => 'custom_store_url',
-                    'label'   => __( 'Seller Store URL', 'dokan' ),
+                    'label'   => __( 'Artist Store URL', 'dokan' ),
                     'desc'    => sprintf( __( 'Define seller store URL (%s<strong>[this-text]</strong>/[seller-name])', 'dokan' ), site_url( '/' ) ),
                     'default' => 'store',
                     'type'    => 'text',
@@ -271,7 +271,7 @@ class Dokan_Admin_Settings {
                 'review_edit' => array(
                     'name'    => 'review_edit',
                     'label'   => __( 'Review Editing', 'dokan' ),
-                    'desc'    => __( 'Seller can edit product reviews', 'dokan' ),
+                    'desc'    => __( 'Artist can edit product reviews', 'dokan' ),
                     'type'    => 'checkbox',
                     'default' => 'off'
                 ),

@@ -49,7 +49,7 @@ function dokan_admin_shop_order_edit_columns( $existing_columns ) {
     $columns['order_date']       = __( 'Date', 'dokan' );
     $columns['order_total']      = __( 'Total', 'dokan' );
     $columns['order_actions']    = __( 'Actions', 'dokan' );
-    $columns['seller']        = __( 'Seller', 'dokan' );
+    $columns['seller']        = __( 'Artist', 'dokan' );
     $columns['suborder']        = __( 'Sub Order', 'dokan' );
 
     return $columns;
@@ -550,7 +550,7 @@ add_action( 'pending_to_publish', 'dokan_send_notification_on_product_publish' )
 function dokan_seller_meta_box($post) {
     global $user_ID;
     ?>
-    <label class="screen-reader-text" for="post_author_override"><?php _e('Seller'); ?></label>
+    <label class="screen-reader-text" for="post_author_override"><?php _e('Artist'); ?></label>
 
      <?php
     wp_dropdown_users( array(
@@ -563,7 +563,7 @@ function dokan_seller_meta_box($post) {
 
 function dokan_add_seller_meta_box(){
     remove_meta_box( 'authordiv', 'product', 'core' );
-    add_meta_box('sellerdiv', __('Seller'), 'dokan_seller_meta_box', 'product', 'normal', 'core');
+    add_meta_box('sellerdiv', __('Artist'), 'dokan_seller_meta_box', 'product', 'normal', 'core');
 }
 
 add_action( 'add_meta_boxes', 'dokan_add_seller_meta_box' );

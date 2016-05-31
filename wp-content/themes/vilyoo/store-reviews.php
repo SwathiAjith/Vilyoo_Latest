@@ -114,7 +114,7 @@ get_header();
         <div id="reviews">
             <div id="comments">
 
-                <h2><?php _e( 'Seller Review', 'dokan' ); ?></h2>
+                <h2><?php _e( 'Artist Review', 'dokan' ); ?></h2>
 
                 <ol class="commentlist">
                     <?php

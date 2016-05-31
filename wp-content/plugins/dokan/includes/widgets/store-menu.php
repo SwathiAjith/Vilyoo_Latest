@@ -13,7 +13,7 @@ class Dokan_Store_Category_Menu extends WP_Widget {
      * @return void
      **/
     public function __construct() {
-        $widget_ops = array( 'classname' => 'dokan-store-menu', 'description' => __( 'Dokan Seller Store Menu', 'dokan' ) );
+        $widget_ops = array( 'classname' => 'dokan-store-menu', 'description' => __( 'Dokan Artist Store Menu', 'dokan' ) );
         $this->WP_Widget( 'dokan-store-menu', __( 'Dokan: Store Category Menu', 'dokan' ), $widget_ops );
     }
 

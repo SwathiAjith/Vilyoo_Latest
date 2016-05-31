@@ -10,7 +10,7 @@ $sidebars = array(
     array( 'name' => __( 'Blog Sidebar', 'dokan' ), 'id' => 'sidebar-blog' ),
     array( 'name' => __( 'Header Sidebar', 'dokan' ), 'id' => 'sidebar-header' ),
     array( 'name' => __( 'Shop Archive', 'dokan' ), 'id' => 'sidebar-shop' ),
-    array( 'name' => __( 'Seller Sidebar', 'dokan' ), 'id' => 'sidebar-seller' ),
+    array( 'name' => __( 'Artist Sidebar', 'dokan' ), 'id' => 'sidebar-seller' ),
     array( 'name' => __( 'My Account Sidebar', 'dokan' ), 'id' => 'sidebar-my-account' ),
     array( 'name' => __( 'Single Product', 'dokan' ), 'id' => 'sidebar-single-product' )
 );
@@ -223,7 +223,7 @@ add_action( 'woocommerce_before_my_account', 'my_account_seller_dashboard_link' 
 function my_account_seller_dashboard_link() {
     $user_id = get_current_user_id();
     if ( dokan_is_user_seller( $user_id ) ) {
-        echo '<p><a href="'. home_url("/dashboard") .'" class="btn btn-seller-dash">Seller Dashboard</a></p>';
+        echo '<p><a href="'. home_url("/dashboard") .'" class="btn btn-seller-dash">Artist Dashboard</a></p>';
     }
     else {}
 }
@@ -700,9 +700,9 @@ function my_save_extra_profile_fields( $user_id ) {
 function wpg_add_columns($cols) {
 
 	
-    $cols['wc_settings_tab_sellername'] = __('Seller Name', 'mytheme');	
+    $cols['wc_settings_tab_sellername'] = __('Artist Name', 'mytheme');	
 	$cols['wc_settings_tab_customeraddress'] = __('Customer Address', 'mytheme');
-	$cols['wc_settings_tab_selleraddress'] = __('Seller Address', 'mytheme');
+	$cols['wc_settings_tab_selleraddress'] = __('Artist Address', 'mytheme');
 	$cols['wc_settings_tab_sellingprice'] = __('Selling Price', 'mytheme');
 	return $cols;
 }
@@ -717,9 +717,9 @@ function wpg_add_fields($settings) {
 								'id'   => 'wc_settings_tab_sellingprice'
 							);
 	$settings['sellername'] = array(
-								'name' => __( 'Seller Name', 'woocommerce-simply-order-export' ),
+								'name' => __( 'Artist Name', 'woocommerce-simply-order-export' ),
 								'type' => 'checkbox',
-								'desc' => __( 'Seller Name', 'woocommerce-simply-order-export' ),
+								'desc' => __( 'Artist Name', 'woocommerce-simply-order-export' ),
 								'id'   => 'wc_settings_tab_sellername'
 							);
 	$settings['customeraddress'] = array(
@@ -729,9 +729,9 @@ function wpg_add_fields($settings) {
 								'id'   => 'wc_settings_tab_customeraddress'
 							);
 	$settings['selleraddress'] = array(
-								'name' => __( 'Seller Address', 'woocommerce-simply-order-export' ),
+								'name' => __( 'Artist Address', 'woocommerce-simply-order-export' ),
 								'type' => 'checkbox',
-								'desc' => __( 'Seller Address', 'woocommerce-simply-order-export' ),
+								'desc' => __( 'Artist Address', 'woocommerce-simply-order-export' ),
 								'id'   => 'wc_settings_tab_selleraddress'
 							);
 
@@ -946,7 +946,7 @@ function woo_add_custom_general_fields() {
 woocommerce_wp_text_input( 
     array( 
         'id'          => 'seller_price', 
-        'label'       => __( 'Seller Price', 'woocommerce' ), 
+        'label'       => __( 'Artist Price', 'woocommerce' ), 
         'placeholder' => '',
         'desc_tip'    => 'true',
         'description' => __( '', 'woocommerce' ),

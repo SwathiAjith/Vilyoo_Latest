@@ -712,7 +712,7 @@ class Dokan_Template_Shortcodes {
         global $post;
 
         $attr = shortcode_atts( array(
-                'per_page' => 80,
+                'per_page' => 150,
             ), $atts );
 
         $paged  = max( 1, get_query_var( 'paged' ) );
@@ -754,7 +754,7 @@ class Dokan_Template_Shortcodes {
                             <div class="dokan-store-caption text-center">
                                 <h3><a href="<?php echo $store_url; ?>"><?php echo $store_name;?></a></h3>
                                 <?php $rating_info = dokan_get_seller_rating( $seller->ID ); ?>
-                                <a href="<?php echo $store_url; ?>" class="visit_store">Visit Seller</a>
+                                <a href="<?php echo $store_url; ?>" class="visit_store">Visit Artist</a>
                     
 
                             </div> <!-- .caption -->

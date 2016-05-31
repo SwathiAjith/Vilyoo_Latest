@@ -10,7 +10,7 @@ function dokan_product_seller_info( $item_data, $cart_item ) {
     $seller_info = dokan_get_store_info( $cart_item['data']->post->post_author );
 
     $item_data[] = array(
-        'name'  => __( 'Seller', 'dokan' ),
+        'name'  => __( 'Artist', 'dokan' ),
         'value' => $seller_info['store_name']
     );
 
@@ -29,7 +29,7 @@ add_filter( 'woocommerce_get_item_data', 'dokan_product_seller_info', 10, 2 );
 function dokan_seller_product_tab( $tabs) {
 
     $tabs['seller'] = array(
-        'title'    => __( 'Seller Info', 'dokan' ),
+        'title'    => __( 'Artist Info', 'dokan' ),
         'priority' => 90,
         'callback' => 'dokan_product_seller_tab'
     );
@@ -53,7 +53,7 @@ function dokan_product_seller_tab( $val ) {
     $store_info = dokan_get_store_info( $author->ID );
     ?>
     <div id="seller-info-tab">
-        <h2><?php _e( 'Seller Information', 'dokan' ); ?></h2>
+        <h2><?php _e( 'Artist Information', 'dokan' ); ?></h2>
         <ul class="list-unstyled font-verdana">
 
             <?php if ( !empty( $store_info['store_name'] ) ) { ?>
@@ -67,7 +67,7 @@ function dokan_product_seller_tab( $val ) {
 
             <li class="seller-name">
                 <span>
-                    <?php _e( 'Seller:', 'dokan' ); ?>
+                    <?php _e( 'Artist:', 'dokan' ); ?>
                 </span>
 
                 <span class="details">
@@ -89,7 +89,7 @@ function dokan_product_seller_tab( $val ) {
                 <?php dokan_get_readable_seller_rating( $author->ID ); ?>
             </li>
             <li>
-                <a href="#contact-seller-form-popup" data-toggle="modal" class="btn btn-success">Contact Seller</a>
+                <a href="#contact-seller-form-popup" data-toggle="modal" class="btn btn-success">Contact Artist</a>
             </li>
         </ul>
     </div>

@@ -596,7 +596,7 @@ function dokan_header_user_menu() {
             if ( dokan_is_user_seller( $user_id ) ) {
                 ?>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php _e( 'Seller Dashboard', 'dokan' ); ?> <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php _e( 'Artist Dashboard', 'dokan' ); ?> <b class="caret"></b></a>
 
                     <ul class="dropdown-menu">
                         <li><a href="<?php echo dokan_get_store_url( $user_id ); ?>" target="_blank"><?php _e( 'Visit your store', 'dokan' ); ?> <i class="fa fa-external-link"></i></a></li>
@@ -643,7 +643,7 @@ function dokan_account_migration_button() {
         ?>
         <p>&nbsp;</p>
         <p>
-            <a href="<?php echo dokan_get_page_url( 'myaccount', 'woocommerce' ); ?>account-migration/seller/" class="button button-primary"><?php _e( 'Become a Seller', 'dokan' ); ?></a>
+            <a href="<?php echo dokan_get_page_url( 'myaccount', 'woocommerce' ); ?>account-migration/seller/" class="button button-primary"><?php _e( 'Become an Artist', 'dokan' ); ?></a>
         </p>
         <?php
     }

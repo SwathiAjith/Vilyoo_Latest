@@ -10,7 +10,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
-
+session_start();
 ?>
 
 <?php wc_print_notices(); ?>
@@ -52,7 +52,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<p class="lost_password">
 				<a href="<?php echo esc_url( wc_lostpassword_url() ); ?>"><?php _e( 'Lost your password?', 'woocommerce' ); ?></a>
 			</p>
-
+            <?php if($_SESSION['eventdata']!=""){?>
+            	<input type="hidden" value="<?php echo get_site_url(); ?>/events/" name="_wp_http_referer">
+            <?php }?>
+            
 			<?php do_action( 'woocommerce_login_form_end' ); ?>
 
 		</form>

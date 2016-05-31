@@ -20,7 +20,7 @@
         $report_sub_head = apply_filters( 'dokan_admin_report_sub', array(
             'day'    => __( 'By Day', 'dokan' ),
             'month'  => __( 'By Month', 'dokan' ),
-            'seller' => __( 'By Seller', 'dokan' )
+            'seller' => __( 'By Artist', 'dokan' )
         ) );
 
         $head_count = count( $report_sub_head );
@@ -186,9 +186,9 @@
         <?php
         $headers = array(
             'order_id'     => __( 'Order', 'dokan' ),
-            'seller_id'    => __( 'Seller', 'dokan' ),
+            'seller_id'    => __( 'Artist', 'dokan' ),
             'order_total'  => __( 'Order Total', 'dokan' ),
-            'net_amount'   => __( 'Seller Earning', 'dokan' ),
+            'net_amount'   => __( 'Artist Earning', 'dokan' ),
             'commision'    => __( 'Commision', 'dokan' ),
             'order_status' => __( 'Status', 'dokan' ),
         );

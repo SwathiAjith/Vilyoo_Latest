@@ -41,16 +41,16 @@ function dokan_admin_dash_metabox_glance() {
         <ul>
             <li class="seller-count">
                 <div class="dashicons dashicons-businessman"></div>
-                <a href="<?php echo admin_url( 'admin.php?page=dokan-sellers' ); ?>"><?php printf( _n( __( '%d Total Seller', 'dokan' ), __( '%d Total Sellers', 'dokan' ), $total_seller, 'dokan' ), $total_seller ); ?></a>
+                <a href="<?php echo admin_url( 'admin.php?page=dokan-sellers' ); ?>"><?php printf( _n( __( '%d Total Artist', 'dokan' ), __( '%d Total Sellers', 'dokan' ), $total_seller, 'dokan' ), $total_seller ); ?></a>
             </li>
             <li class="seller-count mark-green">
                 <div class="dashicons dashicons-awards"></div>
                 <a href="<?php echo admin_url( 'admin.php?page=dokan-sellers' ); ?>">
                     <?php
                     if ( $seller_counts['yes'] ) {
-                        printf( _n( __( '%d Active Seller', 'dokan' ), __( '%d Active Sellers', 'dokan' ), $seller_counts['yes'], 'dokan' ), $seller_counts['yes'] );
+                        printf( _n( __( '%d Active Artist', 'dokan' ), __( '%d Active Sellers', 'dokan' ), $seller_counts['yes'], 'dokan' ), $seller_counts['yes'] );
                     } else {
-                        _e( 'No Active Seller', 'dokan' );
+                        _e( 'No Active Artist', 'dokan' );
                     }  ?>
                 </a>
             </li>
@@ -59,9 +59,9 @@ function dokan_admin_dash_metabox_glance() {
                 <a href="<?php echo admin_url( 'admin.php?page=dokan-sellers' ); ?>">
                     <?php
                     if ( $seller_counts['no'] ) {
-                        printf( _n( __( '%d Pending Seller', 'dokan' ), __( '%d Pending Sellers', 'dokan' ), $seller_counts['no'], 'dokan' ), $seller_counts['no'] );
+                        printf( _n( __( '%d Pending Artist', 'dokan' ), __( '%d Pending Sellers', 'dokan' ), $seller_counts['no'], 'dokan' ), $seller_counts['no'] );
                     } else {
-                        _e( 'No Pending Seller', 'dokan' );
+                        _e( 'No Pending Artist', 'dokan' );
                     }  ?>
                 </a>
             </li>
