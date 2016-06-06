@@ -7,6 +7,7 @@ On Date: 30 March, 2016.
 <?php
 $limit   = 1;
 $sellers = dokan_get_feature_sellers( $limit );
+
 if( $sellers )
 {
 	foreach($sellers as $key => $seller)
@@ -15,6 +16,7 @@ if( $sellers )
 		$seller_ID = $seller->ID;
 		$store_info = dokan_get_store_info( $seller->ID );
 		$store_name = isset( $store_info['store_name'] ) ? esc_html( $store_info['store_name'] ) : __( 'N/A', 'dokan' );
+		$seller_desc    = get_usermeta( $seller_ID, 'description' );
 		$banner_id  = isset( $store_info['banner'] ) ? $store_info['banner'] : 0;
 		if( $banner_id ){
 			$banner_url = wp_get_attachment_image_src( $banner_id, 'medium' );
@@ -32,19 +34,17 @@ if( $sellers )
 		<div class="text-center ">
 
 			<div class="bot_brand">
-       <?php echo get_avatar( $seller->ID , 140 ); ?>  
+       <a href="<?php echo dokan_get_store_url($seller->ID ); ?>"><?php echo get_avatar( $seller->ID , 140 ); ?>  </a>
           
 		</div>
 	</div></div>
 	<div class="col-md-4">
      <div class="bottom_box">
-     <h3> FEATURED ARTIST </h3>
+     <h3> Artist of the week </h3>
      </br>  
-     <h4> This store has being doing great till date </h4>
-     </br>
-     <a href="<?php echo dokan_get_store_url($seller->ID ); ?>">
-				<?php echo $store_name; ?>
-			</a>
+     <h4> <?php echo $seller_desc; ?></h4>
+     
+    
       
      
      
