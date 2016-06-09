@@ -12,15 +12,29 @@ if( $sellers )
 {
 	foreach($sellers as $key => $seller)
 	{
-		$store_user = get_userdata( get_query_var( 'author' ) );
+		//$store_user = get_userdata( get_query_var( 'author' ) );
 		$seller_ID = $seller->ID;
 		$store_info = dokan_get_store_info( $seller->ID );
 		$store_name = isset( $store_info['store_name'] ) ? esc_html( $store_info['store_name'] ) : __( 'N/A', 'dokan' );
 		$seller_desc    = get_usermeta( $seller_ID, 'description' );
 		$banner_id  = isset( $store_info['banner'] ) ? $store_info['banner'] : 0;
-		if( $banner_id ){
-			$banner_url = wp_get_attachment_image_src( $banner_id, 'medium' );
+		$avatar_id = get_avatar( $seller->ID , 140 );
+		 
+    // Set the image size. Accepts all registered images sizes and array(int, int)
+    $size = 'thumbnail';
+
+    // Get the image URL using the author ID and image size params
+    $imgURL = get_cupp_meta($seller_ID, $size);
+ if($avatar_id){
+ 	$image_url = $avatar_id;
+ }
+		else if( $banner_id ){
+			$image_url = wp_get_attachment_image_src( $banner_id, 'medium' );
 		}
+		else if($imgURL){
+			$image_url = $imgURL;
+		}
+		 
 	}
 }
 ?>
