@@ -96,7 +96,7 @@ get_header();
 			</ul>
 			<div id="sectionA" class="tab-pane fade in active">
 			       <p>We accept payment through</p>
-			        <img src="http://vilyoo.com/wp-content/uploads/2015/11/payumoney-visa.jpg" width="150">
+			        <img src="<?php echo get_site_url();?>/wp-content/uploads/2015/11/payumoney-visa.jpg" width="150">
 			    </div>
 			<?php }
 			else{?>
@@ -120,13 +120,13 @@ get_header();
 			    <div id="sectionB" class="tab-pane fade in">
 			        <p>Contact <a href="mailto:support@vilyoo.com?Subject=Product Complaint" target="_top">support@vilyoo.com</a> in case the item received is damaged or not as displayed
 			           on the site, within 24 hour of the receipt of the shipment.
-			           Further details on <a href="http://vilyoo.com/returns-shipping/">Here</a>
+			           Further details on <a href="<?php echo get_site_url();?>/returns-shipping/">Here</a>
 
 			        </p>
 			    </div>
 			    <div id="sectionC" class="tab-pane fade in">
 			        <p>We accept payment through</p>
-			        <img src="http://vilyoo.com/wp-content/uploads/2015/11/payumoney-visa.jpg" width="150">
+			        <img src="<?php echo get_site_url();?>/wp-content/uploads/2015/11/payumoney-visa.jpg" width="150">
 			    </div>
 			</div> 
 <?php }?>

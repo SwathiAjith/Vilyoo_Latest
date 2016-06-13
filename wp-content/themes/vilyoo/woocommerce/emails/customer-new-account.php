@@ -34,8 +34,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 		Your account is activated now and you can start selling.   
 	</p> 
 	<p>
-		1. Please read the sellers policy at <a href="http://vilyoo.com/sellers-policy/">http://vilyoo.com/sellers-policy/</a>.<br>
-		2. Check <a href="http://vilyoo.com/sellers-guide/">http://vilyoo.com/sellers-guide/</a>  for guidance on how to open a shop, list your products and manage the shop. <br>
+		1. Please read the sellers policy at <a href="<?php echo get_site_url();?>/sellers-policy/">http://vilyoo.com/sellers-policy/</a>.<br>
+		2. Check <a href="<?php echo get_site_url();?>/sellers-guide/">http://vilyoo.com/sellers-guide/</a>  for guidance on how to open a shop, list your products and manage the shop. <br>
 		3. Products will be approved within 24hrs from the time you list/upload and submit. <br>
 	</p>
 

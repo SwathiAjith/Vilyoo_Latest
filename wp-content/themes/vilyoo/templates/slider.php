@@ -8,14 +8,14 @@
 <div class="container-fluid pad-left pad-right homgBannerBg">
  
 			 
-			<div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 1300px; height: 370px; overflow: hidden;"> 
-				   <div data-u="caption" data-t="12" style="position: absolute; top: 50px; left: 100px; width: 500px; height: 130px; text-align:left; background-color: rgba(0,0,0,0.6); padding: 2px; box-sizing: border-box;">
-				   <p  style="text-align:left;  font-size: 30px; color: #ffffff; padding:0 10px;">Exquisite craft products <br />directly from the maker </p>	<span style="text-align:left;  font-size: 16px; color: #66d9ff; padding:0 10px;">One-stop store for crafters across India</span>   <div><a href="http://beta.vilyoo.com/products/" class="btn hero-btn">SHOP NOW</a> </div>
+			 
+				   <div id="slider" data-u="caption" data-t="12" class="homepagebanner">
+				   <p>Exquisite craft products <br />directly from the maker </p>	<span >One-stop store for crafters across India</span>   <div><a href="<?php echo get_site_url()?>/products/" class="btn hero-btn">SHOP NOW</a> </div>
 				   
 					
 			</div>
 			
-			 </div>
+			 
 			 
 		 
 		<div id="homeLinksToProduct">

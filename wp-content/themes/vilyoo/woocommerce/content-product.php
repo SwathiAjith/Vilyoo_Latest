@@ -30,6 +30,16 @@ if ( ! $product || ! $product->is_visible() ) {
 	return;
 }
 
+//Added by swathi - Dont show workshops which are closed in store page.
+ if ( dokan_is_store_page() ) {
+$workshop_type = get_post_meta($product->id,'_workshop_type')[0];
+if($workshop_type)
+    {
+		 if (is_expired($product)) {
+		 	return;
+	}
+}
+}
 // Increase loop count
 $woocommerce_loop['loop']++;
 

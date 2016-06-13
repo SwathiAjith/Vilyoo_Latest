@@ -38,7 +38,7 @@
 							</a>
 						<?php } else { ?>
 							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-								<img src="<?php echo get_template_directory_uri() .'/includes/images/vilyoo-logo.png' ?>" width="230" alt="">
+								<img src="<?php echo get_template_directory_uri() .'/includes/images/vilyoo-logo.png' ?>" width="230" alt="Curator Of Fine Crafts">
 							</a>
 						<?php } ?>
 					</div>

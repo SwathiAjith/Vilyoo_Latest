@@ -165,7 +165,7 @@
 			<a title="Supplies" href="<?php echo get_site_url(); ?>/medium/supplies/">SUPPLIES</a>
 		</li>
 		<li class="menu-item">
-			<a href="http://vilyoo.com/blog/" title="Blog" href="blog">Blog</a>
+			<a href="<?php echo get_site_url();?>/blog/" title="Blog" href="blog">Blog</a>
 		</li>
 <!--  GIFT CARD navigation
                 <li class="menu-item">

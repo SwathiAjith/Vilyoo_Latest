@@ -952,7 +952,19 @@ The Bootstrap CSS is unchanged.
 	width : 50%;
 	
 }
+.homepagebanner
+{
+	position: absolute; top: 50px; left: 100px; width: 500px; height: 130px; text-align:left; background-color: rgba(0,0,0,0.6); padding: 2px; box-sizing: border-box;
+}
  
+.homepagebanner p
+{
+	text-align:left;  font-size: 30px; color: #ffffff; padding:0 10px;
+}
+.homepagebanner span
+{
+	text-align:left;  font-size: 16px; color: #66d9ff; padding:0 10px;
+}
 .vilyoo-featured-seller .woocommerce ul.products li.product
 {
 	height: 350px;
@@ -1897,6 +1909,9 @@ section .top_banner
 	padding: 0 50px;
 
 
+}
+.Contemporarycrafts p{
+	text-align: center;
 }
 .home_latestcreatives
 {
